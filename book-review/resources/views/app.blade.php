@@ -17,7 +17,7 @@
   <!-- Material Design Bootstrap -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
   <!-- My custom styles -->
-  <link href="{{ mix('/css/app.css') }}" rel="stylesheet">  
+  <link href="{{ asset(mix('/css/app.css')) }}" rel="stylesheet">    
 </head>
 
 <body>
@@ -35,7 +35,7 @@
   <!-- MDB core JavaScript -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
   <!-- My custom styles -->
-  <script src="{{ mix('/js/app.js') }}" defer></script>
+  <script src="{{ asset(mix('/js/app.js')) }}" defer></script>
 </body>
 
 </html>
