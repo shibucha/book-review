@@ -16,5 +16,5 @@
 // });
 
 Auth::routes();
-Route::get('/', 'BookController@index')->name('books.index');
+Route::get('/', 'HomeController@index')->name('index');
 Route::resource('/books', 'BookController');
