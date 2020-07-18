@@ -23,7 +23,7 @@
                         <div class="col">
                             <!-- ユーザー名 -->
                             <div class="md-form">
-                                <input type="text" id="name" class="form-control" required value="{{ old('name') }}">
+                                <input type="text" id="name" name="name" class="form-control" required value="{{ old('name') }}">
                                 <label for="name">ユーザー名</label>
                                 <small>英数字3〜16文字(登録後の変更はできません)</small>
                             </div>
@@ -32,19 +32,19 @@
 
                     <!-- メールアドレス -->
                     <div class="md-form mt-0">
-                        <input type="email" id="email" class="form-control" required value="{{ old('email') }}">
+                        <input type="email" id="email" name="email" class="form-control" required value="{{ old('email') }}">
                         <label for="email">メールアドレス</label>
                     </div>
 
                     <!-- パスワード -->
                     <div class="md-form">
-                        <input type="password" id="password"" name=" password" class=" form-control" required>
+                        <input type="password" id="password"" name=" password" class="form-control" required>
                         <label for="password">パスワード</label>
                     </div>
 
                     <!-- パスワード 再確認-->
                     <div class="md-form">
-                        <input type="password" id="password_confirmation" name="password_confirmation" class=" form-control" required>
+                        <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required>
                         <label for="password_confirmation">パスワード（確認）</label>
                     </div>
 
