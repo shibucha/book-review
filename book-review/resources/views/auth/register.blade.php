@@ -14,6 +14,8 @@
                 <strong>ユーザー登録</strong>
             </h5>
 
+            @include('layouts.error_list')
+
             <!--Card content-->
             <div class="card-body px-lg-5 pt-0">
 

@@ -52,12 +52,7 @@
             </form>
             @endauth
             <!-- Dropdown -->
-
         </ul>
-
-
-
-
     </div>
     <!-- Collapsible content -->
 

@@ -12,6 +12,8 @@
                 <strong>ログイン</strong>
             </h5>
 
+            @include('layouts.error_list')
+            
             <!--Card content-->
             <div class="card-body px-lg-5 pt-0">
 
@@ -20,13 +22,13 @@
                     @csrf
                     <!-- メールアドレス -->
                     <div class="md-form mt-0">
-                        <input type="text"" id="email" name="email" class="form-control" required value="{{ old('email') }}">
+                        <input type="text"" id=" email" name="email" class="form-control" required value="{{ old('email') }}">
                         <label for="email">メールアドレス</label>
                     </div>
 
                     <!-- パスワード -->
                     <div class="md-form">
-                        <input type="password" id="password"" name="password" class="form-control" required>
+                        <input type="password" id="password"" name=" password" class="form-control" required>
                         <label for="password">パスワード</label>
                     </div>
 
