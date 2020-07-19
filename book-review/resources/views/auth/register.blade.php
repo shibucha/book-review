@@ -1,10 +1,11 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('title', 'ユーザー登録')
 
 @section('content')
 
 <!-- Material form register -->
+@include('layouts.nav')
 <div class="container">
     <div class="row">
         <div class="card">
