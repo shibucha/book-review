@@ -1,1 +1,17 @@
 .DS_Store
+.laradock
+/node_modules
+/public/css/
+/public/hot
+/public/storage
+/public/js/
+/public/mix-manifest.json
+/storage/*.key
+/vendor
+.env
+.env.backup
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
