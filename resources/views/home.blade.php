@@ -6,6 +6,6 @@
 @section('content')
 @include('layouts.nav')
 <p>トップページ です。</p>
-<p>ログインボタンとか、ユーザー登録ボタンとか。</p>
+<p>Heokuに反映されるか実験</p>
 
 @endsection
