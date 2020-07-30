@@ -6,5 +6,15 @@
 @include('layouts.nav')
 <p>マイページの予定です！</p>
 
+@if(session('success'))
+<div class="alert alert-success">
+    {{session('success')}}
+</div>
+@endif
 
+@if($is_icon ?? '')
+<figure>
+    <img src="/storage/icons/{{Auth::id()}}.jpg" width="100px" heigh="100px" alt="プロフィール画像">ï
+</figure>
+@endif
 @endsection

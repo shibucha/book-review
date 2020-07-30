@@ -14,6 +14,7 @@ class ProfileController extends Controller
     }
 
     public function store(ProfileRequest $request){
-
+        $request->icon->storeAs('/public/icons', Auth::id() . '.jpg');
+        return redirect()->route('books.index')->with('success', '新しい画像を設定しました。');
     }
 }
