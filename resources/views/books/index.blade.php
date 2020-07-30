@@ -15,7 +15,7 @@
 @if($is_icon)
 <figure>
     <a href="{{ route('books.profile') }}">
-        <img src="storage/icons/{{ Auth::id() }}.jpg" width="100px" heigh="100px" alt="プロフィール画像">        
+        <img src="storage/icons/{{ Auth::id()}}.jpg" width="100px" heigh="100px" alt="プロフィール画像">        
     </a>
 </figure>
 @endif
