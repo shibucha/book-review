@@ -14,7 +14,7 @@
 
 @if($is_icon ?? '')
 <figure>
-    <img src="/storage/icons/{{Auth::id()}}.jpg" width="100px" heigh="100px" alt="プロフィール画像">ï
+    <img src="" width="100px" heigh="100px" alt="プロフィール画像">ï
 </figure>
 @endif
 @endsection
