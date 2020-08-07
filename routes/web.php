@@ -17,9 +17,9 @@
 
 Auth::routes();
 Route::get('/', 'HomeController@index')->name('index');
-// Route::resource('/books', 'BookController')->middleware('auth'); 後からミドルウェアを実装。
+
 Route::group(['middleware'=>'auth'], function(){
-    Route::get('/books/profile', 'ProfileController@index')->name('books.profile');
-    Route::post('/books/profile', 'ProfileController@store');
+    Route::get('/books/{user_id}/profile', 'ProfileController@index')->name('books.profile');
+    Route::post('/books/{user_id}/profile', 'ProfileController@store');
     Route::resource('/books', 'BookController');
 });

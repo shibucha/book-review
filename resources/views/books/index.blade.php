@@ -4,7 +4,6 @@
 
 @section('content')
 @include('layouts.nav')
-<p>マイページの予定です！</p>
 
 @if(session('success'))
 <div class="alert alert-success">
@@ -12,11 +11,16 @@
 </div>
 @endif
 
-@if($is_icon)
-<figure>
-    <a href="{{ route('books.profile') }}">
-        <img src="/storage/icons/{{ Auth::id()}}.jpg" width="100px" heigh="100px" alt="プロフィール画像">        
-    </a>
-</figure>
-@endif
+<p>
+    {{ $user->name }}{{ $user->id }}
+</p>
+
+<a href="{{route('books.profile',['user_id'=>$user->id])}}">
+    @if($user->icon)
+    <img src="/storage/icons/{{ $user->icon }}" alt="プロフィール画像" width="200px" width="200px">
+    @else
+    <img src="/storage/icons/default.png" alt="プロフィール画像" width="200px" width="200px">
+    @endif
+</a>
+
 @endsection
