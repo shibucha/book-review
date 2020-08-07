@@ -36,10 +36,12 @@ class ProfileController extends Controller
             'image' => $image,
         ];
         
+        $form = [
+            'image' => $image,
+        ];
+        unset($form['_token']);
+        $user->fill($form)->save();
 
-        $user->icon = $image;
-        $user->save();
-        
         return redirect()->route('books.index',['user'=>$user])->with('success', '新しい画像を設定しました。');
     }
 }
