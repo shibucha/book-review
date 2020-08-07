@@ -13,8 +13,8 @@
 
 <div class="user">
     <div class="user__info">
-        <div class="user__name"><i class="fas fa-user-circle"></i>{{ $user->name}}さんのマイページ</div>
-        <div class="user__bookCount"><i class="fas fa-book-open"></i>{{ $user->name}}さんがこれまでに読んだ冊数 : ○○冊</div>
+        <div class="user__name"><i class="fas fa-user-circle"></i> {{ $user->name}} さんのマイページ</div>
+        <div class="user__bookCount"><i class="fas fa-book-open"></i> {{ $user->name}} さんがこれまでに読んだ冊数 : ○○冊</div>
     </div>
     <figure class="user__image">
         <a href="{{route('books.profile',['user_id'=>$user->id])}}">
