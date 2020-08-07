@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\ProfileRequest;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\User;
 
 class ProfileController extends Controller
@@ -20,7 +21,10 @@ class ProfileController extends Controller
 
         if(isset($request->icon))
         {
-            $path = $request->file('icon')->storeAs('public/icons', $user->id . '.png');
+            Storage::disk('local')->delete('public/icons/' . $user->icon);
+            $user->icon = '';
+            $path = $request->file('icon')->store('public/icons');
+            // $path = $request->file('icon')->storeAs('public/icons', $user->id . '.png');
             $image = basename($path);
         }
         elseif(isset($user->icon) && empty($request->icon))
@@ -31,7 +35,7 @@ class ProfileController extends Controller
         {
             $image = '';
         }
-        
+
         $user->icon = $image;
         $user->save();
  
