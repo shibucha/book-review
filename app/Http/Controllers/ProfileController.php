@@ -10,35 +10,44 @@ use App\User;
 
 class ProfileController extends Controller
 {
-    public function index(int $user_id){
+    public function index(int $user_id)
+    {
 
         $user = User::find($user_id);
-        return view('profiles.index',['user'=>$user]);
+        return view('profiles.index', ['user' => $user]);
     }
 
-    public function store(ProfileRequest $request, int $user_id){
+    //プロフィール画像の登録処理
+    public function store(ProfileRequest $request, int $user_id)
+    {
         $user = User::find($user_id);
 
-        if(isset($request->icon))
-        {
-            Storage::disk('local')->delete('public/icons/' . $user->icon);
-            $user->icon = '';
+        if (isset($request->icon)) {
+            Storage::disk('local')->delete('public/icons/' . $user->icon); //画像の更新があったら、前の画像をストレージファイルから削除する。
+            $user->icon = ''; //usersテーブルのアイコンを空にする。
             $path = $request->file('icon')->store('public/icons');
-            // $path = $request->file('icon')->storeAs('public/icons', $user->id . '.png');
             $image = basename($path);
-        }
-        elseif(isset($user->icon) && empty($request->icon))
-        {
+        } elseif (isset($user->icon) && empty($request->icon)) {
             $image = $user->icon;
-        }
-        else
-        {
+        } else {
             $image = '';
         }
 
         $user->icon = $image;
         $user->save();
- 
-        return redirect()->route('books.index',['user'=>$user])->with('success', '新しい画像を設定しました。');
+
+        return redirect()->route('books.index', ['user' => $user])->with('success', '新しい画像を設定しました。');
+    }
+
+    // プロフィール画像の削除
+    public function destroy(int $user_id)
+    {
+        $user = User::find($user_id);
+        if (isset($user->icon)) {
+            Storage::disk('local')->delete('public/icons/' . $user->icon);
+            $user->icon = NULL;
+            $user->save();
+        }
+        return redirect()->route('books.index');
     }
 }

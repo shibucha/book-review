@@ -21,5 +21,6 @@ Route::get('/', 'HomeController@index')->name('index');
 Route::group(['middleware'=>'auth'], function(){
     Route::get('/books/{user_id}/profile', 'ProfileController@index')->name('books.profile');
     Route::post('/books/{user_id}/profile', 'ProfileController@store');
+    Route::delete('/books/{user_id}/profile','ProfileController@destroy')->name('books.profile.destroy');
     Route::resource('/books', 'BookController');
 });
