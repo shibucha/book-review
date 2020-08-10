@@ -7,36 +7,8 @@
 @include('layouts.nav')
 
 
-<header>
-  <div class="header-wrapper">
-    <a href="index.html">
-      <p class="logo">ロゴ</p>
-    </a>
-    <nav>
-      <ul class="nav">
-        <a href="">
-          <li>トップ</li>
-        </a>
-        <a href="">
-          <li>ナビ２</li>
-        </a>
-        <a href="">
-          <li>ナビ３</li>
-        </a>
-        <a href="">
-          <li>ナビ4</li>
-        </a>
-
-        <a href="" id="sign-up">新規会員登録</a>
-        <a href="" id="login">ログイン</a>
-      </ul>
-    </nav>
-  </div>
-</header>
-
 <div id="home">
-
-<!-- 未ログインでも本の検索が出来るように実装 -->
+  <!-- 未ログインでも本の検索が出来るように実装 -->
   <h1>読んだ本を記録しよう。</h1>
   <form method="get" action="{{ route('books.search') }}" class="search_container">
     <input type="text" size="25" placeholder="  本を探す" name="keyword"><input type="submit" value="&#xf002">
