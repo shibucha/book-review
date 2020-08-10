@@ -6,26 +6,6 @@
 @section('content')
 @include('layouts.nav')
 
-
-<header>
-        <div class="header-wrapper">
-           <a href="index.html">
-             <p class="logo">ロゴ</p>
-           </a>
-           <nav>
-              <ul class="nav">
-                <a href=""><li>トップ</li></a>
-                <a href=""><li>ナビ２</li></a>
-                <a href=""><li>ナビ３</li></a>
-                <a href=""><li>ナビ4</li></a>
-
-                <a href="" id="sign-up">新規会員登録</a>
-                <a href="" id="login">ログイン</a>
-              </ul>
-            </nav>
-        </div>
-    </header>
-
     <div id="home">
 
 　　　　<h1>読んだ本を記録しよう。</h1>

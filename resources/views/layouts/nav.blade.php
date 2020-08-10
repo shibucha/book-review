@@ -1,8 +1,8 @@
 <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-dark primary-color">
+<nav class="navbar navbar-expand-lg navbar-light navbar-t" style="background-color: rgba(110, 80, 100, 0.1);">
 
     <!-- Navbar brand -->
-    <a class="navbar-brand" href="{{ route('books.index') }}" }>Your Bookshelf</a>
+    <a class="navbar-brand" href="{{ route('books.index') }}" }><img src="" alt="">ロゴ</img></a>
 
     <!-- Collapse button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,15 +20,20 @@
                 </div>
             </form> -->
 
+            <li><a href="" class="nav-a">ナビ１</a></li>
+            <li><a href="" class="nav-a">ナビ２</a></li>
+            <li><a href="" class="nav-a">ナビ３</a></li>
+            <li><a href="" class="nav-a">ナビ４</a></li>           
+ 
             @guest
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('register')}}">ユーザー登録</a>
+                <a class="btn btn-primary-s" href="{{ route('register')}}" role="button" style="background-color: #ff7f50;">新規会員登録</a>
             </li>
             @endguest
 
             @guest
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('login')}}">ログイン</a>
+                <a class="btn btn-primary-l" href="{{ route('login')}}" role="button" style="background-color: #8fbc8f;">ログイン</a>
             </li>
             @endguest
 
