@@ -27,4 +27,11 @@
     </figure>
 </div>
 
+<div class="search">    
+    <form action="{{ route('books.search') }}" class="search__form" method="GET">
+        <input type="text" name="keyword" placeholder="本を検索する。" style="border:1px solid black;">
+        <input type="submit" value="検索">
+    </form>
+</div>
+
 @endsection

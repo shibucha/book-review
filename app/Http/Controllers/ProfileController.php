@@ -12,7 +12,6 @@ class ProfileController extends Controller
 {
     public function index(int $user_id)
     {
-
         $user = User::find($user_id);
         return view('profiles.index', ['user' => $user]);
     }
@@ -39,7 +38,7 @@ class ProfileController extends Controller
         return redirect()->route('books.index', ['user' => $user])->with('success', '新しい画像を設定しました。');
     }
 
-    // プロフィール画像の削除
+    // プロフィール画像の削除（deleteメメソッドを使用したら、列ごと削除されてしまった為以下の方法をとる。）
     public function destroy(int $user_id)
     {
         $user = User::find($user_id);
