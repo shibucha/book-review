@@ -2,8 +2,12 @@
 <nav class="navbar navbar-expand-lg navbar-light navbar-t" style="background-color: rgba(110, 80, 100, 0.1);">
 
     <!-- Navbar brand -->
-    <a class="navbar-brand" href="{{ route('books.index') }}" }><img src="" alt="">ロゴ:</img>Your Bookshelf</a>
-
+    @guest
+    <a class="navbar-brand" href="{{ route('index') }}" }><img src="" alt="">ロゴ｜</img>Your Bookshelf</a>
+    @endguest
+    @auth
+    <a class="navbar-brand" href="{{ route('books.index') }}" }><img src="" alt="">ロゴ｜</img>Your Bookshelf</a>
+    @endauth
     <!-- Collapse button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -19,11 +23,6 @@
                     <input class="form-control mr-sm-2" type="text" placeholder="本を探す" aria-label="Search">
                 </div>
             </form> -->
-
-            <li><a href="" class="nav-a">ナビ１</a></li>
-            <li><a href="" class="nav-a">ナビ２</a></li>
-            <li><a href="" class="nav-a">ナビ３</a></li>
-            <li><a href="" class="nav-a">ナビ４</a></li>           
  
             @guest
             <li class="nav-item">
