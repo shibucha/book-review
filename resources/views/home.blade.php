@@ -11,7 +11,7 @@
   <!-- 未ログインでも本の検索が出来るように実装 -->
   <h1>読んだ本を記録しよう。</h1>
   <form method="get" action="{{ route('books.search') }}" class="search_container">
-    <input type="text" size="25" placeholder="  本を探す" name="keyword"><input type="submit" value="&#xf002">
+    <input type="text" size="25" placeholder="本を探す" name="keyword"><input type="submit" value="&#xf002">
   </form>
 
 </div>
