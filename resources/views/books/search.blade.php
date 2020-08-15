@@ -55,9 +55,71 @@
 【概要】{{ $item['volumeInfo']['description'] }}<br>
 @endif
 
+
+<!--------------------------- 認証済みの場合、本の登録可能 --------------------------->
 @auth
-<button class="btn btn-primary">読んだ本に登録する</button>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    本を登録する。
+</button>
+
+<!-- モーダル -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+
+    <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+    <div class="modal-dialog modal-dialog-centered" role="document">
+
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title modal__title" id="exampleModalLongTitle">読んだ本に登録</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <!-- 書籍タイトル -->
+            <p>タイトル：{{ $item['volumeInfo']['title']}}</p>
+
+            <!-- 登録フォーム -->
+            <form action="">
+                @csrf
+                @include('layouts.error_list')
+
+                <div class="modal-body modal__body">
+                    <div class="modal__book-title modal__left">
+                        <div class="modal__book-image">
+                            <img src="{{ $item['volumeInfo']['imageLinks']['thumbnail'] }}" alt="">
+                        </div>
+                    </div>
+
+                    <div class="modal__right">
+
+                        <div class="modal__date form-group">
+                            <label for="">読了日:</label>
+                            <input type="date" name="reading_record">
+                        </div>
+                        <div class="modal__review form-group">
+                            <label for="">感想・レビュー:</label>
+                            <textarea name="body" id=""placeholder="感想・レビュー"  cols="50" rows="10 value="{{ old('body')}}"></textarea>                            
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
+                    <button type="button" class="btn btn-primary">登録する。</button>
+                </div>
+            </form>
+            <!-- 登録フォーム -->
+
+        </div>
+    </div>
+</div>
 @endauth
+<!--------------------------- 認証済みの場合、本の登録可能 --------------------------->
 
 <hr>
 
