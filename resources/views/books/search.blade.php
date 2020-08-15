@@ -52,9 +52,12 @@
 
 <!-- 概要 -->
 @if(array_key_exists('description', $item['volumeInfo']))
-【概要】{{ $item['volumeInfo']['description'] }}
+【概要】{{ $item['volumeInfo']['description'] }}<br>
 @endif
+
+<button class="btn btn-primary">読んだ本に登録する</button>
 <hr>
+
 
 @endforeach
 <!-- $itemsのループ終了 -->
