@@ -59,12 +59,12 @@
 <!--------------------------- 認証済みの場合、本の登録可能 --------------------------->
 @auth
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{$item['id']}}">
     本を登録する。
 </button>
 
 <!-- モーダル -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="{{$item['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 
     <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -89,7 +89,9 @@
                 <div class="modal-body modal__body">
                     <div class="modal__book-title modal__left">
                         <div class="modal__book-image">
-                            <img src="{{ $item['volumeInfo']['imageLinks']['thumbnail'] }}" alt="">
+                            @if(array_key_exists('imageLinks', $item['volumeInfo']))
+                            <img src="{{ $item['volumeInfo']['imageLinks']['thumbnail']}}" alt="書籍のイメージ"><br>
+                            @endif
                         </div>
                     </div>
 
@@ -101,12 +103,9 @@
                         </div>
                         <div class="modal__review form-group">
                             <label for="">感想・レビュー:</label>
-                            <textarea name="body" id=""placeholder="感想・レビュー"  cols="50" rows="10 value="{{ old('body')}}"></textarea>                            
+                            <textarea name="body" id="" placeholder="感想・レビュー" cols="50" rows="10 value=" {{ old('body')}}"></textarea>
                         </div>
                     </div>
-
-
-
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
@@ -114,7 +113,6 @@
                 </div>
             </form>
             <!-- 登録フォーム -->
-
         </div>
     </div>
 </div>
