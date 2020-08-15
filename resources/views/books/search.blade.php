@@ -55,7 +55,10 @@
 【概要】{{ $item['volumeInfo']['description'] }}<br>
 @endif
 
+@auth
 <button class="btn btn-primary">読んだ本に登録する</button>
+@endauth
+
 <hr>
 
 
