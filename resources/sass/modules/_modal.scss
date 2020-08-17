@@ -1,0 +1,29 @@
+.modal {
+    &-content {
+        width: 60vw;
+        padding: 5%;
+    }
+    &__title {
+        text-align: center;
+    }
+
+    &__body {
+        display: flex;
+    }
+    &__book-title {
+        margin: 0;
+        padding: 10px;
+        font-size: 1.5rem;
+    }
+    &__right {
+        margin-left: 10px;
+    }
+    &__date-field {
+        width: 100%;
+    }
+    &__input-field {
+        padding: 5px;
+        border-radius: 10px;
+        border: 1px solid;
+    }
+}

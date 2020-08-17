@@ -79,7 +79,7 @@
             </div>
 
             <!-- 書籍タイトル -->
-            <p>タイトル：{{ $item['volumeInfo']['title']}}</p>
+            <p class="modal__book-title">タイトル：{{ $item['volumeInfo']['title']}}</p>
 
             <!-- 登録フォーム -->
             <form action="{{ route('books.search') }}" method="POST">
@@ -98,17 +98,43 @@
 
                     <div class="modal__right">
                         <div class="modal__date form-group">
-                            <label for="reading_record">読了日:</label>                            
+                            <label for="reading_record">読了日:</label>
                             <!-- <input id="reading_record" type="date" name="reading_record"> -->
-                            <input type="date" name="reading_date" class="reading_date"> 
+                            <input type="date" name="reading_date" class="reading_date modal__input-field modal__date-field">
                         </div>
-                        <div class="modal__review form-group">
+                        <div class="form-group modal__review">
                             <label for="">感想・レビュー:</label>
-                            <textarea name="body" placeholder="感想・レビュー" cols="50" rows="10 value=" {{ old('body')}}"></textarea>
-                        </div>                        
+                            <textarea name="body" placeholder="感想・レビュー" cols="50" rows="10 value=" {{ old('body')}}" class="modal__input-field"></textarea>
+                        </div>
                     </div>
 
-                    
+                    <!--------------------------- その他送信データ   ------------------------->
+                    <!-- タイトル -->
+                    @if(array_key_exists('title', $item['volumeInfo']))
+                    <input type="hidden" name="title" value="{{$item['volumeInfo']['title']}}">
+                    @endif
+                    <!-- 著者 -->
+                    @if(array_key_exists('authors', $item['volumeInfo']))
+                    <input type="hidden" name="author" value="{{$item['volumeInfo']['authors'][0]}}">
+                    @endif
+                    <!-- 出版日 -->
+                    @if(array_key_exists('publishedDate', $item['volumeInfo']))
+                    <input type="hidden" name="publishedDate" value="{{$item['volumeInfo']['publishedDate']}}">
+                    @endif
+                    <!-- 概要 -->
+                    @if(array_key_exists('description', $item['volumeInfo']))
+                    <input type="hidden" name="description" value="{{$item['volumeInfo']['description']}}">
+                    @endif
+                    <!-- イメージ画像 -->
+                    @if(array_key_exists('imageLinks', $item['volumeInfo']))
+                    <input type="hidden" name="image" value="{{$item['volumeInfo']['imageLinks']['thumbnail']}}">
+                    @endif
+                    <!-- ISBNコード -->
+                    @if(array_key_exists('identifier', $item['volumeInfo']['industryIdentifiers'][1]))
+                    <input type="hidden" name="isbn" value="{{ $item['volumeInfo']['industryIdentifiers'][1]['identifier']}}">
+                    @endif
+                    <!--------------------------- その他送信データ   ------------------------->
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
