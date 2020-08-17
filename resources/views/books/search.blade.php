@@ -82,7 +82,7 @@
             <p>タイトル：{{ $item['volumeInfo']['title']}}</p>
 
             <!-- 登録フォーム -->
-            <form action="">
+            <form action="{{ route('books.search') }}" method="POST">
                 @csrf
                 @include('layouts.error_list')
 
@@ -100,17 +100,17 @@
                         <div class="modal__date form-group">
                             <label for="reading_record">読了日:</label>                            
                             <!-- <input id="reading_record" type="date" name="reading_record"> -->
-                            <input type="date" name="reading_record" class="reading_record"> 
+                            <input type="date" name="reading_date" class="reading_date"> 
                         </div>
                         <div class="modal__review form-group">
                             <label for="">感想・レビュー:</label>
                             <textarea name="body" placeholder="感想・レビュー" cols="50" rows="10 value=" {{ old('body')}}"></textarea>
-                        </div>
+                        </div>                        
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
-                    <button type="button" class="btn btn-primary">登録する。</button>
+                    <button type="submit" class="btn btn-primary">登録する。</button>
                 </div>
             </form>
             <!-- 登録フォーム -->

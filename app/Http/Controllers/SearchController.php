@@ -22,4 +22,8 @@ class SearchController extends Controller
             'keyword' => $keyword,
         ]);
     }
+
+    public function store(){
+        return redirect()->route('books.index');
+    }
 }
