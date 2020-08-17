@@ -107,6 +107,8 @@
                             <textarea name="body" placeholder="感想・レビュー" cols="50" rows="10 value=" {{ old('body')}}"></textarea>
                         </div>                        
                     </div>
+
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
