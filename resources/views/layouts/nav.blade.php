@@ -38,7 +38,7 @@
 
             @auth
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('books.create')}}"><i class="fas fa-book-open"></i>本を記録する</a>
+                <a class="nav-link" href="{{ route('books.search')}}"><i class="fas fa-book-open"></i>本を検索する</a>
             </li>
             @endauth
 

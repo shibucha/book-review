@@ -87,6 +87,7 @@
                 @include('layouts.error_list')
 
                 <div class="modal-body modal__body">
+
                     <div class="modal__book-title modal__left">
                         <div class="modal__book-image">
                             @if(array_key_exists('imageLinks', $item['volumeInfo']))
@@ -96,14 +97,14 @@
                     </div>
 
                     <div class="modal__right">
-
                         <div class="modal__date form-group">
-                            <label for="">読了日:</label>
-                            <input type="date" name="reading_record">
+                            <label for="reading_record">読了日:</label>                            
+                            <!-- <input id="reading_record" type="date" name="reading_record"> -->
+                            <input type="date" name="reading_record" class="reading_record"> 
                         </div>
                         <div class="modal__review form-group">
                             <label for="">感想・レビュー:</label>
-                            <textarea name="body" id="" placeholder="感想・レビュー" cols="50" rows="10 value=" {{ old('body')}}"></textarea>
+                            <textarea name="body" placeholder="感想・レビュー" cols="50" rows="10 value=" {{ old('body')}}"></textarea>
                         </div>
                     </div>
                 </div>
@@ -116,15 +117,12 @@
         </div>
     </div>
 </div>
+
 @endauth
 <!--------------------------- 認証済みの場合、本の登録可能 --------------------------->
-
 <hr>
-
-
 @endforeach
 <!-- $itemsのループ終了 -->
 @endif
 <!-- キーワードの検索終了 -->
-
 @endsection
