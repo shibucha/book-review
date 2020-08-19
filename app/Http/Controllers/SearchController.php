@@ -23,7 +23,15 @@ class SearchController extends Controller
         ]);
     }
 
-    public function store(){
+    public function store($book_id){
+        $items = null;
+
+        if(isset($book_id)){
+            $items = GoogleBook::googleBooksKeyword($book_id);
+        }
+
+        
+
         return redirect()->route('books.index');
     }
 }
