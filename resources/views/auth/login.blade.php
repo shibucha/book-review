@@ -13,7 +13,7 @@
             @include('layouts.error_list')
 
             <!-- FORM -->
-            <form action="{{ route('login') }}" method="post"></form>
+            <form action="{{ route('login') }}" method="post">
                 @csrf
             <!-- ユーザー名 -->
                 <div class="entry-field">
@@ -29,7 +29,9 @@
                 <input type="hidden" nama="remember" id="remember" value="on">
 
             <!-- 登録ボタン -->
-                <button class="btn btn-rounded btn-block my-4 waves-effect z-depth-0 login-button" type="submit">ログイン</button>
+                <div class="to-login-wrapper">
+                    <button class="btn btn-rounded btn-block my-4 waves-effect z-depth-0 login-button" type="submit">ログイン</button>
+                </div>
 
             </form>
 
