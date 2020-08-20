@@ -21,7 +21,7 @@ class CreateBooksTable extends Migration
             $table->dateTime('published_date')->nullable();
             $table->text('description')->nullable();
             $table->text('image')->nullable();
-            $table->bigInteger('isbn')->unique()->nullable();
+            $table->string('google_book_id')->unique()->nullable();
             $table->timestamps();
         });
     }

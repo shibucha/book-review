@@ -14,9 +14,9 @@ class CreateReadingRecordsTable extends Migration
     public function up()
     {
         Schema::create('reading_records', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->text('body')->nullable();
+            $table->bigIncrements('id');            
             $table->date('reading_date')->nullable();
+            $table->text('body')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
