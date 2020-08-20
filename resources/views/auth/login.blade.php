@@ -15,9 +15,9 @@
             <!-- FORM -->
             <form action="{{ route('login') }}" method="post">
                 @csrf
-            <!-- ユーザー名 -->
+            <!-- メールアドレス -->
                 <div class="entry-field">
-                    <input type="text" id="email" name="email" class="form-control" required value="{{ old('email') }}" placeholder="ユーザー名を入力">
+                    <input type="text" id="email" name="email" class="form-control" required value="{{ old('email') }}" placeholder="メールアドレスを入力">
                 </div>
 
             <!-- パスワード -->
