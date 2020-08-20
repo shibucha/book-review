@@ -1,68 +1,64 @@
 @extends('layouts.app')
 
-@section('title', 'ユーザー登録')
+@section('title', '新規登録')
 
 @section('content')
 
 <!-- Material form register -->
 @include('layouts.nav')
-<div class="container">
-    <div class="row">
-        <div class="card">
+<div class="for-backgrounds register-page">
 
-            <h5 class="card-header info-color white-text text-center py-4">
-                <strong>ユーザー登録</strong>
-            </h5>
+    <div>
+       <h1 class="register-prompt">ようこそ。<br>あなただけの本棚を<br>作りましょう。</h1>
+    </div> 
 
-            @include('layouts.error_list')
+    <div class="register-wrapper">
+        <h1>新規登録</h1>
+            <div class="register-container">
 
-            <!--Card content-->
-            <div class="card-body px-lg-5 pt-0">
-
+                @include('layouts.error_list')
+            
                 <!-- Form -->
-                <form class="text-center" style="color: #757575;" method="POST" action="{{ route('register') }}">
+                <form method="POST" action="{{ route('register') }}">
                     @csrf
-                    <div class="form-row">
-                        <div class="col">
-                            <!-- ユーザー名 -->
-                            <div class="md-form">
-                                <input type="text" id="name" name="name" class="form-control" required value="{{ old('name') }}">
-                                <label for="name">ユーザー名</label>
-                                <small>英数字3〜16文字(登録後の変更はできません)</small>
-                            </div>
-                        </div>
+                <!-- ユーザー名 -->
+                    <div class="entry-field">
+                        <input type="text" id="name" name="name" class="form-control" required value="{{ old('name') }}" placeholder="ユーザー名を入力">
+                        <small>英数字3〜16文字(登録後の変更はできません)</small>
                     </div>
 
-                    <!-- メールアドレス -->
-                    <div class="md-form mt-0">
-                        <input type="email" id="email" name="email" class="form-control" required value="{{ old('email') }}">
-                        <label for="email">メールアドレス</label>
+                <!-- メールアドレス -->
+                    <div class="entry-field mt-3">
+                        <input type="email" id="email" name="email" class="form-control" required value="{{ old('email') }}" placeholder="メールアドレスを入力">
                     </div>
 
-                    <!-- パスワード -->
-                    <div class="md-form">
-                        <input type="password" id="password"" name=" password" class="form-control" required>
-                        <label for="password">パスワード</label>
+                <!-- パスワード -->
+                    <div class="entry-field mt-4">
+                        <input type="password" id="password" name="password" class="form-control" required placeholder="パスワードを作成">
                     </div>
 
-                    <!-- パスワード 再確認-->
-                    <div class="md-form">
-                        <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required>
-                        <label for="password_confirmation">パスワード（確認）</label>
+                <!-- パスワード 再確認-->
+                    <div class="entry-field mt-4">
+                        <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required placeholder="パスワード（確認）">
                     </div>
 
-
-                    <!-- 登録ボタン -->
-                    <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">ユーザー登録</button>
+                <!-- 登録ボタン -->
+                    <div class="to-register-wrapper">
+                        <button class="btn btn-rounded btn-block my-4 waves-effect z-depth-0 register-button" type="submit">新規登録</button>
+                    </div>
 
                 </form>
 
-                <div class="mt-0">
-                    <a href="{{ route('login') }}" class="card-text">ログインはこちら</a>
+                <p class="no-account">すでにアカウントをお持ちの方はこちら</p>
+
+                <div class="to-login-wrapper">
+                    <a href="{{ route('login') }}" class="btn btn-rounded btn-block waves-effect z-depth-0 login-button">ログイン</a>
                 </div>
+
             </div>
-        </div>
+
     </div>
+
 </div>
 <!-- Material form register -->
 @endsection

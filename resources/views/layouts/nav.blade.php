@@ -26,7 +26,7 @@
  
             @guest
             <li class="nav-item">
-                <a class="btn btn-primary-s" href="{{ route('register')}}" role="button" style="background-color: #ff7f50;">新規会員登録</a>
+                <a class="btn btn-primary-s" href="{{ route('register')}}" role="button" style="background-color: #ff7f50;">新規登録</a>
             </li>
             @endguest
 
