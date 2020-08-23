@@ -25,4 +25,8 @@ class GoogleBook{
 
         return $bodyArray['items'];
     }
+
+    public static function googleBookStore(){
+        
+    }
 }
