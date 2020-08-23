@@ -14,8 +14,8 @@ class AddColumnToReadingRecordsTable extends Migration
     public function up()
     {
         Schema::table('reading_records', function (Blueprint $table) {
-            $table->string('book_id')->after('user_id')->nullable();
-            $table->foreign('book_id')->references('google_book_id')->on('books');
+            $table->unsignedBigInteger('book_id')->after('user_id');
+            $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
         });
     }
 

@@ -18,7 +18,7 @@ class CreateReadingRecordsTable extends Migration
             $table->date('reading_date')->nullable();
             $table->text('body')->nullable();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
