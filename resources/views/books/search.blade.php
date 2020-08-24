@@ -59,12 +59,12 @@
 <!--------------------------- 認証済みの場合、本の登録可能 --------------------------->
 @auth
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{$item['id']}}">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ $item['id'] }}">
     本を登録する。
 </button>
 
 <!-- モーダル -->
-<div class="modal fade" id="{{$item['id']}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="{{ $item['id'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 
     <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
     <div class="modal-dialog modal-dialog-centered" role="document">

@@ -55,8 +55,7 @@ class SearchController extends Controller
                     $book->title = $item['volumeInfo']['title'];
                     $book->google_book_id = $item['id'];
                     $book->image = $item['volumeInfo']['imageLinks']['thumbnail'];
-                    $book->description = $item['volumeInfo']['description'];
-                    $book->published_date = $item['volumeInfo']['publishedDate'];
+                    $book->description = $item['volumeInfo']['description'];                    
                 }
             }
         }
