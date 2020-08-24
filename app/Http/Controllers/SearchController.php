@@ -63,8 +63,7 @@ class SearchController extends Controller
         $book->save();
 
         //ユーザーが入力した情報の登録。
-        $reading_record->reading_date = $request->reading_date;
-        $reading_record->body = $request->body;
+        $reading_record->fill($request->all());        
         $reading_record->user_id = $request->user()->id;
         $reading_record->book_id = $book->id;
         $reading_record->save();
