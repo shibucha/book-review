@@ -34,4 +34,8 @@
     </form>
 </div>
 
+<div class="review">
+↓自分がレビュー登録した本を表示↓
+</div>
+
 @endsection

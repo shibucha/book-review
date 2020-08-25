@@ -7,20 +7,20 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 
+//レビュー登録処理のデータベース
+use App\ReadingRecord;
+use App\Book;
+use App\Author;
+
 class BookController extends Controller
 {
     public function index(){
 
         $user_id = Auth::id();
-        $user = User::find($user_id);
+        $user = User::find($user_id);        
+
         
-        $is_icon = false;
-        if(Storage::disk('local')->exists('public/icons/'. $user_id . '.jpg')){
-            $is_icon = true;
-        }
-        
-        return view('books.index', [
-            'is_icon' => $is_icon,
+        return view('books.index', [           
             'user' => $user,
             ]);
     }
