@@ -50,25 +50,26 @@ class SearchController extends Controller
                     $book->author_id = $author_name->id;
                 }
 
-                //API情報が、booksテーブルにまだ存在しないならば、書籍情報を保存しておく。
+                //書籍情報APIが、booksテーブルにまだ存在しないならば、書籍情報を保存しておく。
+                //過去既に登録されている本ならば、登録されている書籍のレコードのidを<reading_records>テーブルの<book_id>に登録する。
                 if (!isset($google_book_id)) {                                
                     $book->title = $item['volumeInfo']['title'];
                     $book->google_book_id = $item['id'];
                     $book->image = $item['volumeInfo']['imageLinks']['thumbnail'];
-                    $book->description = $item['volumeInfo']['description'];                    
+                    $book->description = $item['volumeInfo']['description'];
+                    $book->save(); 
+                    $reading_record->book_id = $book->id;                
+                } else {
+                    $reading_record->book_id = $google_book_id->id;
                 }
             }
         }
-
-        $book->save();
+        
 
         //ユーザーが入力した情報の登録。
         $reading_record->fill($request->all());        
-        $reading_record->user_id = $request->user()->id;
-        $reading_record->book_id = $book->id;
+        $reading_record->user_id = $request->user()->id;        
         $reading_record->save();
-
-
 
         return redirect()->route('books.index');
     }
