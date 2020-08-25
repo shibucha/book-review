@@ -36,6 +36,18 @@
 
 <div class="review">
 ↓自分がレビュー登録した本を表示↓
+
+@if(isset($reviews))
+@foreach($reviews as $review)
+<p>書籍名：{{ $review->book->title }}</p>
+<p>{{ $review->reading_date }}</p>
+<img src="{{$review->book->image}}" alt="登録した本のイメージ">
+@endforeach
+
+@else
+<p>まだ本は登録されていません。</p>
+@endif
+
 </div>
 
 @endsection
