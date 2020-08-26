@@ -42,7 +42,7 @@
     <div class="reading-book">
         <img src="{{$review->book->image}}" alt="登録した本のイメージ" class="reading-book_img">
         <div class="reading-book_title">書籍名：{{ $review->book->title }}</div>
-        <div class="reading-book_date">読了日：{{ $review->reading_date->format('Y/m/d') }}</div>
+        <div class="reading-book_date">読了日：{{ $review->reading_date }}</div>
         
     </div>
 

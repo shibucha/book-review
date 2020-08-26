@@ -11,9 +11,9 @@ class ReadingRecord extends Model
         'reading_date',
         'body',
     ];
-    protected $dates = [
-        'reading_date',
-    ];
+    // protected $dates = [
+    //     'reading_date',
+    // ];
     
     public function user() : BelongsTo
     {
