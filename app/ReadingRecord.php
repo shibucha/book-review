@@ -10,7 +10,10 @@ class ReadingRecord extends Model
     protected $fillable =[
         'reading_date',
         'body',
-    ]; 
+    ];
+    protected $dates = [
+        'reading_date',
+    ];
     
     public function user() : BelongsTo
     {
