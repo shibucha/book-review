@@ -14,21 +14,23 @@ use App\Author;
 
 class BookController extends Controller
 {
-    public function index(){
+    public function index(Book $book)
+    {
 
         $user_id = Auth::id();
         $user = User::find($user_id);
-        
+
         //user_idが登録されているレビューを全取得
         $reviews = ReadingRecord::where('user_id', $user_id)->get();
+       
 
-        return view('books.index', [           
+        return view('books.index', [
             'user' => $user,
-            'reviews' => $reviews,
-            ]);
+            'reviews' => $reviews,          
+        ]);
     }
 
-    public function create(){
-        return view('books.create');
+    public function show($book_id){
+        return view('books.show');
     }
 }

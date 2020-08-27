@@ -23,11 +23,12 @@ Route::get('/books/search', 'SearchController@index')->name('books.search');
 
 
 Route::group(['middleware' => 'auth'], function () {
+    Route::get('/books', 'BookController@index')->name('books.index');
     Route::get('/books/{user_id}/profile', 'ProfileController@index')->name('books.profile');
     Route::post('/books/{user_id}/profile', 'ProfileController@store');
     Route::delete('/books/{user_id}/profile', 'ProfileController@destroy')->name('books.profile.destroy');
     Route::post('/books/{book_id}/search', 'SearchController@store')->name('search.store');
-    Route::resource('/books', 'BookController');    
+    Route::get('/books/{book_id}/show', 'BookController@show')->name('books.show');   
 });
 
 
