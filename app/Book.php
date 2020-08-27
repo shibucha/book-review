@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Book extends Model
 {
-    public function readingRecord():HasMany
+    public function readingRecords():HasMany
     {
         return $this->hasMany('App\ReadingRecord');
     }
