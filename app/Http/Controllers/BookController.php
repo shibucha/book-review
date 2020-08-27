@@ -7,11 +7,11 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Library\GoogleBook;
 use App\User;
+use App\Book;
+use App\Author;
 
 //レビュー登録処理のデータベース
 use App\ReadingRecord;
-use App\Book;
-use App\Author;
 
 class BookController extends Controller
 {
@@ -32,8 +32,14 @@ class BookController extends Controller
     }
 
     public function show($book_id){
+        $user_id = Auth::id();
+       
         $items = null;
+        $book = Book::where('google_book_id',$book_id)->first();
+        $review = ReadingRecord::where('user_id', $user_id)->where('book_id', $book->id)->first();
+        $others_reviews = ReadingRecord::where('book_id', $book->id)->get();
 
+        //グーグルブックスの書籍情報取得
         if(isset($book_id)){
             $items = GoogleBook::googleBooksKeyword($book_id);
             $message = null;
@@ -44,7 +50,10 @@ class BookController extends Controller
 
         return view('books.show',[
             'items' => $items,
-            'message' => $message
+            'message' => $message,
+            'book' => $book,
+            'review' => $review,
+            'others_reviews' => $others_reviews,
         ]);
     }
 }

@@ -41,4 +41,25 @@
 <!----------------- END 書籍のAPI情報 --------------->
 
 
+<!----------------- START 自分の感想 --------------->
+<hr>
+<div>読んだ本の感想/編集</div>
+@if($review->body)
+<p>{{ $review->body }}</p>
+@else
+<p>まだ感想は登録されていません。</p>
+@endif
+<!----------------- END 自分の感想 --------------->
+
+<!----------------- START 他人の感想 --------------->
+@if($others_reviews->count() > 0)
+@foreach($others_reviews as $other_review)
+<div>{{ $other_review->user->name }}さんの感想</div>
+<p>{{ $other_review->body }}</p>
+<hr>
+@endforeach
+@else
+<p>まだ他の方の感想がありません。</p>
+@endif
+<!----------------- END 他人の感想 --------------->
 @endsection
