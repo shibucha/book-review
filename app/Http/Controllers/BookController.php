@@ -37,7 +37,7 @@ class BookController extends Controller
         $items = null;
         $book = Book::where('google_book_id',$book_id)->first();
         $review = ReadingRecord::where('user_id', $user_id)->where('book_id', $book->id)->first();
-        $others_reviews = ReadingRecord::where('book_id', $book->id)->get();
+        $others_reviews = ReadingRecord::where('book_id', $book->id)->whereNotIn('user_id', [$user_id])->get();
 
         //グーグルブックスの書籍情報取得
         if(isset($book_id)){
