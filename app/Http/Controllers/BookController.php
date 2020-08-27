@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use App\Library\GoogleBook;
 use App\User;
 
 //レビュー登録処理のデータベース
@@ -31,6 +32,19 @@ class BookController extends Controller
     }
 
     public function show($book_id){
-        return view('books.show');
+        $items = null;
+
+        if(isset($book_id)){
+            $items = GoogleBook::googleBooksKeyword($book_id);
+            $message = null;
+        } 
+        if(!isset($items)){
+            $message = '本が選択されていません。';
+        }
+
+        return view('books.show',[
+            'items' => $items,
+            'message' => $message
+        ]);
     }
 }
