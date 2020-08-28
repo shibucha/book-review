@@ -30,6 +30,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/books/{book_id}/search', 'SearchController@store')->name('search.store');
     Route::get('/books/{book_id}/show', 'BookController@show')->name('books.show');
     Route::patch('/books/{reading_record_id}/update', 'BookController@update')->name('books.update');  
+    Route::delete('/books/{reading_record_id}/delete', 'BookController@destroy')->name('books.delete');  
 });
 
 

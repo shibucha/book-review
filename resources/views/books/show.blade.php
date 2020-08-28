@@ -64,11 +64,10 @@
 
 
 <!-- モーダル 感想の編集 -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ $review->book->google_book_id }}">
-    編集
-</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ $review->book->google_book_id }}">編集</button>
+<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-{{ $review->id }}">削除</button>
 
-<!-- モーダル -->
+<!-- 編集モーダル -->
 <div class="modal fade" id="{{ $review->book->google_book_id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 
     <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
@@ -127,6 +126,32 @@
     </div>
 </div>
 
+<!-- 削除モーダル -->
+<div id="delete-{{ $review->id }}" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="POST" action="{{ route('books.delete', ['reading_record_id'=>$review->id])}}">
+                @csrf
+                @method('DELETE')
+                <div class="modal-body">
+                    この本を本棚から削除します。よろしいですか？
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
+                    <button type="submit" class="btn btn-danger">削除する</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- モーダル -->
+
+</div>
 
 <!----------------- END 自分の感想 --------------->
 

@@ -61,10 +61,16 @@ class BookController extends Controller
         ]);
     }
 
-    public function update(int $reading_record_id, ReadingRecordRequest $request){
-
+    public function update(int $reading_record_id, ReadingRecordRequest $request)
+    {
         $reading_record = ReadingRecord::find($reading_record_id);
         $reading_record->fill($request->all())->save();
+        return redirect()->route('books.index');
+    }
+
+    public function destroy(int $reading_record_id){
+        $reading_record = ReadingRecord::find($reading_record_id);
+        $reading_record->delete();
         return redirect()->route('books.index');
     }
 }
