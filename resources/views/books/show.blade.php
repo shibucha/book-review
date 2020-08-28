@@ -39,6 +39,11 @@
 <p>概要<br>{{ $item['volumeInfo']['description'] }}</p>
 @endif
 
+<!-- 本の登録者数 -->
+@if(isset($review_count))
+<div><i class="fas fa-user"></i>本棚登録:{{ $review_count}}人</div>
+@endif
+
 @endforeach
 @endif
 <!----------------- END 書籍のAPI情報 --------------->
