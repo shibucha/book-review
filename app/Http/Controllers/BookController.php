@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ReadingRecordRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use App\Library\GoogleBook;
@@ -31,7 +32,8 @@ class BookController extends Controller
         ]);
     }
 
-    public function show($book_id){
+    public function show($book_id)
+    {
         $user_id = Auth::id();
        
         $items = null;
@@ -57,5 +59,12 @@ class BookController extends Controller
             'others_reviews' => $others_reviews,
             'review_count' => $review_count
         ]);
+    }
+
+    public function update(int $reading_record_id, ReadingRecordRequest $request){
+
+        $reading_record = ReadingRecord::find($reading_record_id);
+        $reading_record->fill($request->all())->save();
+        return redirect()->route('books.index');
     }
 }
