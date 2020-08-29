@@ -23,11 +23,13 @@ class SearchController extends Controller
             //グーグルブックスの利用
             $items = GoogleBook::googleBooksKeyword($keyword);
         }
+        $reviewed_books = ReadingRecord::where('user_id', $user_id)->get();
 
         return view('books.search', [
             'items' => $items,
             'keyword' => $keyword,
-            'user_id' => $user_id,          
+            'user_id' => $user_id,
+            'reviewed_books' => $reviewed_books,
         ]);
     }
 
