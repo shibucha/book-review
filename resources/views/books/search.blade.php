@@ -105,7 +105,7 @@
                             <label for="">感想・レビュー:</label>
                             <textarea name="body" placeholder="感想・レビュー" cols="50" rows="10 value=" {{ old('body')}}" class="modal__input-field"></textarea>
                         </div>
-                    </div>                  
+                    </div>
 
                 </div>
                 <div class="modal-footer">
