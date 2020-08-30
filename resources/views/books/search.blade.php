@@ -59,9 +59,16 @@
 <!--------------------------- 認証済みの場合、本の登録可能 --------------------------->
 @auth
 <!-- Button trigger modal -->
+@if(in_array($item['id'], $google_book_ids))
+<a href="{{ route('books.show',['book_id'=>$item['id']])}}">
+    <button class="btn btn-success">詳細ページへ</button>
+</a>
+@else
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ $item['id'] }}">
     本を登録する。
 </button>
+@endif
+
 
 <!-- モーダル -->
 <div class="modal fade" id="{{ $item['id'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
