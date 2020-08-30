@@ -13,6 +13,8 @@ use App\Author;
 
 class SearchController extends Controller
 {
+
+    //本の検索結果を表示
     public function index(Request $request, ReadingRecord $reading_record)
     {
         $user_id = Auth::id();
@@ -24,15 +26,21 @@ class SearchController extends Controller
             $items = GoogleBook::googleBooksKeyword($keyword);
         }
 
-        $reviewed_books = ReadingRecord::where('user_id', $user_id)->get();
+        //既に登録した本のgoogle_book_idを取得
+        if(isset($user_id)){
 
-        foreach($reviewed_books as $book){
-            $google_book_ids[] = $book->book->google_book_id;                   
+            $reviewed_books = ReadingRecord::where('user_id', $user_id)->get();
+
+            foreach ($reviewed_books as $book) {
+                $google_book_ids[] = $book->book->google_book_id;
+            }
+        } else {
+            $google_book_ids[] = null;
         }
-        
+
         //値の中身を確認
         // dd($google_book_ids);    
-      
+
         return view('books.search', [
             'items' => $items,
             'keyword' => $keyword,
