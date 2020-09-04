@@ -16,6 +16,7 @@ class AddColumnToReadingRecordsTable extends Migration
         Schema::table('reading_records', function (Blueprint $table) {
             $table->unsignedBigInteger('book_id')->after('user_id');
             $table->foreign('book_id')->references('id')->on('books')->onDelete('cascade');
+            $table->bigInteger('public_private')->default(1)->after('book_id');
         });
     }
 
