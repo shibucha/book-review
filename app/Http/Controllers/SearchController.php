@@ -108,7 +108,7 @@ class SearchController extends Controller
 
         //ユーザーが入力した情報の登録。
         $reading_record->fill($request->all());
-        $reading_record->user_id = $request->user()->id;
+        $reading_record->user_id = $request->user()->id;        
         $reading_record->save();
 
         return redirect()->route('books.index');

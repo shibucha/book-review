@@ -119,6 +119,13 @@
                             <label for="">感想・レビュー:</label>
                             <textarea name="body" placeholder="感想・レビュー" cols="50" rows="10" class="modal__input-field">{{ $review->body ?? old('body')}}</textarea>
                         </div>
+                        <div class="modal__private">
+                            @if($review->public_private === 1)
+                            <input type="checkbox" name="public_private" value="0">非公開にする。
+                            @else
+                            <input type="checkbox" name="public_private" value="1">公開する。
+                            @endif
+                        </div>
                     </div>
 
                 </div>

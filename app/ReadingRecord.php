@@ -10,6 +10,7 @@ class ReadingRecord extends Model
     protected $fillable =[
         'reading_date',
         'body',
+        'public_private',
     ];
     // protected $dates = [
     //     'reading_date',
