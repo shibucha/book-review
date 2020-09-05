@@ -53,7 +53,14 @@
 <hr>
 
 <!----------------- START 自分の感想 --------------->
-<div><i class="far fa-smile"></i>{{$review->user->name}}さんの感想</div>
+<div>
+    @if($review->user->icon)
+    <img src="/storage/icons/{{$review->user->icon}}" alt="ユーザーアイコン" width="30px" height="30px">
+    @else
+    <img src="/storage/icons/default.png" alt="ユーザーアイコン" width="30px" height="30px">
+    @endif
+    {{$review->user->name}}さんの感想
+</div>
 @if($review->body)
 <p>{{ $review->body }}</p>
 @else
@@ -161,7 +168,14 @@
 <div><i class="far fa-smile"></i>みんなの感想</div>
 @if($others_reviews->count() > 0)
 @foreach($others_reviews as $other_review)
-<div>{{ $other_review->user->name }}さんの感想</div>
+<div>
+    @if($other_review->user->icon)
+    <img src="/storage/icons/{{$other_review->user->icon}}" alt="ユーザーアイコン" width="30px" height="30px">
+    @else
+    <img src="/storage/icons/default.png" alt="ユーザーアイコン" width="30px" height="30px">
+    @endif
+    {{ $other_review->user->name }}さんの感想
+</div>
 <p>{{ $other_review->body }}</p>
 <hr>
 @endforeach
