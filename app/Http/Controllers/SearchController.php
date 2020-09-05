@@ -21,6 +21,7 @@ class SearchController extends Controller
         $items = null;
         $keyword = $request->keyword;
 
+
         if (isset($keyword)) {
             //グーグルブックスの利用
             $items = GoogleBook::googleBooksKeyword($keyword);
@@ -31,14 +32,17 @@ class SearchController extends Controller
         //既に登録した本のgoogle_book_idを取得
         if (isset($user_id)) {
             $reviewed_books = ReadingRecord::where('user_id', $user_id)->get();
-        } 
-        
-        //今までに本を登録しているか確認。
-        if ($reviewed_books->count() > 0) {
-            foreach ($reviewed_books as $book) {
-                $google_book_ids[] = $book->book->google_book_id;
+
+            //今までに本を登録しているか確認。
+            if ($reviewed_books->count() > 0) {
+                foreach ($reviewed_books as $book) {
+                    $google_book_ids[] = $book->book->google_book_id;
+                }
+            } else {
+                $google_book_ids[] = null;
             }
         } else {
+            //未ログインユーザーの場合
             $google_book_ids[] = null;
         }
 
