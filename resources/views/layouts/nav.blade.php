@@ -6,7 +6,7 @@
     <a class="navbar-brand" href="{{ route('index') }}" }><img src="" alt="">ロゴ｜</img>Your Bookshelf</a>
     @endguest
     @auth
-    <a class="navbar-brand" href="{{ route('books.index') }}" }><img src="" alt="">ロゴ｜</img>Your Bookshelf</a>
+    <a class="navbar-brand" href="{{ route('books.index') }}"><img src="" alt="">ロゴ｜</img>Your Bookshelf</a>
     @endauth
     <!-- Collapse button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
