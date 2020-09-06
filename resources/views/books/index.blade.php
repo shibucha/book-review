@@ -47,12 +47,12 @@
         <button>この本について</button>
         </a>       
     </div>
-
-
     @endforeach
     @else
     <p>まだ本は登録されていません。</p>
     @endif
 </div>
+
+    <review-like></review-like>
 
 @endsection
