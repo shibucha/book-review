@@ -7,7 +7,7 @@
 
 <div class="for-backgrounds">
     <div class="login-wrapper">
-      <h1>ログイン</h1>
+        <h1>ログイン</h1>
         <div class="login-container">
 
             @include('layouts.error_list')
@@ -15,22 +15,22 @@
             <!-- FORM -->
             <form action="{{ route('login') }}" method="post">
                 @csrf
-            <!-- メールアドレス -->
+                <!-- メールアドレス -->
                 <div class="entry-field">
-                    <input type="text" id="email" name="email" class="form-control" required value="{{ old('email') }}" placeholder="メールアドレスを入力">
+                    <input type="text" id="email" name="email" class="form-control" required value="{{ old('email') }}" placeholder="メールアドレスを入力" style="height: 46px; border-radius:8px;">
                 </div>
 
-            <!-- パスワード -->
+                <!-- パスワード -->
                 <div class="entry-field password-field">
-                    <input type="password" id="password" name="password" class="form-control" required placeholder="パスワードを入力">
+                    <input type="password" id="password" name="password" class="form-control" required placeholder="パスワードを入力" style="height: 46px; border-radius:8px;">
                 </div>
 
-            <!-- リメンバートークン -->
+                <!-- リメンバートークン -->
                 <input type="hidden" nama="remember" id="remember" value="on">
 
-            <!-- 登録ボタン -->
+                <!-- 登録ボタン -->
                 <div class="to-login-wrapper">
-                    <button class="btn btn-rounded btn-block my-4 waves-effect z-depth-0 login-button" type="submit">ログイン</button>
+                    <button class="btn btn-rounded btn-block my-4 waves-effect z-depth-0 login-button" type="submit" style="height: 46px; border-radius:8px;">ログイン</button>
                 </div>
 
             </form>
