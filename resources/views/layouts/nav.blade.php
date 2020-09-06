@@ -3,11 +3,12 @@
 
     <!-- Navbar brand -->
     @guest
-    <a class="navbar-brand" href="{{ route('index') }}" }><img src="" alt="">ロゴ｜</img>Your Bookshelf</a>
+    <a class="navbar-brand" href="{{ route('index') }}" }><img src="" alt="">Your Bookshelf</img></a>
     @endguest
     @auth
-    <a class="navbar-brand" href="{{ route('books.index') }}" }><img src="" alt="">ロゴ｜</img>Your Bookshelf</a>
+    <a class="navbar-brand" href="{{ route('books.index') }}" }><img src="" alt="">Your Bookshelf</img></a>
     @endauth
+
     <!-- Collapse button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -25,14 +26,20 @@
             </form> -->
  
             @guest
-            <li class="nav-item">
-                <a class="btn btn-primary-s" href="{{ route('register')}}" role="button" style="background-color: #ff7f50;">新規登録</a>
+            <li class="nav-item for-none">
+                <a class="btn btn-primary-s" href="{{ route('register')}}" role="button">新規登録</a>
             </li>
+            <li class="nav-item for-r-li">
+                <a class="btn-primary-s for-r-sign" href="{{ route('register')}}">新規登録</a>
+            </li>    
             @endguest
 
             @guest
-            <li class="nav-item">
-                <a class="btn btn-primary-l" href="{{ route('login')}}" role="button" style="background-color: #8fbc8f;">ログイン</a>
+            <li class="nav-item for-none">
+                <a class="btn btn-primary-l" href="{{ route('login')}}" role="button">ログイン</a>
+            </li>
+            <li class="nav-item for-r-li">
+                <a class="btn-primary-l for-r-sign" href="{{ route('login')}}" role="button">ログイン</a>
             </li>
             @endguest
 

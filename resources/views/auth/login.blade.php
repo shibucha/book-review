@@ -17,12 +17,12 @@
                 @csrf
             <!-- ユーザー名 -->
                 <div class="entry-field">
-                    <input type="text" id="email" name="email" class="form-control" required value="{{ old('email') }}" placeholder="ユーザー名を入力">
+                    <input type="text" id="email" name="email" class="form-control" required value="{{ old('email') }}" placeholder="ユーザー名を入力" style="height: 46px; border-radius:8px;">
                 </div>
 
             <!-- パスワード -->
                 <div class="entry-field password-field">
-                    <input type="password" id="password" name="password" class="form-control" required placeholder="パスワードを入力">
+                    <input type="password" id="password" name="password" class="form-control" required placeholder="パスワードを入力" style="height: 46px; border-radius:8px;">
                 </div>
 
             <!-- リメンバートークン -->
@@ -30,7 +30,7 @@
 
             <!-- 登録ボタン -->
                 <div class="to-login-wrapper">
-                    <button class="btn btn-rounded btn-block my-4 waves-effect z-depth-0 login-button" type="submit">ログイン</button>
+                    <button class="btn btn-rounded btn-block my-4 waves-effect z-depth-0 login-button" type="submit" style="height: 46px; border-radius:8px;">ログイン</button>
                 </div>
 
             </form>
