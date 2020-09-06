@@ -63,7 +63,7 @@
       <img src="images/shelf.jpeg" alt="" class="shelves">
     </div>
   </div>
-
+</div>
   <!-- ------------------------------------------------- -->
 
   <div class="r-wrapper">
@@ -129,83 +129,83 @@
 
   </div>
 
-<!-- --------------------------------------------------- -->
+  <!-- --------------------------------------------------- -->
 
-<footer>
-  <div class="sections-wrapper">
-   <div class="sections">
-    <div>
-      <p class="footer-sections-p">機能1</p>
-      <ul class="footer-ul">
-        <a href="">
-          <li>要素1</li>
-        </a>
-        <a href="">
-          <li>要素2</li>
-        </a>
-        <a href="">
-          <li>要素3</li>
-        </a>
-        <a href="">
-          <li>要素4</li>
-        </a>
-        <a href="">
-          <li>要素5</li>
-        </a>
+  <footer>
+    <div class="sections-wrapper">
+      <div class="sections">
+        <div>
+          <p class="footer-sections-p">機能1</p>
+          <ul class="footer-ul">
+            <a href="">
+              <li>要素1</li>
+            </a>
+            <a href="">
+              <li>要素2</li>
+            </a>
+            <a href="">
+              <li>要素3</li>
+            </a>
+            <a href="">
+              <li>要素4</li>
+            </a>
+            <a href="">
+              <li>要素5</li>
+            </a>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-sections-p">book-reviewについて</p>
+          <ul class="footer-ul">
+            <a href="">
+              <li>要素1</li>
+            </a>
+            <a href="">
+              <li>要素2</li>
+            </a>
+            <a href="">
+              <li>要素3</li>
+            </a>
+            <a href="">
+              <li>要素4</li>
+            </a>
+            <a href="">
+              <li>要素5</li>
+            </a>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-sections-p">サポート</p>
+          <ul class="footer-ul">
+            <a href="">
+              <li>要素1</li>
+            </a>
+            <a href="">
+              <li>要素2</li>
+            </a>
+            <a href="">
+              <li>要素3</li>
+            </a>
+            <a href="">
+              <li>要素4</li>
+            </a>
+            <a href="">
+              <li>要素5</li>
+            </a>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="r-footer">
+      <ul class="r-footer-info">
+        <li class="for-border"><a href="">利用規約</a></li>
+        <li><a href="">プライバシーポリシー</a></li><br>
+        <li class="for-border"><a href="">お問い合わせ</a></li>
+        <li><a href="">PC版に切り替え</a></li>
       </ul>
     </div>
-    <div>
-      <p class="footer-sections-p">book-reviewについて</p>
-      <ul class="footer-ul">
-        <a href="">
-          <li>要素1</li>
-        </a>
-        <a href="">
-          <li>要素2</li>
-        </a>
-        <a href="">
-          <li>要素3</li>
-        </a>
-        <a href="">
-          <li>要素4</li>
-        </a>
-        <a href="">
-          <li>要素5</li>
-        </a>
-      </ul>
-    </div>
-    <div>
-      <p class="footer-sections-p">サポート</p>
-      <ul class="footer-ul">
-        <a href="">
-          <li>要素1</li>
-        </a>
-        <a href="">
-          <li>要素2</li>
-        </a>
-        <a href="">
-          <li>要素3</li>
-        </a>
-        <a href="">
-          <li>要素4</li>
-        </a>
-        <a href="">
-          <li>要素5</li>
-        </a>
-      </ul>
-    </div>
-   </div>
-  </div>
 
-  <div class="r-footer">
-    <ul class="r-footer-info">
-      <li class="for-border"><a href="">利用規約</a></li>
-      <li><a href="">プライバシーポリシー</a></li><br>
-      <li class="for-border"><a href="">お問い合わせ</a></li>
-      <li><a href="">PC版に切り替え</a></li>
-    </ul>
-  </div>
+  </footer>
 
-</footer>
-
-@endsection
+  @endsection
