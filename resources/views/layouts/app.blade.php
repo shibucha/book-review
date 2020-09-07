@@ -9,7 +9,7 @@
   <title>
     @yield('title')
   </title>
-
+  
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
   <!-- Google Fonts -->
@@ -26,10 +26,11 @@
   <!-- ブルーテーマの追加スタイルシート -->
   <link rel="stylesheet" href="https://npmcdn.com/flatpickr/dist/themes/material_blue.css">
 
-  <!-- フォントオーサム -->
-  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <!-- グーグルフォント -->
-  <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
+  <!-- My custom styles -->
+  <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css"> <!-- リセットCSS -->
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> <!-- フォントオーサム -->
+  <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet"> <!-- グーグルフォント -->
+  
 
   <!-- My custom styles -->
   <link href="{{ asset(mix('/css/app.css')) }}" rel="stylesheet">
