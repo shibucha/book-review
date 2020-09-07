@@ -70,7 +70,7 @@
 @endif
 
 
-<!-- モーダル　本の登録 -->
+<!-- モーダル 本の登録 -->
 <div class="modal fade" id="{{ $item['id'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 
     <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
@@ -110,7 +110,7 @@
                         </div>
                         <div class="form-group modal__review">
                             <label for="">感想・レビュー:</label>
-                            <textarea name="body" placeholder="感想・レビュー" cols="50" rows="10 value=" {{ old('body')}}" class="modal__input-field"></textarea>
+                            <textarea name="body" placeholder="感想・レビュー" cols="50" rows="10" value="{{ old('body')}}" class="modal__input-field"></textarea>
                         </div>
                         <div class="modal__private">
                             <input type="checkbox" name="public_private" value="0">非公開にする。
