@@ -52,7 +52,4 @@
     <p>まだ本は登録されていません。</p>
     @endif
 </div>
-
-    <review-like></review-like>
-
 @endsection
