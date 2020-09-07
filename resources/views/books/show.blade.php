@@ -163,9 +163,8 @@
         </div>
     </div>
 </div>
-<!-- モーダル -->
+<!-- END モーダル-->
 
-</div>
 
 <!----------------- END 自分の感想 --------------->
 
@@ -184,6 +183,7 @@
     {{ $other_review->user->name }}さんの感想
 </div>
 <p>{{ $other_review->body }}</p>
+<review-like></review-like>
 <hr>
 @endforeach
 @else
