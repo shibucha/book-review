@@ -25,9 +25,11 @@ class SearchController extends Controller
         if (isset($keyword)) {
             //グーグルブックスの利用
             $items = GoogleBook::googleBooksKeyword($keyword);
-        } else {
-            return redirect()->route('books.index');
-        }
+        } 
+        // else 
+        // {
+        //     return redirect()->route('books.index');
+        // }
 
         //既に登録した本のgoogle_book_idを取得
         if (isset($user_id)) {
