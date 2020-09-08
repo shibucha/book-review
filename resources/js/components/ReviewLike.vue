@@ -2,7 +2,7 @@
     <div class="review">
         <button type="submit">            
             <i class="fas fa-heart"
-            :class="{'good__done':goodDone}"
+            :class="{'good__done':this.isLiked}"
             ></i>3
         </button>
     </div>
@@ -11,13 +11,15 @@
 <script>
 export default{
     props:{
-        goodDone:{
+        initialGood:{
             type: Boolean,
             default: false,
         },
     },
     data(){
-
+        return{
+            isLiked: this.initialGood,
+        }
     }
 }
 </script>

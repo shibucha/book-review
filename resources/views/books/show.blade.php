@@ -185,7 +185,9 @@
 <p>{{ $other_review->body }}</p>
 
 <!-- いいねボタン機能(Vueコンポーネント) -->
-<review-like></review-like>
+<review-like
+:initial-good = "@json($reading_record->isLiked($user_id))"
+></review-like>
 
 <hr>
 @endforeach
