@@ -183,7 +183,10 @@
     {{ $other_review->user->name }}さんの感想
 </div>
 <p>{{ $other_review->body }}</p>
+
+<!-- いいねボタン機能(Vueコンポーネント) -->
 <review-like></review-like>
+
 <hr>
 @endforeach
 @else

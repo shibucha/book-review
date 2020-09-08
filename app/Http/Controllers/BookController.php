@@ -32,7 +32,7 @@ class BookController extends Controller
         ]);
     }
 
-    public function show($book_id)
+    public function show($book_id, ReadingRecord $reading_record)
     {
         $user_id = Auth::id();
        
@@ -57,7 +57,9 @@ class BookController extends Controller
             'book' => $book,
             'review' => $review,
             'others_reviews' => $others_reviews,
-            'review_count' => $review_count
+            'review_count' => $review_count,
+            'reading_record' => $reading_record,
+            'user_id' => $user_id
         ]);
     }
 
