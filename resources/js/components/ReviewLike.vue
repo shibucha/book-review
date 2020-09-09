@@ -3,7 +3,7 @@
         <button type="submit">            
             <i class="fas fa-heart"
             :class="{'good__done':this.isLiked}"
-            ></i>3
+            ></i>{{ this.likesCount }}
         </button>
     </div>
 </template>
@@ -15,10 +15,15 @@ export default{
             type: Boolean,
             default: false,
         },
+        initialLikesCount:{
+            type:Number,
+            default:0,
+        },
     },
     data(){
         return{
             isLiked: this.initialGood,
+            likesCount: this.initialLikesCount,
         }
     }
 }

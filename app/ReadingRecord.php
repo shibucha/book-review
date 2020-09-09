@@ -37,4 +37,9 @@ class ReadingRecord extends Model
     {
         return $this->likes->where('id', $user_id)->count();
     }
+
+    public function getCountLikesAttribute():int
+    {
+        return $this->likes->count();
+    }
 }
