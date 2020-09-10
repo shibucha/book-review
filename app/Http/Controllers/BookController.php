@@ -75,4 +75,30 @@ class BookController extends Controller
         $reading_record->delete();
         return redirect()->route('books.index');
     }
+
+    public function like($reading_record_id, Request $request){
+
+        $reading_record = ReadingRecord::find($reading_record_id);
+
+        $reading_record->likes()->detach($request->user()->id);
+        $reading_record->likes()->attach($request->user()->id);
+
+        // dd($reading_record->count_likes);
+
+        return [
+            'countLikes' => $reading_record->count_likes,
+        ];
+    
+    }
+
+    public function unlike($reading_record_id, Request $request){
+
+        $reading_record = ReadingRecord::find($reading_record_id);
+
+        $reading_record->likes()->detach($request->user()->id);        
+
+        return [
+            'countLikes' => $reading_record->count_likes,
+        ];
+    }
 }

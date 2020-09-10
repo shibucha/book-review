@@ -68,6 +68,7 @@
 <review-like
 :initial-good = "@json($reading_record->isLiked($user_id))"
 :initial-likes-count = "@json($reading_record->count_likes)"
+like-route="{{ route('books.like',['reading_record_id'=>$review->id])}}"
 ></review-like>
 
 @else
@@ -193,8 +194,9 @@
 
 <!-- いいねボタン機能(Vueコンポーネント) -->
 <review-like
-:initial-good = "@json($reading_record->isLiked($user_id))"
+:initial-like = "@json($reading_record->isLiked($user_id))"
 :initial-count-likes = "@json($reading_record->count_likes)"
+like-route="{{ route('books.like',['reading_record_id'=>$other_review->id])}}"
 ></review-like>
 
 <hr>
