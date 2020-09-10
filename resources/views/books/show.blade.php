@@ -194,7 +194,7 @@
 <!-- いいねボタン機能(Vueコンポーネント) -->
 <review-like
 :initial-good = "@json($reading_record->isLiked($user_id))"
-:initial-likes-count = "@json($reading_record->count_likes)"
+:initial-count-likes = "@json($reading_record->count_likes)"
 ></review-like>
 
 <hr>

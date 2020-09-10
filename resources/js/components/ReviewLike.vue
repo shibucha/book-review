@@ -3,7 +3,7 @@
         <button type="submit">            
             <i class="fas fa-heart"
             :class="{'good__done':this.isLiked}"
-            ></i>{{ this.likesCount }}
+            ></i>{{ this.countLikes }}
         </button>
     </div>
 </template>
@@ -15,7 +15,7 @@ export default{
             type: Boolean,
             default: false,
         },
-        initialLikesCount:{
+        initialCountLikes:{
             type:Number,
             default:0,
         },
@@ -23,7 +23,7 @@ export default{
     data(){
         return{
             isLiked: this.initialGood,
-            likesCount: this.initialLikesCount,
+            countLikes: this.initialCountLikes,
         }
     }
 }
@@ -34,3 +34,6 @@ export default{
     color: red;
 }
 </style>
+
+
+initialCountLikes
