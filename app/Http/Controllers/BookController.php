@@ -81,14 +81,12 @@ class BookController extends Controller
         $reading_record = ReadingRecord::find($reading_record_id);
 
         $reading_record->likes()->detach($request->user()->id);
-        $reading_record->likes()->attach($request->user()->id);
-
-        // dd($reading_record->count_likes);
+        $reading_record->likes()->attach($request->user()->id);       
 
         return [
             'countLikes' => $reading_record->count_likes,
         ];
-    
+
     }
 
     public function unlike($reading_record_id, Request $request){
