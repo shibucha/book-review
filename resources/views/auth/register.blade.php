@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- Material form register -->
-@include('layouts.nav')
+@include('includes.nav')
 <div class="for-backgrounds register-page">
 
     <div class="r-register-prompt">

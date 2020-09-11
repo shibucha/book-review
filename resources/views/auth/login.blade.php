@@ -3,7 +3,7 @@
 @section('title', 'ログイン')
 
 @section('content')
-@include('layouts.nav')
+@include('includes.nav')
 
 <div class="for-backgrounds">
     <div class="login-wrapper">
