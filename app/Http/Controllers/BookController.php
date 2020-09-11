@@ -32,16 +32,13 @@ class BookController extends Controller
         ]);
     }
 
+    // 詳細ページの表示
     public function show($book_id, ReadingRecord $reading_record)
     {
         $user_id = Auth::id();
        
         $items = null;
-        $book = Book::where('google_book_id',$book_id)->first();
-        $review = ReadingRecord::where('user_id', $user_id)->where('book_id', $book->id)->first();
-        $others_reviews = ReadingRecord::where('book_id', $book->id)->whereNotIn('user_id', [$user_id])->whereNotIn('public_private', [0])->get();
-        $review_count = ReadingRecord::where('book_id', $book->id)->count();
-
+        
         //グーグルブックスの書籍情報取得
         if(isset($book_id)){
             $items = GoogleBook::googleBooksKeyword($book_id);
@@ -50,6 +47,18 @@ class BookController extends Controller
         if(!isset($items)){
             $message = '本が選択されていません。';
         }
+
+        $book = Book::where('google_book_id',$book_id)->first();
+
+        // これまでレビュー登録があったかどうかの確認
+        if($book === null){        
+            // 過去にレビューされたことのない本の場合は、以下のページに飛ぶ。             
+            return redirect()->route('books.nothingToShow',['book_id' => $book_id]);
+        } else {
+            $review = ReadingRecord::where('user_id', $user_id)->where('book_id', $book->id)->first();
+        }     
+        $others_reviews = ReadingRecord::where('book_id', $book->id)->whereNotIn('user_id', [$user_id])->whereNotIn('public_private', [0])->get();
+        $review_count = ReadingRecord::where('book_id', $book->id)->count();           
 
         return view('books.show',[
             'items' => $items,
@@ -61,6 +70,10 @@ class BookController extends Controller
             'reading_record' => $reading_record,
             'user_id' => $user_id
         ]);
+    }
+
+    public function nothingToShow($book_id){
+        return view('books.nothing_to_show');
     }
 
     public function update(int $reading_record_id, ReadingRecordRequest $request)

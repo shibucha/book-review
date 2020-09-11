@@ -29,6 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/books/{user_id}/profile', 'ProfileController@destroy')->name('books.profile.destroy');
     Route::post('/books/{book_id}/search', 'SearchController@store')->name('search.store');
     Route::get('/books/{book_id}/show', 'BookController@show')->name('books.show');
+    Route::get('/books/{book_id}/nothing-to-show', 'BookController@nothingToShow')->name('books.nothingToShow');
 
     Route::put('/books/{reading_record_id}/like', 'BookController@like')->name('books.like');
     Route::delete('/books/{reading_record_id}/like', 'BookController@unlike')->name('books.unlike');
