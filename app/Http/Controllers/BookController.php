@@ -73,7 +73,15 @@ class BookController extends Controller
     }
 
     public function nothingToShow($book_id){
-        return view('books.nothing_to_show');
+        $items = null;
+        
+        //グーグルブックスの書籍情報取得
+        if(isset($book_id)){
+            $items = GoogleBook::googleBooksKeyword($book_id);
+            $message = null;
+        }
+
+        return view('books.nothing_to_show',['item'=>$items[0]]);
     }
 
     public function update(int $reading_record_id, ReadingRecordRequest $request)
