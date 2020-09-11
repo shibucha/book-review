@@ -2,7 +2,7 @@
 
 @section('title', '本の詳細')
 
-@include('layouts.nav')
+@include('includes.nav')
 
 @section('content')
 <h1>本の詳細ページ</h1>
@@ -54,14 +54,14 @@
 
 <!----------------- START 自分の感想 --------------->
 <div>
-    @if($review->user->icon)
-    <img src="/storage/icons/{{$review->user->icon}}" alt="ユーザーアイコン" width="30px" height="30px">
+    @if($user->icon)
+    <img src="/storage/icons/{{$user->icon}}" alt="ユーザーアイコン" width="30px" height="30px">
     @else
     <img src="/storage/icons/default.png" alt="ユーザーアイコン" width="30px" height="30px">
     @endif
-    {{$review->user->name}}さんの感想
+    {{$user->name}}さんの感想
 </div>
-@if($review->body)
+@if($review)
 <p>{{ $review->body }}</p>
 
 <!-- いいねボタン機能(Vueコンポーネント) -->
@@ -76,8 +76,7 @@ like-route="{{ route('books.like',['reading_record_id'=>$review->id])}}"
 @endif
 
 
-
-
+@if($review) <!-- START もしも、まだ自分の感想が登録されていないならば、編集ボタン・削除ボタンは表示しない。 -->
 <!-- モーダル 感想の編集 -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ $review->book->google_book_id }}">編集</button>
 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-{{ $review->id }}">削除</button>
@@ -172,8 +171,7 @@ like-route="{{ route('books.like',['reading_record_id'=>$review->id])}}"
     </div>
 </div>
 <!-- END モーダル-->
-
-
+@endif<!-- END もしも、まだ自分の感想が登録されていないならば、編集ボタン・削除ボタンは表示しない。 -->
 <!----------------- END 自分の感想 --------------->
 
 <hr>

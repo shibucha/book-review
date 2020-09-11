@@ -36,7 +36,8 @@ class BookController extends Controller
     public function show($book_id, ReadingRecord $reading_record)
     {
         $user_id = Auth::id();
-       
+        $user = User::find($user_id);
+
         $items = null;
         
         //グーグルブックスの書籍情報取得
@@ -68,6 +69,7 @@ class BookController extends Controller
             'others_reviews' => $others_reviews,
             'review_count' => $review_count,
             'reading_record' => $reading_record,
+            'user' => $user,
             'user_id' => $user_id
         ]);
     }

@@ -4,7 +4,7 @@
 
 @section('content')
 
-@include('layouts.nav')
+@include('includes.nav')
 
 @if(session('success'))
 <div class="alert alert-success">

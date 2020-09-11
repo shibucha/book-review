@@ -4,7 +4,7 @@
 
 
 @section('content')
-@include('layouts.nav')
+@include('includes.nav')
 
 
 <div id="home">
