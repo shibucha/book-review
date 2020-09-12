@@ -14,7 +14,7 @@
 <div class="user">
     <div class="user__info">
         <div class="user__name"><i class="fas fa-user-circle"></i> {{ $user->name}} さんのマイページ</div>
-        <div class="user__bookCount"><i class="fas fa-book-open"></i> {{ $user->name}} さんがこれまでに読んだ冊数 : {{ $reviews->count() }}冊</div>
+        <div class="user__bookCount"><i class="fas fa-book-open"></i> {{ $user->name}} さんがこれまでに読んだ冊数 : {{ $reviews_count }}冊</div>
     </div>
     <figure class="user__image">
         <a href="{{route('books.profile',['user_id'=>$user->id])}}">
@@ -36,7 +36,7 @@
 
 <!-- 登録したレビュー一覧 -->
 <div class="review">
-    @if($reviews->count() > 0)
+    @if($reviews_count > 0)
     @foreach($reviews as $review)
     <div class="reading-book">
         <img src="{{$review->book->image}}" alt="登録した本のイメージ" class="reading-book_img">
@@ -46,7 +46,8 @@
         <button>この本について</button>
         </a>       
     </div>
-    @endforeach
+    @endforeach 
+    {{$reviews->links()}}
     @else
     <p>まだ本は登録されていません。</p>
     @endif
