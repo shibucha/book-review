@@ -13,7 +13,7 @@ class GoogleBook{
 
         $keyword = urlencode($keyword);
 
-        $url = 'https://www.googleapis.com/books/v1/volumes?q=' . $keyword . '&country=JP&tbm=bks';
+        $url = 'https://www.googleapis.com/books/v1/volumes?q=' . $keyword . '&maxResults=30&country=JP&tbm=bks';
 
         $client = new Client();
 

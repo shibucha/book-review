@@ -29,12 +29,12 @@ class SearchController extends Controller
             $items = collect($items);
 
             $items = new LengthAwarePaginator(                
-                $items->forPage($request->page, 5),                             
+                $items->forPage($request->page, 10),                             
                 $items->count(),
-                5,
+                10,
                 $request->page,
                 ['path' => $request->url()]
-            );
+            );            
         } 
         
 
