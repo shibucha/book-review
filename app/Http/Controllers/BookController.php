@@ -23,7 +23,7 @@ class BookController extends Controller
         $user = User::find($user_id);
 
         //user_idが登録されているレビューを全取得
-        $reviews = ReadingRecord::where('user_id', $user_id)->paginate(2);
+        $reviews = ReadingRecord::where('user_id', $user_id)->paginate(15);
         $reviews_count = ReadingRecord::where('user_id', $user_id)->count();
 
         return view('books.index', [
