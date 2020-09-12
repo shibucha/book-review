@@ -4,7 +4,7 @@
 
 
 @section('content')
-@include('includes.nav')
+
 <h1>表示出来る結果はありません。</h1>
 
 @if($item)

@@ -3,11 +3,10 @@
 @section('title', 'book-review | プロフィールの編集')
 
 @section('content')
-@include('layouts.nav')
 
 <!-- プロフィール画像編集面 -->
 <div class="row">
-    @include('layouts.error_list')
+    @include('includes.error_list')
     <form action="{{route('books.profile',['user_id'=>$user->id]) }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="card card-body mb-3 col-12">

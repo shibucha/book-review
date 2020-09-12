@@ -2,7 +2,6 @@
 
 @section('title', '本の詳細')
 
-@include('includes.nav')
 
 @section('content')
 <h1>本の詳細ページ</h1>
@@ -103,7 +102,7 @@ like-route="{{ route('books.like',['reading_record_id'=>$review->id])}}"
             <form action="{{ route('books.update',['reading_record_id'=>$review->id]) }}" method="POST">
                 @csrf
                 @method('PATCH')
-                @include('layouts.error_list')
+                @include('includes.error_list')
 
                 <div class="modal-body modal__body">
 

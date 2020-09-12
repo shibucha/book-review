@@ -4,7 +4,7 @@
 
 
 @section('content')
-@include('includes.nav')
+
 <h1>本を探しましょう。</h1>
 
 @if(Auth::check())

@@ -19,7 +19,7 @@
             <!-- 登録フォーム -->
             <form action="{{ route('search.store',['book_id'=>$item['id']]) }}" method="POST">
                 @csrf
-                @include('layouts.error_list')
+                @include('includes.error_list')
 
                 <div class="modal-body modal__body">
 

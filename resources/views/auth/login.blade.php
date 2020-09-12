@@ -3,14 +3,13 @@
 @section('title', 'ログイン')
 
 @section('content')
-@include('includes.nav')
 
 <div class="for-backgrounds">
     <div class="login-wrapper">
         <h1>ログイン</h1>
         <div class="login-container">
 
-            @include('layouts.error_list')
+            @include('includes.error_list')
 
             <!-- FORM -->
             <form action="{{ route('login') }}" method="post">

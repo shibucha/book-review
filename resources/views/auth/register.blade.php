@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- Material form register -->
-@include('includes.nav')
+
 <div class="for-backgrounds register-page">
 
     <div class="r-register-prompt">
@@ -17,7 +17,7 @@
         <h1>新規登録</h1>
             <div class="register-container">
 
-                @include('layouts.error_list')
+                @include('includes.error_list')
             
                 <!-- Form -->
                 <form method="POST" action="{{ route('register') }}">
