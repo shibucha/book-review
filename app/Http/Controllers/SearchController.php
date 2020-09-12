@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\ReadingRecord;
 use App\Book;
 use App\Author;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class SearchController extends Controller
 {
@@ -24,12 +25,18 @@ class SearchController extends Controller
 
         if (isset($keyword)) {
             //グーグルブックスの利用
-            $items = GoogleBook::googleBooksKeyword($keyword);
+            $items = GoogleBook::googleBooksKeyword($keyword); 
+            $items = collect($items);
+
+            $items = new LengthAwarePaginator(                
+                $items->forPage($request->page, 5),                             
+                $items->count(),
+                5,
+                $request->page,
+                ['path' => $request->url()]
+            );
         } 
-        // else 
-        // {
-        //     return redirect()->route('books.index');
-        // }
+        
 
         //既に登録した本のgoogle_book_idを取得
         if (isset($user_id)) {
