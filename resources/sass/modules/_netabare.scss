@@ -1,10 +1,12 @@
 .netabare {
     &__on {
+        cursor: pointer;
         color: #ddd;
-        opacity: 0.1;
+        opacity: 0.5;
     }
 
-    &__on:hover {
+    &__on:hover {        
+        color: #000;
         opacity: 1;
     }
 }
