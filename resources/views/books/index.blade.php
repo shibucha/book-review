@@ -47,7 +47,10 @@
         </a>       
     </div>
     @endforeach 
+
+    <!--  ペジネーション機能 -->
     {{$reviews->links()}}
+       
     @else
     <p>まだ本は登録されていません。</p>
     @endif

@@ -84,6 +84,9 @@
 <!-- ↑ $itemsのループ終了 -->
 
 @endif
-{{ $items->appends(request()->input())->links() }}
 <!-- ↑ キーワードの検索終了 -->
+
+{{ $items->appends(request()->input())->links() }}
+<!-- ↑ ペジネーション機能 -->
+
 @endsection

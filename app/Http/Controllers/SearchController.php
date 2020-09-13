@@ -28,6 +28,7 @@ class SearchController extends Controller
             $items = GoogleBook::googleBooksKeyword($keyword); 
             $items = collect($items);
 
+            // ペジネーションの実装
             $items = new LengthAwarePaginator(                
                 $items->forPage($request->page, 10),                             
                 $items->count(),
