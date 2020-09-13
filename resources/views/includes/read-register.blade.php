@@ -43,6 +43,9 @@
                         <div class="modal__private">
                             <input type="checkbox" name="public_private" value="0">非公開にする。
                         </div>
+                        <div class="modal__netabare">
+                            <input type="checkbox" name="netabare" value="on">ネタバレ有り
+                        </div>
                     </div>
 
                 </div>

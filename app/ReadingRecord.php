@@ -12,6 +12,7 @@ class ReadingRecord extends Model
         'reading_date',
         'body',
         'public_private',
+        'netabare',
     ];
     // protected $dates = [
     //     'reading_date',

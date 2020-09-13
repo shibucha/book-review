@@ -132,6 +132,13 @@ like-route="{{ route('books.like',['reading_record_id'=>$review->id])}}"
                             <input type="checkbox" name="public_private" value="1">公開する。
                             @endif
                         </div>
+                        <div class="modal__netabare">
+                        @if($review->netabare === "on")
+                            <input type="checkbox" name="netabare" value="off">ネタバレ無し
+                            @else
+                            <input type="checkbox" name="netabare" value="on">ネタバレ有り
+                            @endif
+                        </div>
                     </div>
 
                 </div>
