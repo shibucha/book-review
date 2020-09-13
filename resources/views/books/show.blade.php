@@ -194,7 +194,9 @@ like-route="{{ route('books.like',['reading_record_id'=>$review->id])}}"
     @endif
     {{ $other_review->user->name }}さんの感想
 </div>
-<p>{{ $other_review->body }}</p>
+<div class="netabare__{{ $other_review->netabare}}">
+    <p>{{ $other_review->body }}</p>
+</div>
 
 <!-- いいねボタン機能(Vueコンポーネント) -->
 <review-like
