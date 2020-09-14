@@ -58,9 +58,10 @@ class BookController extends Controller
             // 過去にレビューされたことのない本の場合は、以下のページに飛ぶ。             
             return redirect()->route('books.nothingToShow',['book_id' => $book_id]);
         } else {
-            $review = ReadingRecord::where('user_id', $user_id)->where('book_id', $book->id)->first();
+            $review = ReadingRecord::where('user_id', $user_id)->where('book_id', $book->id)->first();             
         }     
-        $others_reviews = ReadingRecord::where('book_id', $book->id)->whereNotIn('user_id', [$user_id])->whereNotIn('public_private', [0])->get();
+        // $others_reviews = ReadingRecord::where('book_id', $book->id)->whereNotIn('user_id', [$user_id])->whereNotIn('public_private', [0])->get();        
+        $others_reviews = ReadingRecord::where('book_id', $book->id)->whereNotIn('user_id', [$user_id])->whereNotIn('public_private', [0])->get();        
         $review_count = ReadingRecord::where('book_id', $book->id)->count();           
 
         return view('books.show',[

@@ -40,8 +40,8 @@ class SearchController extends Controller
         
 
         //既に登録した本のgoogle_book_idを取得
-        if (isset($user_id)) {
-            $reviewed_books = ReadingRecord::where('user_id', $user_id)->get();
+        if (isset($user_id)) {            
+            $reviewed_books = ReadingRecord::with('book')->where('user_id', $user_id)->get();
 
             //今までに本を登録しているか確認。
             if ($reviewed_books->count() > 0) {
