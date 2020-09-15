@@ -43,6 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
     
     // 設定関連
     Route::get('books/setting/resign', 'ResignController@index')->name('setting.resign');
+    Route::delete('books/setting/resign', 'ResignController@destroy')->name('setting.resign');
 });
 
 
