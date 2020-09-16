@@ -6,7 +6,15 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use GuzzleHttp\Client;
 
-class GoogleBook{
+use App\Http\Requests\ReadingRecordRequest;
+use Illuminate\Support\Facades\Auth;
+use App\ReadingRecord;
+use App\Book;
+use App\Author;
+use Illuminate\Pagination\LengthAwarePaginator;
+
+class GoogleBook
+{
 
     public static function googleBooksKeyword($keyword)
     {
@@ -26,7 +34,63 @@ class GoogleBook{
         return $bodyArray['items'];
     }
 
-    public static function googleBookStore(){
-        
+    // googleブックスの保存メソッド
+    public static function googleBookStore($items,$author,$book,$reading_record,$book_id, $user_id)
+    {
+        foreach ($items as $item) {
+            $google_book_id = Book::where('google_book_id', '=', $book_id)->first();
+
+            // API情報にAuhtorsキーが存在するかチェック
+            if (array_key_exists('authors', $item['volumeInfo'])) {
+                $author_name = Author::where('author', '=', $item['volumeInfo']['authors'][0])->first();
+            } else {
+                $author_name = "不明";
+            }
+
+            //もし既に登録した本を登録しようとしたら、トップページにリダイレクトする。
+            if (isset($google_book_id)) {
+                $registered_check = ReadingRecord::where('user_id', $user_id)->where('book_id', $google_book_id->id)->first();
+            }
+            if (isset($registered_check)) {
+                return redirect()->route('books.index');
+            }
+
+            //API情報に著者が含まれていなかった場合
+            if ($author_name === "不明") {
+
+                $author_name = Author::where('author', '不明')->first();
+                if (isset($author_name)) {
+                    $book->author_id = $author_name->id;
+                } else {
+                    $author->author = "不明";
+                    $author->save();
+                    $author_name = $author->author;
+                }
+            }
+
+
+            //著者が既にテーブルに存在しているか確認する。
+            if (!isset($author_name)) {
+                $author->author = $item['volumeInfo']['authors'][0];
+                $author->save();
+                $book->author_id = $author->id;
+            } else {
+                $book->author_id = $author_name->id;
+            }
+
+            //書籍情報APIが、booksテーブルにまだ存在しないならば、書籍情報を保存しておく。
+            //過去既に登録されている本ならば、登録されている書籍のレコードのidを<reading_records>テーブルの<book_id>に登録する。
+            if (!isset($google_book_id)) {
+                $book->title = $item['volumeInfo']['title'];
+                $book->google_book_id = $item['id'];
+                $book->image = $item['volumeInfo']['imageLinks']['thumbnail'];
+                $book->description = $item['volumeInfo']['description'];
+                $book->save();
+                $reading_record->book_id = $book->id;
+            } else {
+                $reading_record->book_id = $google_book_id->id;
+            }
+        }
     }
+
 }
