@@ -43,4 +43,8 @@ class RakutenBook
 
         return $bodyArray['Items'];
     }
+
+    public static function RakutenBooksStore(){
+        
+    }
 }
