@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\ReadingRecord;
 use App\Book;
 use App\Author;
+use App\Library\OpenBd;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class SearchController extends Controller
@@ -24,8 +25,8 @@ class SearchController extends Controller
 
 
         if (isset($keyword)) {
-            //グーグルブックスの利用
-            $items = GoogleBook::googleBooksKeyword($keyword);
+            //書籍APIの利用(App\Libraryの汎用クラスを使用)            
+            $items = OpenBd::openBdIsbn($keyword);
             $items = collect($items);
 
             // ペジネーションの実装
@@ -48,10 +49,15 @@ class SearchController extends Controller
                 foreach ($reviewed_books as $book) {
                     $google_book_ids[] = $book->book->google_book_id;
                 }
-            } else {
+            } 
+            else 
+            {
                 $google_book_ids[] = null;
             }
-        } else {
+
+        } 
+        else 
+        {
             //未ログインユーザーの場合
             $google_book_ids[] = null;
         }
@@ -80,14 +86,14 @@ class SearchController extends Controller
 
             foreach ($items as $item) {
                 $google_book_id = Book::where('google_book_id', '=', $book_id)->first();
-    
+
                 // API情報にAuhtorsキーが存在するかチェック
                 if (array_key_exists('authors', $item['volumeInfo'])) {
                     $author_name = Author::where('author', '=', $item['volumeInfo']['authors'][0])->first();
                 } else {
                     $author_name = "不明";
-                }                
-    
+                }
+
                 //もし既に登録した本を登録しようとしたら、トップページにリダイレクトする。
                 if (isset($google_book_id)) {
                     $registered_check = ReadingRecord::where('user_id', $user_id)->where('book_id', $google_book_id->id)->first();
@@ -95,21 +101,21 @@ class SearchController extends Controller
                 if (isset($registered_check)) {
                     return redirect()->route('books.index');
                 }
-    
+
                 //API情報に著者が含まれていなかった場合
                 if ($author_name === "不明") {
-    
-                    $author_name = Author::where('author', '不明')->first();                    
-                    if(isset($author_name)){
-                        $book->author_id = $author_name->id;                                                
+
+                    $author_name = Author::where('author', '不明')->first();
+                    if (isset($author_name)) {
+                        $book->author_id = $author_name->id;
                     } else {
                         $author->author = "不明";
                         $author->save();
-                        $author_name = $author->author;                                                                              
+                        $author_name = $author->author;
                     }
-                }       
-               
-                
+                }
+
+
                 //著者が既にテーブルに存在しているか確認する。
                 if (!isset($author_name)) {
                     $author->author = $item['volumeInfo']['authors'][0];
@@ -118,7 +124,7 @@ class SearchController extends Controller
                 } else {
                     $book->author_id = $author_name->id;
                 }
-    
+
                 //書籍情報APIが、booksテーブルにまだ存在しないならば、書籍情報を保存しておく。
                 //過去既に登録されている本ならば、登録されている書籍のレコードのidを<reading_records>テーブルの<book_id>に登録する。
                 if (!isset($google_book_id)) {
@@ -132,7 +138,6 @@ class SearchController extends Controller
                     $reading_record->book_id = $google_book_id->id;
                 }
             }
-            
         }
 
 
