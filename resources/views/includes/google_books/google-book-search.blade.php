@@ -38,7 +38,7 @@
     <button class="btn btn-success">詳細ページへ</button>
 </a>
 @else
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ $item['id'] }}">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ 'a-'.$item['id'] }}">
     本を登録する。
 </button>
 <a href="{{ route('books.show',['book_id'=>$item['id']])}}">
