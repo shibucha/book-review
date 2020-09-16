@@ -34,7 +34,7 @@
     <button class="btn btn-success">詳細ページへ</button>
 </a>
 @else
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ $items['summary']['isbn'] }}">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#register-book">
     本を登録する。
 </button>
 <a href="{{ route('books.show',['book_id'=>$items['summary']['isbn']])}}">
