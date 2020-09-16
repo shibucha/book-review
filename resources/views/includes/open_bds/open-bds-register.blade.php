@@ -1,5 +1,5 @@
 <!-- モーダル グーグルブックの登録フォーム -->
-<div class="modal fade" id="{{ $item['summary']['isbn'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div class="modal fade" id="{{ $items['summary']['isbn'] }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 
     <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -14,10 +14,10 @@
             </div>
 
             <!-- 書籍タイトル -->
-            <p class="modal__book-title">タイトル：{{ $item['summary']['title']}}</p>
+            <p class="modal__book-title">タイトル：{{ $items['summary']['title']}}</p>
 
             <!-- 登録フォーム -->
-            <form action="{{ route('search.store',['book_id'=>$item['summary']['isbn']]) }}" method="POST">
+            <form action="{{ route('search.store',['book_id'=>$items['summary']['isbn']]) }}" method="POST">
                 @csrf
                 @include('includes.error_list')
 
@@ -25,8 +25,8 @@
 
                     <div class="modal__book-title modal__left">
                         <div class="modal__book-image">
-                            @if(array_key_exists('cover', $item['summary']))
-                            <img src="{{ $item['summary']['cover']}}" alt="書籍のイメージ"><br>
+                            @if($items['summary']['cover'])
+                            <img src="{{ $items['summary']['cover']}}" alt="書籍のイメージ"><br>
                             @endif
                         </div>
                     </div>

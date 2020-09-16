@@ -26,9 +26,9 @@ class SearchController extends Controller
 
         if (isset($keyword)) {
             //書籍APIの利用(App\Libraryの汎用クラスを使用)            
-            $items = OpenBd::openBdIsbn($keyword);
+            $items = OpenBd::openBdIsbn($keyword);            
             $items = collect($items);
-
+           
             // ペジネーションの実装
             $items = new LengthAwarePaginator(
                 $items->forPage($request->page, 10),
@@ -62,11 +62,10 @@ class SearchController extends Controller
             $google_book_ids[] = null;
         }
 
-        // 値の中身を確認
-        // dd($google_book_ids);    
-
+        // 値の中身を確認          
+       
         return view('books.search', [
-            'items' => $items,
+            'items' => $items,           
             'keyword' => $keyword,
             'user_id' => $user_id,
             'google_book_ids' => $google_book_ids,
