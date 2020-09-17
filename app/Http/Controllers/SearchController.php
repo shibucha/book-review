@@ -36,6 +36,9 @@ class SearchController extends Controller
                 $request->page,
                 ['path' => $request->url()]
             );
+        } else {
+            // 検索キーワードが入力されていなければマイページにリダイレクト
+            return redirect()->route('books.index');
         }
 
 
@@ -80,8 +83,13 @@ class SearchController extends Controller
 
         //登録する書籍のAPI情報を取得
         if (isset($book_id)) {
+
+            // OpenBdの書籍情報を取得（App\Library\OpenBd）
             $items = OpenBd::openBdIsbn($book_id);
-            OpenBd::OpenBdStore($items,$author,$book,$reading_record,$book_id, $user_id);            
+
+            // OpenBdの書籍情報を保存（App\Library\OpenBd）
+            OpenBd::OpenBdStore($items,$author,$book,$reading_record,$book_id, $user_id);        
+
         }
 
 
