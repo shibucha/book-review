@@ -28,11 +28,10 @@
 @include('includes.open_bds.open-bd-search')
 
 
+{{ $items->appends(request()->input())->links() }}
+<!-- ↑ ペジネーション機能 -->
 
 @endif
 <!-- ↑ キーワードの検索終了 -->
-
-{{ $items->appends(request()->input())->links() }}
-<!-- ↑ ペジネーション機能 -->
 
 @endsection

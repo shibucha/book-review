@@ -36,12 +36,8 @@ class SearchController extends Controller
                 $request->page,
                 ['path' => $request->url()]
             );
-        } else {
-            // 検索キーワードが入力されていなければマイページにリダイレクト
-            return redirect()->route('books.index');
-        }
-
-
+        } 
+        
         //既に登録した本のgoogle_book_idを取得
         if (isset($user_id)) {
             $reviewed_books = ReadingRecord::with('book')->where('user_id', $user_id)->get();
