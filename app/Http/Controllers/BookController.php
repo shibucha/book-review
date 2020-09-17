@@ -81,11 +81,11 @@ class BookController extends Controller
         
         //グーグルブックスの書籍情報取得
         if(isset($book_id)){
-            $items = OpenBd::openBdIsbn($book_id);
+            $items[] = OpenBd::openBdIsbn($book_id);
             $message = null;
         }
 
-        return view('books.nothing_to_show',['item'=>$items[0]]);
+        return view('books.nothing-to-show',['items'=>$items[0]]);
     }
 
     public function update(int $reading_record_id, ReadingRecordRequest $request)

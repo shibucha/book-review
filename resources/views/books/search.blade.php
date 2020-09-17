@@ -15,6 +15,7 @@
 
 <form method="GET" action="{{ route('books.search') }}">
     <input type="text" name="keyword" value="{{ $keyword }}" style="border:1px solid black;">&nbsp;
+    <input type="text" name="isbn" value="{{ $keyword }}" style="border:1px solid black;">&nbsp;
     <input type="submit" value="検索">
 </form>
 
@@ -24,7 +25,7 @@
 <p>{{ $keyword }}の検索結果</p>
 <hr>
 
-<!-- グーグルブックスの検索結果表示 -->
+<!-- 検索結果表示 -->
 @include('includes.open_bds.open-bd-search')
 
 

@@ -21,7 +21,8 @@ class SearchController extends Controller
         $user_id = Auth::id();
         $items = null;
         $keyword = $request->keyword;
-
+        $keyword = $request->isbn;
+        
 
         if (isset($keyword)) {
             //書籍APIの利用(App\Libraryの汎用クラスを使用)            
