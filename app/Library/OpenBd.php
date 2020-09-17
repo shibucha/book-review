@@ -40,11 +40,11 @@ class OpenBd
 
             // API情報にAuhtorsキーが存在するかチェック
             if ($items['summary']['author']) {
-                $author_name = Author::where('author', '=', $items['summary']['author'])->first();
+                $author_name = Author::where('author', mb_substr($items['summary']['author'], 0, -2, "UTF-8"))->first();
             } else {
                 $author_name = "不明";
             }
-
+            
             //もし既に登録した本を登録しようとしたら、トップページにリダイレクトする。
             if (isset($google_book_id)) {
                 $registered_check = ReadingRecord::where('user_id', $user_id)->where('book_id', $google_book_id->id)->first();
@@ -52,7 +52,7 @@ class OpenBd
             if (isset($registered_check)) {
                 return redirect()->route('books.index');
             }
-
+            
             //API情報に著者が含まれていなかった場合
             if ($author_name === "不明") {
 
