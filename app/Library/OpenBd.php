@@ -35,12 +35,12 @@ class OpenBd
 
 
     public static function OpenBdStore($items,$author,$book,$reading_record,$book_id, $user_id){
-        foreach ($items as $item) {
+        
             $google_book_id = Book::where('google_book_id', '=', $book_id)->first();
 
             // API情報にAuhtorsキーが存在するかチェック
-            if (array_key_exists('author', $item['summary'])) {
-                $author_name = Author::where('author', '=', $item['summary']['author'])->first();
+            if ($items['summary']['author']) {
+                $author_name = Author::where('author', '=', $items['summary']['author'])->first();
             } else {
                 $author_name = "不明";
             }
@@ -69,7 +69,7 @@ class OpenBd
 
             //著者が既にテーブルに存在しているか確認する。
             if (!isset($author_name)) {
-                $author->author = mb_substr($item['summary']['author'], 0, -2, "UTF-8");                
+                $author->author = mb_substr($items['summary']['author'], 0, -2, "UTF-8");                            
                 $author->save();
                 $book->author_id = $author->id;
             } else {
@@ -79,15 +79,15 @@ class OpenBd
             //書籍情報APIが、booksテーブルにまだ存在しないならば、書籍情報を保存しておく。
             //過去既に登録されている本ならば、登録されている書籍のレコードのidを<reading_records>テーブルの<book_id>に登録する。
             if (!isset($google_book_id)) {
-                $book->title = $item['summary']['title'];
-                $book->google_book_id = $item['sumamry']['isbn'];
-                $book->image = $item['sumamry']['cover'];
-                $book->description = $item['onix']['CollateralDetail']['TextContent']['Text'];
+                $book->title = $items['summary']['title'];
+                $book->google_book_id = $items['summary']['isbn'];
+                $book->image = $items['summary']['cover'];
+                $book->description = $items['onix']['CollateralDetail']['TextContent'][0]['Text'];                
                 $book->save();
                 $reading_record->book_id = $book->id;
             } else {
                 $reading_record->book_id = $google_book_id->id;
             }
-        }
+        
     }
 }

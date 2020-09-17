@@ -1,7 +1,7 @@
 <h2>{{ $items['summary']['title']}}</h2>
 
 <!-- 書籍のイメージ画像 -->
-@if(array_key_exists('cover', $items['summary']))
+@if($items['summary']['cover'])
 <img src="{{ $items['summary']['cover'] }}" alt="書籍のイメージ"><br>
 @endif
 
