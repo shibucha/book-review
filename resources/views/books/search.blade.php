@@ -20,7 +20,7 @@
     @include('includes.error_list')
 </form>
 
-@if($items === null)
+@if(count($items) === 0)
 <p>キーワードを入力してください。</p>
 @else($items > 0)
 <p>{{ isset($keyword) ? $keyword : $isbn }}の検索結果</p>

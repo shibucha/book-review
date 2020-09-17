@@ -63,7 +63,7 @@ class SearchController extends Controller
         }
 
         // 値の中身を確認          
-
+        
         return view('books.search', [
             'items' => $items,
             'keyword' => $keyword,
