@@ -24,13 +24,14 @@ class SearchRequest extends FormRequest
     public function rules()
     {
         return [            
-            'isbn' => 'numeric',
+            'isbn' => 'integer|numeric',
         ];
     }
 
     public function messages()
     {
         return [
+            'isbn.integer' =>'ISBNコードは連続数値で検索してください。',
             'isbn.numeric' =>'ISBNコードは連続数値で検索してください。',
         ];
     }

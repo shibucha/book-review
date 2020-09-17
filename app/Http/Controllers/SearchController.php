@@ -21,9 +21,15 @@ class SearchController extends Controller
     {
         $user_id = Auth::id();
         $items = null;
-        $keyword = $request->keyword;
-        $keyword = $request->isbn;
-        
+
+        if($request->keyword){
+            $keyword = $request->keyword;
+            $isbn = null;
+        } else {
+            $isbn = $request->isbn;
+            $keyword = null;
+        }
+        // ddd($keyword);    
 
         if (isset($keyword)) {
             //書籍APIの利用(App\Libraryの汎用クラスを使用)            
@@ -38,7 +44,23 @@ class SearchController extends Controller
                 $request->page,
                 ['path' => $request->url()]
             );
+        }
+        
+        if (isset($isbn)) {
+            //書籍APIの利用(App\Libraryの汎用クラスを使用)            
+            $items = OpenBd::openBdIsbn($isbn);            
+            $items = collect($items);
+           
+            // ペジネーションの実装
+            $items = new LengthAwarePaginator(
+                $items->forPage($request->page, 10),
+                $items->count(),
+                10,
+                $request->page,
+                ['path' => $request->url()]
+            );
         } 
+       
         
         //既に登録した本のgoogle_book_idを取得
         if (isset($user_id)) {
@@ -67,6 +89,7 @@ class SearchController extends Controller
         return view('books.search', [
             'items' => $items,           
             'keyword' => $keyword,
+            'isbn' =>$isbn,          
             'user_id' => $user_id,
             'google_book_ids' => $google_book_ids,
         ]);

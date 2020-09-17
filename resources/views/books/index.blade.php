@@ -28,8 +28,10 @@
 </div>
 
 <div class="search">
+    @include('includes.error_list')
     <form action="{{ route('books.search') }}" class="search__form" method="GET">
         <input type="text" name="keyword" placeholder="本を検索する。" style="border:1px solid black;">
+        <input type="text" name="isbn"  placeholder="ISBNコードで検索する。" style="border:1px solid black;">&nbsp;
         <input type="submit" value="検索">
     </form>
 </div>

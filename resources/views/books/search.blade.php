@@ -15,21 +15,20 @@
 
 <form method="GET" action="{{ route('books.search') }}">
     <input type="text" name="keyword" value="{{ $keyword }}" style="border:1px solid black;">&nbsp;
-    <input type="text" name="isbn" value="{{ $keyword }}" style="border:1px solid black;">&nbsp;
+    <input type="text" name="isbn" value="{{ $isbn }}" style="border:1px solid black;">&nbsp;
     <input type="submit" value="検索">
+    @include('includes.error_list')
 </form>
 
 @if($items === null)
 <p>キーワードを入力してください。</p>
 @else($items > 0)
-<p>{{ $keyword }}の検索結果</p>
+<p>{{ $keyword? $keyword : $isbn }}の検索結果</p>
 <hr>
 
 <!-- 検索結果表示 -->
-@include('includes.error_list')
 
 @include('includes.open_bds.open-bd-search')
-
 
 {{ $items->appends(request()->input())->links() }}
 <!-- ↑ ペジネーション機能 -->
