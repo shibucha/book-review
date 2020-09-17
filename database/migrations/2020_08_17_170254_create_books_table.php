@@ -17,7 +17,7 @@ class CreateBooksTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->unsignedBigInteger('author_id');
-            $table->foreign('author_id')->references('id')->on('authors');            
+            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade');            
             $table->text('description')->nullable();
             $table->text('image')->nullable();
             $table->string('google_book_id')->unique()->nullable();
@@ -31,9 +31,9 @@ class CreateBooksTable extends Migration
      * @return void
      */
     public function down()
-    {Schema::dropIfExists('books');
-        Schema::dropIfExists('authors');
-               
+    {          
+        Schema::dropIfExists('authors'); 
+        Schema::dropIfExists('books');                 
         
     }
 }
