@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\SearchRequest;
 use App\Library\GoogleBook;
 use App\Library\OpenBd;
 use App\Http\Requests\ReadingRecordRequest;
@@ -16,7 +17,7 @@ class SearchController extends Controller
 {
 
     //本の検索結果を表示
-    public function index(Request $request, ReadingRecord $reading_record)
+    public function index(SearchRequest $request, ReadingRecord $reading_record)
     {
         $user_id = Auth::id();
         $items = null;

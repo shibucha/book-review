@@ -26,6 +26,8 @@
 <hr>
 
 <!-- 検索結果表示 -->
+@include('includes.error_list')
+
 @include('includes.open_bds.open-bd-search')
 
 
