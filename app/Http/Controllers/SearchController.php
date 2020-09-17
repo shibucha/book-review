@@ -3,14 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use GuzzleHttp\Client;
 use App\Library\GoogleBook;
+use App\Library\OpenBd;
 use App\Http\Requests\ReadingRecordRequest;
 use Illuminate\Support\Facades\Auth;
 use App\ReadingRecord;
 use App\Book;
 use App\Author;
-use App\Library\OpenBd;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class SearchController extends Controller

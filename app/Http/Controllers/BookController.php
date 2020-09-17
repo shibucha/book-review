@@ -10,8 +10,7 @@ use App\Library\GoogleBook;
 use App\User;
 use App\Book;
 use App\Author;
-
-//レビュー登録処理のデータベース
+use App\Library\OpenBd;
 use App\ReadingRecord;
 
 class BookController extends Controller
@@ -44,7 +43,7 @@ class BookController extends Controller
         
         //グーグルブックスの書籍情報取得
         if(isset($book_id)){
-            $items = GoogleBook::googleBooksKeyword($book_id);
+            $items = OpenBd::openBdIsbn($book_id);
             $message = null;
         } 
         if(!isset($items)){
@@ -82,7 +81,7 @@ class BookController extends Controller
         
         //グーグルブックスの書籍情報取得
         if(isset($book_id)){
-            $items = GoogleBook::googleBooksKeyword($book_id);
+            $items = OpenBd::openBdIsbn($book_id);
             $message = null;
         }
 

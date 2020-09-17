@@ -25,7 +25,7 @@
 <hr>
 
 <!-- グーグルブックスの検索結果表示 -->
-@include('includes.open_bds.open-bds-search')
+@include('includes.open_bds.open-bd-search')
 
 
 
