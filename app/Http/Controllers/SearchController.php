@@ -2,15 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
+// Request
 use Illuminate\Http\Request;
 use App\Http\Requests\SearchRequest;
+use App\Http\Requests\ReadingRecordRequest;
+
+// Library
 use App\Library\GoogleBook;
 use App\Library\OpenBd;
-use App\Http\Requests\ReadingRecordRequest;
-use Illuminate\Support\Facades\Auth;
+use App\Library\BookReviewCommon;
+
+// Model
 use App\ReadingRecord;
 use App\Book;
 use App\Author;
+
+// Pagination
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class SearchController extends Controller
@@ -22,46 +31,20 @@ class SearchController extends Controller
         $user_id = Auth::id();
         $items = null;
 
-        if($request->keyword){
+        if ($request->keyword) {
             $keyword = $request->keyword;
             $isbn = null;
         } else {
             $isbn = $request->isbn;
             $keyword = null;
         }
-        // ddd($keyword);    
 
-        if (isset($keyword)) {
-            //書籍APIの利用(App\Libraryの汎用クラスを使用)            
-            $items = OpenBd::openBdIsbn($keyword);            
-            $items = collect($items);
-           
-            // ペジネーションの実装
-            $items = new LengthAwarePaginator(
-                $items->forPage($request->page, 10),
-                $items->count(),
-                10,
-                $request->page,
-                ['path' => $request->url()]
-            );
-        }
-        
-        if (isset($isbn)) {
-            //書籍APIの利用(App\Libraryの汎用クラスを使用)            
-            $items = OpenBd::openBdIsbn($isbn);            
-            $items = collect($items);
-           
-            // ペジネーションの実装
-            $items = new LengthAwarePaginator(
-                $items->forPage($request->page, 10),
-                $items->count(),
-                10,
-                $request->page,
-                ['path' => $request->url()]
-            );
-        } 
-       
-        
+        //書籍APIの利用(App\Libraryの汎用クラスを使用)
+        $items = OpenBd::openBdIsbn(isset($keyword) ? $keyword : $isbn);
+
+        // ページネーション(App\Libraryの汎用クラスを使用)
+        $items = BookReviewCommon::setPagination($items, 10, $request);
+
         //既に登録した本のgoogle_book_idを取得
         if (isset($user_id)) {
             $reviewed_books = ReadingRecord::with('book')->where('user_id', $user_id)->get();
@@ -71,25 +54,20 @@ class SearchController extends Controller
                 foreach ($reviewed_books as $book) {
                     $google_book_ids[] = $book->book->google_book_id;
                 }
-            } 
-            else 
-            {
+            } else {
                 $google_book_ids[] = null;
             }
-
-        } 
-        else 
-        {
+        } else {
             //未ログインユーザーの場合
             $google_book_ids[] = null;
         }
 
         // 値の中身を確認          
-       
+
         return view('books.search', [
-            'items' => $items,           
+            'items' => $items,
             'keyword' => $keyword,
-            'isbn' =>$isbn,          
+            'isbn' => $isbn,
             'user_id' => $user_id,
             'google_book_ids' => $google_book_ids,
         ]);
@@ -109,8 +87,7 @@ class SearchController extends Controller
             $items = OpenBd::openBdIsbn($book_id);
 
             // OpenBdの書籍情報を保存（App\Library\OpenBd）
-            OpenBd::OpenBdStore($items,$author,$book,$reading_record,$book_id, $user_id);        
-
+            OpenBd::OpenBdStore($items, $author, $book, $reading_record, $book_id, $user_id);
         }
 
 
