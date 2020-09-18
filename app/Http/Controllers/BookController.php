@@ -2,16 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Requests\ReadingRecordRequest;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
-use App\Library\GoogleBook;
+
+// Request
+use Illuminate\Http\Request;
+use App\Http\Requests\ReadingRecordRequest;
+
+// Model
 use App\User;
 use App\Book;
 use App\Author;
-use App\Library\OpenBd;
 use App\ReadingRecord;
+
+// Library
+use App\Library\GoogleBook;
+use App\Library\OpenBd;
+
 
 class BookController extends Controller
 {
