@@ -30,17 +30,11 @@ class SearchController extends Controller
     {
         $user_id = Auth::id();
         $items = null;
+        $keyword = $request->keyword;
+        // ddd($keyword);
 
-        if ($request->keyword) {
-            $keyword = $request->keyword;
-            $isbn = null;
-        } else {
-            $isbn = $request->isbn;
-            $keyword = null;
-        }
-
-        //書籍APIの利用(App\Libraryの汎用クラスを使用)
-        $items = OpenBd::openBdIsbn(isset($keyword) ? $keyword : $isbn);
+        //書籍APIの利用(App\Library)
+        $items = GoogleBook::googleBooksKeyword($keyword);
 
         // ページネーション(App\Libraryの汎用クラスを使用)
         $items = BookReviewCommon::setPagination($items, 10, $request);
@@ -66,8 +60,7 @@ class SearchController extends Controller
         
         return view('books.search', [
             'items' => $items,
-            'keyword' => $keyword,
-            'isbn' => $isbn,
+            'keyword' => $keyword,            
             'user_id' => $user_id,
             'book_ids' => $book_ids,
         ]);
@@ -83,11 +76,11 @@ class SearchController extends Controller
         //登録する書籍のAPI情報を取得
         if (isset($book_id)) {
 
-            // OpenBdの書籍情報を取得（App\Library\OpenBd）
-            $items = OpenBd::openBdIsbn($book_id);
+            // 書籍情報を取得（App\Library\）
+            $items = GoogleBook::googleBooksKeyword($book_id);
 
-            // OpenBdの書籍情報を保存（App\Library\OpenBd）
-            OpenBd::OpenBdStore($items, $author, $book, $reading_record, $book_id, $user_id);
+            // 書籍情報を保存（App\Library\）
+            GoogleBook::googleBookStore($items, $author, $book, $reading_record, $book_id, $user_id);
         }
 
 

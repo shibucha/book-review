@@ -1,3 +1,6 @@
+
+
+<!-- 検索結果の表示 -->
 @foreach($items as $item)
 
 <h2>{{ $item['volumeInfo']['title']}}</h2>

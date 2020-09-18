@@ -24,7 +24,7 @@ class GoogleBook
         $url = 'https://www.googleapis.com/books/v1/volumes?q=' . $keyword . '&maxResults=30&country=JP&tbm=bks';
 
         $client = new Client();
-
+       
         $response = $client->request("GET", $url);
 
         $body = $response->getBody();

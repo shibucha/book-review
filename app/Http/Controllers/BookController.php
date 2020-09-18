@@ -18,6 +18,7 @@ use App\ReadingRecord;
 // Library
 use App\Library\GoogleBook;
 use App\Library\OpenBd;
+use App\Library\BookReviewCommon;
 
 
 class BookController extends Controller
@@ -50,7 +51,7 @@ class BookController extends Controller
         
         //グーグルブックスの書籍情報取得
         if(isset($book_id)){
-            $items = OpenBd::openBdIsbn($book_id);
+            $items = GoogleBook::googleBooksKeyword($book_id);
             $message = null;
         } 
         if(!isset($items)){
@@ -86,9 +87,9 @@ class BookController extends Controller
     public function nothingToShow($book_id){
         $items = null;
         
-        //グーグルブックスの書籍情報取得
+        //書籍情報取得(App\Library)
         if(isset($book_id)){
-            $items[] = OpenBd::openBdIsbn($book_id);
+            $items[] = GoogleBook::googleBooksKeyword($book_id);
             $message = null;
         }
 
