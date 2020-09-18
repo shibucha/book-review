@@ -34,7 +34,7 @@
 <p>まだ誰もレビューしていません。</p>
 <p>読んで気に入ったら、本棚に追加してみませんか？</p>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ $item['id'] }}">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#a-{{ $item['id'] }}">
     本を登録する。
 </button>
 

@@ -85,6 +85,7 @@ class BookController extends Controller
         ]);
     }
 
+    // まだ誰もレビューしたことのない本の場合
     public function nothingToShow($book_id)
     {
         $items = null;
@@ -98,6 +99,7 @@ class BookController extends Controller
         return view('books.nothing-to-show', ['items' => $items[0]]);
     }
 
+    // レビューの編集
     public function update(int $reading_record_id, ReadingRecordRequest $request)
     {
         $reading_record = ReadingRecord::find($reading_record_id);
@@ -105,6 +107,7 @@ class BookController extends Controller
         return redirect()->route('books.index');
     }
 
+    // レビューの削除
     public function destroy(int $reading_record_id)
     {
         $reading_record = ReadingRecord::find($reading_record_id);
@@ -112,6 +115,7 @@ class BookController extends Controller
         return redirect()->route('books.index');
     }
 
+    // いいね機能
     public function like($reading_record_id, Request $request)
     {
 
@@ -125,6 +129,7 @@ class BookController extends Controller
         ];
     }
 
+    // いいね外す
     public function unlike($reading_record_id, Request $request)
     {
 

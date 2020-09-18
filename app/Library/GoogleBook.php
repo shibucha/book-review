@@ -26,11 +26,11 @@ class GoogleBook
         $client = new Client();
        
         $response = $client->request("GET", $url);
-
+        
         $body = $response->getBody();
-
+        
         $bodyArray = json_decode($body, true);
-     
+        
         return $bodyArray['items'];
     }
 
