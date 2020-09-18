@@ -40,7 +40,7 @@ class OpenBd
 
             // API情報にAuhtorsキーが存在するかチェック
             if ($items['summary']['author']) {
-                $author_name = Author::where('author', mb_substr($items['summary']['author'], 0, -2, "UTF-8"))->first();
+                $author_name = Author::where('author', str_replace(['／著','／原著'],"",$items['summary']['author']))->first();
             } else {
                 $author_name = "不明";
             }
@@ -68,8 +68,8 @@ class OpenBd
 
 
             //著者が既にテーブルに存在しているか確認する。
-            if (!isset($author_name)) {
-                $author->author = mb_substr($items['summary']['author'], 0, -2, "UTF-8");                            
+            if (!isset($author_name)) {                                          
+                $author->author = str_replace(['／著','／原著'],"",$items['summary']['author']);                                        
                 $author->save();
                 $book->author_id = $author->id;
             } else {
@@ -79,10 +79,10 @@ class OpenBd
             //書籍情報APIが、booksテーブルにまだ存在しないならば、書籍情報を保存しておく。
             //過去既に登録されている本ならば、登録されている書籍のレコードのidを<reading_records>テーブルの<book_id>に登録する。
             if (!isset($book_id)) {
-                $book->title = $items['summary']['title'];
-                $book->book_id = $items['summary']['isbn'];
-                $book->image = $items['summary']['cover'];
-                $book->description = $items['onix']['CollateralDetail']['TextContent'][0]['Text'];                
+                $book->title = isset($items['summary']['title']) ? $items['summary']['title']: '不明';
+                $book->book_id = isset($items['summary']['isbn']) ? $items['summary']['isbn'] : '不明-'.mt_rand(1, 10000);
+                $book->image = isset($items['summary']['cover']) ? $items['summary']['cover'] : '';
+                $book->description = isset($items['onix']['CollateralDetail']['TextContent'][0]['Text']) ? $items['onix']['CollateralDetail']['TextContent'][0]['Text']: '概要なし';                
                 $book->save();
                 $reading_record->book_id = $book->id;
             } else {

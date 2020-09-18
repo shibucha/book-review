@@ -38,7 +38,7 @@ class GoogleBook
     public static function googleBookStore($items,$author,$book,$reading_record,$book_id, $user_id)
     {
         foreach ($items as $item) {
-            $google_book_id = Book::where('google_book_id', '=', $book_id)->first();
+            $book_id = Book::where('book_id', '=', $book_id)->first();
 
             // API情報にAuhtorsキーが存在するかチェック
             if (array_key_exists('authors', $item['volumeInfo'])) {
@@ -48,8 +48,8 @@ class GoogleBook
             }
 
             //もし既に登録した本を登録しようとしたら、トップページにリダイレクトする。
-            if (isset($google_book_id)) {
-                $registered_check = ReadingRecord::where('user_id', $user_id)->where('book_id', $google_book_id->id)->first();
+            if (isset($book_id)) {
+                $registered_check = ReadingRecord::where('user_id', $user_id)->where('book_id', $book_id->id)->first();
             }
             if (isset($registered_check)) {
                 return redirect()->route('books.index');
@@ -80,15 +80,15 @@ class GoogleBook
 
             //書籍情報APIが、booksテーブルにまだ存在しないならば、書籍情報を保存しておく。
             //過去既に登録されている本ならば、登録されている書籍のレコードのidを<reading_records>テーブルの<book_id>に登録する。
-            if (!isset($google_book_id)) {
+            if (!isset($book_id)) {
                 $book->title = $item['volumeInfo']['title'];
-                $book->google_book_id = $item['id'];
+                $book->book_id = $item['id'];
                 $book->image = $item['volumeInfo']['imageLinks']['thumbnail'];
                 $book->description = $item['volumeInfo']['description'];
                 $book->save();
                 $reading_record->book_id = $book->id;
             } else {
-                $reading_record->book_id = $google_book_id->id;
+                $reading_record->book_id = $book_id->id;
             }
         }
     }

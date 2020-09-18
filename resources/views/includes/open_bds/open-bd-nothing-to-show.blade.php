@@ -9,23 +9,31 @@
 @endif
 
 <!-- 書籍のタイトル -->
-@if($items['summary']['title'])
+@if(isset($items['summary']['title']))
 <P>{{ $items['summary']['title']}}</P>
+@else
+不明な書籍
 @endif
 
 <!-- 著者 -->
-@if($items['summary']['author'])
+@if(isset($items['summary']['author']))
 著者：{{ $items['summary']['author'] }}/
+@else
+著者：不明/
 @endif
 
 <!-- 出版日 -->
-@if($items['summary']['pubdate'])
+@if(isset($items['summary']['pubdate']))
 出版日：{{ $items['summary']['pubdate'] }}
+@else
+出版日：不明
 @endif
 
 <!-- 概要 -->
-@if($items['onix']['CollateralDetail']['TextContent'][0]['Text'])
+@if(isset($items['onix']['CollateralDetail']['TextContent'][0]['Text']))
 <p>概要<br>{{ $items['onix']['CollateralDetail']['TextContent'][0]['Text'] }}</p>
+@else
+<p>概要：なし</p>
 @endif
 
 @endif

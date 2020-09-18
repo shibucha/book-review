@@ -45,21 +45,21 @@ class SearchController extends Controller
         // ページネーション(App\Libraryの汎用クラスを使用)
         $items = BookReviewCommon::setPagination($items, 10, $request);
 
-        //既に登録した本のgoogle_book_idを取得
+        //既に登録した本のbook_idを取得
         if (isset($user_id)) {
             $reviewed_books = ReadingRecord::with('book')->where('user_id', $user_id)->get();
 
             //今までに本を登録しているか確認。
             if ($reviewed_books->count() > 0) {
                 foreach ($reviewed_books as $book) {
-                    $google_book_ids[] = $book->book->google_book_id;
+                    $book_ids[] = $book->book->book_id;
                 }
             } else {
-                $google_book_ids[] = null;
+                $book_ids[] = null;
             }
         } else {
             //未ログインユーザーの場合
-            $google_book_ids[] = null;
+            $book_ids[] = null;
         }
 
         // 値の中身を確認          
@@ -69,7 +69,7 @@ class SearchController extends Controller
             'keyword' => $keyword,
             'isbn' => $isbn,
             'user_id' => $user_id,
-            'google_book_ids' => $google_book_ids,
+            'book_ids' => $book_ids,
         ]);
     }
 

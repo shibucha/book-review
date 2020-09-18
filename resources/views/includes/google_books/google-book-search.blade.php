@@ -33,7 +33,7 @@
 <!--------------------------- START 認証済みの場合、本の登録可能 --------------------------->
 @auth
 <!-- Button trigger modal -->
-@if(in_array($item['id'], $google_book_ids))
+@if(in_array($item['id'], $book_ids))
 <a href="{{ route('books.show',['book_id'=>$item['id']])}}">
     <button class="btn btn-success">詳細ページへ</button>
 </a>
