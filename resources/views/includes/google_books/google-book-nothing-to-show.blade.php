@@ -1,11 +1,6 @@
-@section('title', '表示できるレビューはありません。')
 
-
-@section('content')
-
-<h1>表示出来る結果はありません。</h1>
-
-@if($item)
+@if($items)
+@foreach($items as $item)
 
 <!-- 書籍のイメージ画像 -->
 @if(array_key_exists('imageLinks', $item['volumeInfo']))
@@ -34,7 +29,6 @@
 <p>概要<br>{{ $item['volumeInfo']['description'] }}</p>
 @endif
 
-@endif
 
 <hr>
 <p>まだ誰もレビューしていません。</p>
@@ -43,6 +37,9 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ $item['id'] }}">
     本を登録する。
 </button>
+
+@endforeach
+@endif
 
 <!-- モーダルの登録フォーム読み込み -->
 @include('includes.google_books.google-book-register')

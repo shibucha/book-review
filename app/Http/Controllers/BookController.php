@@ -33,11 +33,11 @@ class BookController extends Controller
         $reviews = ReadingRecord::where('user_id', $user_id)->paginate(15);
         $reviews->load('book');
         $reviews_count = ReadingRecord::where('user_id', $user_id)->count();
-        
+
         return view('books.index', [
             'user' => $user,
             'reviews' => $reviews,
-            'reviews_count' => $reviews_count,       
+            'reviews_count' => $reviews_count,
         ]);
     }
 
@@ -46,32 +46,33 @@ class BookController extends Controller
     {
         $user_id = Auth::id();
         $user = User::find($user_id);
-
         $items = null;
-        
-        //グーグルブックスの書籍情報取得
-        if(isset($book_id)){
+
+        //書籍情報取得(App\Library)
+        if (isset($book_id)) {
             $items = GoogleBook::googleBooksKeyword($book_id);
             $message = null;
-        } 
-        if(!isset($items)){
+        }
+        if (!isset($items)) {
             $message = '本が選択されていません。';
         }
 
-        $book = Book::where('book_id',$book_id)->first();
-
         // これまでレビュー登録があったかどうかの確認
-        if($book === null){        
+        $book = Book::where('book_id', $book_id)->first();
+        if ($book === null) {
             // 過去にレビューされたことのない本の場合は、以下のページに飛ぶ。             
-            return redirect()->route('books.nothingToShow',['book_id' => $book_id]);
+            return redirect()->route('books.nothingToShow', ['book_id' => $book_id]);
         } else {
-            $review = ReadingRecord::where('user_id', $user_id)->where('book_id', $book->id)->first();             
-        }     
-        // $others_reviews = ReadingRecord::where('book_id', $book->id)->whereNotIn('user_id', [$user_id])->whereNotIn('public_private', [0])->get();        
-        $others_reviews = ReadingRecord::where('book_id', $book->id)->whereNotIn('user_id', [$user_id])->whereNotIn('public_private', [0])->get();        
-        $review_count = ReadingRecord::where('book_id', $book->id)->count();           
+            $review = ReadingRecord::where('user_id', $user_id)->where('book_id', $book->id)->first();
+        }
 
-        return view('books.show',[
+        // 他人のレビュー取得
+        $others_reviews = ReadingRecord::where('book_id', $book->id)->whereNotIn('user_id', [$user_id])->whereNotIn('public_private', [0])->get();
+
+        // その本のレビュー数をカウント
+        $review_count = ReadingRecord::where('book_id', $book->id)->count();
+
+        return view('books.show', [
             'items' => $items,
             'message' => $message,
             'book' => $book,
@@ -84,16 +85,17 @@ class BookController extends Controller
         ]);
     }
 
-    public function nothingToShow($book_id){
+    public function nothingToShow($book_id)
+    {
         $items = null;
-        
+
         //書籍情報取得(App\Library)
-        if(isset($book_id)){
+        if (isset($book_id)) {
             $items[] = GoogleBook::googleBooksKeyword($book_id);
             $message = null;
         }
 
-        return view('books.nothing-to-show',['items'=>$items[0]]);
+        return view('books.nothing-to-show', ['items' => $items[0]]);
     }
 
     public function update(int $reading_record_id, ReadingRecordRequest $request)
@@ -103,30 +105,32 @@ class BookController extends Controller
         return redirect()->route('books.index');
     }
 
-    public function destroy(int $reading_record_id){
+    public function destroy(int $reading_record_id)
+    {
         $reading_record = ReadingRecord::find($reading_record_id);
         $reading_record->delete();
         return redirect()->route('books.index');
     }
 
-    public function like($reading_record_id, Request $request){
+    public function like($reading_record_id, Request $request)
+    {
 
         $reading_record = ReadingRecord::find($reading_record_id);
 
         $reading_record->likes()->detach($request->user()->id);
-        $reading_record->likes()->attach($request->user()->id);       
+        $reading_record->likes()->attach($request->user()->id);
 
         return [
             'countLikes' => $reading_record->count_likes,
         ];
-
     }
 
-    public function unlike($reading_record_id, Request $request){
+    public function unlike($reading_record_id, Request $request)
+    {
 
         $reading_record = ReadingRecord::find($reading_record_id);
 
-        $reading_record->likes()->detach($request->user()->id);        
+        $reading_record->likes()->detach($request->user()->id);
 
         return [
             'countLikes' => $reading_record->count_likes,

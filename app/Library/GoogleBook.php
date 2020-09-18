@@ -30,7 +30,7 @@ class GoogleBook
         $body = $response->getBody();
 
         $bodyArray = json_decode($body, true);
-
+     
         return $bodyArray['items'];
     }
 
@@ -91,6 +91,10 @@ class GoogleBook
                 $reading_record->book_id = $book_id->id;
             }
         }
+    }
+
+    public static function getKeyword($request){
+        return $request->keyword;
     }
 
 }

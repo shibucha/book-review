@@ -30,14 +30,20 @@ class SearchController extends Controller
     {
         $user_id = Auth::id();
         $items = null;
-        $keyword = $request->keyword;
-        // ddd($keyword);
+        $keyword = GoogleBook::getKeyword($request);      
 
-        //書籍APIの利用(App\Library)
-        $items = GoogleBook::googleBooksKeyword($keyword);
+        if (isset($keyword)) {
+            //書籍APIの利用(App\Library)
+            $items = GoogleBook::googleBooksKeyword($keyword);
 
-        // ページネーション(App\Libraryの汎用クラスを使用)
-        $items = BookReviewCommon::setPagination($items, 10, $request);
+            if(!$items){
+                return redirect()->route('books.search');
+            }
+
+            // ページネーション(App\Libraryの汎用クラスを使用)
+            $items = BookReviewCommon::setPagination($items, 10, $request);
+        }
+
 
         //既に登録した本のbook_idを取得
         if (isset($user_id)) {
@@ -57,10 +63,10 @@ class SearchController extends Controller
         }
 
         // 値の中身を確認          
-        
+
         return view('books.search', [
             'items' => $items,
-            'keyword' => $keyword,            
+            'keyword' => $keyword,
             'user_id' => $user_id,
             'book_ids' => $book_ids,
         ]);

@@ -16,13 +16,22 @@
 <!-- 検索フォーム -->
 @include('includes.google_books.google-book-search-form')
 
-<!-- 検索結果表示 -->
+
+<!-- 検索キーワード有無のチェック -->
+@if($items === null)
+<p>キーワードを入力してください。</p>
+@else
+<p>{{ $keyword }}の検索結果</p>
+
+<hr>
+
+<!-- グーグルブックスの検索結果表示 -->
 @include('includes.google_books.google-book-search')
 
 <!--  ペジネーション機能 -->
 {{ $items->appends(request()->input())->links() }}
 
+@endif
 
-<!-- ↑ キーワードの検索終了 -->
 
 @endsection

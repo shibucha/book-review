@@ -34,7 +34,8 @@ class OpenBd
     }
 
 
-    public static function OpenBdStore($items,$author,$book,$reading_record,$book_id, $user_id){
+    public static function OpenBdStore($items,$author,$book,$reading_record,$book_id, $user_id)
+    {
         
             $book_id = Book::where('book_id', '=', $book_id)->first();
 
@@ -89,5 +90,9 @@ class OpenBd
                 $reading_record->book_id = $book_id->id;
             }
         
+    }
+
+    public static function getKeyword($request){
+        return $request->isbn;
     }
 }
