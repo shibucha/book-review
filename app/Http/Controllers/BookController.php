@@ -57,7 +57,7 @@ class BookController extends Controller
             $message = '本が選択されていません。';
         }
 
-        $book = Book::where('google_book_id',$book_id)->first();
+        $book = Book::where('book_id',$book_id)->first();
 
         // これまでレビュー登録があったかどうかの確認
         if($book === null){        

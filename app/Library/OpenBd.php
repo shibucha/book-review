@@ -36,7 +36,7 @@ class OpenBd
 
     public static function OpenBdStore($items,$author,$book,$reading_record,$book_id, $user_id){
         
-            $google_book_id = Book::where('google_book_id', '=', $book_id)->first();
+            $book_id = Book::where('book_id', '=', $book_id)->first();
 
             // API情報にAuhtorsキーが存在するかチェック
             if ($items['summary']['author']) {
@@ -46,8 +46,8 @@ class OpenBd
             }
             
             //もし既に登録した本を登録しようとしたら、トップページにリダイレクトする。
-            if (isset($google_book_id)) {
-                $registered_check = ReadingRecord::where('user_id', $user_id)->where('book_id', $google_book_id->id)->first();
+            if (isset($book_id)) {
+                $registered_check = ReadingRecord::where('user_id', $user_id)->where('book_id', $book_id->id)->first();
             }
             if (isset($registered_check)) {
                 return redirect()->route('books.index');
@@ -78,15 +78,15 @@ class OpenBd
 
             //書籍情報APIが、booksテーブルにまだ存在しないならば、書籍情報を保存しておく。
             //過去既に登録されている本ならば、登録されている書籍のレコードのidを<reading_records>テーブルの<book_id>に登録する。
-            if (!isset($google_book_id)) {
+            if (!isset($book_id)) {
                 $book->title = $items['summary']['title'];
-                $book->google_book_id = $items['summary']['isbn'];
+                $book->book_id = $items['summary']['isbn'];
                 $book->image = $items['summary']['cover'];
                 $book->description = $items['onix']['CollateralDetail']['TextContent'][0]['Text'];                
                 $book->save();
                 $reading_record->book_id = $book->id;
             } else {
-                $reading_record->book_id = $google_book_id->id;
+                $reading_record->book_id = $book_id->id;
             }
         
     }
