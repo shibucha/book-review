@@ -51,6 +51,7 @@
 @include('includes.open_bds.open-bd-register')
 
 
+
 @endauth
 <!--------------------------- END 認証済みの場合、本の登録可能 --------------------------->
 <hr>

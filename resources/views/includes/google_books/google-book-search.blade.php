@@ -51,7 +51,7 @@
 
 
 <!-- モーダル グーグルブックの登録フォーム -->
-@include('includes.open_bds.open-bd-register')
+@include('includes.google_books.google-book-register')
 
 
 @endauth

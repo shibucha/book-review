@@ -50,8 +50,8 @@ class BookController extends Controller
 
         //書籍情報取得(App\Library)
         if (isset($book_id)) {
-            // $item = GoogleBook::veryfyIsbnOrGoogleBookId($book_id);
-            $item = OpenBd::getOpenBdItemByIsbn($book_id);
+            $item = GoogleBook::veryfyIsbnOrGoogleBookId($book_id);
+            // $item = OpenBd::getOpenBdItemByIsbn($book_id);
                   
             $message = null;
         }
@@ -94,7 +94,8 @@ class BookController extends Controller
 
         //書籍情報取得(App\Library)
         if (isset($book_id)) {
-            $item = OpenBd::getOpenBdItemByIsbn($book_id);            
+            // $item = OpenBd::getOpenBdItemByIsbn($book_id);            
+            $item = GoogleBook::veryfyIsbnOrGoogleBookId($book_id);            
             $message = null;
         }
 

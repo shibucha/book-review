@@ -42,4 +42,5 @@
 @endif
 
 <!-- モーダルの登録フォーム読み込み -->
-@include('includes.open_bds.open-bd-register')
+
+@include('includes.google_books.google-book-register')

@@ -7,6 +7,7 @@
 
 <h1>表示出来る結果はありません。</h1>
 
-@include('includes.open_bds.open-bd-nothing-to-show')
+
+@include('includes.google_books.google-book-nothing-to-show')
 
 @endsection
