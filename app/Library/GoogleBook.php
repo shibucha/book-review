@@ -52,14 +52,15 @@ class GoogleBook
         $body = $response->getBody();
 
         $bodyArray = json_decode($body, true);
-
+        ddd($bodyArray); 
         return $bodyArray;
     }
 
-    public static function getGoogleBookItemByIsbn($book_id){
-        
+    public static function getGoogleBookItemByIsbn($book_id)
+    {
+
         $book_id = urlencode($book_id);
-        
+
         $url = $url = $url = 'https://www.googleapis.com/books/v1/volumes?q=' . $book_id;
 
         $client = new Client();
@@ -69,7 +70,7 @@ class GoogleBook
         $body = $response->getBody();
 
         $bodyArray = json_decode($body, true);
-        ddd($bodyArray);
+
         return $bodyArray['items'][0];
     }
 
@@ -123,8 +124,9 @@ class GoogleBook
         if (!isset($book_id)) {
             $book->title = $item['volumeInfo']['title'];
             $book->book_id = $google_book->getBookId($item);
-            $book->image = $google_book->getGoogleBookImage($item);           
-            $book->description = $google_book->getGoogleBookDescription($item);            
+            ddd($google_book->getBookId($item));   
+            $book->image = $google_book->getGoogleBookImage($item);
+            $book->description = $google_book->getGoogleBookDescription($item);
             $book->save();
             $reading_record->book_id = $book->id;
         } else {
@@ -138,11 +140,45 @@ class GoogleBook
         return $request->keyword;
     }
 
-    // API情報にISBNコードが登録されていれば、ISBNコードを返し、登録されていなければ、OTHERKEYを返す。
+    // API情報にISBNコードが登録されていれば、ISBNコードを返し、登録されていなければ、VolumeIDを返す。
     private function getBookId($item)
     {
-        return
-            array_key_exists(0, $item['volumeInfo']['industryIdentifiers']) ? $item['volumeInfo']['industryIdentifiers'][0]['identifier'] : $item['id'];
+        if (array_key_exists('industryIdentifiers', $item['volumeInfo'])) {
+
+            // ISBN_13のコードを取得するための検証
+            if (array_key_exists(0, $item['volumeInfo']['industryIdentifiers'])) {
+
+                if (in_array("ISBN_13", $item['volumeInfo']['industryIdentifiers'][0])) {
+                    return $item['volumeInfo']['industryIdentifiers'][0]['identifier'];
+                }
+            }
+
+            // ISBN_13のコードを取得するための検証
+            if (array_key_exists(1, $item['volumeInfo']['industryIdentifiers'])) {
+
+                if (in_array("ISBN_13", $item['volumeInfo']['industryIdentifiers'][1])) {
+                    return $item['volumeInfo']['industryIdentifiers'][1]['identifier'];
+                }
+            }
+
+            // コードがOtherの場合はVolumeIDを返す
+            if (array_key_exists(0, $item['volumeInfo']['industryIdentifiers'])) {
+
+                if (in_array("OTHER", $item['volumeInfo']['industryIdentifiers'][0])) {
+                    return $item['id'];
+                }
+            }
+
+            // コードがOtherの場合はVolumeIDを返す
+            if (array_key_exists(1, $item['volumeInfo']['industryIdentifiers'])) {
+
+                if (in_array("OTHER", $item['volumeInfo']['industryIdentifiers'][1])) {
+                    return $item['id'];
+                }
+            }
+        } else {
+            return $item['id'];
+        }
     }
 
     // API情報にDescriptionが含まれているか検証。
@@ -152,7 +188,8 @@ class GoogleBook
             array_key_exists('description', $item['volumeInfo']) ? $item['volumeInfo']['description'] : 'なし';
     }
 
-    private function getGoogleBookImage($item){
+    private function getGoogleBookImage($item)
+    {
         return
             array_key_exists('imageLinks', $item['volumeInfo']) ? $item['volumeInfo']['imageLinks']['thumbnail'] : "";
     }
