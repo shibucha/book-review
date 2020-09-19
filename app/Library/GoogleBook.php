@@ -16,7 +16,15 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class GoogleBook
 {
 
-    protected $image = "Yea";
+    public static function veryfyIsbnOrGoogleBookId($book_id)
+    {   
+        
+        if(is_numeric($book_id)){
+            return self::getGoogleBookItemByIsbn($book_id);
+        } else {
+            return self::getGoogleBookItem($book_id);
+        }
+    }
 
     // キーワード検索による結果の取得
     public static function googleBooksKeyword($keyword)
@@ -52,7 +60,7 @@ class GoogleBook
         $body = $response->getBody();
 
         $bodyArray = json_decode($body, true);
-        ddd($bodyArray); 
+
         return $bodyArray;
     }
 
@@ -124,7 +132,6 @@ class GoogleBook
         if (!isset($book_id)) {
             $book->title = $item['volumeInfo']['title'];
             $book->book_id = $google_book->getBookId($item);
-            ddd($google_book->getBookId($item));   
             $book->image = $google_book->getGoogleBookImage($item);
             $book->description = $google_book->getGoogleBookDescription($item);
             $book->save();
