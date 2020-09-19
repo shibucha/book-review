@@ -50,7 +50,8 @@ class BookController extends Controller
 
         //書籍情報取得(App\Library)
         if (isset($book_id)) {
-            $item = GoogleBook::getGoogleBookItem($book_id);
+            $item = GoogleBook::getGoogleBookItemByIsbn($book_id);
+            
             $message = null;
         }
         if (!isset($item)) {
