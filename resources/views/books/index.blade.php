@@ -30,7 +30,7 @@
 <div class="search">
     @include('includes.error_list')
     <form action="{{ route('books.search') }}" class="search__form" method="GET">
-        <input type="text" name="keyword" placeholder="キーワードで検索。" style="border:1px solid black;">       
+        <input type="text" name="keyword" placeholder="キーワードで検索。" style="border:1px solid black;">
         <input type="submit" value="検索">
     </form>
 </div>
@@ -40,18 +40,22 @@
     @if($reviews_count > 0)
     @foreach($reviews as $review)
     <div class="reading-book">
+        @if($review->book->image)
         <img src="{{$review->book->image}}" alt="登録した本のイメージ" class="reading-book_img">
+        @else
+        <img src="/storage.book/book_noimage.png" alt="画像はありません" class="reading-book_img">
+        @endif
         <div class="reading-book_title">書籍名：{{ $review->book->title }}</div>
         <div class="reading-book_date">読了日：{{ $review->reading_date }}</div>
         <a href="{{ route('books.show', ['book_id' => $review->book->book_id])}}">
-        <button>この本について</button>
-        </a>       
+            <button>この本について</button>
+        </a>
     </div>
-    @endforeach 
+    @endforeach
 
     <!--  ペジネーション機能 -->
     {{$reviews->links()}}
-       
+
     @else
     <p>まだ本は登録されていません。</p>
     @endif

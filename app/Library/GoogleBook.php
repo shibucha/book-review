@@ -102,8 +102,8 @@ class GoogleBook
             if (!isset($book_id)) {
                 $book->title = $item['volumeInfo']['title'];
                 $book->book_id = $item['id'];
-                $book->image = $item['volumeInfo']['imageLinks']['thumbnail'];
-                $book->description = $item['volumeInfo']['description'];
+                $book->image = $item['volumeInfo']['imageLinks']['thumbnail'] ?: "";
+                $book->description = $item['volumeInfo']['description'] ?: "なし";
                 $book->save();
                 $reading_record->book_id = $book->id;
             } else {
