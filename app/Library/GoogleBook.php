@@ -64,6 +64,7 @@ class GoogleBook
         return $bodyArray;
     }
 
+    //ISBNコードで書籍を取得
     public static function getGoogleBookItemByIsbn($book_id)
     {
 
