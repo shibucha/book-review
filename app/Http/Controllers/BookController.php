@@ -50,7 +50,9 @@ class BookController extends Controller
 
         //書籍情報取得(App\Library)
         if (isset($book_id)) {
-            $item = GoogleBook::veryfyIsbnOrGoogleBookId($book_id);            
+            // $item = GoogleBook::veryfyIsbnOrGoogleBookId($book_id);
+            $item = OpenBd::getOpenBdItemByIsbn($book_id);
+                  
             $message = null;
         }
         if (!isset($item)) {
@@ -71,7 +73,7 @@ class BookController extends Controller
 
         // その本のレビュー数をカウント
         $review_count = ReadingRecord::where('book_id', $book->id)->count();
-
+       
         return view('books.show', [
             'item' => $item,
             'message' => $message,
@@ -92,7 +94,7 @@ class BookController extends Controller
 
         //書籍情報取得(App\Library)
         if (isset($book_id)) {
-            $item = GoogleBook::veryfyIsbnOrGoogleBookId($book_id);
+            $item = OpenBd::getOpenBdItemByIsbn($book_id);            
             $message = null;
         }
 

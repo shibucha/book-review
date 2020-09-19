@@ -1,37 +1,37 @@
 
-@if($items)
+@if($item)
 
 <!-- 書籍のイメージ画像 -->
-@if( $items['summary']['cover'])
-<img src="{{ $items['summary']['cover'] }}" alt="書籍のイメージ"><br>
+@if( $item['summary']['cover'])
+<img src="{{ $item['summary']['cover'] }}" alt="書籍のイメージ"><br>
 @else
 <img src="/storage/book/book_noimage.png" alt="書籍のイメージ" width="200px" width="200px">
 @endif
 
 <!-- 書籍のタイトル -->
-@if(isset($items['summary']['title']))
-<P>{{ $items['summary']['title']}}</P>
+@if(isset($item['summary']['title']))
+<P>{{ $item['summary']['title']}}</P>
 @else
 不明な書籍
 @endif
 
 <!-- 著者 -->
-@if(isset($items['summary']['author']))
-著者：{{ $items['summary']['author'] }}/
+@if(isset($item['summary']['author']))
+著者：{{ $item['summary']['author'] }}/
 @else
 著者：不明/
 @endif
 
 <!-- 出版日 -->
-@if(isset($items['summary']['pubdate']))
-出版日：{{ $items['summary']['pubdate'] }}
+@if(isset($item['summary']['pubdate']))
+出版日：{{ $item['summary']['pubdate'] }}
 @else
 出版日：不明
 @endif
 
 <!-- 概要 -->
-@if(isset($items['onix']['CollateralDetail']['TextContent'][0]['Text']))
-<p>概要<br>{{ $items['onix']['CollateralDetail']['TextContent'][0]['Text'] }}</p>
+@if(isset($item['onix']['CollateralDetail']['TextContent'][0]['Text']))
+<p>概要<br>{{ $item['onix']['CollateralDetail']['TextContent'][0]['Text'] }}</p>
 @else
 <p>概要：なし</p>
 @endif

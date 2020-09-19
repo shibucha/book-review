@@ -42,4 +42,4 @@
 @endif
 
 <!-- モーダルの登録フォーム読み込み -->
-@include('includes.google_books.google-book-register')
+@include('includes.open_bds.open-bd-register')

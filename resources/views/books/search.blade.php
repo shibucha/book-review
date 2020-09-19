@@ -14,7 +14,7 @@
 @endif
 
 <!-- 検索フォーム -->
-@include('includes.google_books.google-book-search-form')
+@include('includes.open_bds.open-bd-search-form')
 
 
 <!-- 検索キーワード有無のチェック -->
@@ -26,7 +26,7 @@
 <hr>
 
 <!-- グーグルブックスの検索結果表示 -->
-@include('includes.google_books.google-book-search')
+@include('includes.open_bds.open-bd-search')
 
 <!--  ペジネーション機能 -->
 {{ $items->appends(request()->input())->links() }}

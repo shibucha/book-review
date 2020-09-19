@@ -14,10 +14,10 @@
             </div>
 
             <!-- 書籍タイトル -->
-            <p class="modal__book-title">タイトル：{{ $items['summary']['title']}}</p>
+            <p class="modal__book-title">タイトル：{{ $item['summary']['title']}}</p>
 
             <!-- 登録フォーム -->
-            <form action="{{ route('search.store',['book_id'=>$items['summary']['isbn']]) }}" method="POST">
+            <form action="{{ route('search.store',['book_id'=>$item['summary']['isbn']]) }}" method="POST">
                 @csrf
                 @include('includes.error_list')
 
@@ -25,8 +25,8 @@
 
                     <div class="modal__book-title modal__left">
                         <div class="modal__book-image">
-                            @if($items['summary']['cover'])
-                            <img src="{{ $items['summary']['cover']}}" alt="書籍のイメージ"><br>
+                            @if($item['summary']['cover'])
+                            <img src="{{ $item['summary']['cover']}}" alt="書籍のイメージ"><br>
                             @endif
                         </div>
                     </div>

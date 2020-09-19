@@ -1,33 +1,33 @@
-@if(isset($items))
+@if(isset($item))
 
 
 <!---------------------------------- START 書籍のAPI情報 -------------------------------->
 
 <!-- 書籍のイメージ画像 -->
-@if( $items['summary']['cover'])
-<img src="{{ $items['summary']['cover'] }}" alt="書籍のイメージ"><br>
+@if( $item['summary']['cover'])
+<img src="{{ $item['summary']['cover'] }}" alt="書籍のイメージ"><br>
 @else
 <img src="/storage/book/book_noimage.png" alt="書籍のイメージ" width="200px" width="200px">
 @endif
 
 <!-- 書籍のタイトル -->
-@if( $items['summary']['title'])
-<P>{{ $items['summary']['title']}}</P>
+@if( $item['summary']['title'])
+<P>{{ $item['summary']['title']}}</P>
 @endif
 
 <!-- 著者 -->
-@if($items['summary']['author'])
-著者：{{ $items['summary']['author'] }}
+@if($item['summary']['author'])
+著者：{{ $item['summary']['author'] }}
 @endif
 
 <!-- 出版日 -->
-@if($items['summary']['pubdate'])
-出版日：{{ $items['summary']['pubdate'] }}
+@if($item['summary']['pubdate'])
+出版日：{{ $item['summary']['pubdate'] }}
 @endif
 
 <!-- 概要 -->
-@if($items['onix']['CollateralDetail']['TextContent'][0]['Text'])
-<p>概要<br>{{ $items['onix']['CollateralDetail']['TextContent'][0]['Text'] }}</p>
+@if($item['onix']['CollateralDetail'])
+<p>概要<br>{{ $item['onix']['CollateralDetail']['TextContent'][0]['Text'] }}</p>
 @endif
 
 <!-- 本の登録者数 -->
@@ -37,6 +37,9 @@
 <div><i class="fas fa-user"></i>本棚登録:0人</div>
 @endif
 
+@else
+
+<p>表示する書籍はありません。</p>
 
 @endif
 <!---------------------------------- END 書籍のAPI情報 -------------------------------->

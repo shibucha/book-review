@@ -30,13 +30,14 @@ class SearchController extends Controller
     {
         $user_id = Auth::id();
         $items = null;
-        $keyword = GoogleBook::getKeyword($request);      
-
+        // $keyword = GoogleBook::getKeyword($request);      
+        $keyword = OpenBd::getKeyword($request);
+        
         if (isset($keyword)) {
             //書籍APIの利用(App\Library)
-            $items = GoogleBook::googleBooksKeyword($keyword);
-
-            if(!$items){
+            $items = OpenBd::getOpenBdItemByIsbn($keyword);
+            
+            if (!$items) {
                 return redirect()->route('books.search');
             }
 
@@ -83,10 +84,10 @@ class SearchController extends Controller
         if (isset($book_id)) {
 
             // 書籍情報を取得（App\Library\）
-            $item = GoogleBook::veryfyIsbnOrGoogleBookId($book_id);
+            $item = OpenBd::getOpenBdItemByIsbn($book_id);
 
             // 書籍情報を保存（App\Library\）
-            GoogleBook::googleBookStore($item, $author, $book, $reading_record, $book_id, $user_id);
+            OpenBd::OpenBdStore($item, $author, $book, $reading_record, $book_id, $user_id);
         }
 
 
