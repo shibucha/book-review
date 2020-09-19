@@ -83,7 +83,7 @@ class SearchController extends Controller
         if (isset($book_id)) {
 
             // 書籍情報を取得（App\Library\）
-            $item = GoogleBook::getGoogleBookItem($book_id);
+            $item = GoogleBook::veryfyIsbnOrGoogleBookId($book_id);
 
             // 書籍情報を保存（App\Library\）
             GoogleBook::googleBookStore($item, $author, $book, $reading_record, $book_id, $user_id);
