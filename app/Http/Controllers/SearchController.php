@@ -75,7 +75,7 @@ class SearchController extends Controller
     //本の感想登録
     public function store($book_id, ReadingRecordRequest $request, ReadingRecord $reading_record, Book $book, Author $author)
     {
-        $items = null;
+        $item = null;
         $user_id = Auth::id();
 
 
@@ -83,10 +83,10 @@ class SearchController extends Controller
         if (isset($book_id)) {
 
             // 書籍情報を取得（App\Library\）
-            $items = GoogleBook::googleBooksKeyword($book_id);
+            $item = GoogleBook::getGoogleBookItem($book_id);
 
             // 書籍情報を保存（App\Library\）
-            GoogleBook::googleBookStore($items, $author, $book, $reading_record, $book_id, $user_id);
+            GoogleBook::googleBookStore($item, $author, $book, $reading_record, $book_id, $user_id);
         }
 
 

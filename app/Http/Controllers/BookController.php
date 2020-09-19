@@ -46,14 +46,14 @@ class BookController extends Controller
     {
         $user_id = Auth::id();
         $user = User::find($user_id);
-        $items = null;
+        $item = null;
 
         //書籍情報取得(App\Library)
         if (isset($book_id)) {
-            $items = GoogleBook::googleBooksKeyword($book_id);
+            $item = GoogleBook::getGoogleBookItem($book_id);
             $message = null;
         }
-        if (!isset($items)) {
+        if (!isset($item)) {
             $message = '本が選択されていません。';
         }
 
@@ -73,7 +73,7 @@ class BookController extends Controller
         $review_count = ReadingRecord::where('book_id', $book->id)->count();
 
         return view('books.show', [
-            'items' => $items,
+            'item' => $item,
             'message' => $message,
             'book' => $book,
             'review' => $review,
@@ -88,15 +88,15 @@ class BookController extends Controller
     // まだ誰もレビューしたことのない本の場合
     public function nothingToShow($book_id)
     {
-        $items = null;
+        $item = null;
 
         //書籍情報取得(App\Library)
         if (isset($book_id)) {
-            $items[] = GoogleBook::googleBooksKeyword($book_id);
+            $item = GoogleBook::getGoogleBookItem($book_id);
             $message = null;
         }
 
-        return view('books.nothing-to-show', ['items' => $items[0]]);
+        return view('books.nothing-to-show', ['item' => $item]);
     }
 
     // レビューの編集

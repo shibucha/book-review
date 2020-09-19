@@ -1,7 +1,7 @@
-@if(isset($items))
-@foreach($items as $item)
+
 
 <!---------------------------------- START 書籍のAPI情報 -------------------------------->
+@if(isset($item))
 
 <!-- 書籍のイメージ画像 -->
 @if(array_key_exists('imageLinks', $item['volumeInfo']))
@@ -37,7 +37,6 @@
 <div><i class="fas fa-user"></i>本棚登録:0人</div>
 @endif
 
-@endforeach
 @endif
 <!---------------------------------- END 書籍のAPI情報 -------------------------------->
 
@@ -70,7 +69,7 @@ like-route="{{ route('books.like',['reading_record_id'=>$review->id])}}"
 
 @if($review) <!-- START もしも、まだ自分の感想が登録されていないならば、編集ボタン・削除ボタンは表示しない。 -->
 <!-- モーダル 感想の編集 -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ $review->book->book_id }}">編集</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit">編集</button>
 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-{{ $review->id }}">削除</button>
 
 <!-- 編集モーダル -->

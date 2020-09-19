@@ -16,6 +16,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class GoogleBook
 {
 
+    // キーワード検索による結果の取得
     public static function googleBooksKeyword($keyword)
     {
 
@@ -24,20 +25,38 @@ class GoogleBook
         $url = 'https://www.googleapis.com/books/v1/volumes?q=' . $keyword . '&maxResults=30&country=JP&tbm=bks';
 
         $client = new Client();
-       
+
         $response = $client->request("GET", $url);
-        
+
         $body = $response->getBody();
-        
+
         $bodyArray = json_decode($body, true);
-        
+
         return $bodyArray['items'];
     }
 
-    // googleブックスの保存メソッド
-    public static function googleBookStore($items,$author,$book,$reading_record,$book_id, $user_id)
+    // 該当する書籍のみ取得
+    public static function getGoogleBookItem($book_id)
     {
-        foreach ($items as $item) {
+        $keyword = urlencode($book_id);
+
+        $url = 'https://www.googleapis.com/books/v1/volumes/' . $book_id;
+
+        $client = new Client();
+
+        $response = $client->request("GET", $url);
+
+        $body = $response->getBody();
+
+        $bodyArray = json_decode($body, true);
+        
+        return $bodyArray;
+    }
+
+    // googleブックスの保存メソッド
+    public static function googleBookStore($item, $author, $book, $reading_record, $book_id, $user_id)
+    {
+        
             $book_id = Book::where('book_id', '=', $book_id)->first();
 
             // API情報にAuhtorsキーが存在するかチェック
@@ -90,11 +109,11 @@ class GoogleBook
             } else {
                 $reading_record->book_id = $book_id->id;
             }
-        }
+        
     }
 
-    public static function getKeyword($request){
+    public static function getKeyword($request)
+    {
         return $request->keyword;
     }
-
 }

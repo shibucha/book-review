@@ -1,6 +1,6 @@
 
-@if($items)
-@foreach($items as $item)
+@if($item)
+
 
 <!-- 書籍のイメージ画像 -->
 @if(array_key_exists('imageLinks', $item['volumeInfo']))
@@ -38,7 +38,7 @@
     本を登録する。
 </button>
 
-@endforeach
+
 @endif
 
 <!-- モーダルの登録フォーム読み込み -->
