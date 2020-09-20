@@ -46,13 +46,14 @@ class BookController extends Controller
     {
         $user_id = Auth::id();
         $user = User::find($user_id);
+        $google_book = new GoogleBook();
         $item = null;
-
+        
         //書籍情報取得(App\Library)
         if (isset($book_id)) {
-            $item = GoogleBook::veryfyIsbnOrGoogleBookId($book_id);
+            $item = $google_book->veryfyIsbnOrGoogleBookId($book_id);
             // $item = OpenBd::getOpenBdItemByIsbn($book_id);
-                  
+            
             $message = null;
         }
         if (!isset($item)) {
@@ -60,7 +61,7 @@ class BookController extends Controller
         }
 
         // これまでレビュー登録があったかどうかの確認
-        $book = Book::where('book_id', $book_id)->first();
+        $book = Book::where('book_id', $google_book->getBookId($item))->first();
         if ($book === null) {
             // 過去にレビューされたことのない本の場合は、以下のページに飛ぶ。             
             return redirect()->route('books.nothingToShow', ['book_id' => $book_id]);
@@ -91,11 +92,12 @@ class BookController extends Controller
     public function nothingToShow($book_id)
     {
         $item = null;
+        $google_book = new GoogleBook();
 
         //書籍情報取得(App\Library)
         if (isset($book_id)) {
             // $item = OpenBd::getOpenBdItemByIsbn($book_id);            
-            $item = GoogleBook::veryfyIsbnOrGoogleBookId($book_id);            
+            $item = $google_book->veryfyIsbnOrGoogleBookId($book_id);            
             $message = null;
         }
 

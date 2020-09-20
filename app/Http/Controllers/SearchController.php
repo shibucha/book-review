@@ -30,13 +30,14 @@ class SearchController extends Controller
     {
         $user_id = Auth::id();
         $items = null;
-        $keyword = GoogleBook::getKeyword($request);      
+        $google_book = new GoogleBook();
+        $keyword = $google_book->getKeyword($request);      
         // $keyword = OpenBd::getKeyword($request);
       
         if (isset($keyword)) {
             //書籍APIの利用(App\Library)
             // $items = OpenBd::getOpenBdItemByIsbn($keyword);
-            $items = GoogleBook::googleBooksKeyword($keyword);
+            $items = $google_book->googleBooksSearchResults($keyword);
             
             if (!$items) {
                 return redirect()->route('books.search');
@@ -62,15 +63,14 @@ class SearchController extends Controller
         } else {
             //未ログインユーザーの場合
             $book_ids[] = null;
-        }
-
-        // 値の中身を確認          
-
+        }               
+        
         return view('books.search', [
             'items' => $items,
             'keyword' => $keyword,
             'user_id' => $user_id,
             'book_ids' => $book_ids,
+            'google_book' => $google_book,
         ]);
     }
 
@@ -79,18 +79,18 @@ class SearchController extends Controller
     {
         $item = null;
         $user_id = Auth::id();
-
+        $google_book = new GoogleBook();
 
         //登録する書籍のAPI情報を取得
         if (isset($book_id)) {
 
             // 書籍情報を取得（App\Library\）
             // $item = OpenBd::getOpenBdItemByIsbn($book_id);
-            $item = GoogleBook::veryfyIsbnOrGoogleBookId($book_id);
+            $item = $google_book->veryfyIsbnOrGoogleBookId($book_id);
 
             // 書籍情報を保存（App\Library\）
             // OpenBd::OpenBdStore($item, $author, $book, $reading_record, $book_id, $user_id);
-            GoogleBook::googleBookStore($item, $author, $book, $reading_record, $book_id, $user_id);
+            $google_book->googleBookStore($item, $author, $book, $reading_record, $book_id, $user_id);
         }
 
 

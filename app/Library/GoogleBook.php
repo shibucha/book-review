@@ -27,7 +27,7 @@ class GoogleBook
     }
 
     // キーワード検索による結果の取得
-    public static function googleBooksKeyword($keyword)
+    public function googleBooksSearchResults($keyword)
     {
 
         $keyword = urlencode($keyword);
@@ -84,7 +84,7 @@ class GoogleBook
     }
 
     // googleブックスの保存メソッド
-    public static function googleBookStore($item, $author, $book, $reading_record, $book_id, $user_id)
+    public function googleBookStore($item, $author, $book, $reading_record, $book_id, $user_id)
     {
         $google_book = new GoogleBook;
 
@@ -143,13 +143,13 @@ class GoogleBook
     }
 
     // ISBNまたはキーワードで検索された場合の検証メソッド(2020/9/19（土）現時点ではキーワードのみの対応)
-    public static function getKeyword($request)
+    public function getKeyword($request)
     {
         return $request->keyword;
     }
 
     // API情報にISBNコードが登録されていれば、ISBNコードを返し、登録されていなければ、VolumeIDを返す。
-    private function getBookId($item)
+    public function getBookId($item)
     {
         if (array_key_exists('industryIdentifiers', $item['volumeInfo'])) {
 
