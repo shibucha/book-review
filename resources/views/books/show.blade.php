@@ -7,6 +7,6 @@
 <h1>本の詳細ページ</h1>
 
 
-@include('includes.google_books.google-book-show')
+@include('includes.open_bds.open-bd-show')
 
 @endsection

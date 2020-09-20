@@ -48,7 +48,7 @@
 
 
 <!-- モーダル OpenBDの登録フォーム -->
-@include('includes.open_bds.open-bd-register')
+@include('includes.open_bds.open-bd-search-page-register')
 
 
 
