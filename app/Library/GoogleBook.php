@@ -88,8 +88,9 @@ class GoogleBook
     {
         $google_book = new GoogleBook;
 
-        $book_id = Book::where('book_id', '=', $book_id)->first();
-
+        // $book_id = Book::where('book_id', '=', $book_id)->first();
+        $book_id = Book::where('book_id', $google_book->getBookId($item))->first();
+        
         // API情報にAuhtorsキーが存在するかチェック
         if (array_key_exists('authors', $item['volumeInfo'])) {
             $author_name = Author::where('author', '=', $item['volumeInfo']['authors'][0])->first();
