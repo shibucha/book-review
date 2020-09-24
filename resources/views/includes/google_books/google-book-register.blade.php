@@ -46,6 +46,21 @@
                         <div class="modal__netabare">
                             <input type="checkbox" name="netabare" value="on">ネタバレ有り
                         </div>
+
+                        <div id="star">
+                            評価                      
+                                <star-rating 
+                                v-model="rating"
+                                @rating-selected ="setRating"                               
+                                v-bind:increment="0.5" 
+                                v-bind:star-size="20"
+                                v-bind:rating = "0"
+                                >
+                                </star-rating>                        
+                                <!-- 選択した星の値をhiddenで送信する。「:value="rating"」で値を取得する -->
+                                <input type="hidden" name="star" :value="rating" />
+                        </div>
+                      
                     </div>
 
                 </div>
