@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Carbon\Carbon;
 
 class ReadingRecord extends Model
 {      
@@ -43,5 +44,9 @@ class ReadingRecord extends Model
     public function getCountLikesAttribute():int
     {
         return $this->likes->count();
+    }
+
+    public function dateFormat($created_at){
+        return Carbon::createFromFormat('Y-m-d H:i:s', $created_at)->format('Y/m/d');
     }
 }

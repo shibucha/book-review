@@ -54,7 +54,7 @@
     @else
     <img src="/storage/icons/default.png" alt="ユーザーアイコン" width="30px" height="30px">
     @endif
-    {{$user->name}}さんの感想
+    {{$user->name}}さんの感想 / {{ $review->dateFormat($review->created_at)}}
 </div>
 
 @if($review->rating)
@@ -108,7 +108,7 @@
     @else
     <img src="/storage/icons/default.png" alt="ユーザーアイコン" width="30px" height="30px">
     @endif
-    {{ $other_review->user->name }}さんの感想
+    {{ $other_review->user->name }}さんの感想 / {{$other_review->dateFormat($other_review->created_at)}}
 </div>
 
 @if($review->rating)

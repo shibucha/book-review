@@ -15,7 +15,7 @@
     <div class="user__info">
         <div class="user__name"><i class="fas fa-user-circle"></i> {{ $user->name}} さんのマイページ</div>
         <div class="user__bookCount"><i class="fas fa-book-open"></i> 読書数 : {{ $number_of_readings }}冊</div>
-        <div class="user__bookCount"><i class="fas fa-book-open"></i> レビュー数 : {{ $reviews_count }}冊</div>
+        <div class="user__reviewCount"><i class="fas fa-pencil-alt"></i> レビュー数 : {{ $reviews_count }}冊</div>
     </div>
     <figure class="user__image">
         <a href="{{route('books.profile',['user_id'=>$user->id])}}">
