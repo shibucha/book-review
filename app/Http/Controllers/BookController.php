@@ -76,6 +76,11 @@ class BookController extends Controller
         // その本のレビュー数をカウント
         $review_count = ReadingRecord::where('book_id', $book->id)->count();
        
+        //本の評価数値を取得
+        $rating = ReadingRecord::where('book_id', $book->id)->select('rating')->get()->avg('rating');
+        // $rating = $rating->avg('rating');
+        // ddd($rating);
+
         return view('books.show', [
             'item' => $item,
             'message' => $message,
@@ -85,7 +90,8 @@ class BookController extends Controller
             'review_count' => $review_count,
             'reading_record' => $reading_record,
             'user' => $user,
-            'user_id' => $user_id
+            'user_id' => $user_id,
+            'rating' => $rating
         ]);
     }
 

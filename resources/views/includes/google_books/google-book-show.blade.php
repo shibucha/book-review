@@ -37,6 +37,11 @@
 <div><i class="fas fa-user"></i>本棚登録:0人</div>
 @endif
 
+@if(isset($rating))
+評価：{{$rating}}
+@else
+評価：不明
+@endif
 @endif
 <!---------------------------------- END 書籍のAPI情報 -------------------------------->
 
@@ -53,6 +58,11 @@
     {{$user->name}}さんの感想
 </div>
 @if($review)
+
+@if(!$review->body)
+{{$user->name}}さんは、まだ感想を登録していません。
+@endif
+
 <p>{{ $review->body }}</p>
 
 <!-- いいねボタン機能(Vueコンポーネント) -->
