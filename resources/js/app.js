@@ -12,13 +12,9 @@ import {Calender} from "./libs/Calender";
 const app = new Vue({
     el: '#app',
     methods:{
-        setRating(rating){                       
-            if(rating===0){
-                this.rating = 0;
-            } else {
-                this.rating = rating;
-            }
-        },
+        setRating(rating){  
+            this.rating = rating;    
+        },        
     },
     data:{
         rating: 0,

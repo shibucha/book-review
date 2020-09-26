@@ -51,11 +51,25 @@
                             @endif
                         </div>
                         <div class="modal__netabare">
-                        @if($review->netabare === "on")
+                            @if($review->netabare === "on")
                             <input type="checkbox" name="netabare" value="off">ネタバレ無し
                             @else
                             <input type="checkbox" name="netabare" value="on">ネタバレ有り
                             @endif
+                        </div>
+
+                        <div id="star">
+                            <!-- 選択した星の値をhiddenで送信する。「:value="rating"」で値を取得する -->
+                            <input type="radio" name="rating" :value="rating" />再評価する。
+                            <star-rating 
+                            v-model="rating" 
+                            @rating-selected="setRating" 
+                            v-bind:increment="0.5" 
+                            v-bind:star-size="20" 
+                            v-bind:rating="0">
+                            </star-rating>
+                            
+        <input type="radio" name="rating" value="{{ $review->rating }}" checked>再評価しない
                         </div>
                     </div>
 
