@@ -14,7 +14,8 @@
 <div class="user">
     <div class="user__info">
         <div class="user__name"><i class="fas fa-user-circle"></i> {{ $user->name}} さんのマイページ</div>
-        <div class="user__bookCount"><i class="fas fa-book-open"></i> {{ $user->name}} さんがこれまでに読んだ冊数 : {{ $reviews_count }}冊</div>
+        <div class="user__bookCount"><i class="fas fa-book-open"></i> 読書数 : {{ $number_of_readings }}冊</div>
+        <div class="user__bookCount"><i class="fas fa-book-open"></i> レビュー数 : {{ $reviews_count }}冊</div>
     </div>
     <figure class="user__image">
         <a href="{{route('books.profile',['user_id'=>$user->id])}}">
@@ -45,7 +46,15 @@
         @else
         <img src="/storage.book/book_noimage.png" alt="画像はありません" class="reading-book_img">
         @endif
-        <div class="reading-book_title">書籍名：{{ $review->book->title }}</div>
+        
+        <div class="reading-book_title">
+            書籍名：{{ $review->book->title }}｜
+            <!-- レビューを登録しているかどうか<div class=""></div> -->
+            @if($review->body)
+            <i class="fas fa-pencil-alt"></i>レビュー済
+            @endif
+        </div>
+
         <div class="reading-book_date">読了日：{{ $review->reading_date }}</div>
         <a href="{{ route('books.show', ['book_id' => $review->book->book_id])}}">
             <button>この本について</button>
