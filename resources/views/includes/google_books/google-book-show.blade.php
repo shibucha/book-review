@@ -1,5 +1,3 @@
-
-
 <!---------------------------------- START 書籍のAPI情報 -------------------------------->
 @if(isset($item))
 
@@ -32,16 +30,17 @@
 
 <!-- 本の登録者数 -->
 @if(isset($review_count))
-<div><i class="fas fa-user"></i>本棚登録:{{ $review_count}}人</div>
+<div><i class="fas fa-user"></i>本棚登録：{{ $review_count}}人</div>
 @else
-<div><i class="fas fa-user"></i>本棚登録:0人</div>
+<div><i class="fas fa-user"></i>本棚登録：0人</div>
 @endif
 
 @if(isset($rating))
-評価：{{$rating}}
+<i class="fas fa-star"></i>評価(1~5)：{{$rating}}
 @else
 評価：不明
 @endif
+
 @endif
 <!---------------------------------- END 書籍のAPI情報 -------------------------------->
 
@@ -57,6 +56,11 @@
     @endif
     {{$user->name}}さんの感想
 </div>
+
+@if($review->rating)
+<i class="fas fa-star"></i>評価(1~5)：{{$review->rating}}
+@endif
+
 @if($review)
 
 @if(!$review->body)
@@ -66,18 +70,15 @@
 <p>{{ $review->body }}</p>
 
 <!-- いいねボタン機能(Vueコンポーネント) -->
-<review-like
-:initial-like = "@json($review->isLiked($user_id))"
-:initial-count-likes = "@json($review->count_likes)"
-like-route="{{ route('books.like',['reading_record_id'=>$review->id])}}"
-></review-like>
+<review-like :initial-like="@json($review->isLiked($user_id))" :initial-count-likes="@json($review->count_likes)" like-route="{{ route('books.like',['reading_record_id'=>$review->id])}}"></review-like>
 
 @else
 <p>まだ感想は登録されていません。</p>
 @endif
 
 
-@if($review) <!-- START もしも、まだ自分の感想が登録されていないならば、編集ボタン・削除ボタンは表示しない。 -->
+@if($review)
+<!-- START もしも、まだ自分の感想が登録されていないならば、編集ボタン・削除ボタンは表示しない。 -->
 <!-- モーダル 感想の編集 -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit">編集</button>
 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-{{ $review->id }}">削除</button>
@@ -89,7 +90,8 @@ like-route="{{ route('books.like',['reading_record_id'=>$review->id])}}"
 @include('includes.delete-book-form')
 
 <!-- END モーダル-->
-@endif<!-- END もしも、まだ自分の感想が登録されていないならば、編集ボタン・削除ボタンは表示しない。 -->
+@endif
+<!-- END もしも、まだ自分の感想が登録されていないならば、編集ボタン・削除ボタンは表示しない。 -->
 <!---------------------------------- END 自分の感想 -------------------------------->
 
 
@@ -108,16 +110,17 @@ like-route="{{ route('books.like',['reading_record_id'=>$review->id])}}"
     @endif
     {{ $other_review->user->name }}さんの感想
 </div>
+
+@if($review->rating)
+<i class="fas fa-star"></i>評価(1~5)：{{$other_review->rating}}
+@endif
+
 <div class="netabare__{{ $other_review->netabare}}">
     <p>{{ $other_review->body }}</p>
 </div>
 
 <!-- いいねボタン機能(Vueコンポーネント) -->
-<review-like
-:initial-like = "@json($other_review->isLiked($user_id))"
-:initial-count-likes = "@json($other_review->count_likes)"
-like-route="{{ route('books.like',['reading_record_id'=>$other_review->id])}}"
-></review-like>
+<review-like :initial-like="@json($other_review->isLiked($user_id))" :initial-count-likes="@json($other_review->count_likes)" like-route="{{ route('books.like',['reading_record_id'=>$other_review->id])}}"></review-like>
 
 <hr>
 @endforeach

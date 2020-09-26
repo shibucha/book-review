@@ -32,10 +32,18 @@
 
 <!-- 本の登録者数 -->
 @if(isset($review_count))
-<div><i class="fas fa-user"></i>本棚登録:{{ $review_count}}人</div>
+<div><i class="fas fa-user"></i>本棚登録：{{ $review_count}}人</div>
 @else
-<div><i class="fas fa-user"></i>本棚登録:0人</div>
+<div><i class="fas fa-user"></i>本棚登録：0人</div>
 @endif
+
+@if(isset($rating))
+<i class="fas fa-star"></i>評価(1~5)：{{$rating}}
+@else
+評価：不明
+@endif
+
+
 
 @else
 
@@ -55,8 +63,17 @@
     @endif
     {{$user->name}}さんの感想
 </div>
+
+@if($review->rating)
+<i class="fas fa-star"></i>評価(1~5)：{{$review->rating}}
+@endif
+
 @if($review)
 <p>{{ $review->body }}</p>
+
+@if(!$review->body)
+{{$user->name}}さんは、まだ感想を登録していません。
+@endif
 
 <!-- いいねボタン機能(Vueコンポーネント) -->
 <review-like
@@ -99,6 +116,11 @@ like-route="{{ route('books.like',['reading_record_id'=>$review->id])}}"
     @endif
     {{ $other_review->user->name }}さんの感想
 </div>
+
+@if($review->rating)
+<i class="fas fa-star"></i>評価(1~5)：{{$other_review->rating}}
+@endif
+
 <div class="netabare__{{ $other_review->netabare}}">
     <p>{{ $other_review->body }}</p>
 </div>

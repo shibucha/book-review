@@ -17,7 +17,7 @@ const app = new Vue({
         },        
     },
     data:{
-        rating: 0,
+        rating: 1,
     },
     components:{
         ReviewLike,

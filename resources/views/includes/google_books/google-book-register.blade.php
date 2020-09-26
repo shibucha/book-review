@@ -58,7 +58,7 @@
                                 >
                                 </star-rating>                        
                                 <!-- 選択した星の値をhiddenで送信する。「:value="rating"」で値を取得する -->
-                                <input type="hidden" name="star" :value="rating" />
+                                <input type="hidden" name="rating" :value="rating" />
                         </div>
                       
                     </div>

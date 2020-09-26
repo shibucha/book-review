@@ -63,7 +63,7 @@ class SearchController extends Controller
         } else {
             //未ログインユーザーの場合
             $book_ids[] = null;
-        }               
+        } 
         
         return view('books.search', [
             'items' => $items,
