@@ -20,9 +20,7 @@
     <figure class="user__image">
         <a href="{{route('books.profile',['user_id'=>$user->id])}}">
             @if($user->icon)
-            <img src="/storage/icons/{{ $user->icon }}" alt="プロフィール画像" width="200px" width="200px">
-            @else
-            <img src="/storage/icons/default.png" alt="プロフィール画像" width="200px" width="200px">
+            <img src="{{ $user->icon }}" alt="プロフィール画像" width="200px" width="200px">
             @endif
         </a>
     </figure>
@@ -46,7 +44,7 @@
         @else
         <img src="/storage.book/book_noimage.png" alt="画像はありません" class="reading-book_img">
         @endif
-        
+
         <div class="reading-book_title">
             書籍名：{{ $review->book->title }}｜
             <!-- レビューを登録しているかどうか<div class=""></div> -->

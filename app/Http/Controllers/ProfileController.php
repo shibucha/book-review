@@ -18,18 +18,25 @@ class ProfileController extends Controller
 
     //プロフィール画像の登録処理
     public function store(ProfileRequest $request, int $user_id)
-    {
-        $user = User::find($user_id);
+    {        
+        $user = User::find($user_id);        
+        $disk = Storage::disk('s3');  
+        
+        if (isset($request->icon)) { 
 
-        if (isset($request->icon)) {
-            Storage::disk('local')->delete('public/icons/' . $user->icon); //画像の更新があったら、前の画像をストレージファイルから削除する。
-            $user->icon = ''; //usersテーブルのアイコンを空にする。
-            $path = $request->file('icon')->store('public/icons');
-            $image = basename($path);
+            if(!basename($user->icon) === "default.png"){
+                $icon = basename($user->icon);                
+                $disk->delete('icons/' . $icon); //画像の更新があったら、前の画像をストレージファイルから削除する。
+            } 
+
+            $user->icon = ''; //usersテーブルのアイコンを空にする。            
+            $path = $disk->put('icons', $request->file('icon'), 'public');
+            $image = Storage::disk('s3')->url($path);
+                     
         } elseif (isset($user->icon) && empty($request->icon)) {
             $image = $user->icon;
         } else {
-            $image = '';
+            $image = 'https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png';
         }
 
         $user->icon = $image;
@@ -42,9 +49,11 @@ class ProfileController extends Controller
     public function destroy(int $user_id)
     {
         $user = User::find($user_id);
+        $disk = Storage::disk('s3');
         if (isset($user->icon)) {
-            Storage::disk('local')->delete('public/icons/' . $user->icon);
-            $user->icon = NULL;
+            $icon = basename($user->icon);
+            $disk->delete('icons/' . $icon);
+            $user->icon = 'https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png';
             $user->save();
         }
         return redirect()->route('books.index');
