@@ -24,7 +24,7 @@ class ProfileController extends Controller
         
         if (isset($request->icon)) { 
 
-            if(!basename($user->icon) === "default.png"){
+            if(basename($user->icon) !== "default.png"){
                 $icon = basename($user->icon);                
                 $disk->delete('icons/' . $icon); //画像の更新があったら、前の画像をストレージファイルから削除する。
             } 
