@@ -1,8 +1,9 @@
 .modal {
     &-content {
-        width: 60vw;
+        width: 70vw;
         padding: 5%;
     }
+
     &__title {
         text-align: center;
     }
@@ -26,4 +27,16 @@
         border-radius: 10px;
         border: 1px solid;
     }
+    &__netabare-private{
+        display: flex;
+    }
+
+    // モーダル編集画面
+    &__star{       
+
+        &-rating{
+            display: flex;
+        }
+    }
+   
 }
