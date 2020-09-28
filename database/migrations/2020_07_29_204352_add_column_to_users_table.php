@@ -14,7 +14,7 @@ class AddColumnToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('icon')->after('password')->default('https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png');
+            $table->string('icon')->after('password')->nullable();
         });
     }
 

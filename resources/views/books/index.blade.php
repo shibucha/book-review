@@ -19,8 +19,10 @@
     </div>
     <figure class="user__image">
         <a href="{{route('books.profile',['user_id'=>$user->id])}}">
-            @if($user->icon)
+            @if($user->icon)https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png
             <img src="{{ $user->icon }}" alt="プロフィール画像" width="200px" width="200px">
+            @else
+            <img src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png" alt="プロフィール画像" width="200px" width="200px">
             @endif
         </a>
     </figure>
