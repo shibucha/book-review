@@ -1,0 +1,56 @@
+/******************************************************************
+
+Stylesheet: Route::get(books/index) → (マイページ)
+
+******************************************************************/
+
+.mypage {
+    &__inner {
+        @extend .content-width;
+    }
+    &__section {
+        margin: 20px 0;
+    }
+}
+
+// ユーザー情報
+.user {
+    &__inner {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+// 検索欄
+.search {
+    &__box {
+        display: flex;
+        width: 50%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    &__field {
+        flex-basis: 90%;
+        height: 40px;
+        border: 1px double #808080;
+        border-radius: 3px;
+    }
+
+    &__btn {
+        text-align: center;
+        flex-basis: 10%;
+        padding: 10px;
+    }
+}
+
+.review {
+    
+    display: flex;
+    flex-wrap: wrap;
+
+    &__book {
+        flex-basis: 200px;
+        margin: 10px;
+    }
+}
