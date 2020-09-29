@@ -8,6 +8,8 @@
 <!-- 書籍のイメージ画像 -->
 @if(array_key_exists('imageLinks', $item['volumeInfo']))
 <img src="{{ $item['volumeInfo']['imageLinks']['thumbnail'] }}" alt="書籍のイメージ"><br>
+@else
+<img src="https://book-review-shibucha.s3-ap-northeast-1.amazonaws.com/books/book_noimage.png" alt="書籍のイメージなし" width="200px" width="200px">
 @endif
 
 <!-- 著者 -->

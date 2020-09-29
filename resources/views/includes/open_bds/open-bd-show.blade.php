@@ -7,7 +7,7 @@
 @if( $item['summary']['cover'])
 <img src="{{ $item['summary']['cover'] }}" alt="書籍のイメージ"><br>
 @else
-<img src="/storage/book/book_noimage.png" alt="書籍のイメージ" width="200px" width="200px">
+<img src="https://book-review-shibucha.s3-ap-northeast-1.amazonaws.com/books/book_noimage.png" alt="書籍のイメージなし" width="200px" width="200px">
 @endif
 
 <!-- 書籍のタイトル -->
@@ -56,11 +56,11 @@
 
 <!---------------------------------- START 自分の感想 -------------------------------->
 <div>
-    @if($user->icon)
-    <img src="/storage/icons/{{$user->icon}}" alt="ユーザーアイコン" width="30px" height="30px">
-    @else
-    <img src="/storage/icons/default.png" alt="ユーザーアイコン" width="30px" height="30px">
-    @endif
+@if($user->icon)
+            <img src="{{ $user->icon }}" alt="プロフィール画像" width="30px" width="30px">
+            @else
+            <img src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png" alt="プロフィール画像" width="30px" width="30px">
+            @endif
     {{$user->name}}さんの感想 / / {{ $review->dateFormat($review->created_at)}}
 </div>
 
@@ -110,9 +110,9 @@ like-route="{{ route('books.like',['reading_record_id'=>$review->id])}}"
 @foreach($others_reviews as $other_review)
 <div>
     @if($other_review->user->icon)
-    <img src="/storage/icons/{{$other_review->user->icon}}" alt="ユーザーアイコン" width="30px" height="30px">
+    <img src="{{$other_review->user->icon}}" alt="ユーザーアイコン" width="30px" height="30px">
     @else
-    <img src="/storage/icons/default.png" alt="ユーザーアイコン" width="30px" height="30px">
+    <img src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png" alt="ユーザーアイコン" width="30px" height="30px">
     @endif
     {{ $other_review->user->name }}さんの感想 / {{$other_review->dateFormat($other_review->created_at)}}
 </div>
