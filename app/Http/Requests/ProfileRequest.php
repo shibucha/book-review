@@ -27,4 +27,11 @@ class ProfileRequest extends FormRequest
             'icon' => 'required|file|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
     }
+
+    public function attributes()
+    {
+        return [
+            'icon' => "アイコン",            
+        ];
+    }
 }
