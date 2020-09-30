@@ -7,30 +7,36 @@ Stylesheet: Route::get(books/index) → (マイページ)
 
 
 // マイページ共通
-img{
-    object-fit: cover;
-}
-
 .mypage {
     &__inner {
         @extend .content-width;
     }
     &__section {
-        margin: 20px 0;
+        margin: 40px 0;
     }
 }
 
 
 // ユーザー情報
 .user {
-    &__inner {
+    background-color: $themeColor;    
+    border-radius: 5px;
+    padding: 30px 30px 70px;
+    
+    img{
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__inner {        
         display: flex;
         flex-direction: column;
     }
 
     &__image{
-        width: 200px;
-        height: 200px;
+        width: 150px;
+        height: 150px;
         
         &-circle{
             border-radius: 50%;
