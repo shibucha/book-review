@@ -22,8 +22,9 @@
                         <img class="user__image-circle" src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png">
                         @endif
                     </a>
-                    <div class="user__name"><span class="user_name-bold">{{ $user->name}}</span> さんのマイページ</div>
+                    <div class="user__name"><span class="user__name-bold">{{ $user->name}}</span> さんのマイページ</div>
                 </figure>
+                
                 <div class="user__info">
                     <div class="user__bookCount"><i class="fas fa-book-open"></i> 読書数 : {{ $number_of_readings }}冊</div>
                     <div class="user__reviewCount"><i class="fas fa-pencil-alt"></i> レビュー数 : {{ $reviews_count }}冊</div>

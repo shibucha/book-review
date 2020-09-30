@@ -21,7 +21,7 @@ Stylesheet: Route::get(books/index) → (マイページ)
 .user {
     background-color: $themeColor;    
     border-radius: 5px;
-    padding: 30px 30px 70px;
+    padding: 30px 30px;
     text-align: center;
 
     img{
@@ -46,6 +46,7 @@ Stylesheet: Route::get(books/index) → (マイページ)
 
     &__name{
         font-size: 12px;
+        
         &-bold{
             font-weight: bold;
         }
