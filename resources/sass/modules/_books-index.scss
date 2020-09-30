@@ -22,7 +22,8 @@ Stylesheet: Route::get(books/index) → (マイページ)
     background-color: $themeColor;    
     border-radius: 5px;
     padding: 30px 30px 70px;
-    
+    text-align: center;
+
     img{
         object-fit: cover;
         width: 100%;
@@ -30,16 +31,23 @@ Stylesheet: Route::get(books/index) → (マイページ)
     }
 
     &__inner {        
-        display: flex;
-        flex-direction: column;
+        display: inline-block;      
     }
 
     &__image{
         width: 150px;
         height: 150px;
-        
+        margin-bottom: 20px;
+
         &-circle{
             border-radius: 50%;
+        }
+    }   
+
+    &__name{
+        font-size: 12px;
+        &-bold{
+            font-weight: bold;
         }
     }
 }

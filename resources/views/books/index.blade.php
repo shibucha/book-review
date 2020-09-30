@@ -14,8 +14,7 @@
 
         <div class="user mypage__section">
             <div class="user__inner">
-                <figure class="user__image">
-                    <div class="user__name"><i class="fas fa-user-circle"></i> {{ $user->name}} さんのマイページ</div>
+                <figure class="user__image">                    
                     <a href="{{route('books.profile',['user_id'=>$user->id])}}">
                         @if($user->icon)
                         <img class="user__image-circle" src="{{ $user->icon }}" alt="プロフィール画像">
@@ -23,6 +22,7 @@
                         <img class="user__image-circle" src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png">
                         @endif
                     </a>
+                    <div class="user__name"><span class="user_name-bold">{{ $user->name}}</span> さんのマイページ</div>
                 </figure>
                 <div class="user__info">
                     <div class="user__bookCount"><i class="fas fa-book-open"></i> 読書数 : {{ $number_of_readings }}冊</div>

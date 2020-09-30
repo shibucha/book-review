@@ -10,8 +10,14 @@ Stylesheet: 480px以上(スマホの横向き)のモニタで適用
 
 // ユーザー情報
 .user {
-    &__inner {        
-        flex-direction: row;
+    text-align: left;
+    
+    &__inner {
+        display: flex;         
+    }
+
+    &__info{
+        margin-left: 20px;
     }
 }
 
