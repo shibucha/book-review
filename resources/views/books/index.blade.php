@@ -18,9 +18,9 @@
                     <div class="user__name"><i class="fas fa-user-circle"></i> {{ $user->name}} さんのマイページ</div>
                     <a href="{{route('books.profile',['user_id'=>$user->id])}}">
                         @if($user->icon)
-                        <img src="{{ $user->icon }}" alt="プロフィール画像" width="200px" width="200px">
+                        <img class="user__image-circle" src="{{ $user->icon }}" alt="プロフィール画像">
                         @else
-                        <img src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png" alt="プロフィール画像" width="200px" width="200px">
+                        <img class="user__image-circle" src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png">
                         @endif
                     </a>
                 </figure>
@@ -45,26 +45,26 @@
         <div class="review mypage__section">
             @if($reviews_count > 0)
             @foreach($reviews as $review)
-            <div class="review__book">
-                @if($review->book->image)
-                <img src="{{$review->book->image}}" alt="登録した本のイメージ" class="reading-book_img">
-                @else
-                <img src="/storage.book/book_noimage.png" alt="画像はありません" class="reading-book_img">
-                @endif
-
-                <div class="review__title">
-                    書籍名：{{ $review->book->title }}｜
-                    <!-- レビューを登録しているかどうか<div class=""></div> -->
-                    @if($review->body)
-                    <i class="fas fa-pencil-alt"></i>レビュー済
+            <a class="review__show" href="{{ route('books.show', ['book_id' => $review->book->book_id])}}">
+                <div class="review__book">
+                    @if($review->book->image)
+                    <img src="{{$review->book->image}}" alt="登録した本のイメージ" class="reading-book_img">
+                    @else
+                    <img src="/storage.book/book_noimage.png" alt="画像はありません" class="reading-book_img">
                     @endif
-                </div>
 
-                <div class="review__date">読了日：{{ $review->reading_date }}</div>
-                <a href="{{ route('books.show', ['book_id' => $review->book->book_id])}}">
-                    <button>この本について</button>
-                </a>
-            </div>
+                    <div class="review__title">
+                        書籍名：{{ $review->book->title }}｜
+                        <!-- レビューを登録しているかどうか<div class=""></div> -->
+                        @if($review->body)
+                        <div class="review__title-done">
+                            <i class="fas fa-pencil-alt"></i>レビュー済
+                        </div>
+                        @endif
+                    </div>
+                    <div class="review__date">読了日：{{ $review->reading_date }}</div>
+                </div>
+            </a>
             @endforeach
 
             <!--  ペジネーション機能 -->

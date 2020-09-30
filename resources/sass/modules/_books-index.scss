@@ -4,6 +4,13 @@ Stylesheet: Route::get(books/index) → (マイページ)
 
 ******************************************************************/
 
+
+
+// マイページ共通
+img{
+    object-fit: cover;
+}
+
 .mypage {
     &__inner {
         @extend .content-width;
@@ -13,11 +20,21 @@ Stylesheet: Route::get(books/index) → (マイページ)
     }
 }
 
+
 // ユーザー情報
 .user {
     &__inner {
         display: flex;
         flex-direction: column;
+    }
+
+    &__image{
+        width: 200px;
+        height: 200px;
+        
+        &-circle{
+            border-radius: 50%;
+        }
     }
 }
 
@@ -44,14 +61,26 @@ Stylesheet: Route::get(books/index) → (マイページ)
     }
 }
 
+
+
 // 読書歴
 .review {
     
     display: flex;
     flex-wrap: wrap;
 
-    &__book {
+    &__show {
         flex-basis: 200px;
         margin: 10px;
+        font-size: 12px;
+        color: #000;
+    }
+
+    &__title{
+
+        &-done{
+            font-size: 10px;
+            font-weight: bold;
+        }
     }
 }
