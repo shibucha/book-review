@@ -26,8 +26,8 @@
                 </figure>
                 
                 <div class="user__info">
-                    <div class="user__bookCount"><i class="fas fa-book-open"></i> 読書数 : {{ $number_of_readings }}冊</div>
-                    <div class="user__reviewCount"><i class="fas fa-pencil-alt"></i> レビュー数 : {{ $reviews_count }}冊</div>
+                    <div class="user__bookCount"><i class="fas fa-book-open"></i> 読書数 : {{ $number_of_readings }} 冊</div>
+                    <div class="user__reviewCount"><i class="fas fa-pencil-alt"></i> レビュー数 : {{ $reviews_count }} 冊</div>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
             <form action="{{ route('books.search') }}" class="search__form" method="GET">
                 <div class="search__box">
                     <input class="search__field" type="text" name="keyword" placeholder="キーワードで検索。">
-                    <button class="search_btn" type="submit"><i class="fas fa-search"></i></button>
+                    <button class="search__btn" type="submit"><i class="fas fa-search"></i></button>
                 </div>
             </form>
         </div>
