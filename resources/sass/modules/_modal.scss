@@ -1,42 +1,73 @@
 .modal {
     &-content {
-        width: 70vw;
+        width: 100%;
+        margin: 0 auto;
         padding: 5%;
     }
 
-    &__title {
-        text-align: center;
-    }
 
-    &__body {
-        display: flex;
-    }
-    &__book-title {
-        margin: 0;
-        padding: 10px;
-        font-size: 1.5rem;
-    }
-    &__right {
-        margin-left: 10px;
-    }
-    &__date-field {
-        width: 100%;
-    }
-    &__input-field {
-        padding: 5px;
-        border-radius: 10px;
-        border: 1px solid;
-    }
-    &__netabare-private{
-        display: flex;
-    }
-
-    // モーダル編集画面
-    &__star{       
-
-        &-rating{
+    &-book{
+        
+        &__body {
             display: flex;
         }
+
+        // モーダルヘッダー部分
+        &__header{
+            display: flex;
+            margin-top: 20px;
+        }
+
+        &__details{
+            margin-left: 20px;
+        }
+        
+        // モーダル入力部分
+        &__date-field {
+            width: 100%;
+        }
+
+        &__input-field {
+            width: 100%;
+            padding: 5px;
+            border-radius: 10px;
+            border: 1px solid;
+        }
+
+        &__option{
+            margin-bottom: 5px;
+        }
+
+        &__margin-right{
+            margin-right: 5px;
+        }
+        &__netabare-private{
+            display: flex;
+        }
+    
+        .star{
+            display: flex;
+        }
+
+        // モーダル編集画面
+        &__star{     
+            &-rating{
+                display: flex;
+            }
+        }
+    }
+
+
+    // 外部ライブラリの追記部分
+
+    //vue star
+    .vue-star-rating{
+              
+    }
+
+    // flatpcrのカレンダーサイズ
+    .dayContainer{
+        max-width: 100%;
     }
    
 }

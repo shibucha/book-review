@@ -7,60 +7,67 @@
 
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title modal__title" id="exampleModalLongTitle">読んだ本に登録</h5>
+                <h5 class="modal-title modal-book__title" id="exampleModalLongTitle">読んだ本に登録</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
 
-            <!-- 書籍タイトル -->
-            <p class="modal__book-title">タイトル：{{ $item['volumeInfo']['title']}}</p>
+            <!-- 書籍の詳細 -->
+            <div class="modal-book__header">
+                <!-- 書籍イメージ -->
+                <div class="modal-book__image">
+                    <div class="modal-book__book-image">
+                        @if(array_key_exists('imageLinks', $item['volumeInfo']))
+                        <img src="{{ $item['volumeInfo']['imageLinks']['thumbnail']}}" alt="書籍のイメージ"><br>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="modal-book__details">
+                    <!-- 書籍タイトル -->
+                    <p class="modal-book__title">書籍名：{{ $item['volumeInfo']['title']}}</p>
+
+                    <!-- 著者 -->
+                    <p class="modal-book__author">
+                        @if(array_key_exists('authors', $item['volumeInfo']))
+                        著　者：{{ $item['volumeInfo']['authors'][0] }}
+                        @endif
+                    </p>
+                </div>
+            </div>
+
 
             <!-- 登録フォーム -->
             <form action="{{ route('search.store',['book_id'=>$item['id']]) }}" method="POST">
                 @csrf
                 @include('includes.error_list')
 
-                <div class="modal-body modal__body">
-
-                    <div class="modal__book-title modal__left">
-                        <div class="modal__book-image">
-                            @if(array_key_exists('imageLinks', $item['volumeInfo']))
-                            <img src="{{ $item['volumeInfo']['imageLinks']['thumbnail']}}" alt="書籍のイメージ"><br>
-                            @endif
-                        </div>
-                    </div>
-
-                    <div class="modal__right">
-                        <div class="modal__date form-group">
+                <div class="modal-body modal-book__body">
+                    <div class="modal-book__right">
+                        <div class="modal-book__date form-group">
                             <label for="reading_record">読了日:</label>
-                            <input type="date" name="reading_date" class="reading_date modal__input-field modal__date-field">
+                            <input type="date" name="reading_date" class="reading_date modal-book__input-field modal-book__date-field">
                         </div>
-                        <div class="form-group modal__review">
+                        <div class="form-group modal-book__review">
                             <label for="">感想・レビュー:</label>
-                            <textarea name="body" placeholder="感想・レビュー" cols="50" rows="10" value="{{ old('body')}}" class="modal__input-field"></textarea>
+                            <textarea name="body" placeholder="感想・レビュー" cols="50" rows="10" value="{{ old('body')}}" class="modal-book__input-field"></textarea>
                         </div>
-                        <div class="modal__private">
-                            <input type="checkbox" name="public_private" value="0">非公開にする。
+                        <div class="modal-book__option modal-book__private">
+                            <input type="checkbox" name="public_private" value="0" class="modal-book__margin-right">非公開にする。
                         </div>
-                        <div class="modal__netabare">
-                            <input type="checkbox" name="netabare" value="on">ネタバレ有り
+                        <div class="modal-book__option modal-book__netabare">
+                            <input type="checkbox" name="netabare" value="on" class="modal-book__margin-right">ネタバレ有り
                         </div>
 
-                        <div id="star">
-                            評価                      
-                                <star-rating 
-                                v-model="rating"
-                                @rating-selected ="setRating"                               
-                                v-bind:increment="0.5" 
-                                v-bind:star-size="20"
-                                v-bind:rating = "0"
-                                >
-                                </star-rating>                        
-                                <!-- 選択した星の値をhiddenで送信する。「:value="rating"」で値を取得する -->
-                                <input type="hidden" name="rating" :value="rating" />
+                        <div class="modal-book__option star">
+                            <div class="modal-book__margin-right">評価</div>                            
+                            <star-rating v-model="rating" @rating-selected="setRating" v-bind:increment="0.5" v-bind:star-size="20" v-bind:rating="0">
+                            </star-rating>
+                            <!-- 選択した星の値をhiddenで送信する。「:value="rating"」で値を取得する -->
+                            <input type="hidden" name="rating" :value="rating" />
                         </div>
-                      
+
                     </div>
 
                 </div>
