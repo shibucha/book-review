@@ -41,14 +41,15 @@
         &__margin-right{
             margin-right: 5px;
         }
+
         &__netabare-private{
             display: flex;
-        }
-    
-        .star{
-            display: flex;
-        }
+        } 
 
+        &__btn{
+            color: #fff;
+            box-shadow: 0 5px 13px 3px rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
+        }
         // モーダル編集画面
         &__star{     
             &-rating{
@@ -61,9 +62,7 @@
     // 外部ライブラリの追記部分
 
     //vue star
-    .vue-star-rating{
-              
-    }
+    
 
     // flatpcrのカレンダーサイズ
     .dayContainer{

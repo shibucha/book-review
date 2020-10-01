@@ -40,8 +40,7 @@
 
             <!-- 登録フォーム -->
             <form action="{{ route('search.store',['book_id'=>$item['id']]) }}" method="POST">
-                @csrf
-                @include('includes.error_list')
+                @csrf               
 
                 <div class="modal-body modal-book__body">
                     <div class="modal-book__right">
@@ -60,7 +59,7 @@
                             <input type="checkbox" name="netabare" value="on" class="modal-book__margin-right">ネタバレ有り
                         </div>
 
-                        <div class="modal-book__option star">
+                        <div class="modal-book__option modal-book__star">
                             <div class="modal-book__margin-right">評価</div>                            
                             <star-rating v-model="rating" @rating-selected="setRating" v-bind:increment="0.5" v-bind:star-size="20" v-bind:rating="0">
                             </star-rating>
@@ -72,8 +71,8 @@
 
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button>
-                    <button type="submit" class="btn btn-primary">登録する。</button>
+                    <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">キャンセル</button> -->
+                    <button type="submit" class="btn btn-dark modal-book__btn">登録する。</button>
                 </div>
             </form>
             <!-- 登録フォーム -->
