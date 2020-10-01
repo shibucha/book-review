@@ -3,3 +3,17 @@
 Stylesheet: 600px以上のタブレットやモニタで適用
 
 ******************************************************************/
+
+
+
+// _books-index 読書歴
+.review {   
+    
+    justify-content: left;
+
+    &__show {
+        flex-basis: 200px;
+        margin-left: 10px;
+    }
+
+}

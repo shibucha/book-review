@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="container">
+<div class="mypage__container">
     <div class="mypage__inner">
         @if(session('success'))
         <div class="alert alert-success">
@@ -49,9 +49,9 @@
             <a class="review__show" href="{{ route('books.show', ['book_id' => $review->book->book_id])}}">
                 <div class="review__book">
                     @if($review->book->image)
-                    <img src="{{$review->book->image}}" alt="登録した本のイメージ" class="reading-book_img">
+                    <img src="{{$review->book->image}}" alt="登録した本のイメージ" class="review__book-img">
                     @else
-                    <img src="/storage.book/book_noimage.png" alt="画像はありません" class="reading-book_img">
+                    <img src="/storage.book/book_noimage.png" alt="画像はありません" class="review__book-img">
                     @endif
 
                     <div class="review__title">
