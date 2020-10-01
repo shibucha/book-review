@@ -1,3 +1,10 @@
+/******************************************************************
+
+Stylesheet: モーダル関連
+
+******************************************************************/
+
+// 書籍登録モーダル
 .modal {
     &-content {
         width: 100%;
@@ -5,23 +12,21 @@
         padding: 5%;
     }
 
-
-    &-book{
-        
+    &-book {
         &__body {
             display: flex;
         }
 
         // モーダルヘッダー部分
-        &__header{
+        &__header {
             display: flex;
             margin-top: 20px;
         }
 
-        &__details{
+        &__details {
             margin-left: 20px;
         }
-        
+
         // モーダル入力部分
         &__date-field {
             width: 100%;
@@ -34,39 +39,43 @@
             border: 1px solid;
         }
 
-        &__option{
+        &__option {
             margin-bottom: 5px;
         }
 
-        &__margin-right{
+        &__margin-right {
             margin-right: 5px;
         }
 
-        &__netabare-private{
+        &__netabare-private {
             display: flex;
-        } 
-
-        &__btn{
-            color: #fff;
-            box-shadow: 0 5px 13px 3px rgba(0,0,0,0.18), 0 4px 15px 0 rgba(0,0,0,0.15);
         }
+
+        &__btn {
+            color: #fff;
+        }
+
+        &__btn:hover {
+            box-shadow: 0 5px 13px 3px rgba(0, 0, 0, 0.18),
+                0 4px 15px 0 rgba(0, 0, 0, 0.15);
+        }
+
         // モーダル編集画面
-        &__star{     
-            &-rating{
+        &__star {
+            &-rating {
                 display: flex;
             }
         }
     }
 
-
     // 外部ライブラリの追記部分
 
     //vue star
-    
 
     // flatpcrのカレンダーサイズ
-    .dayContainer{
+    .dayContainer {
         max-width: 100%;
     }
-   
 }
+
+// プロフィール画像設定モーダル

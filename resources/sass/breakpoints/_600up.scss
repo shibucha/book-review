@@ -4,16 +4,28 @@ Stylesheet: 600px以上のタブレットやモニタで適用
 
 ******************************************************************/
 
-
-
 // _books-index 読書歴
-.review {   
-    
+.review {
     justify-content: left;
 
     &__show {
         flex-basis: 150px;
         margin-left: 10px;
     }
+}
 
+// プロフィール画像関連
+.profile {
+    // 画像
+
+    &__btn {
+        margin: 0 0 20px;
+    }
+    &__block{
+        display: flex;
+    }
+    &__image {
+        width: 200px;
+        height: 200px;
+    }
 }
