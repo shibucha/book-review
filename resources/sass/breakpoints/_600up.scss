@@ -21,8 +21,11 @@ Stylesheet: 600px以上のタブレットやモニタで適用
     &__btn {
         margin: 0 0 20px;
     }
-    &__block{
+    &__block {
         display: flex;
+    }
+    &__upload {
+        margin-left: 20px;
     }
     &__image {
         width: 200px;
