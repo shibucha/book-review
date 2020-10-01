@@ -55,12 +55,12 @@
                     @endif
 
                     <div class="review__title">
-                        書籍名：{{ $review->book->title }}｜
-                        <!-- レビューを登録しているかどうか<div class=""></div> -->
+                        {{ $review->book->title }} /
+                        <!-- レビューを登録しているかどうか -->
                         @if($review->body)
-                        <div class="review__title-done">
+                        <span class="review__title-done">
                             <i class="fas fa-pencil-alt"></i>レビュー済
-                        </div>
+                        </span>
                         @endif
                     </div>
                     <div class="review__date">読了日：{{ $review->reading_date }}</div>
@@ -69,7 +69,9 @@
             @endforeach
 
             <!--  ペジネーション機能 -->
-            {{$reviews->links()}}
+            <div class="pagenate">
+                {{$reviews->links()}}
+            </div>
 
             @else
             <p>まだ本は登録されていません。</p>

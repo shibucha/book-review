@@ -30,7 +30,7 @@ Stylesheet: 480px以上(スマホの横向き)のモニタで適用
 
 // 読書歴
 .review { 
-    &__book {
-        width: 100%;        
+    &__show {
+        flex-basis: 28%;       
     }
 }
