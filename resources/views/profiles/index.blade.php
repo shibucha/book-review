@@ -19,6 +19,7 @@
           <!-- プロフィール画像 -->
           @if($user->icon)
           <img class="profile__image" src="{{ $user->icon }}" alt="プロフィール画像">
+          <div id="new_icon"></div>
           @else
           <img class="profile__image" src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png" alt="プロフィール画像">
           @endif

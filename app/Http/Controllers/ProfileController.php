@@ -12,8 +12,8 @@ class ProfileController extends Controller
 {
     public function index(int $user_id)
     {
-        $user = User::find($user_id);
-        return view('profiles.index', ['user' => $user]);
+        $user = User::find($user_id);        
+        return view('profiles.index', ['user' => $user, 'files'=>$_FILES]);
     }
 
     //プロフィール画像の登録処理

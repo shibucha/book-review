@@ -32,6 +32,7 @@ Stylesheet: プロフィール画像
         text-align: center;
     }
     &__image {
+        border:4px double #000;
         width: 150px;
         height: 150px;
         object-fit: cover;
