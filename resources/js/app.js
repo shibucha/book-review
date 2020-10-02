@@ -32,4 +32,3 @@ new Calender(".reading_date");
 // プロフィールアイコン関連
 const file = new Profile('profile__input', 'new_icon', '.profile__image');
 file.getFileName(); //画像の下に新しく登録するファイル名を取得して画面に表示
-
