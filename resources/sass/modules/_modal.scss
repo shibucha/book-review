@@ -79,3 +79,11 @@ Stylesheet: モーダル関連
 }
 
 // プロフィール画像設定モーダル
+.profile-modal-delete{
+
+    &__btn{
+        width: 150px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+    }
+}

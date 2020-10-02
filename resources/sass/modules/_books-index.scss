@@ -18,7 +18,6 @@ Stylesheet: Route::get(books/index) → (マイページ)
     }
 }
 
-
 // ユーザー情報
 .user {
     background-color: $themeColor;    
@@ -77,8 +76,6 @@ Stylesheet: Route::get(books/index) → (マイページ)
         text-align: center;  
     }
 }
-
-
 
 // 読書歴
 .review {

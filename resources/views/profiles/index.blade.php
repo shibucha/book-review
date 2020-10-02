@@ -8,7 +8,7 @@
 <div class="profile profile__container">
 
   <div class="profile__inner">
-    @include('includes.error_list')
+    
     <form class="profile__form" action="{{route('books.profile',['user_id'=>$user->id]) }}" method="POST" enctype="multipart/form-data">
       @csrf
 
@@ -25,22 +25,24 @@
         </div>
 
         <div class="profile__upload">
-          <label for="profile__input" class="profile__btn profile__btn-select">
+          <label for="profile__input" class="btn-dark profile__btn profile__btn-select">
             画像を選ぶ。
             <input type="file" name="icon" id="profile__input">
           </label>
 
           <!-- プロフィール画像の設定ボタン -->
-          <button type="submit" class="profile__btn profile__btn-set">画像を設定する</button>
+          <button type="submit" class="btn-info profile__btn profile__btn-set">画像を設定する</button>
 
           <!-- プロフィール画像の削除ボタン -->
           <a class="" data-toggle="modal" data-target="#modal-delete-{{ $user->id }}">
-            <button class="profile__btn profile__btn-delete">画像を削除する</button>
+            <button class="btn-danger profile__btn profile__btn-delete">画像を削除する</button>
           </a>
         </div>
       </div>
 
-
+      <div class="profile__error">
+        @include('includes.error_list')
+      </div>
     </form>
 
     <!-- モーダル -->
@@ -52,15 +54,16 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form method="POST" action="{{ route('books.profile.destroy', ['user_id'=>$user->id])}}">
+          <form class="profile-modal-delete__form" method="POST" action="{{ route('books.profile.destroy', ['user_id'=>$user->id])}}">
             @csrf
             @method('DELETE')
-            <div class="modal-body">
+            <div class="profile-modal-delete__body modal-body">
               プロフィール画像を削除します。よろしいですか？
             </div>
             <div class="modal-footer justify-content-between">
-              <a class="btn btn-outline-grey" data-dismiss="modal">キャンセル</a>
-              <button type="submit" class="btn btn-danger">削除する</button>
+              
+              <a class="btn btn-outline-grey profile-modal-delete__btn" data-dismiss="modal">キャンセル</a>              
+              <button type="submit" class="btn btn-danger profile-modal-delete__btn">削除する</button>
             </div>
           </form>
         </div>
