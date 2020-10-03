@@ -12,6 +12,8 @@ Stylesheet: モーダル関連
         padding: 5%;
     }
 
+
+    // moda-book   
     &-book {
         &__body {
             display: flex;
@@ -36,7 +38,7 @@ Stylesheet: モーダル関連
             width: 100%;
             padding: 5px;
             border-radius: 10px;
-            border: 1px solid;
+            border: 3px double #000
         }
 
         &__option {
@@ -63,7 +65,7 @@ Stylesheet: モーダル関連
         // モーダル編集画面
         &__star {
             &-rating {
-                display: flex;
+                margin-bottom: 10px;
             }
         }
     }
@@ -71,12 +73,22 @@ Stylesheet: モーダル関連
     // 外部ライブラリの追記部分
 
     //vue star
+    .vue-star-rating{
+        margin-left: 10px;
 
+        &-text{
+            margin-top: 4px;
+        }
+    }
     // flatpcrのカレンダーサイズ
     .dayContainer {
         max-width: 100%;
     }
 }
+
+
+// 編集モーダル
+
 
 // プロフィール画像設定モーダル
 .profile-modal-delete{
