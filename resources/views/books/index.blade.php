@@ -12,6 +12,8 @@
         </div>
         @endif
 
+
+        <!-- マイプロフィール -->
         <div class="user mypage__section">
             <div class="user__inner">
                 <figure class="user__image">                    
@@ -32,6 +34,7 @@
             </div>
         </div>
 
+        <!-- エラーメッセージ -->
         <div class="search mypage__section">
             @include('includes.error_list')
             <form action="{{ route('books.search') }}" class="search__form" method="GET">
@@ -44,7 +47,7 @@
 
         <!-- 登録したレビュー一覧 -->
         <div class="review mypage__section">
-            @if($reviews_count > 0)
+            @if($reviews->count() > 0)
             @foreach($reviews as $review)
             <a class="review__show" href="{{ route('books.show', ['book_id' => $review->book->book_id])}}">
                 <div class="review__book">

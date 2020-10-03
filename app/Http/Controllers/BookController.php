@@ -34,8 +34,7 @@ class BookController extends Controller
         $reviews->load('book');
         $number_of_readings = ReadingRecord::where('user_id', $user_id)->count();        
         $reviews_count = ReadingRecord::where('user_id', $user_id)->select('body')->whereNotIn('body', ['null'])->count();
-        // ddd($number_of_readings);
-
+         
         return view('books.index', [
             'user' => $user,
             'reviews' => $reviews,
