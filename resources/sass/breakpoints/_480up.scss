@@ -4,8 +4,6 @@ Stylesheet: 480px以上(スマホの横向き)のモニタで適用
 
 ******************************************************************/
 
-
-
 //********* modules/_books-index ************//
 
 // ユーザー情報
@@ -13,24 +11,31 @@ Stylesheet: 480px以上(スマホの横向き)のモニタで適用
     text-align: left;
 
     &__inner {
-        display: flex;         
+        display: flex;
     }
 
-    &__info{ 
+    &__info {
         padding-top: 10px;
         margin-left: 30px;
     }
 
-    &__name{        
+    &__name {
         text-align: center;
         padding-top: 10px;
         margin: 0;
     }
 }
 
+// プロフィール画像関連
+.profile {
+    &__form {
+        margin-top: 0;
+    }
+}
+
 // 読書歴
-.review { 
+.review {
     &__show {
-        flex-basis: 28%;       
+        flex-basis: 28%;
     }
 }

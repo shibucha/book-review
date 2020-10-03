@@ -5,7 +5,7 @@
 @section('content')
 <p>Book Yourshelfを退会しますか？</p>
 
-<form action="{{route('setting.resign')}}" method="post">
+<form action="{{route('settings.resign')}}" method="post">
     @method('DELETE')
     @csrf
     <button type="submit" class="btn btn-danger">

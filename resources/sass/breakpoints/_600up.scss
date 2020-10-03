@@ -23,6 +23,8 @@ Stylesheet: 600px以上のタブレットやモニタで適用
     }
     &__block {
         display: flex;
+        width: 300px;
+        margin: 0 auto;
     }
     &__upload {
         margin-left: 20px;
@@ -32,7 +34,7 @@ Stylesheet: 600px以上のタブレットやモニタで適用
         height: 200px;
     }
 
-    &__error{
+    &__error {
         margin-top: 20px;
     }
 }
