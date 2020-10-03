@@ -35,8 +35,9 @@
 <div><i class="fas fa-user"></i>本棚登録：0人</div>
 @endif
 
+<!-- 評価 -->
 @if(isset($rating))
-<i class="fas fa-star"></i>評価(1~5)：{{$rating}}
+<i class="fas fa-star"></i>{{$rating}}
 @else
 評価：不明
 @endif
@@ -54,11 +55,12 @@
     @else
     <img src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png" alt="プロフィール画像" width="200px" width="200px">
     @endif
-    {{$user->name}}さんの感想 / {{ $review->dateFormat($review->created_at)}}
+    {{$user->name}}  {{ $review->dateFormat($review->created_at)}}
 </div>
 
+<!-- 評価 -->
 @if($review->rating)
-<i class="fas fa-star"></i>評価(1~5)：{{$review->rating}}
+<i class="fas fa-star"></i>{{$review->rating}}
 @endif
 
 @if($review)
@@ -108,7 +110,7 @@
     @else
     <img src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png" alt="ユーザーアイコン" width="30px" height="30px">
     @endif
-    {{ $other_review->user->name }}さんの感想 / {{$other_review->dateFormat($other_review->created_at)}}
+    {{ $other_review->user->name }} / {{$other_review->dateFormat($other_review->created_at)}}
 </div>
 
 @if($review->rating)

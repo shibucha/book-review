@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -17,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','icon',
+        'name', 'email', 'password', 'icon',
     ];
 
     /**
@@ -38,8 +39,22 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function readingRecord():HasMany
+
+    // ********************リレーション**********************//
+    
+    // User1 : ReadingRecord多
+    public function readingRecord(): HasMany
     {
         return $this->hasMany('App\ReadingRecord');
+    }
+    // User1 : MyFavorite1
+    public function myFavorite(): HasOne
+    {
+        return $this->hasOne('App\MyFavorite');
+    }
+    // User1 : MyProfile1
+    public function myProfile(): HasOne
+    {
+        return $this->hasOne('App\MyProfile');
     }
 }
