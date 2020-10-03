@@ -38,3 +38,22 @@ Stylesheet: 600px以上のタブレットやモニタで適用
         margin-top: 20px;
     }
 }
+
+// 設定画面
+.my-profile {
+    &__container {
+        display: flex;
+        justify-content: space-between;     
+    }
+    &__block {
+        
+        flex-basis: 65%;
+    }
+}
+.setting {
+    &__block {
+        flex-basis: 30%;
+        height: 70vh;
+    }
+
+}
