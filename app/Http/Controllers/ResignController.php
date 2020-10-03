@@ -20,7 +20,8 @@ class ResignController extends Controller
 
         // プロフィール画像をストレージから削除。
         if($user_resign->icon){
-            Storage::disk('local')->delete('public/icons/' . $user_resign->icon);
+            $user_icon = basename($user_resign->icon);                    
+            Storage::disk('s3')->delete('icons/' . $user_icon);
         }
 
         $user_resign->delete();

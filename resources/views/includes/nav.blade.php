@@ -53,9 +53,9 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">メニュー</a>
                 <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <button class="dropdown-item" onclick="location.href='{{ route('books.index') }}'">マイページ</button>
-                    <button type="submit" class="dropdown-item" form="logout-button">ログアウト</button>
-                    <button type="submit" class="dropdown-item" form="resign-button" onclick="location.href='{{ route('settings.resign') }}'">退会する</button>
+                    <button class="dropdown-item btn__mypage" onclick="location.href='{{ route('books.index') }}'">マイページ</button>
+                    <button type="submit" class="dropdown-item btn__logout" form="logout-button">ログアウト</button>
+                    <button type="submit" class="dropdown-item btn__setting" form="resign-button" onclick="location.href='{{ route('settings.my_profile') }}'">設定</button>
                 </div>
             </li>
 
