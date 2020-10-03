@@ -6,7 +6,7 @@
 
 <div class="resign__container">
 
-    @include('layouts.setting')
+    @include('includes.setting')
 
     <div class="resign__block">
         <p>

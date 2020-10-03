@@ -8,6 +8,8 @@ Stylesheet: Route::get(books/settings/my-profile)  resources/views/settings/my-p
     &__container {
         @extend .content-width;
         display: flex;
+        justify-content: space-between;
+        margin-top: 50px !important;       
     }
 
     &__block {

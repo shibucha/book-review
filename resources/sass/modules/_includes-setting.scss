@@ -4,8 +4,30 @@ Stylesheet:  resources/views/includes/setting （設定リストのパーツ）
 
 ******************************************************************/
 
-.setting{
-    &__block{
+.setting {
+    &__block {
         flex-basis: 30%;
+        height: 70vh;
+        padding: 30px 0 30px 20px;
+        border: 1px solid #dcdcdc;
+        border-radius: 5px;
+    }
+
+    &__account{
+        font-size: 1.5rem;    
+
+    }
+
+    &__lists{
+        padding-left: 15px;
+    }
+
+    &__item{
+        color: #696969;
+        font-size: 1rem;
+
+        &:hover{
+            font-weight: bold;
+        }
     }
 }
