@@ -1,0 +1,17 @@
+/******************************************************************
+
+Stylesheet: Route::get(books/settings/resign)  resources/views/settings/resign
+
+******************************************************************/
+
+.resign{
+
+    &__container{
+        @extend .content-width;
+        display: flex;
+    }
+
+    &__block{
+        flex-basis: 65%;
+    }
+}

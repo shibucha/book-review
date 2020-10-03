@@ -1,0 +1,16 @@
+/******************************************************************
+
+Stylesheet: Route::get(books/settings/my-profile)  resources/views/settings/my-profile
+
+******************************************************************/
+
+.my-profile {
+    &__container {
+        @extend .content-width;
+        display: flex;
+    }
+
+    &__block {
+        flex-basis: 65%;
+    }
+}

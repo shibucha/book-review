@@ -1,4 +1,4 @@
-<div class="setting__container">
+<div class="setting__block">
     <div>アカウント</div>
     <ul class="setting__lists">
         <a href="{{route('settings.my_profile')}}" class="setting__link">
