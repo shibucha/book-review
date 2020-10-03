@@ -42,7 +42,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/books/{reading_record_id}/delete', 'BookController@destroy')->name('books.delete');
     
     // 設定関連
-    Route::get('books/settings', 'SettingController@index')->name('settings');
     Route::get('books/settings/my-profile', 'MyProfileController@index')->name('settings.my_profile');
     Route::get('books/settings/resign', 'ResignController@index')->name('settings.resign');
     Route::delete('books/settings/resign', 'ResignController@destroy')->name('settings.resign');

@@ -2,6 +2,7 @@ export class Profile {
     constructor(input_name, new_icon, img_src) {
         this.inputFile = document.getElementById(input_name);
         this.newIconName = document.getElementById(new_icon);
+        console.log(this.inputFile);
         this.profileImage = document.querySelector(img_src);
     }
 

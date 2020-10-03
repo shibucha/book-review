@@ -22,6 +22,7 @@
           <div id="new_icon"></div>
           @else
           <img class="profile__image" src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png" alt="プロフィール画像">
+          <div id="new_icon"></div>
           @endif
         </div>
 
@@ -55,16 +56,16 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form class="profile-modal-delete__form" method="POST" action="{{ route('books.profile.destroy', ['user_id'=>$user->id])}}">
+          <form class="modal-delete__form profile-modal-delete__form" method="POST" action="{{ route('books.profile.destroy', ['user_id'=>$user->id])}}">
             @csrf
             @method('DELETE')
-            <div class="profile-modal-delete__body modal-body">
+            <div class="modal-delete__body profile-modal-delete__body modal-body">
               プロフィール画像を削除します。よろしいですか？
             </div>
             <div class="modal-footer justify-content-between">
               
-              <a class="btn btn-outline-grey profile-modal-delete__btn" data-dismiss="modal">キャンセル</a>              
-              <button type="submit" class="btn btn-danger profile-modal-delete__btn">削除する</button>
+              <a class="btn btn-outline-grey modal-delete__btn profile-modal-delete__btn" data-dismiss="modal">キャンセル</a>              
+              <button type="submit" class="btn btn-danger modal-delete__btn profile-modal-delete__btn">削除する</button>
             </div>
           </form>
         </div>
