@@ -14,8 +14,17 @@ class MyProfileController extends Controller
     public function index()
     {
         $user = User::find(Auth::id());
+        $my_profile = MyProfile::Where('user_id', $user->id)->first();
+        $my_favorite = MyFavorite::Where('user_id', $user->id)->first();
 
-        return view('settings.my-profile', ['user' => $user]);
+        return view(
+            'settings.my-profile',
+            [
+                'user' => $user,
+                'my_profile' => $my_profile,
+                'my_favorite' => $my_favorite,
+            ]
+        );
     }
 
     public function update(int $user_id, MyProfile $my_profile, MyProfileRequest $request, MyFavorite $my_favorite)

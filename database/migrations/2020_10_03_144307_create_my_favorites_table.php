@@ -22,9 +22,9 @@ class CreateMyFavoritesTable extends Migration
             $table->string('my_favorite_reason_01',255)->nullable()->comment('お気に入りの理由１');
             $table->string('my_favorite_reason_02',255)->nullable()->comment('お気に入りの理由２');
             $table->string('my_favorite_reason_03',255)->nullable()->comment('お気に入りの理由３');
-            $table->unsignedInteger('my_favorite_isbn_01')->nullable()->comment('お気に入りの本ISBN_１');
-            $table->unsignedInteger('my_favorite_isbn_02')->nullable()->comment('お気に入りの本ISBN_２');
-            $table->unsignedInteger('my_favorite_isbn_03')->nullable()->comment('お気に入りの本ISBN_３');
+            $table->bigInteger('my_favorite_isbn_01')->nullable()->comment('お気に入りの本ISBN_１');
+            $table->bigInteger('my_favorite_isbn_02')->nullable()->comment('お気に入りの本ISBN_２');
+            $table->bigInteger('my_favorite_isbn_03')->nullable()->comment('お気に入りの本ISBN_３');
             $table->timestamps();
 
              // 外部キー設定
