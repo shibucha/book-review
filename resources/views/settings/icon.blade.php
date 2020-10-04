@@ -1,48 +1,48 @@
 @extends('layouts.app')
 
-@section('title', 'book-review | プロフィールの編集')
+@section('title', 'book-review | プロフィール画像の編集')
 
 @section('content')
 
 <!-- プロフィール画像編集面 -->
-<div class="profile profile__container">
+<div class="icon icon__container">
 
-  <div class="profile__inner">
+  <div class="icon__inner">
     
-    <form class="profile__form" action="{{route('settings.icon',['user_id'=>$user->id]) }}" method="POST" enctype="multipart/form-data">
+    <form class="icon__form" action="{{route('settings.icon',['user_id'=>$user->id]) }}" method="POST" enctype="multipart/form-data">
       @csrf
 
-      <p class="profile__title">プロフィール画像の編集</p>
+      <p class="icon__title">プロフィール画像の編集</p>
 
-      <div class="profile__block">
-        <div class="profile__icon">
+      <div class="icon__block">
+        <div class="icon__icon">
           <!-- プロフィール画像 -->
           @if($user->icon)
-          <img class="profile__image" src="{{ $user->icon }}" alt="プロフィール画像">
+          <img class="icon__image" src="{{ $user->icon }}" alt="プロフィール画像">
           <div id="new_icon"></div>
           @else
-          <img class="profile__image" src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png" alt="プロフィール画像">
+          <img class="icon__image" src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png" alt="プロフィール画像">
           <div id="new_icon"></div>
           @endif
         </div>
 
-        <div class="profile__upload">
-          <label for="profile__input" class="btn-dark profile__btn profile__btn-select">
+        <div class="icon__upload">
+          <label for="icon__input" class="btn-dark icon__btn icon__btn-select">
             画像を選ぶ。
-            <input type="file" name="icon" id="profile__input">
+            <input type="file" name="icon" id="icon__input">
           </label>
 
           <!-- プロフィール画像の設定ボタン -->
-          <button type="submit" class="btn-info profile__btn profile__btn-set">画像を設定する</button>
+          <button type="submit" class="btn-info icon__btn icon__btn-set">画像を設定する</button>
 
           <!-- プロフィール画像の削除ボタン -->
           <a class="" data-toggle="modal" data-target="#modal-delete-{{ $user->id }}">
-            <button class="btn-danger profile__btn profile__btn-delete">画像を削除する</button>
+            <button class="btn-danger icon__btn icon__btn-delete">画像を削除する</button>
           </a>
         </div>
       </div>
 
-      <div class="profile__error">
+      <div class="icon__error">
         @include('includes.error_list')
       </div>
     </form>
@@ -56,16 +56,16 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form class="modal-delete__form profile-modal-delete__form" method="POST" action="{{ route('settings.icon.destroy', ['user_id'=>$user->id])}}">
+          <form class="modal-delete__form icon-modal-delete__form" method="POST" action="{{ route('settings.icon.destroy', ['user_id'=>$user->id])}}">
             @csrf
             @method('DELETE')
-            <div class="modal-delete__body profile-modal-delete__body modal-body">
+            <div class="modal-delete__body icon-modal-delete__body modal-body">
               プロフィール画像を削除します。よろしいですか？
             </div>
             <div class="modal-footer justify-content-between">
               
-              <a class="btn btn-outline-grey modal-delete__btn profile-modal-delete__btn" data-dismiss="modal">キャンセル</a>              
-              <button type="submit" class="btn btn-danger modal-delete__btn profile-modal-delete__btn">削除する</button>
+              <a class="btn btn-outline-grey modal-delete__btn icon-modal-delete__btn" data-dismiss="modal">キャンセル</a>              
+              <button type="submit" class="btn btn-danger modal-delete__btn icon-modal-delete__btn">削除する</button>
             </div>
           </form>
         </div>

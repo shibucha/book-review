@@ -4,7 +4,7 @@ Stylesheet: プロフィール画像
 
 ******************************************************************/
 
-.profile {
+.icon {
     // 全体の見た目
     &__title {
         text-align: center;
@@ -67,6 +67,6 @@ Stylesheet: プロフィール画像
 
 }
 
-#profile__input {
+#icon__input {
     display: none;
 }
