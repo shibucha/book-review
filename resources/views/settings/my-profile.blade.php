@@ -12,9 +12,10 @@
     <div class="my-profile__block">
         <div class="my-profile__title setting__title">プロフィールの設定</div>
 
-        <form action="{{route('settings.my_profile_update',['user_id' => $user->id])}}" method="POST">
-            @csrf
+        @include('includes.error_list')
+        <form action="{{route('settings.my_profile_update',['user_id' => $user->id])}}" method="POST">            @csrf
             @method('PATCH')
+
             <div class="nickname">
                 <div>ニックネーム</div>
                 <input class="nickname__input my-profile__input-field" type="text" name="nickname" value="{{ old('nickname')}}">
