@@ -6,12 +6,6 @@
 
 <div class="mypage__container">
     <div class="mypage__inner">
-        @if(session('success'))
-        <div class="alert alert-success">
-            {{session('success')}}
-        </div>
-        @endif
-
 
         <!-- マイプロフィール -->
         <div class="user mypage__section">

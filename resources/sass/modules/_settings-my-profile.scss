@@ -7,11 +7,16 @@ Stylesheet: Route::get(books/settings/my-profile)  resources/views/settings/my-p
 .my-profile {
     &__container {
         @extend .content-width;
-        margin-top: 50px !important;       
+        margin-top: 50px !important;
     }
 
-    &__block{
+    &__block {
         margin-top: 20px;
     }
+}
 
+#new_icon {
+    width: 200px;
+    margin: 3px auto 0;
+    word-break: break-all;
 }
