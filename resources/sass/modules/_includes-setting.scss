@@ -23,7 +23,8 @@ Stylesheet:  resources/views/includes/setting （設定リストのパーツ）
     &__item{
         color: #696969;
         font-size: 1rem;
-
+        padding: 10px 0;
+        
         &:hover{
             font-weight: bold;
         }

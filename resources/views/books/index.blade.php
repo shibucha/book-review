@@ -11,7 +11,7 @@
         <div class="user mypage__section">
             <div class="user__inner">
                 <figure class="user__image">                    
-                    <a href="{{route('books.profile',['user_id'=>$user->id])}}">
+                    <a href="{{route('settings.icon',['user_id'=>$user->id])}}">
                         @if($user->icon)
                         <img class="user__image-circle" src="{{ $user->icon }}" alt="プロフィール画像">
                         @else

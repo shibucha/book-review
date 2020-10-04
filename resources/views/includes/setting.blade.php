@@ -4,6 +4,9 @@
         <a href="{{route('settings.my_profile')}}" class="setting__link">
             <li class="setting__item setting__item-profile">プロフィール設定</li>
         </a>
+        <a href="{{route('settings.icon', ['user_id'=> Auth::id()]) }}" class="setting__link">
+            <li class="setting__item setting__item-icon">アイコン設定</li>
+        </a>
         <a href="{{route('settings.resign')}}" class="setting__link">
             <li class="setting__item setting__item-resign">退会</li>
         </a>

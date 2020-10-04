@@ -25,27 +25,27 @@ Route::get('/books/search', 'SearchController@index')->name('books.search');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/books', 'BookController@index')->name('books.index');
 
-    // プロフィール画像関連
-    Route::get('/books/{user_id}/profile', 'ProfileController@index')->name('books.profile');
-    Route::post('/books/{user_id}/profile', 'ProfileController@store');
-    Route::delete('/books/{user_id}/profile', 'ProfileController@destroy')->name('books.profile.destroy');
 
-    // 書籍の検索〜登録までの操作関連
+
+    // *************書籍の検索〜登録までの操作関連 **********//
     Route::post('/books/{book_id}/search', 'SearchController@store')->name('search.store');
     Route::get('/books/{book_id}/show', 'BookController@show')->name('books.show');
     Route::get('/books/{book_id}/nothing-to-show', 'BookController@nothingToShow')->name('books.nothingToShow');
 
-    // レビュー操作関連
+    // *************レビュー操作関連 **********//
     Route::put('/books/{reading_record_id}/like', 'BookController@like')->name('books.like');
     Route::delete('/books/{reading_record_id}/like', 'BookController@unlike')->name('books.unlike');
-    Route::patch('/books/{reading_record_id}/update', 'BookController@update')->name('books.update');  
+    Route::patch('/books/{reading_record_id}/update', 'BookController@update')->name('books.update');
     Route::delete('/books/{reading_record_id}/delete', 'BookController@destroy')->name('books.delete');
-    
-    // 設定関連
+
+    // **************設定関連************** //
+    //アイコン   
+    Route::get('/books/{user_id}/icon', 'MyIconController@index')->name('settings.icon');
+    Route::post('/books/{user_id}/icon', 'MyIconController@store');
+    Route::delete('/books/{user_id}/icon', 'MyIconController@destroy')->name('settings.icon.destroy');
+    // マイプロフィール
     Route::get('books/settings/my-profile', 'MyProfileController@index')->name('settings.my_profile');
+    // 退会
     Route::get('books/settings/resign', 'ResignController@index')->name('settings.resign');
     Route::delete('books/settings/resign', 'ResignController@destroy')->name('settings.resign');
 });
-
-
-

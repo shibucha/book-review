@@ -3,21 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\ProfileRequest;
+use App\Http\Requests\MyIconRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\User;
 
-class ProfileController extends Controller
+class MyIconController extends Controller
 {
     public function index(int $user_id)
     {
         $user = User::find($user_id);        
-        return view('profiles.index', ['user' => $user, 'files'=>$_FILES]);
+        return view('settings.icon', ['user' => $user, 'files'=>$_FILES]);
     }
 
     //プロフィール画像の登録処理
-    public function store(ProfileRequest $request, int $user_id)
+    public function store(MyIconRequest $request, int $user_id)
     {        
         $user = User::find($user_id);        
         $disk = Storage::disk('s3');  
@@ -42,7 +42,7 @@ class ProfileController extends Controller
         $user->icon = $image;
         $user->save();
 
-        return redirect()->route('books.index', ['user' => $user])->with('success', '新しい画像を設定しました。');
+        return redirect()->route('books.index', ['user' => $user]);
     }
 
     // プロフィール画像の削除（deleteメメソッドを使用したら、列ごと削除されてしまった為以下の方法をとる。）

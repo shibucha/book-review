@@ -9,7 +9,7 @@
 
   <div class="profile__inner">
     
-    <form class="profile__form" action="{{route('books.profile',['user_id'=>$user->id]) }}" method="POST" enctype="multipart/form-data">
+    <form class="profile__form" action="{{route('settings.icon',['user_id'=>$user->id]) }}" method="POST" enctype="multipart/form-data">
       @csrf
 
       <p class="profile__title">プロフィール画像の編集</p>
@@ -56,7 +56,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form class="modal-delete__form profile-modal-delete__form" method="POST" action="{{ route('books.profile.destroy', ['user_id'=>$user->id])}}">
+          <form class="modal-delete__form profile-modal-delete__form" method="POST" action="{{ route('settings.icon.destroy', ['user_id'=>$user->id])}}">
             @csrf
             @method('DELETE')
             <div class="modal-delete__body profile-modal-delete__body modal-body">
