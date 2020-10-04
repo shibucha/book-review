@@ -49,13 +49,15 @@
 
 
 <!---------------------------------- START 自分の感想 -------------------------------->
+@if($review)
+
 <div>
     @if($user->icon)
     <img src="{{ $user->icon }}" alt="プロフィール画像" width="30px" width="30px">
     @else
     <img src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png" alt="プロフィール画像" width="200px" width="200px">
     @endif
-    {{$user->name}}  {{ $review->dateFormat($review->created_at)}}
+    {{$user->name}} {{ $review->dateFormat($review->created_at)}}
 </div>
 
 <!-- 評価 -->
@@ -63,10 +65,10 @@
 <i class="fas fa-star"></i>{{$review->rating}}
 @endif
 
-@if($review)
 
 @if(!$review->body)
-{{$user->name}}さんは、まだ感想を登録していません。
+<!-- 読書済みにしているが、レビューはしていない。 -->
+{{$user->name}}さんは、まだレビューしていません。
 @endif
 
 <p>{{ $review->body }}</p>
@@ -75,7 +77,21 @@
 <review-like :initial-like="@json($review->isLiked($user_id))" :initial-count-likes="@json($review->count_likes)" like-route="{{ route('books.like',['reading_record_id'=>$review->id])}}"></review-like>
 
 @else
-<p>まだ感想は登録されていません。</p>
+<!-- まだ、読書済みに登録していない。 -->
+@if($user->icon)
+<img src="{{ $user->icon }}" alt="プロフィール画像" width="30px" width="30px">
+@else
+<img src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png" alt="プロフィール画像" width="200px" width="200px">
+@endif
+{{$user->name}}
+<p>まだ、あなたの本棚に追加されていません。</p>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ 'a-'.$item['id'] }}">
+    本を登録する。
+</button>
+
+@include('includes.google_books.google-book-register')
+
 @endif
 
 
