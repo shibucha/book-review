@@ -6,9 +6,12 @@
 
 <!-- プロフィール画像編集面 -->
 <div class="icon icon__container">
+  
+  <!-- 設定一覧 -->
+  @include('includes.setting')
 
-  <div class="icon__inner">
-    
+  <div class="icon__wrapper">
+
     <form class="icon__form" action="{{route('settings.icon',['user_id'=>$user->id]) }}" method="POST" enctype="multipart/form-data">
       @csrf
 
@@ -63,8 +66,8 @@
               プロフィール画像を削除します。よろしいですか？
             </div>
             <div class="modal-footer justify-content-between">
-              
-              <a class="btn btn-outline-grey modal-delete__btn icon-modal-delete__btn" data-dismiss="modal">キャンセル</a>              
+
+              <a class="btn btn-outline-grey modal-delete__btn icon-modal-delete__btn" data-dismiss="modal">キャンセル</a>
               <button type="submit" class="btn btn-danger modal-delete__btn icon-modal-delete__btn">削除する</button>
             </div>
           </form>
