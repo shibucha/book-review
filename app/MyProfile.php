@@ -11,7 +11,7 @@ class MyProfile extends Model
 {
     protected $fillable = [
         'nickname',
-        'self-introduction',
+        'self_introduction',
     ];
 
 

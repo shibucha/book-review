@@ -11,17 +11,17 @@ class MyFavorite extends Model
 {
 
     protected $fillable = [
-        'my-favorite1',
-        'my-favorite2',
-        'my-favorite3',
-        'my-favorite-reason1',
-        'my-favorite-reason2',
-        'my-favorite-reason3',
-        'my-favorite-isbn1',
-        'my-favorite-isbn2',
-        'my-favorite-isbn3',
+        'my_favorite_01',
+        'my_favorite_02',
+        'my_favorite_03',
+        'my_favorite_reason_01',
+        'my_favorite_reason_02',
+        'my_favorite_reason_03',
+        'my_favorite_isbn_01',
+        'my_favorite_isbn_02',
+        'my_favorite_isbn_03',
     ];
-    
+
     // ユーザーズテーブルとのリレーション（１対１）
     public function user(): BelongsTo
     {

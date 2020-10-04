@@ -25,16 +25,16 @@ class MyProfileRequest extends FormRequest
     {
         return [       
             'nickname' => 'string|nullable|max:20',     
-            'self-introduction' => 'string|nullable|max:255', 
-            'my-favorite1' => 'string|nullable|max:50', 
-            'my-favorite2' => 'string|nullable|max:50', 
-            'my-favorite3' => 'string|nullable|max:50', 
-            'my-favorite-reason1' => 'string|nullable|max:255', 
-            'my-favorite-reason2' => 'string|nullable|max:255', 
-            'my-favorite-reason3' => 'string|nullable|max:255', 
-            'my-favorite-isbn1' => 'digits:13|nullable',
-            'my-favorite-isbn2' => 'digits:13|nullable',
-            'my-favorite-isbn3' => 'digits:13|nullable',
+            'self_introduction' => 'string|nullable|max:255', 
+            'my_favorite_01' => 'string|nullable|max:50', 
+            'my_favorite_02' => 'string|nullable|max:50', 
+            'my_favorite_03' => 'string|nullable|max:50', 
+            'my_favorite_reason_01' => 'string|nullable|max:255', 
+            'my_favorite_reason_02' => 'string|nullable|max:255', 
+            'my_favorite_reason_03' => 'string|nullable|max:255', 
+            'my_favorite_isbn_01' => 'digits:13|nullable',
+            'my_favorite_isbn_02' => 'digits:13|nullable',
+            'my_favorite_isbn_03' => 'digits:13|nullable',
         ];
     }
 
@@ -42,16 +42,16 @@ class MyProfileRequest extends FormRequest
     {
         return [
             'nickname.max' => '20文字以内で入力してください.',
-            'self-introduction.max' => '255文字以内で入力してください。',
-            'my-favorite1.max' => '50文字以内で入力してください',
-            'my-favorite2.max' => '50文字以内で入力してください',
-            'my-favorite3.max' => '50文字以内で入力してください',
-            'my-favorite-reason1.max' => '255文字以内で入力してください',
-            'my-favorite-reason2.max' => '255文字以内で入力してください',
-            'my-favorite-reason3.max' => '255文字以内で入力してください',
-            'my-favorite-isbn1.digits' => '連続する13桁の数字を入力してください。',
-            'my-favorite-isbn2.digits' => '連続する13桁の数字を入力してください。',
-            'my-favorite-isbn3.digits' => '連続する13桁の数字を入力してください。',
+            'self_introduction.max' => '255文字以内で入力してください。',
+            'my_favorite_01.max' => '50文字以内で入力してください',
+            'my_favorite_02.max' => '50文字以内で入力してください',
+            'my_favorite_02.max' => '50文字以内で入力してください',
+            'my_favorite_reason_01.max' => '255文字以内で入力してください',
+            'my_favorite_reason_02.max' => '255文字以内で入力してください',
+            'my_favorite_reason_03.max' => '255文字以内で入力してください',
+            'my_favorite_isbn_01.digits' => '連続する13桁の数字を入力してください。',
+            'my_favorite_isbn_02.digits' => '連続する13桁の数字を入力してください。',
+            'my_favorite_isbn_03.digits' => '連続する13桁の数字を入力してください。',
         ];
     }
 }
