@@ -5,13 +5,17 @@ Stylesheet: Route::get(books/settings/resign)  resources/views/settings/resign
 ******************************************************************/
 
 .resign{
-
     &__container{
         @extend .content-width;
-        display: flex;
+        margin-top: 50px !important;
     }
 
     &__block{
-        flex-basis: 65%;
+        margin-top: 20px;
+    }  
+
+    &__btn-area{
+        text-align: center;
     }
 }
+

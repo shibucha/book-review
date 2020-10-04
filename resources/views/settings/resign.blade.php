@@ -9,13 +9,15 @@
     @include('includes.setting')
 
     <div class="resign__block">
+        <h1 class="resign__title">Your Bookshelfを退会する</h1>
         <p>
-            Your Bookshelfを退会すると、これまで記録したデータが全て削除されます。<br>
-            このまま退会してもよろしいですか？
+            Your Bookshelfを一度退会すると、全てのデータが削除され復帰できませんのでご注意ください。
         </p>
 
-        <button type="button" class="btn btn-danger modal-delete__btn" data-toggle="modal" data-target="#resign">退会する</button>
-
+        <div class="resign__btn-area">
+            <button type="button" class="btn btn-danger resign__btn" data-toggle="modal" data-target="#resign">Your Bookshelfを退会する</button>
+        </div>
+        
         <!-- 退会モーダル -->
         <div id="resign" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">

@@ -14,7 +14,17 @@ Stylesheet: 600px以上のタブレットやモニタで適用
     }
 }
 
-// プロフィール画像関連
+// 設定画面
+.my-profile {
+    &__container {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__block {
+        flex-basis: 65%;
+    }
+}
+
 .icon {
     // 画像
     &__container {
@@ -43,15 +53,18 @@ Stylesheet: 600px以上のタブレットやモニタで適用
     }
 }
 
-// 設定画面
-.my-profile {
-    &__container {
+.resign{
+
+    &__container{
         display: flex;
-        justify-content: space-between;
+        justify-content: space-between;     
     }
-    &__block {
+
+    &__block{
+        margin-top: 0;
         flex-basis: 65%;
     }
+    
 }
 
 // 設定リスト

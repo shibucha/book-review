@@ -25,8 +25,6 @@ Route::get('/books/search', 'SearchController@index')->name('books.search');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/books', 'BookController@index')->name('books.index');
 
-
-
     // *************書籍の検索〜登録までの操作関連 **********//
     Route::post('/books/{book_id}/search', 'SearchController@store')->name('search.store');
     Route::get('/books/{book_id}/show', 'BookController@show')->name('books.show');
@@ -45,6 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/books/{user_id}/icon', 'MyIconController@destroy')->name('settings.icon.destroy');
     // マイプロフィール
     Route::get('books/settings/my-profile', 'MyProfileController@index')->name('settings.my_profile');
+    Route::patch('books/settings/{user_id}/my-profile', 'MyProfileController@update')->name('settings.my_profile_update');
     // 退会
     Route::get('books/settings/resign', 'ResignController@index')->name('settings.resign');
     Route::delete('books/settings/resign', 'ResignController@destroy')->name('settings.resign');

@@ -13,6 +13,10 @@ Stylesheet: Route::get(books/settings/my-profile)  resources/views/settings/my-p
     &__block {
         margin-top: 20px;
     }
+
+    &__input-field{
+        border: 1px solid #000;
+    }
 }
 
 #new_icon {
