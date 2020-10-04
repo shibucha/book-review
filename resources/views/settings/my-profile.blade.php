@@ -12,8 +12,15 @@
     <div class="my-profile__block">
         <div class="my-profile__title setting__title">プロフィールの設定</div>
 
+        <!-- 更新時のフラッシュメッセージ -->
+        @if(session('flash_message'))
+        <div class="my-profile__flash_message">
+            {{session('flash_message')}}
+        </div>
+        @endif
+
         @include('includes.error_list')
-        <form action="{{route('settings.my_profile_update',['user_id' => $user->id])}}" method="POST"> 
+        <form action="{{route('settings.my_profile_update',['user_id' => $user->id])}}" method="POST">
             @csrf
             @method('PATCH')
 

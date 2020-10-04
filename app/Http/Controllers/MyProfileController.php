@@ -49,6 +49,6 @@ class MyProfileController extends Controller
             $user_favorite->fill($request->all())->save();
         }
 
-        return redirect()->route('settings.my_profile');
+        return redirect()->route('settings.my_profile')->with('flash_message', 'プロフィールを更新しました！');
     }
 }
