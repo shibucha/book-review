@@ -1,0 +1,42 @@
+/******************************************************************
+
+Stylesheet: 詳細ページ
+
+******************************************************************/
+
+.show{
+    @extend .content-width;
+
+    .mb-10{
+        margin-bottom: 10px;
+    }
+
+    &__image{
+        text-align: center;
+    }
+
+    &__info{
+        padding: 20px;
+        background-color: $themeColor;
+        border-radius: 5px;
+    }
+
+
+    &__options{
+        display: flex;
+    }
+
+    &__rating{
+        margin-left: 10px;
+    }
+
+    i{
+        margin-right: 3px;
+    }
+
+    .c {
+        &-rating{
+            color: $ratingColor;
+        }
+    }
+}

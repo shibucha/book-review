@@ -2,7 +2,7 @@
     <div class="review">
         <button type="submit">
             <i
-                class="fas fa-heart"
+                class="fas fa-heart good"
                 :class="{ good__done: this.isLiked }"
                 @click="clickLike"
             ></i
@@ -34,7 +34,7 @@ export default {
     },
     methods: {
         clickLike() {
-            this.isLiked ? this.unlike() : this.like();           
+            this.isLiked ? this.unlike() : this.like();
         },
         async like() {
             const response = await axios.put(this.likeRoute);
@@ -53,7 +53,12 @@ export default {
 </script>
 
 <style scoped>
+.good {
+    text-shadow: 0 0 2px #000;
+    color: #fafafa;
+}
 .good__done {
-    color: red;
+    text-shadow: none;
+    color: #ff5722;
 }
 </style>
