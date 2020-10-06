@@ -39,16 +39,25 @@ Stylesheet: Route::get(books/index) → (マイページ)
         padding-top: 10px;
         text-align: left;
         font-size: 14px;
-        
+
         &-common {
             margin-bottom: 10px;
         }
     }
 
+    &__subtitle{
+        font-weight: bold;
+        padding-bottom: 3px;
+    }
+
+    &__favorite{
+        margin-bottom: 5px;
+    }
+
     &__image {
+        margin: 0 auto 20px;
         width: 150px;
         height: 150px;
-        margin-bottom: 20px;
 
         &-circle {
             border-radius: 50%;

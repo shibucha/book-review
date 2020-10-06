@@ -24,8 +24,8 @@
                 <div class="user__info">
                     <!-- レビューに関する情報 -->
                     <div class="user__review-info user__info-common">
-                        <div class="user__bookCount user__subtitle"><i class="fas fa-book-open"></i> 読書数 : {{ $number_of_readings }} 冊</div>
-                        <div class="user__reviewCount user__subtitle"><i class="fas fa-pencil-alt"></i> レビュー数 : {{ $reviews_count }} 冊</div>
+                        <div class="user__bookCount"><i class="fas fa-book-open"></i> 読書数 : {{ $number_of_readings }} 冊</div>
+                        <div class="user__reviewCount"><i class="fas fa-pencil-alt"></i> レビュー数 : {{ $reviews_count }} 冊</div>
                     </div>
 
                     <!-- 自己紹介文 -->
@@ -37,7 +37,7 @@
                     <!-- お気に入りベスト３ -->
                     <div class="user__favorite user__info-common">
                         <div class="user__subtitle">お気に入りベスト３</div>
-                        <div class="user__favorite-1">
+                        <div class="user__favorite user__favorite-1">
                             <div>
                                 1位 ： {{$user->myFavorite->my_favorite_01 ?? '登録がありません'}}
                             </div>
@@ -45,7 +45,7 @@
                                 ISBN : {{$user->myFavorite->my_favorite_isbn_01 ?? '登録がありません' }}
                             </div>
                         </div>
-                        <div class="user__favorite-1">
+                        <div class="user__favorite user__favorite-2">
                             <div>
                                 2位 ： {{$user->myFavorite->my_favorite_02 ?? '登録がありません'}}
                             </div>
@@ -53,7 +53,7 @@
                                 ISBN : {{$user->myFavorite->my_favorite_isbn_02 ?? '登録がありません' }}
                             </div>
                         </div>
-                        <div class="user__favorite-1">
+                        <div class="user__favorite user__favorite-3">
                             <div>
                                 3位 ： {{$user->myFavorite->my_favorite_03 ?? '登録がありません'}}
                             </div>
