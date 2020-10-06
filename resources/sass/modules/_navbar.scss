@@ -1,0 +1,21 @@
+/******************************************************************
+
+Stylesheet: ナビバー
+
+******************************************************************/
+
+.navbar {
+    &__inner {
+        @extend .content-width;
+    }
+
+    &__btn {
+        position: relative;
+    }
+
+    &__hamburger {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
