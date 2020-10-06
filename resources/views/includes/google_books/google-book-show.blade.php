@@ -129,7 +129,7 @@
     {{ $other_review->user->name }} / {{$other_review->dateFormat($other_review->created_at)}}
 </div>
 
-@if($review->rating)
+@if($other_review->rating)
 <i class="fas fa-star"></i>評価(1~5)：{{$other_review->rating}}
 @endif
 

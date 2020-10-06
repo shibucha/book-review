@@ -39,7 +39,7 @@
                         <div class="user__subtitle">お気に入りベスト３</div>
                         <div class="user__favorite user__favorite-1">
                             <div>
-                                1位 ： {{$user->myFavorite->my_favorite_01 ?? '登録がありません'}}
+                                1位 ： <button type="button" class="" data-toggle="modal" data-target="#my_favorite_01">{{$user->myFavorite->my_favorite_01 ?? '登録がありません'}}</button>
                             </div>
                             <div>
                                 ISBN : {{$user->myFavorite->my_favorite_isbn_01 ?? '登録がありません' }}
@@ -47,7 +47,7 @@
                         </div>
                         <div class="user__favorite user__favorite-2">
                             <div>
-                                2位 ： {{$user->myFavorite->my_favorite_02 ?? '登録がありません'}}
+                                2位 ： <button type="button" class="" data-toggle="modal" data-target="#my_favorite_02">{{$user->myFavorite->my_favorite_02 ?? '登録がありません'}}</button>
                             </div>
                             <div>
                                 ISBN : {{$user->myFavorite->my_favorite_isbn_02 ?? '登録がありません' }}
@@ -55,7 +55,7 @@
                         </div>
                         <div class="user__favorite user__favorite-3">
                             <div>
-                                3位 ： {{$user->myFavorite->my_favorite_03 ?? '登録がありません'}}
+                                3位 ：<button type="button" class="" data-toggle="modal" data-target="#my_favorite_03">{{$user->myFavorite->my_favorite_03 ?? '登録がありません'}}</button>
                             </div>
                             <div>
                                 ISBN : {{$user->myFavorite->my_favorite_isbn_03 ?? '登録がありません' }}
@@ -113,5 +113,70 @@
             @endif
         </div>
     </div>
+
+
+    <!-- モーダル グーグルブックの登録フォーム -->
+    <!-- お気に入り1 -->
+    <div class="modal fade" id="my_favorite_01" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title modal-book__title" id="exampleModalLongTitle">タイトル：{{$user->myFavorite->my_favorite_01 ?? '未登録'}}</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>お気に入りの理由</div>
+                    <div>
+                        {{$user->myFavorite->my_favorite_reason_01 ?? '登録がありません。'}}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- お気に入り2 -->
+    <div class="modal fade" id="my_favorite_02" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title modal-book__title" id="exampleModalLongTitle">タイトル：{{$user->myFavorite->my_favorite_02 ?? '未登録'}}</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>お気に入りの理由</div>
+                    <div>
+                        {{$user->myFavorite->my_favorite_reason_02 ?? '登録がありません。'}}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- お気に入り3 -->
+    <div class="modal fade" id="my_favorite_03" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title modal-book__title" id="exampleModalLongTitle">タイトル：{{$user->myFavorite->my_favorite_03 ?? '未登録'}}</div>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div>お気に入りの理由</div>
+                    <div>
+                        {{$user->myFavorite->my_favorite_reason_03 ?? '登録がありません。'}}</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 @endsection
