@@ -6,7 +6,7 @@ Stylesheet: Route::get(books/index) → (マイページ)
 
 // マイページ共通
 .mypage {
-    &__container{
+    &__container {
         padding: 0;
     }
 
@@ -18,48 +18,47 @@ Stylesheet: Route::get(books/index) → (マイページ)
     }
 }
 
-
 // ユーザー情報
 .user {
-    background-color: $themeColor;    
+    background-color: $themeColor;
     border-radius: 5px;
     padding: 30px 30px;
     text-align: center;
 
-    img{
+    img {
         object-fit: cover;
         width: 100%;
         height: 100%;
     }
 
-    &__inner {        
-        display: inline-block;      
+    &__inner {
+        display: inline-block;
     }
 
-    &__info{
-        margin-top: 10px;
+    &__info {
+        padding-top: 10px;
         text-align: left;
-
-        &__common{
+        font-size: 14px;
+        
+        &-common {
             margin-bottom: 10px;
         }
     }
-   
 
-    &__image{
+    &__image {
         width: 150px;
         height: 150px;
         margin-bottom: 20px;
 
-        &-circle{
+        &-circle {
             border-radius: 50%;
         }
-    }  
+    }
 
-    &__name{
+    &__name {
         font-size: 12px;
-        
-        &-bold{
+
+        &-bold {
             font-weight: bold;
         }
     }
@@ -84,13 +83,12 @@ Stylesheet: Route::get(books/index) → (マイページ)
     &__btn {
         transform: translateX(-50px);
         width: 50px;
-        text-align: center;  
+        text-align: center;
     }
 }
 
 // 読書歴
 .review {
-    
     display: flex;
     flex-wrap: wrap;
     justify-content: left;
@@ -102,20 +100,15 @@ Stylesheet: Route::get(books/index) → (マイページ)
         font-size: 12px;
         color: #000;
     }
-    
 
-    &__title{
-
-        &-done{
+    &__title {
+        &-done {
             font-size: 10px;
             font-weight: bold;
         }
     }
 
-    &__book-img{
+    &__book-img {
         width: 100%;
     }
-
-   
 }
-

@@ -14,7 +14,7 @@
 
         <!-- 更新時のフラッシュメッセージ -->
         @if(session('flash_message'))
-        <div class="my-profile__flash_message">
+        <div class="my-profile__flash-message">
             {{session('flash_message')}}
         </div>
         @endif
