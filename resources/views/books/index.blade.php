@@ -10,7 +10,7 @@
         <!-- マイプロフィール -->
         <div class="user mypage__section">
             <div class="user__inner">
-                <figure class="user__image">                    
+                <figure class="user__image">
                     <a href="{{route('settings.icon',['user_id'=>$user->id])}}">
                         @if($user->icon)
                         <img class="user__image-circle" src="{{ $user->icon }}" alt="プロフィール画像">
@@ -18,12 +18,50 @@
                         <img class="user__image-circle" src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png">
                         @endif
                     </a>
-                    <div class="user__name"><span class="user__name-bold">{{ $user->name}}</span> さんのマイページ</div>
+                    <div class="user__name"><span class="user__name-bold">{{ $user->myProfile->nickname ?? $user->name }}</span> さんのマイページ</div>
                 </figure>
-                
+
                 <div class="user__info">
-                    <div class="user__bookCount"><i class="fas fa-book-open"></i> 読書数 : {{ $number_of_readings }} 冊</div>
-                    <div class="user__reviewCount"><i class="fas fa-pencil-alt"></i> レビュー数 : {{ $reviews_count }} 冊</div>
+                    <!-- レビューに関する情報 -->
+                    <div class="user__review-info user__info-common">
+                        <div class="user__bookCount user__subtitle"><i class="fas fa-book-open"></i> 読書数 : {{ $number_of_readings }} 冊</div>
+                        <div class="user__reviewCount user__subtitle"><i class="fas fa-pencil-alt"></i> レビュー数 : {{ $reviews_count }} 冊</div>
+                    </div>
+
+                    <!-- 自己紹介文 -->
+                    <div class="user__introduction user__info-common">
+                        <div class="user__subtitle">自己紹介</div>
+                        <div class="user__introduction-body">{{ $user->myProfile->self_introduction ?? ''}}</div>
+                    </div>
+
+                    <!-- お気に入りベスト３ -->
+                    <div class="user__favorite user__info-common">
+                        <div class="user__subtitle">お気に入りベスト３</div>
+                        <div class="user__favorite-1">
+                            <div>
+                                1位 ： {{$user->myFavorite->my_favorite_01 ?? '登録がありません'}}
+                            </div>
+                            <div>
+                                ISBN : {{$user->myFavorite->my_favorite_isbn_01 ?? '登録がありません' }}
+                            </div>
+                        </div>
+                        <div class="user__favorite-1">
+                            <div>
+                                2位 ： {{$user->myFavorite->my_favorite_02 ?? '登録がありません'}}
+                            </div>
+                            <div>
+                                ISBN : {{$user->myFavorite->my_favorite_isbn_02 ?? '登録がありません' }}
+                            </div>
+                        </div>
+                        <div class="user__favorite-1">
+                            <div>
+                                3位 ： {{$user->myFavorite->my_favorite_03 ?? '登録がありません'}}
+                            </div>
+                            <div>
+                                ISBN : {{$user->myFavorite->my_favorite_isbn_03 ?? '登録がありません' }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

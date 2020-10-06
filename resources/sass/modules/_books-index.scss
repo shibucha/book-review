@@ -36,6 +36,16 @@ Stylesheet: Route::get(books/index) → (マイページ)
         display: inline-block;      
     }
 
+    &__info{
+        margin-top: 10px;
+        text-align: left;
+
+        &__common{
+            margin-bottom: 10px;
+        }
+    }
+   
+
     &__image{
         width: 150px;
         height: 150px;
@@ -44,7 +54,7 @@ Stylesheet: Route::get(books/index) → (マイページ)
         &-circle{
             border-radius: 50%;
         }
-    }   
+    }  
 
     &__name{
         font-size: 12px;

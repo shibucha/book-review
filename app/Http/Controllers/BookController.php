@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 
+use Illuminate\Support\Facades\Log;
+
 // Request
 use Illuminate\Http\Request;
 use App\Http\Requests\ReadingRecordRequest;
@@ -28,7 +30,7 @@ class BookController extends Controller
 
         $user_id = Auth::id();
         $user = User::find($user_id);
-
+        
         //user_idが登録されているレビューを全取得
         $reviews = ReadingRecord::where('user_id', $user_id)->paginate(8);
         $reviews->load('book');

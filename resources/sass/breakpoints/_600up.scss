@@ -4,6 +4,13 @@ Stylesheet: 600px以上のタブレットやモニタで適用
 
 ******************************************************************/
 
+// マイページ
+.user{
+    &__inner {
+        display: flex;
+    }
+}
+
 // _books-index 読書歴
 .review {
     justify-content: left;
