@@ -1,4 +1,4 @@
-<div class="show">
+<div class="show__container">
 
     <div class="show__info">
         @if(isset($item))
@@ -75,11 +75,11 @@
     <!---------------------------------- START 自分の感想 -------------------------------->
     @if($review)
 
-    <div class="show__user-review">
+    <div class="show__user-icon">
         @if($user->icon)
-        <img src="{{ $user->icon }}" alt="プロフィール画像" width="30px" width="30px">
+        <img src="{{ $user->icon }}" alt="プロフィール画像">
         @else
-        <img src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png" alt="プロフィール画像" width="200px" width="200px">
+        <img src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png" alt="プロフィール画像">
         @endif
         {{$user->myProfile->nickname ?? $user->name}} {{ $review->dateFormat($review->created_at)}}
     </div>
@@ -131,7 +131,7 @@
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit">編集</button>
         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-{{ $review->id }}">削除</button>
 
-        
+
     </div>
     @endif
 
@@ -144,8 +144,10 @@
     <div class="show__other-review">
         <div><i class="far fa-smile"></i>みんなの感想</div>
         @if($others_reviews->count() > 0)
+
         @foreach($others_reviews as $other_review)
-        <div>
+
+        <div class="show__user-icon">
             @if($other_review->user->icon)
             <img src="{{$other_review->user->icon}}" alt="ユーザーアイコン" width="30px" height="30px">
             @else
@@ -153,8 +155,6 @@
             @endif
             {{ $other_review->user->myProfile->nickname ?? $other_review->user->name }} {{$other_review->dateFormat($other_review->created_at)}}
         </div>
-
-
 
         <div class="netabare__{{ $other_review->netabare}}">
             <p>{{ $other_review->body }}</p>
@@ -164,7 +164,7 @@
             <!-- いいねボタン機能(Vueコンポーネント) -->
             <review-like :initial-like="@json($other_review->isLiked($user_id))" :initial-count-likes="@json($other_review->count_likes)" like-route="{{ route('books.like',['reading_record_id'=>$other_review->id])}}"></review-like>
 
-            <!-- 星評価 -->        
+            <!-- 星評価 -->
             @if($other_review->rating)
             <div class="show__rating">
                 <i class="fas fa-star c-rating"></i>{{$other_review->rating}}
@@ -177,7 +177,7 @@
         @else
         <p>まだ他の方の感想がありません。</p>
         @endif
-    </div>    
+    </div>
 </div>
 
 
