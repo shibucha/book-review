@@ -5,34 +5,38 @@
 
 @section('content')
 
-<h1>本を探しましょう。</h1>
+<div class="search__container">
+    <h1>本を探しましょう。</h1>
 
-@if(Auth::check())
-<a href="{{route('books.index')}}">マイページに戻る</a>
-@else
-<a href="{{route('login')}}">ログイン画面へ</a>
-@endif
+    @if(Auth::check())
+    <a href="{{route('books.index')}}">マイページに戻る</a>
+    @else
+    <a href="{{route('login')}}">ログイン画面へ</a>
+    @endif
 
-<!-- 検索フォーム -->
+    <!-- 検索フォーム -->
 
-@include('includes.google_books.google-book-search-form')
+    @include('includes.google_books.google-book-search-form')
 
 
-<!-- 検索キーワード有無のチェック -->
-@if($items === null)
-<p>キーワードを入力してください。</p>
-@else
-<p>{{ $keyword }}の検索結果</p>
+    <!-- 検索キーワード有無のチェック -->
+    <div class="search__keyword">
+        @if($items === null)
+        <p>キーワードを入力してください。</p>
+        @else
+        <p>{{ $keyword }}の検索結果</p>
+    </div>
+    
+    <hr>
 
-<hr>
+    <!-- グーグルブックスの検索結果表示 -->
+    @include('includes.google_books.google-book-search')
 
-<!-- グーグルブックスの検索結果表示 -->
-@include('includes.google_books.google-book-search')
+    <!--  ペジネーション機能 -->
+    {{ $items->appends(request()->input())->links() }}
 
-<!--  ペジネーション機能 -->
-{{ $items->appends(request()->input())->links() }}
-
-@endif
+    @endif
+</div>
 
 
 @endsection
