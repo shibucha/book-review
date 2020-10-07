@@ -5,43 +5,50 @@
     <div class="search__item">
         <h2>{{ $item['volumeInfo']['title']}}</h2>
 
-        <!-- 書籍のイメージ画像 -->
-        <div class="search__image mb-10">
-            @if(array_key_exists('imageLinks', $item['volumeInfo']))
-            <img src="{{ $item['volumeInfo']['imageLinks']['thumbnail'] }}" alt="書籍のイメージ"><br>
-            @else
-            <img src="https://book-review-shibucha.s3-ap-northeast-1.amazonaws.com/books/book_noimage.png" alt="書籍のイメージなし" width="200px" width="200px">
-            @endif
-        </div>
+        <div class="search__flex">
+            <div class="search__left">
+                <!-- 書籍のイメージ画像 -->
+                <div class="search__image mb-10">
+                    @if(array_key_exists('imageLinks', $item['volumeInfo']))
+                    <img src="{{ $item['volumeInfo']['imageLinks']['thumbnail'] }}" alt="書籍のイメージ"><br>
+                    @else
+                    <img src="https://book-review-shibucha.s3-ap-northeast-1.amazonaws.com/books/book_noimage.png" alt="書籍のイメージなし" width="200px" width="200px">
+                    @endif
+                </div>
+            </div>
 
-        <!-- 著者 -->
-        <div class="search__author">
-            @if(array_key_exists('authors', $item['volumeInfo']))
-            【著者】{{ $item['volumeInfo']['authors'][0] }}
-            @endif
-        </div>
+            <div class="search__right">
+                <!-- 著者 -->
+                <div class="search__author mb-10">
+                    @if(array_key_exists('authors', $item['volumeInfo']))
+                    {{ $item['volumeInfo']['authors'][0] }} / 著
+                    @endif
+                </div>
 
-        <!-- 発売年月日 -->
-        <div class="search__published-date">
-            @if(array_key_exists('publishedDate', $item['volumeInfo']))
-            【発売年月日】{{ $item['volumeInfo']['publishedDate'] }}<br>
-            @endif
-        </div>
+                <!-- 発売年月日 -->
+                <div class="search__published-date mb-10">
+                    @if(array_key_exists('publishedDate', $item['volumeInfo']))
+                    出版日&nbsp;：&nbsp;{{ $item['volumeInfo']['publishedDate'] }}
+                    @endif
+                </div>
 
-        <!-- ISBNコード -->
-        <div class="search__isbn">
-            @if(array_key_exists('industryIdentifiers', $item['volumeInfo']))
-            @foreach($item['volumeInfo']['industryIdentifiers'] as $industryIdentifier)
-            【{{ $industryIdentifier['type'] }}】&nbsp;：&nbsp;{{ $industryIdentifier['identifier'] }}<br>
-            @endforeach
-            @endif
-        </div>
+                <!-- ISBNコード -->
+                <div class="search__isbn mb-10">
+                    @if(array_key_exists('industryIdentifiers', $item['volumeInfo']))
+                    @foreach($item['volumeInfo']['industryIdentifiers'] as $industryIdentifier)
+                    {{ $industryIdentifier['type'] }}&nbsp;：&nbsp;{{ $industryIdentifier['identifier'] }}<br>
+                    @endforeach
+                    @endif
+                </div>
 
-        <!-- 概要 -->
-        <div class="search__description">
-            @if(array_key_exists('description', $item['volumeInfo']))
-            【概要】{{ $item['volumeInfo']['description'] }}<br>
-            @endif
+                <!-- 概要 -->
+                <div class="search__description mb-10">
+                    @if(array_key_exists('description', $item['volumeInfo']))
+                    <div>【概要】</div>
+                    <span class="fs-m">{{ $item['volumeInfo']['description'] }}</span><br>
+                    @endif
+                </div>
+            </div>
         </div>
 
 

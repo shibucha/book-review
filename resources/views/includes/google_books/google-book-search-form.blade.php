@@ -1,6 +1,6 @@
 <!-- 検索フォーム -->
-<form method="GET" action="{{ route('books.search') }}">
-    <input type="text" name="keyword" value="{{ $keyword }}" style="border:1px solid black;" placeholder="キーワードを入力。">&nbsp;    
-    <input type="submit" value="検索">
+<form method="GET" action="{{ route('books.search') }}" class="search__form">
+    <input type="text" name="keyword" value="{{ $keyword }}" placeholder="キーワードを入力。" class="search__input-field">&nbsp;    
+    <input type="submit" value="検索" class="search__input-btn">
     @include('includes.error_list')
 </form>

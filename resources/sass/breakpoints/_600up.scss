@@ -10,7 +10,7 @@ Stylesheet: 600px以上のタブレットやモニタで適用
         display: flex;
     }
 
-    &__info {        
+    &__info {
         display: flex;
         justify-content: space-between;
         flex-basis: 90%;
@@ -21,11 +21,11 @@ Stylesheet: 600px以上のタブレットやモニタで適用
         }
     }
 
-    &__introduction{
+    &__introduction {
         border-left: 1px solid #dcdcdc;
-    border-right: 1px solid #dcdcdc;
+        border-right: 1px solid #dcdcdc;
     }
-    
+
     &__name {
         text-align: center;
         padding-top: 10px;
@@ -55,23 +55,22 @@ Stylesheet: 600px以上のタブレットやモニタで適用
 }
 
 // 詳細ページ
-.show{
-    &__flex{
+.show {
+    &__flex {
         display: flex;
         margin-bottom: 10px;
     }
 
-    &__right{
+    &__right {
         margin-left: 20px;
     }
 
-    &__title{
+    &__title {
         margin-top: 0;
     }
 
-    &__description{
-        
-        .fs-m{
+    &__description {
+        .fs-m {
             font-size: 14px;
         }
     }
@@ -124,5 +123,21 @@ Stylesheet: 600px以上のタブレットやモニタで適用
     &__block {
         flex-basis: 30%;
         height: 70vh;
+    }
+}
+
+// 検索結果ページ
+.search {
+    &__container {
+        .fs-m {
+            font-size: 14px;
+        }
+    }
+
+    &__flex {
+        display: flex;
+    }
+    &__right {
+        margin-left: 20px;
     }
 }
