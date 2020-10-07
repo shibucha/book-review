@@ -5,10 +5,9 @@ Stylesheet: 詳細ページ
 ******************************************************************/
 
 .show {
-
     &__container {
         @extend .content-width;
-
+        padding-top: 5vh;
         i {
             margin-right: 3px;
         }
@@ -23,7 +22,10 @@ Stylesheet: 詳細ページ
         }
     }
 
-    
+    &__title {
+        margin-top: 10px;
+        font-weight: bold;
+    }
 
     &__image {
         text-align: center;
@@ -35,6 +37,11 @@ Stylesheet: 詳細ページ
         border-radius: 5px;
     }
 
+    &__description {
+        .fs-m {
+            font-size: 12px;
+        }
+    }
     &__user-icon {
         line-height: 50px;
         margin-bottom: 10px;

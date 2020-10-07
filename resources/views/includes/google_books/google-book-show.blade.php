@@ -24,21 +24,22 @@
                 <!-- 著者 -->
                 <div class="show__author mb-10">
                     @if(array_key_exists('authors', $item['volumeInfo']))
-                    著　者：{{ $item['volumeInfo']['authors'][0] }}
+                    <span class="font-bold">著　者</span>：{{ $item['volumeInfo']['authors'][0] }}
                     @endif
                 </div>
 
                 <!-- 出版日 -->
                 <div class="show__publish-date mb-10">
                     @if(array_key_exists('publishedDate', $item['volumeInfo']))
-                    出版日：{{ $item['volumeInfo']['publishedDate'] }}
+                    <span class="font-bold">出版日<span>：{{ $item['volumeInfo']['publishedDate'] }}
                     @endif
                 </div>
 
                 <!-- 概要 -->
                 <div class="show__description mb-10">
                     @if(array_key_exists('description', $item['volumeInfo']))
-                    <p>概要<br>{{ $item['volumeInfo']['description'] }}</p>
+                    <div class="font-bold">概　要</div>
+                    <p class="fs-m">{{ $item['volumeInfo']['description'] }}</p>
                     @endif
                 </div>
             </div>

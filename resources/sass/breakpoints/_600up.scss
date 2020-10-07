@@ -54,6 +54,30 @@ Stylesheet: 600px以上のタブレットやモニタで適用
     }
 }
 
+// 詳細ページ
+.show{
+    &__flex{
+        display: flex;
+        margin-bottom: 10px;
+    }
+
+    &__right{
+        margin-left: 20px;
+    }
+
+    &__title{
+        margin-top: 0;
+    }
+
+    &__description{
+        
+        .fs-m{
+            font-size: 14px;
+        }
+    }
+}
+
+// アイコン画像
 .icon {
     // 画像
     &__container {
@@ -82,6 +106,7 @@ Stylesheet: 600px以上のタブレットやモニタで適用
     }
 }
 
+// 退会ページ
 .resign {
     &__container {
         display: flex;
