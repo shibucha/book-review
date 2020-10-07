@@ -31,7 +31,7 @@
                 <!-- 出版日 -->
                 <div class="show__publish-date mb-10">
                     @if(array_key_exists('publishedDate', $item['volumeInfo']))
-                    <span class="font-bold">出版日<span>：{{ $item['volumeInfo']['publishedDate'] }}
+                    <span class="font-bold">出版日</span>：{{ $item['volumeInfo']['publishedDate'] }}
                     @endif
                 </div>
 
