@@ -11,9 +11,23 @@ Stylesheet: モーダル関連
         margin: 0 auto;
         padding: 5%;
     }
+    
+    &__favorite {
+        &-title {
+            font-size: 20px;
+        }
 
+        &-body {
+            margin: 10px auto 0;
+            width: 90%;
+            height: 300px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #dcdcdc;
+        }
+    }
 
-    // moda-book   
+    // moda-book
     &-book {
         &__body {
             display: flex;
@@ -38,7 +52,7 @@ Stylesheet: モーダル関連
             width: 100%;
             padding: 5px;
             border-radius: 10px;
-            border: 1px solid #000
+            border: 1px solid #000;
         }
 
         &__option {
@@ -73,10 +87,10 @@ Stylesheet: モーダル関連
     // 外部ライブラリの追記部分
 
     //vue star
-    .vue-star-rating{
+    .vue-star-rating {
         margin-left: 10px;
 
-        &-text{
+        &-text {
             margin-top: 4px;
         }
     }
@@ -86,14 +100,11 @@ Stylesheet: モーダル関連
     }
 }
 
-
 // 編集モーダル
 
-
 // プロフィール画像設定モーダル
-.modal-delete{
-
-    &__btn{
+.modal-delete {
+    &__btn {
         width: 150px;
         margin: 0 auto;
         margin-bottom: 10px;

@@ -45,13 +45,40 @@ Stylesheet: Route::get(books/index) → (マイページ)
         }
     }
 
-    &__subtitle{
+    &__subtitle {
         font-weight: bold;
         padding-bottom: 3px;
     }
 
-    &__favorite{
+    &__favorite {
         margin-bottom: 5px;
+
+        &-title {
+            margin-bottom: 3px;
+        }
+
+        .best {
+            color: #fff;
+            padding: 5px;
+            border-radius: 5px;
+
+            &-1 {
+                background-color: #f4511e;
+            }
+            &-2 {
+                background-color: #8bc34a;
+            }
+            &-3 {
+                background-color: #40c4ff;
+            }
+
+            &-btn {
+                transition: all 0.3s ease;
+                &:hover {
+                    font-weight: bold;
+                }
+            }
+        }
     }
 
     &__image {

@@ -38,26 +38,26 @@
                     <div class="user__favorite user__info-common">
                         <div class="user__subtitle">お気に入りベスト３</div>
                         <div class="user__favorite user__favorite-1">
-                            <div>
-                                1位 ： <button type="button" class="" data-toggle="modal" data-target="#my_favorite_01">{{$user->myFavorite->my_favorite_01 ?? '登録がありません'}}</button>
+                            <div class="user__favorite-title">
+                                <span class="best best-1">1位</span> ： <button type="button" class="best-btn best-1__btn" data-toggle="modal" data-target="#my_favorite_01">{{$user->myFavorite->my_favorite_01 ?? '登録がありません'}}</button>
                             </div>
-                            <div>
+                            <div class="user__favorite-isbn">
                                 ISBN : {{$user->myFavorite->my_favorite_isbn_01 ?? '登録がありません' }}
                             </div>
                         </div>
                         <div class="user__favorite user__favorite-2">
-                            <div>
-                                2位 ： <button type="button" class="" data-toggle="modal" data-target="#my_favorite_02">{{$user->myFavorite->my_favorite_02 ?? '登録がありません'}}</button>
+                            <div class="user__favorite-title">
+                                <span class="best best-2">2位</span> ： <button type="button" class="best-btn best-2__btn" data-toggle="modal" data-target="#my_favorite_02">{{$user->myFavorite->my_favorite_02 ?? '登録がありません'}}</button>
                             </div>
-                            <div>
+                            <div class="user__favorite-isbn">
                                 ISBN : {{$user->myFavorite->my_favorite_isbn_02 ?? '登録がありません' }}
                             </div>
                         </div>
                         <div class="user__favorite user__favorite-3">
-                            <div>
-                                3位 ：<button type="button" class="" data-toggle="modal" data-target="#my_favorite_03">{{$user->myFavorite->my_favorite_03 ?? '登録がありません'}}</button>
+                            <div class="user__favorite-title">
+                                <span class="best best-3">3位</span> ：<button type="button" class="best-btn best-2__btn" data-toggle="modal" data-target="#my_favorite_03">{{$user->myFavorite->my_favorite_03 ?? '登録がありません'}}</button>
                             </div>
-                            <div>
+                            <div class="user__favorite-isbn">
                                 ISBN : {{$user->myFavorite->my_favorite_isbn_03 ?? '登録がありません' }}
                             </div>
                         </div>
@@ -122,14 +122,14 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="modal-title modal-book__title" id="exampleModalLongTitle">タイトル：{{$user->myFavorite->my_favorite_01 ?? '未登録'}}</div>
+                    <div class="modal-title modal-book__title modal__favorite-title" id="exampleModalLongTitle">{{$user->myFavorite->my_favorite_01 ?? '未登録'}}</div>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div>お気に入りの理由</div>
-                    <div>
+                    <div class="modal__favorite-reason">お気に入りの理由</div>
+                    <div class="modal__favorite-body">
                         {{$user->myFavorite->my_favorite_reason_01 ?? '登録がありません。'}}</textarea>
                     </div>
                 </div>
@@ -142,15 +142,15 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="modal-title modal-book__title" id="exampleModalLongTitle">タイトル：{{$user->myFavorite->my_favorite_02 ?? '未登録'}}</div>
+                    <div class="modal-title modal-book__title modal__favorite-title" id="exampleModalLongTitle">{{$user->myFavorite->my_favorite_02 ?? '未登録'}}</div>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div>お気に入りの理由</div>
-                    <div>
-                        {{$user->myFavorite->my_favorite_reason_02 ?? '登録がありません。'}}</textarea>
+                    <div class="modal__favorite-reason">お気に入りの理由</div>
+                    <div class="modal__favorite-body">
+                        {{$user->myFavorite->my_favorite_reason_02 ?? ''}}</textarea>
                     </div>
                 </div>
             </div>
@@ -162,15 +162,15 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div class="modal-title modal-book__title" id="exampleModalLongTitle">タイトル：{{$user->myFavorite->my_favorite_03 ?? '未登録'}}</div>
+                    <div class="modal-title modal-book__title modal__favorite-title" id="exampleModalLongTitle">{{$user->myFavorite->my_favorite_03 ?? '未登録'}}</div>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div>お気に入りの理由</div>
-                    <div>
-                        {{$user->myFavorite->my_favorite_reason_03 ?? '登録がありません。'}}</textarea>
+                    <div class="modal__favorite-reason">お気に入りの理由</div>
+                    <div class="modal__favorite-body">
+                        {{$user->myFavorite->my_favorite_reason_03 ?? ''}}</textarea>
                     </div>
                 </div>
             </div>
