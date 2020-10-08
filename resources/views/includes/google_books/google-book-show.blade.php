@@ -131,8 +131,12 @@
         <!-- モーダル 感想の編集 -->
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit">編集</button>
         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-{{ $review->id }}">削除</button>
+        
+        <!-- 編集モーダル -->
+        @include('includes.edit-book-form')
 
-
+        <!-- 削除モーダル -->
+        @include('includes.delete-book-form')
     </div>
     @endif
 
@@ -180,10 +184,3 @@
         @endif
     </div>
 </div>
-
-
-<!-- 編集モーダル -->
-@include('includes.edit-book-form')
-
-<!-- 削除モーダル -->
-@include('includes.delete-book-form')
