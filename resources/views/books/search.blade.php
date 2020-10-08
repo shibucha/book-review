@@ -6,10 +6,7 @@
 @section('content')
 
 <div class="search__container">
-    <h1>本を探しましょう。</h1>
-
-   
-
+  
     <!-- 検索フォーム -->
     @include('includes.google_books.google-book-search-form')
 

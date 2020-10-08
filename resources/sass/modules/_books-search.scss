@@ -7,7 +7,8 @@ Stylesheet: 検索結果の表示
 .search {
     &__container {
         @extend .content-width;
-
+        padding-top: 50px;
+        
         .fs-m {
             font-size: 12px;
         }
@@ -18,8 +19,8 @@ Stylesheet: 検索結果の表示
     }
 
     &__form {
+        margin: 10px 0;
         text-align: center;
-        margin-bottom: 10px;
 
         &-flex {
             display: flex;
