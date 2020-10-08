@@ -141,3 +141,21 @@ Stylesheet: 600px以上のタブレットやモニタで適用
         margin-left: 20px;
     }
 }
+
+// 表示結果なしのページ
+.nothing-to-show {
+
+    &__flex {
+        display: flex;
+    }
+
+    &__left{
+        margin-left: 20px;
+    }
+
+    &__description{
+        .fs-m{
+            font-size: 14px;
+        }
+    }
+}

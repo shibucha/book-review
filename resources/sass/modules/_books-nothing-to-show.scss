@@ -1,0 +1,25 @@
+/******************************************************************
+
+Stylesheet: レビュー登録のない書籍
+
+******************************************************************/
+
+.nothing-to-show {
+    &__container {
+        @extend .content-width;
+        padding-top: 40px;
+    }
+
+    &__flex {
+        background-color: $themeColor;
+        padding: 10px;
+        border-radius: 5px;
+        margin-top: 20px;
+    }
+
+    &__description{
+        .fs-m{
+            font-size: 12px;
+        }
+    }
+}

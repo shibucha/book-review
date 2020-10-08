@@ -5,9 +5,11 @@
 
 @section('content')
 
-<h1>表示出来る結果はありません。</h1>
+<div class="nothing-to-show__container">
+<h1>まだレビューがありません。</h1>
 
 
 @include('includes.google_books.google-book-nothing-to-show')
+</div>
 
 @endsection
