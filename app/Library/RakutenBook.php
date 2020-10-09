@@ -39,12 +39,14 @@ class RakutenBook
 
         $body = $response->getBody();
 
-        $bodyArray = json_decode($body, true);
+        $bodyArray = json_decode($body, false);
 
-        return $bodyArray['Items'];
+        // ddd($bodyArray->Items[0]->Item->title);
+
+        return $bodyArray->Items;
     }
 
-    public static function RakutenBooksStore(){
-        
+    public static function RakutenBooksStore()
+    {
     }
 }

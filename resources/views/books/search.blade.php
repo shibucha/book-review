@@ -8,7 +8,7 @@
 <div class="search__container">
   
     <!-- 検索フォーム -->
-    @include('includes.google_books.google-book-search-form')
+    @include('includes.rakuten_books.rakuten-book-search-form')
 
 
     <div class="search__form-flex">
@@ -32,7 +32,7 @@
     <hr>
 
     <!-- グーグルブックスの検索結果表示 -->
-    @include('includes.google_books.google-book-search')
+    @include('includes.rakuten_books.rakuten-book-search')
 
     <!--  ペジネーション機能 -->
     {{ $items->appends(request()->input())->links() }}

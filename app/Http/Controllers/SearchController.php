@@ -13,6 +13,7 @@ use App\Http\Requests\ReadingRecordRequest;
 use App\Library\GoogleBook;
 use App\Library\OpenBd;
 use App\Library\BookReviewCommon;
+use app\Library\RakutenBook;
 
 // Model
 use App\ReadingRecord;
@@ -30,15 +31,17 @@ class SearchController extends Controller
     {
         $user_id = Auth::id();
         $items = null;
-        $google_book = new GoogleBook();
-        $keyword = $google_book->getKeyword($request);      
+        // $google_book = new GoogleBook();
+        // $keyword = $google_book->getKeyword($request);      
         // $keyword = OpenBd::getKeyword($request);
-      
+        $keyword = $request->keyword;
+
         if (isset($keyword)) {
             //書籍APIの利用(App\Library)
             // $items = OpenBd::getOpenBdItemByIsbn($keyword);
-            $items = $google_book->googleBooksSearchResults($keyword);
-            
+            // $items = $google_book->googleBooksSearchResults($keyword);
+            $items = RakutenBook::rakutenBooksKeyword($keyword);
+
             if (!$items) {
                 return redirect()->route('books.search');
             }
@@ -47,6 +50,9 @@ class SearchController extends Controller
             $items = BookReviewCommon::setPagination($items, 10, $request);
         }
 
+        // foreach ($items as $item) {
+        //     ddd($item->Item);
+        // }
 
         //既に登録した本のbook_idを取得
         if (isset($user_id)) {
@@ -63,14 +69,14 @@ class SearchController extends Controller
         } else {
             //未ログインユーザーの場合
             $book_ids[] = null;
-        } 
-        
+        }
+
         return view('books.search', [
             'items' => $items,
             'keyword' => $keyword,
             'user_id' => $user_id,
             'book_ids' => $book_ids,
-            'google_book' => $google_book,
+            // 'google_book' => $google_book,
         ]);
     }
 
