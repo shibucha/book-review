@@ -101,7 +101,7 @@ class BookController extends Controller
     public function nothingToShow($book_id)
     {
         $item = null;
-        $google_book = new GoogleBook();
+        // $google_book = new GoogleBook();
 
         //書籍情報取得(App\Library)
         if (isset($book_id)) {

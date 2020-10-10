@@ -116,7 +116,7 @@
     {{$user->name}}
     <p>まだ、あなたの本棚に追加されていません。</p>
 
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ 'a-'.$item['id'] }}">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ 'a-'.$item->isbn }}">
         本を登録する。
     </button>
 
