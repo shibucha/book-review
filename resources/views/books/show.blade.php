@@ -5,6 +5,6 @@
 
 @section('content')
 
-@include('includes.google_books.google-book-show')
+@include('includes.rakuten_books.rakuten-book-show')
 
 @endsection

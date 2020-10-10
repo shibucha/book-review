@@ -92,11 +92,13 @@ class SearchController extends Controller
 
             // 書籍情報を取得（App\Library\）
             // $item = OpenBd::getOpenBdItemByIsbn($book_id);
-            $item = $google_book->veryfyIsbnOrGoogleBookId($book_id);
-
+            // $item = $google_book->veryfyIsbnOrGoogleBookId($book_id);
+            $item = RakutenBook::rakutenBooksIsbn($book_id);           
+         
             // 書籍情報を保存（App\Library\）
             // OpenBd::OpenBdStore($item, $author, $book, $reading_record, $book_id, $user_id);
-            $google_book->googleBookStore($item, $author, $book, $reading_record, $book_id, $user_id);
+            // $google_book->googleBookStore($item, $author, $book, $reading_record, $book_id, $user_id);
+            RakutenBook::rakutenBookStore($item, $author, $book, $reading_record, $book_id, $user_id);
         }
 
 

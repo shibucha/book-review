@@ -21,7 +21,7 @@ use App\ReadingRecord;
 use App\Library\GoogleBook;
 use App\Library\OpenBd;
 use App\Library\BookReviewCommon;
-
+use app\Library\RakutenBook;
 
 class BookController extends Controller
 {
@@ -30,13 +30,13 @@ class BookController extends Controller
 
         $user_id = Auth::id();
         $user = User::find($user_id);
-        
+
         //user_idが登録されているレビューを全取得
         $reviews = ReadingRecord::where('user_id', $user_id)->paginate(8);
         $reviews->load('book');
-        $number_of_readings = ReadingRecord::where('user_id', $user_id)->count();        
+        $number_of_readings = ReadingRecord::where('user_id', $user_id)->count();
         $reviews_count = ReadingRecord::where('user_id', $user_id)->select('body')->whereNotIn('body', ['null'])->count();
-         
+
         return view('books.index', [
             'user' => $user,
             'reviews' => $reviews,
@@ -50,14 +50,14 @@ class BookController extends Controller
     {
         $user_id = Auth::id();
         $user = User::find($user_id);
-        $google_book = new GoogleBook();
+        // $google_book = new GoogleBook();
         $item = null;
-        
+
         //書籍情報取得(App\Library)
         if (isset($book_id)) {
-            $item = $google_book->veryfyIsbnOrGoogleBookId($book_id);
+            // $item = $google_book->veryfyIsbnOrGoogleBookId($book_id);
             // $item = OpenBd::getOpenBdItemByIsbn($book_id);
-            
+            $item = RakutenBook::rakutenBooksIsbn($book_id);
             $message = null;
         }
         if (!isset($item)) {
@@ -65,7 +65,7 @@ class BookController extends Controller
         }
 
         // これまでレビュー登録があったかどうかの確認
-        $book = Book::where('book_id', $google_book->getBookId($item))->first();
+        $book = Book::where('book_id', $book_id)->first();
         // $book = Book::where('book_id', $book_id)->first();
         if ($book === null) {
             // 過去にレビューされたことのない本の場合は、以下のページに飛ぶ。             
@@ -76,13 +76,13 @@ class BookController extends Controller
 
         // 他人のレビュー取得
         $others_reviews = ReadingRecord::where('book_id', $book->id)->whereNotIn('user_id', [$user_id])->whereNotIn('public_private', [0])->orderBy('created_at', 'desc')->get();
-       
+
         // その本のレビュー数をカウント
         $review_count = ReadingRecord::where('book_id', $book->id)->count();
-       
+
         //本の評価数値を取得
-        $rating = ReadingRecord::where('book_id', $book->id)->select('rating')->get()->avg('rating');        
-        
+        $rating = ReadingRecord::where('book_id', $book->id)->select('rating')->get()->avg('rating');
+
         return view('books.show', [
             'item' => $item,
             'message' => $message,
@@ -106,10 +106,11 @@ class BookController extends Controller
         //書籍情報取得(App\Library)
         if (isset($book_id)) {
             // $item = OpenBd::getOpenBdItemByIsbn($book_id);            
-            $item = $google_book->veryfyIsbnOrGoogleBookId($book_id);            
+            // $item = $google_book->veryfyIsbnOrGoogleBookId($book_id);
+            $item = RakutenBook::rakutenBooksIsbn($book_id);          
             $message = null;
         }
-
+       
         return view('books.nothing-to-show', ['item' => $item]);
     }
 

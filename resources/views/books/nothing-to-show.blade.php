@@ -9,7 +9,7 @@
 <h1>まだレビューがありません。</h1>
 
 
-@include('includes.google_books.google-book-nothing-to-show')
+@include('includes.rakuten_books.rakuten-book-nothing-to-show')
 </div>
 
 @endsection
