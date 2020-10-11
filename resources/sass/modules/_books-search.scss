@@ -19,8 +19,10 @@ Stylesheet: 検索結果の表示
     }
 
     &__form {
+        display: flex;
+        flex-direction: column;
         margin: 10px 0;
-        text-align: center;
+      
 
         &-flex {
             display: flex;
@@ -29,9 +31,7 @@ Stylesheet: 検索結果の表示
     }
 
     &__input-field {
-        border: 1px solid #757575;
-        width: 80%;
-        max-width: 500px;
+        border: 1px solid #757575;        
         padding: 5px;
         border-radius: 5px;
     }
@@ -46,5 +46,9 @@ Stylesheet: 検索結果の表示
     &__keyword {
         margin-bottom: 0;
         margin-right: 20px;
+
+        &-bold{
+            font-weight: bold;
+        }
     }
 }

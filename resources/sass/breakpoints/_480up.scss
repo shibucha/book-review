@@ -20,3 +20,14 @@ Stylesheet: 480px以上(スマホの横向き)のモニタで適用
         flex-basis: 28%;
     }
 }
+
+.search{
+    &__form{
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    &__input-field {
+        width: 40%;
+    }
+}

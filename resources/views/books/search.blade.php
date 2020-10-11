@@ -15,9 +15,9 @@
         <!-- 検索キーワード有無のチェック -->
         <div class="search__keyword">
             @if($items === null)
-            <p>キーワードを入力してください。</p>
+            <p>キーワード、またはISBNコードを入力してください。</p>
             @else
-            <p>{{ $keyword }}の検索結果</p>
+            <p><span class="search__keyword-bold">{{ $keyword }}</span>の検索結果</p>
         </div>
         
         <div>

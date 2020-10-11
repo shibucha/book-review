@@ -35,7 +35,7 @@ class SearchController extends Controller
         // $keyword = $google_book->getKeyword($request);      
         // $keyword = OpenBd::getKeyword($request);
         $keyword = $request->isbn ?? $request->keyword;
-        ddd($keyword);
+     
         
         if (isset($keyword)) {
             //書籍APIの利用(App\Library)
