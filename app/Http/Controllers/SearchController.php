@@ -34,14 +34,15 @@ class SearchController extends Controller
         // $google_book = new GoogleBook();
         // $keyword = $google_book->getKeyword($request);      
         // $keyword = OpenBd::getKeyword($request);
-        $keyword = $request->isbn ?? $request->keyword;
-     
-        
+        $keyword = $request->keyword ?? $request->isbn;
+
+
         if (isset($keyword)) {
             //書籍APIの利用(App\Library)
             // $items = OpenBd::getOpenBdItemByIsbn($keyword);
             // $items = $google_book->googleBooksSearchResults($keyword);
-            $items = RakutenBook::rakutenBooksKeyword($keyword);
+            // $items = RakutenBook::rakutenBooksKeyword($keyword);
+            $items = RakutenBook::veryfyKeywordOrIsbn($keyword);
 
             if (!$items) {
                 return redirect()->route('books.search');
@@ -70,7 +71,8 @@ class SearchController extends Controller
 
         return view('books.search', [
             'items' => $items,
-            'keyword' => $keyword,
+            'keyword' => $request->keyword,
+            'isbn' => $request->isbn,
             'user_id' => $user_id,
             'book_ids' => $book_ids,
             // 'google_book' => $google_book,
@@ -82,7 +84,7 @@ class SearchController extends Controller
     {
         $item = null;
         $user_id = Auth::id();
-        $google_book = new GoogleBook();
+        // $google_book = new GoogleBook();
 
         //登録する書籍のAPI情報を取得
         if (isset($book_id)) {
@@ -90,8 +92,8 @@ class SearchController extends Controller
             // 書籍情報を取得（App\Library\）
             // $item = OpenBd::getOpenBdItemByIsbn($book_id);
             // $item = $google_book->veryfyIsbnOrGoogleBookId($book_id);
-            $item = RakutenBook::rakutenBooksIsbn($book_id);           
-         
+            $item = RakutenBook::rakutenBooksIsbn($book_id);
+
             // 書籍情報を保存（App\Library\）
             // OpenBd::OpenBdStore($item, $author, $book, $reading_record, $book_id, $user_id);
             // $google_book->googleBookStore($item, $author, $book, $reading_record, $book_id, $user_id);

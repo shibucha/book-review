@@ -1,13 +1,13 @@
 <div class="show__container">
 
     <div class="show__info">
-        @if(isset($item))
-
+        @if(isset($items))
+        @foreach($items as $item)
         <!-- 書籍のイメージ画像 -->
         <div class="show__flex">
             <div class="show__image show__left">
-                @if(array_key_exists('largeImageUrl', $item))
-                <img src="{{ $item->largeImageUrl }}" alt="書籍のイメージ"><br>
+                @if(array_key_exists('largeImageUrl', $item->Item))
+                <img src="{{ $item->Item->largeImageUrl }}" alt="書籍のイメージ"><br>
                 @else
                 <img src="https://book-review-shibucha.s3-ap-northeast-1.amazonaws.com/books/book_noimage.png" alt="書籍のイメージなし" width="200px" width="200px">
                 @endif
@@ -16,30 +16,30 @@
             <div class="show__right">
                 <!-- 書籍のタイトル -->
                 <div class="show__title mb-10">
-                    @if(array_key_exists('title', $item))
-                    <div>{{ $item->title }}</div>
+                    @if(array_key_exists('title', $item->Item))
+                    <div>{{ $item->Item->title }}</div>
                     @endif
                 </div>
 
                 <!-- 著者 -->
                 <div class="show__author mb-10">
-                    @if(array_key_exists('author', $item))
-                    <span class="font-bold">著　者</span>：{{ $item->author }}
+                    @if(array_key_exists('author', $item->Item))
+                    <span class="font-bold">著　者</span>：{{ $item->Item->author }}
                     @endif
                 </div>
 
                 <!-- 出版日 -->
                 <div class="show__publish-date mb-10">
-                    @if(array_key_exists('salesDate', $item))
-                    <span class="font-bold">出版日</span>：{{ $item->salesDate }}
+                    @if(array_key_exists('salesDate', $item->Item))
+                    <span class="font-bold">出版日</span>：{{ $item->Item->salesDate }}
                     @endif
                 </div>
 
                 <!-- 概要 -->
                 <div class="show__description mb-10">
-                    @if(array_key_exists('itemCaption', $item))
+                    @if(array_key_exists('itemCaption', $item->Item))
                     <div class="font-bold">概　要</div>
-                    <p class="fs-m">{{ $item->itemCaption }}</p>
+                    <p class="fs-m">{{ $item->Item->itemCaption }}</p>
                     @endif
                 </div>
             </div>
@@ -65,7 +65,7 @@
                 @endif
             </div>
         </div>
-
+        @endforeach
         @endif
     </div>
     <!---------------------------------- END 書籍のAPI情報 -------------------------------->

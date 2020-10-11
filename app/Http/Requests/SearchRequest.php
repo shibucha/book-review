@@ -23,16 +23,18 @@ class SearchRequest extends FormRequest
      */
     public function rules()
     {
-        return [            
-            'isbn' => 'integer|numeric',
+        return [ 
+            'keyword' => 'string|nullable',           
+            'isbn' => 'integer|numeric|digits:13|nullable',
         ];
     }
 
     public function messages()
     {
         return [
-            'isbn.integer' =>'ISBNコードは連続数値で検索してください。',
-            'isbn.numeric' =>'ISBNコードは連続数値で検索してください。',
+            'isbn.integer' =>'ISBNコードは13桁の連続数値で検索してください。',
+            'isbn.numeric' =>'ISBNコードは13桁の連続数値で検索してください。',
+            'isbn.digits' =>'ISBNコードは13桁の連続数値で検索してください。',
         ];
     }
 }

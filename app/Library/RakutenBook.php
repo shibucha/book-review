@@ -15,7 +15,18 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 
 class RakutenBook
-{
+{   
+    // わたってきた変数がキーワードか、ISBNコードか検証
+    public static function veryfyKeywordOrIsbn($keyword){
+        if(is_numeric($keyword)){            
+            $isbn = $keyword;
+           return self::rakutenBooksIsbn($isbn); 
+        } else {
+            return self::rakutenBooksKeyword($keyword);
+        }
+    }
+
+    // ISBNコードで情報を取得
     public static function rakutenBooksIsbn($isbn)
     {
 
@@ -31,11 +42,12 @@ class RakutenBook
 
         $bodyArray = json_decode($body, false);
 
-        // ddd($bodyArray->Items[0]->Item);
+        // ddd($hensu[0] = $bodyArray->Items);
 
-        return $bodyArray->Items[0]->Item;
+        return $items[0] = $bodyArray->Items;
     }
 
+    // キーワードで情報を取得
     public static function rakutenBooksKeyword($keyword)
     {
 
@@ -56,13 +68,14 @@ class RakutenBook
         return $bodyArray->Items;
     }
 
+    // 楽天ブックのレビュー保存
     public static function rakutenBookStore($item,$author,$book,$reading_record,$book_id, $user_id)
     {
         $book_id = Book::where('book_id', $book_id)->first();
-
+        
         // API情報にAuhtorsキーが存在するかチェック
-        if ($item->author) {
-            $author_name = Author::where('author', $item->author)->first();
+        if ($item[0]->Item->author) {
+            $author_name = Author::where('author', $item[0]->Item->author)->first();
         } else {
             $author_name = "不明";
         }
@@ -90,7 +103,7 @@ class RakutenBook
 
         //著者が既にテーブルに存在しているか確認する。
         if (!isset($author_name)) {                                          
-            $author->author = $item->author;                                                
+            $author->author = $item[0]->Item->author;                                                
             $author->save();
             $book->author_id = $author->id;
         } else {
@@ -100,10 +113,10 @@ class RakutenBook
         //書籍情報APIが、booksテーブルにまだ存在しないならば、書籍情報を保存しておく。
         //過去既に登録されている本ならば、登録されている書籍のレコードのidを<reading_records>テーブルの<book_id>に登録する。
         if (!isset($book_id)) {
-            $book->title =  $item->title ?? '不明';
-            $book->book_id = $item->isbn ?? '不明-'.mt_rand(1, 10000);
-            $book->image = $item->largeImageUrl ?? '';
-            $book->description = $item->itemCaption ?? '概要なし';                
+            $book->title =  $item[0]->Item->title ?? '不明';
+            $book->book_id = $item[0]->Item->isbn ?? '不明-'.mt_rand(1, 10000);
+            $book->image = $item[0]->Item->largeImageUrl ?? '';
+            $book->description = $item[0]->Item->itemCaption ?? '概要なし';                
             $book->save();
             $reading_record->book_id = $book->id;
         } else {

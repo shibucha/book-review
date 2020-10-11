@@ -51,13 +51,13 @@ class BookController extends Controller
         $user_id = Auth::id();
         $user = User::find($user_id);
         // $google_book = new GoogleBook();
-        $item = null;
+        $items = null;
 
         //書籍情報取得(App\Library)
         if (isset($book_id)) {
             // $item = $google_book->veryfyIsbnOrGoogleBookId($book_id);
             // $item = OpenBd::getOpenBdItemByIsbn($book_id);
-            $item = RakutenBook::rakutenBooksIsbn($book_id);
+            $items = RakutenBook::rakutenBooksIsbn($book_id);         
             $message = null;
         }
         if (!isset($item)) {
@@ -66,6 +66,7 @@ class BookController extends Controller
 
         // これまでレビュー登録があったかどうかの確認
         $book = Book::where('book_id', $book_id)->first();
+        
         // $book = Book::where('book_id', $book_id)->first();
         if ($book === null) {
             // 過去にレビューされたことのない本の場合は、以下のページに飛ぶ。             
@@ -84,7 +85,7 @@ class BookController extends Controller
         $rating = ReadingRecord::where('book_id', $book->id)->select('rating')->get()->avg('rating');
 
         return view('books.show', [
-            'item' => $item,
+            'items' => $items,
             'message' => $message,
             'book' => $book,
             'review' => $review,
@@ -100,18 +101,18 @@ class BookController extends Controller
     // まだ誰もレビューしたことのない本の場合
     public function nothingToShow($book_id)
     {
-        $item = null;
+        $items = null;
         // $google_book = new GoogleBook();
 
         //書籍情報取得(App\Library)
         if (isset($book_id)) {
             // $item = OpenBd::getOpenBdItemByIsbn($book_id);            
             // $item = $google_book->veryfyIsbnOrGoogleBookId($book_id);
-            $item = RakutenBook::rakutenBooksIsbn($book_id);          
+            $items = RakutenBook::rakutenBooksIsbn($book_id);            
             $message = null;
         }
        
-        return view('books.nothing-to-show', ['item' => $item]);
+        return view('books.nothing-to-show', ['items' => $items]);
     }
 
     // レビューの編集
