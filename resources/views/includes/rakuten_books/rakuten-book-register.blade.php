@@ -18,7 +18,7 @@
                 <!-- 書籍イメージ -->
                 <div class="modal-book__image">
                     <div class="modal-book__book-image">
-                        @if(array_key_exists('largeImageUrl', $item->Item))
+                        @if(isset($item->Item->largeImageUrl))
                         <img src="{{ $item->Item->largeImageUrl}}" alt="書籍のイメージ"><br>
                         @endif
                     </div>
@@ -30,7 +30,7 @@
 
                     <!-- 著者 -->
                     <p class="modal-book__author">
-                        @if(array_key_exists('author', $item->Item))
+                        @if(isset($item->Item->author))
                         {{ $item->Item->author }} / 著
                         @endif
                     </p>

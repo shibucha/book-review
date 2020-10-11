@@ -6,7 +6,7 @@
 
     <div class="nothing-to-show__image mb-10">
         <div class="nothing-to-show__image">
-            @if(array_key_exists('largeImageUrl', $item->Item))
+            @if(isset($item->Item->largeImageUrl))
             <img src="{{ $item->Item->largeImageUrl }}" alt="書籍のイメージ"><br>
             @else
             <img src="https://book-review-shibucha.s3-ap-northeast-1.amazonaws.com/books/book_noimage.png" alt="書籍のイメージなし" width="200px" width="200px">
@@ -17,14 +17,14 @@
     <div class="nothing-to-show__left mb-10">
         <!-- 書籍のタイトル -->
         <div class="nothing-to-show__title">
-            @if(array_key_exists('title', $item->Item))
+            @if(isset($item->Item->title))
             <P><span class="font-bold">{{ $item->Item->title}}</span></P>
             @endif
         </div>
 
         <!-- 著者 -->
         <div class="nothing-to-show__author mb-10">
-            @if(array_key_exists('author', $item->Item))
+            @if(isset($item->Item->author))
             <span class="font-bold">著者</span>：{{ $item->Item->author }}
             @endif
         </div>

@@ -9,7 +9,7 @@
             <div class="search__left">
                 <!-- 書籍のイメージ画像 -->
                 <div class="search__image mb-10">
-                    @if(array_key_exists('largeImageUrl', $item->Item))
+                    @if(isset($item->Item->largeImageUrl))
                     <img src="{{ $item->Item->largeImageUrl }}" alt="書籍のイメージ"><br>
                     @else
                     <img src="https://book-review-shibucha.s3-ap-northeast-1.amazonaws.com/books/book_noimage.png" alt="書籍のイメージなし" width="200px" width="200px">
@@ -20,28 +20,28 @@
             <div class="search__right">
                 <!-- 著者 -->
                 <div class="search__author mb-10">
-                    @if(array_key_exists('author', $item->Item))
+                    @if(isset($item->Item->author))
                     {{ $item->Item->author }} / 著
                     @endif
                 </div>
 
                 <!-- 発売年月日 -->
                 <div class="search__published-date mb-10">
-                    @if(array_key_exists('salesDate', $item->Item))
+                    @if(isset($item->Item->salesDate))
                     出版日&nbsp;：&nbsp;{{ $item->Item->salesDate }}
                     @endif
                 </div>
 
                 <!-- ISBNコード -->
                 <div class="search__isbn mb-10">
-                    @if(array_key_exists('isbn', $item->Item))
+                    @if(isset($item->Item->isbn))
                     ISBN(NO_13): {{$item->Item->isbn}}
                     @endif
                 </div>
 
                 <!-- 概要 -->
                 <div class="search__description mb-10">
-                    @if(array_key_exists('itemCaption', $item->Item))
+                    @if(isset($item->Item->itemCaption))
                     <div>【概要】</div>
                     <span class="fs-m">{{ $item->Item->itemCaption }}</span><br>
                     @endif
