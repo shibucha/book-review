@@ -31,21 +31,21 @@
 
         <!-- 出版日 -->
         <div class="nothing-to-show__published-date mb-10">
-            @if(array_key_exists('salesDate', $item->Item))
+            @if(isset($item->Item->salesDate))
             <span class="font-bold">出版日</span>：{{ $item->Item->salesDate }}
             @endif
         </div>
 
         <!-- ISBN -->
         <div class="nothing-to-show__isbn mb-10">
-            @if(array_key_exists('isbn', $item->Item))
+            @if(isset($item->Item->isbn))
             <span class="font-bold">ISBN</span>：{{ $item->Item->isbn }}
             @endif
         </div>
 
         <!-- 概要 -->
         <div class="nothing-to-show__description mb-10">
-            @if(array_key_exists('itemCaption', $item->Item))
+            @if(isset($item->Item->itemCaption))
             <div class="font-bold">概要</div>
             <p class="fs-m">{{ $item->Item->itemCaption }}</p>
             @endif
