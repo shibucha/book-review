@@ -27,7 +27,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // *************書籍の検索〜登録までの操作関連 **********//
     Route::post('/books/{book_id}/search', 'SearchController@store')->name('search.store');
-    Route::get('/books/{book_id}/show', 'BookController@show')->name('books.show');
+    Route::get('/books/{book_id?}/show', 'BookController@show')->name('books.show');
     Route::get('/books/{book_id}/nothing-to-show', 'BookController@nothingToShow')->name('books.nothingToShow');
 
     // *************レビュー操作関連 **********//

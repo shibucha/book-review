@@ -42,7 +42,13 @@
                                 <span class="best best-1">1位</span> ： <button type="button" class="best-btn best-1__btn" data-toggle="modal" data-target="#my_favorite_01">{{$user->myFavorite->my_favorite_01 ?? '登録がありません'}}</button>
                             </div>
                             <div class="user__favorite-isbn">
+                                @if($user->myFavorite->my_favorite_isbn_01)
+                                <a href="{{route('books.show',['book_id'=> $user->myFavorite->my_favorite_isbn_01])}}" class="user__favorite-link">
+                                    ISBN : <span class="hover-bold">{{$user->myFavorite->my_favorite_isbn_01 ?? '登録がありません' }}</span>
+                                </a>
+                                @else
                                 ISBN : {{$user->myFavorite->my_favorite_isbn_01 ?? '登録がありません' }}
+                                @endif
                             </div>
                         </div>
                         <div class="user__favorite user__favorite-2">
@@ -50,7 +56,13 @@
                                 <span class="best best-2">2位</span> ： <button type="button" class="best-btn best-2__btn" data-toggle="modal" data-target="#my_favorite_02">{{$user->myFavorite->my_favorite_02 ?? '登録がありません'}}</button>
                             </div>
                             <div class="user__favorite-isbn">
+                                @if($user->myFavorite->my_favorite_isbn_02)
+                                <a href="{{route('books.show',['book_id'=> $user->myFavorite->my_favorite_isbn_02])}}" class="user__favorite-link">
+                                    ISBN :  <span class="hover-bold">{{$user->myFavorite->my_favorite_isbn_02 ?? '登録がありません' }}</span>
+                                </a>
+                                @else
                                 ISBN : {{$user->myFavorite->my_favorite_isbn_02 ?? '登録がありません' }}
+                                @endif
                             </div>
                         </div>
                         <div class="user__favorite user__favorite-3">
@@ -58,7 +70,13 @@
                                 <span class="best best-3">3位</span> ：<button type="button" class="best-btn best-2__btn" data-toggle="modal" data-target="#my_favorite_03">{{$user->myFavorite->my_favorite_03 ?? '登録がありません'}}</button>
                             </div>
                             <div class="user__favorite-isbn">
+                                @if($user->myFavorite->my_favorite_isbn_03)
+                                <a href="{{route('books.show',['book_id'=> $user->myFavorite->my_favorite_isbn_03])}}" class="user__favorite-link">
+                                    ISBN : <span class="hover-bold">{{$user->myFavorite->my_favorite_isbn_03 ?? '登録がありません' }}</span>
+                                </a>
+                                @else
                                 ISBN : {{$user->myFavorite->my_favorite_isbn_03 ?? '登録がありません' }}
+                                @endif
                             </div>
                         </div>
                     </div>

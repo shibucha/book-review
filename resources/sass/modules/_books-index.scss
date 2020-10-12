@@ -56,7 +56,13 @@ Stylesheet: Route::get(books/index) → (マイページ)
         &-title {
             margin-bottom: 3px;
         }
+        &-link{
+            color: #000;
 
+            &:hover{
+                color: #000;
+            }
+        }
         .best {
             color: #fff;
             padding: 5px;
@@ -146,5 +152,15 @@ Stylesheet: Route::get(books/index) → (マイページ)
 
     &__book-img {
         width: 100%;
+    }
+}
+
+
+// マイページ共通
+.hover-bold{
+    transition: all 0.3s ease;
+    
+    &:hover{
+        font-weight: bold;
     }
 }

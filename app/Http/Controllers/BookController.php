@@ -48,19 +48,22 @@ class BookController extends Controller
     // 詳細ページの表示
     public function show($book_id, ReadingRecord $reading_record)
     {
+        // ddd($book_id);
         $user_id = Auth::id();
         $user = User::find($user_id);
         // $google_book = new GoogleBook();
         $items = null;
-
+        
         //書籍情報取得(App\Library)
         if (isset($book_id)) {
             // $item = $google_book->veryfyIsbnOrGoogleBookId($book_id);
             // $item = OpenBd::getOpenBdItemByIsbn($book_id);
             $items = RakutenBook::rakutenBooksIsbn($book_id);         
             $message = null;
-        }
-        if (!isset($item)) {
+        } else {
+            return redirect()->route('books.index');
+        } 
+        if (!isset($items)) {
             $message = '本が選択されていません。';
         }
 
