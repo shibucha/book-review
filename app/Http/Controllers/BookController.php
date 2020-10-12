@@ -25,10 +25,13 @@ use app\Library\RakutenBook;
 
 class BookController extends Controller
 {
-    public function index(Book $book)
+    public function index(Book $book, $user_id = 0)
     {
-
-        $user_id = Auth::id();
+        if($user_id === 0){
+            $user_id = Auth::id();
+        } else {
+            $user_id =$user_id;
+        }
         $user = User::find($user_id);
 
         //user_idが登録されているレビューを全取得
@@ -68,9 +71,8 @@ class BookController extends Controller
         }
 
         // これまでレビュー登録があったかどうかの確認
-        $book = Book::where('book_id', $book_id)->first();
-        
-        // $book = Book::where('book_id', $book_id)->first();
+        $book = Book::where('book_id', $book_id)->first();        
+       
         if ($book === null) {
             // 過去にレビューされたことのない本の場合は、以下のページに飛ぶ。             
             return redirect()->route('books.nothingToShow', ['book_id' => $book_id]);

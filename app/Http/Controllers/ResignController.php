@@ -9,8 +9,8 @@ use Illuminate\Support\Facades\Storage;
 
 class ResignController extends Controller
 {
-    public function index(){      
-        
+    public function index(){
+               
         return view('settings.resign');
     }
 

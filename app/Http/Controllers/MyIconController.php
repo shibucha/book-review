@@ -11,7 +11,12 @@ use App\User;
 class MyIconController extends Controller
 {
     public function index(int $user_id)
-    {
+    {       
+        // もし、他の人のプロフィール画像をクリックしたら、マイページに戻るようにする。
+        if($user_id !== Auth::id()){
+            return redirect()->route('books.index');
+        }
+
         $user = User::find($user_id);        
         return view('settings.icon', ['user' => $user, 'files'=>$_FILES]);
     }
@@ -19,6 +24,11 @@ class MyIconController extends Controller
     //プロフィール画像の登録処理
     public function store(MyIconRequest $request, int $user_id)
     {        
+        // もし、他の人のレビューを操作しようとしたら、マイページにリダイレクトさせる。
+        if($user_id !== Auth::id()){
+            return redirect()->route('books.index');
+        }
+
         $user = User::find($user_id);        
         $disk = Storage::disk('s3');  
         

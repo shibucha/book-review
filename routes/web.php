@@ -23,7 +23,7 @@ Route::get('/books/search', 'SearchController@index')->name('books.search');
 
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/books', 'BookController@index')->name('books.index');
+    Route::get('/books/{user_id?}', 'BookController@index')->name('books.index');
 
     // *************書籍の検索〜登録までの操作関連 **********//
     Route::post('/books/{book_id}/search', 'SearchController@store')->name('search.store');
