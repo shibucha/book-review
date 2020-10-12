@@ -5,6 +5,10 @@ Stylesheet: レビュー登録のない書籍
 ******************************************************************/
 
 .nothing-to-show {
+    &__image{
+        text-align: center;
+    }
+    
     &__container {
         @extend .content-width;
         padding-top: 40px;

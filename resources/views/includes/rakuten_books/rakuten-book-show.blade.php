@@ -24,7 +24,7 @@
                 <!-- 著者 -->
                 <div class="show__author mb-10">
                     @if(isset($item->Item->author))
-                    <span class="font-bold">著　者</span>：{{ $item->Item->author }}
+                    <span class="font-bold">著&nbsp;者</span>：{{ $item->Item->author }}
                     @endif
                 </div>
 
@@ -35,10 +35,16 @@
                     @endif
                 </div>
 
+                <div class="show__isbn mb-10">
+                    @if(isset($item->Item->isbn))
+                    <span class="font-bold">ISBN</span>&nbsp;：&nbsp;{{ $item->Item->isbn }}
+                    @endif
+                </div>
+
                 <!-- 概要 -->
                 <div class="show__description mb-10">
                     @if(isset($item->Item->itemCaption))
-                    <div class="font-bold">概　要</div>
+                    <div class="font-bold">概&nbsp;要&nbsp;：&nbsp;</div>
                     <p class="fs-m">{{ $item->Item->itemCaption }}</p>
                     @endif
                 </div>

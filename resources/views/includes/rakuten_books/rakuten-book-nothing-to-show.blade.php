@@ -25,28 +25,28 @@
         <!-- 著者 -->
         <div class="nothing-to-show__author mb-10">
             @if(isset($item->Item->author))
-            <span class="font-bold">著者</span>：{{ $item->Item->author }}
+            <span class="font-bold">著&nbsp;者</span>&nbsp;：&nbsp;{{ $item->Item->author }}
             @endif
         </div>
 
         <!-- 出版日 -->
         <div class="nothing-to-show__published-date mb-10">
             @if(isset($item->Item->salesDate))
-            <span class="font-bold">出版日</span>：{{ $item->Item->salesDate }}
+            <span class="font-bold">出版日</span>&nbsp;：&nbsp;{{ $item->Item->salesDate }}
             @endif
         </div>
 
         <!-- ISBN -->
         <div class="nothing-to-show__isbn mb-10">
             @if(isset($item->Item->isbn))
-            <span class="font-bold">ISBN</span>：{{ $item->Item->isbn }}
+            <span class="font-bold">ISBN</span>&nbsp;：&nbsp;{{ $item->Item->isbn }}
             @endif
         </div>
 
         <!-- 概要 -->
         <div class="nothing-to-show__description mb-10">
             @if(isset($item->Item->itemCaption))
-            <div class="font-bold">概要</div>
+            <div class="font-bold">概&nbsp;要</div>
             <p class="fs-m">{{ $item->Item->itemCaption }}</p>
             @endif
         </div>

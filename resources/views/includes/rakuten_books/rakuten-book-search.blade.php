@@ -35,7 +35,7 @@
                 <!-- ISBNコード -->
                 <div class="search__isbn mb-10">
                     @if(isset($item->Item->isbn))
-                    ISBN(NO_13): {{$item->Item->isbn}}
+                    出版日&nbsp;：&nbsp;{{$item->Item->isbn}}
                     @endif
                 </div>
 
@@ -69,10 +69,10 @@
 
         <!-- モーダル グーグルブックの登録フォーム -->
         @include('includes.rakuten_books.rakuten-book-register')
-    </div>
 
-    @endauth
-    <!--------------------------- END 認証済みの場合、本の登録可能 --------------------------->
+        @endauth
+        <!--------------------------- END 認証済みの場合、本の登録可能 --------------------------->
+    </div>
     <hr>
 
     @endforeach
