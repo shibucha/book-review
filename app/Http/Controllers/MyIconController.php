@@ -6,46 +6,53 @@ use Illuminate\Http\Request;
 use App\Http\Requests\MyIconRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Library\ImageProccesing;
+use App\Library\EnvironmentalConfirmation;
 use App\User;
 
 class MyIconController extends Controller
 {
     public function index(int $user_id)
-    {       
+    {
         // もし、他の人のプロフィール画像をクリックしたら、マイページに戻るようにする。
-        if($user_id !== Auth::id()){
+        if ($user_id !== Auth::id()) {
             return redirect()->route('books.index');
         }
 
-        $user = User::find($user_id);        
-        return view('settings.icon', ['user' => $user, 'files'=>$_FILES]);
+        $user = User::find($user_id);
+        return view('settings.icon', ['user' => $user]);
     }
 
     //プロフィール画像の登録処理
     public function store(MyIconRequest $request, int $user_id)
-    {        
+    {
         // もし、他の人のレビューを操作しようとしたら、マイページにリダイレクトさせる。
-        if($user_id !== Auth::id()){
+        if ($user_id !== Auth::id()) {
             return redirect()->route('books.index');
         }
-
-        $user = User::find($user_id);        
-        $disk = Storage::disk('s3');  
         
-        if (isset($request->icon)) { 
+        $user = User::find($user_id);
+        $disk_name =  ImageProccesing::getImageStorage();
+        ddd($disk_name);
+        $image_path = ImageProccesing::getIconImagePath();
+        $disk = Storage::disk($disk_name);
+         
 
-            if(basename($user->icon) !== "default.png"){
-                $icon = basename($user->icon);                
-                $disk->delete('icons/' . $icon); //画像の更新があったら、前の画像をストレージファイルから削除する。
-            } 
+        if (isset($request->icon)) {
+
+            if (basename($user->icon) !== "default.png") {
+                $icon = basename($user->icon);
+                $disk->delete($image_path['icon_path'] . '/' . $icon); //画像の更新があったら、前の画像をストレージファイルから削除する。
+            }
 
             $user->icon = ''; //usersテーブルのアイコンを空にする。            
-            $path = $disk->put('icons', $request->file('icon'), 'public');
-            $image = Storage::disk('s3')->url($path);
-                     
+            $path = $disk->put($image_path['icon_path'], $request->file('icon'), 'public');
+            $image = Storage::disk($disk_name)->url($path);
         } elseif (isset($user->icon) && empty($request->icon)) {
+            // 元々アイコンの設定はあるが、リクエストが空のまま設定ボタンを押した場合
             $image = $user->icon;
         } else {
+            // 元々アイコン画像の設定されておらず、かつリクエストも空の場合
             $image = 'https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png';
         }
 
@@ -59,13 +66,21 @@ class MyIconController extends Controller
     public function destroy(int $user_id)
     {
         $user = User::find($user_id);
-        $disk = Storage::disk('s3');
+        $disk_name =  ImageProccesing::getImageStorage();
+        $image_path = ImageProccesing::getIconImagePath();
+        $disk = Storage::disk($disk_name);
+        
+        if($user->icon === 'default.png'){
+            return redirect()->route('books.index');
+        }
+
         if (isset($user->icon)) {
             $icon = basename($user->icon);
-            $disk->delete('icons/' . $icon);
-            $user->icon = 'https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png';
+            $disk->delete($image_path['icon_path'] . '/' .$icon);   //book-reviewプロジェクトのローカルスロレージに保存するイメージパス
+            $user->icon = $image_path['icon_url'] . '/default.png'; //view側で表示するためのイメージパス
             $user->save();
         }
+
         return redirect()->route('books.index');
     }
 }
