@@ -13,7 +13,8 @@ use App\Http\Requests\ReadingRecordRequest;
 use App\Library\GoogleBook;
 use App\Library\OpenBd;
 use App\Library\BookReviewCommon;
-use app\Library\RakutenBook;
+use App\Library\RakutenBook;
+use App\Library\ImageProccesing;
 
 // Model
 use App\ReadingRecord;
@@ -31,17 +32,13 @@ class SearchController extends Controller
     {
         $user_id = Auth::id();
         $items = null;
-        // $google_book = new GoogleBook();
-        // $keyword = $google_book->getKeyword($request);      
-        // $keyword = OpenBd::getKeyword($request);
+
         $keyword = $request->keyword ?? $request->isbn;
 
 
         if (isset($keyword)) {
             //書籍APIの利用(App\Library)
-            // $items = OpenBd::getOpenBdItemByIsbn($keyword);
-            // $items = $google_book->googleBooksSearchResults($keyword);
-            // $items = RakutenBook::rakutenBooksKeyword($keyword);
+
             $items = RakutenBook::veryfyKeywordOrIsbn($keyword);
 
             if (!$items) {
@@ -69,13 +66,16 @@ class SearchController extends Controller
             $book_ids[] = null;
         }
 
+        // APIに書籍イメージが含まれていなかった場合に、別の画像を表示するためのパス
+        $book_image_path = ImageProccesing::getBookImagePath();
+
         return view('books.search', [
             'items' => $items,
             'keyword' => $request->keyword,
             'isbn' => $request->isbn,
             'user_id' => $user_id,
             'book_ids' => $book_ids,
-            // 'google_book' => $google_book,
+            'book_image_path' => $book_image_path['book_url'],
         ]);
     }
 
@@ -84,19 +84,14 @@ class SearchController extends Controller
     {
         $item = null;
         $user_id = Auth::id();
-        // $google_book = new GoogleBook();
 
         //登録する書籍のAPI情報を取得
         if (isset($book_id)) {
 
-            // 書籍情報を取得（App\Library\）
-            // $item = OpenBd::getOpenBdItemByIsbn($book_id);
-            // $item = $google_book->veryfyIsbnOrGoogleBookId($book_id);
+            // 書籍情報を取得（App\Library\）           
             $item = RakutenBook::rakutenBooksIsbn($book_id);
 
-            // 書籍情報を保存（App\Library\）
-            // OpenBd::OpenBdStore($item, $author, $book, $reading_record, $book_id, $user_id);
-            // $google_book->googleBookStore($item, $author, $book, $reading_record, $book_id, $user_id);
+            // 書籍情報を保存（App\Library\）          
             RakutenBook::rakutenBookStore($item, $author, $book, $reading_record, $book_id, $user_id);
         }
 

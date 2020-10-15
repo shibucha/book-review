@@ -56,16 +56,16 @@ class ImageProccesing
         if ($image_env === "local") {
             $book_image_path_data = [
                 'book_path' => 'public/icons',
-                'book_url' => '/storage/icons/',
+                'book_url' => '/storage/books/',
             ];
         } elseif ($image_env === "staging") {
             $book_image_path_data = [
-                'book_path' => '/icons',
+                'book_path' => 'books',
                 'book_url' => 'https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/books/',
             ];
         } else {
             $book_image_path_data = [
-                'book_path' => '/icons',
+                'book_path' => 'books',
                 'book_url' => 'https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/books/',
             ];
         }

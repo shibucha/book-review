@@ -12,7 +12,7 @@
                     @if(isset($item->Item->largeImageUrl))
                     <img src="{{ $item->Item->largeImageUrl }}" alt="書籍のイメージ"><br>
                     @else
-                    <img src="https://book-review-shibucha.s3-ap-northeast-1.amazonaws.com/books/book_noimage.png" alt="書籍のイメージなし" width="200px" width="200px">
+                    <img src="{{$book_image_path}}book_noimage.png" alt="書籍のイメージなし" width="200px" width="200px">
                     @endif
                 </div>
             </div>

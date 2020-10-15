@@ -28,10 +28,10 @@ class BookController extends Controller
 {
     public function index(Book $book, $user_id = 0)
     {
-        if($user_id === 0){
+        if ($user_id === 0) {
             $user_id = Auth::id();
         } else {
-            $user_id =$user_id;
+            $user_id = $user_id;
         }
         $user = User::find($user_id);
 
@@ -59,23 +59,21 @@ class BookController extends Controller
         $user = User::find($user_id);
         // $google_book = new GoogleBook();
         $items = null;
-        
+
         //書籍情報取得(App\Library)
-        if (isset($book_id)) {
-            // $item = $google_book->veryfyIsbnOrGoogleBookId($book_id);
-            // $item = OpenBd::getOpenBdItemByIsbn($book_id);
-            $items = RakutenBook::rakutenBooksIsbn($book_id);         
+        if (isset($book_id)) { 
+            $items = RakutenBook::rakutenBooksIsbn($book_id);
             $message = null;
         } else {
             return redirect()->route('books.index');
-        } 
+        }
         if (!isset($items)) {
             $message = '本が選択されていません。';
         }
 
         // これまでレビュー登録があったかどうかの確認
-        $book = Book::where('book_id', $book_id)->first();        
-       
+        $book = Book::where('book_id', $book_id)->first();
+
         if ($book === null) {
             // 過去にレビューされたことのない本の場合は、以下のページに飛ぶ。             
             return redirect()->route('books.nothingToShow', ['book_id' => $book_id]);
@@ -92,6 +90,8 @@ class BookController extends Controller
         //本の評価数値を取得
         $rating = ReadingRecord::where('book_id', $book->id)->select('rating')->get()->avg('rating');
 
+        $book_image_path = ImageProccesing::getBookImagePath();
+
         return view('books.show', [
             'items' => $items,
             'message' => $message,
@@ -102,7 +102,8 @@ class BookController extends Controller
             'reading_record' => $reading_record,
             'user' => $user,
             'user_id' => $user_id,
-            'rating' => $rating
+            'rating' => $rating,
+            'book_image_path' => $book_image_path['book_url'],
         ]);
     }
 
@@ -113,14 +114,15 @@ class BookController extends Controller
         // $google_book = new GoogleBook();
 
         //書籍情報取得(App\Library)
-        if (isset($book_id)) {
-            // $item = OpenBd::getOpenBdItemByIsbn($book_id);            
-            // $item = $google_book->veryfyIsbnOrGoogleBookId($book_id);
-            $items = RakutenBook::rakutenBooksIsbn($book_id);            
+        if (isset($book_id)) {   
+            $items = RakutenBook::rakutenBooksIsbn($book_id);
             $message = null;
         }
-       
-        return view('books.nothing-to-show', ['items' => $items]);
+        $book_image_path = ImageProccesing::getBookImagePath();
+        return view('books.nothing-to-show', [
+            'items' => $items, 
+            'book_image_path' => $book_image_path['book_url'],
+            ]);
     }
 
     // レビューの編集

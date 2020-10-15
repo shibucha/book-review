@@ -103,8 +103,6 @@
                 <div class="review__book">
                     @if($review->book->image)
                     <img src="{{$review->book->image}}" alt="登録した本のイメージ" class="review__book-img">
-                    @else
-                    <img src="/storage.book/book_noimage.png" alt="画像はありません" class="review__book-img">
                     @endif
 
                     <div class="review__title">

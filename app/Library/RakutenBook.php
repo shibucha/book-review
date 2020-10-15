@@ -2,15 +2,25 @@
 
 namespace app\Library;
 
+// Request
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use GuzzleHttp\Client;
-
 use App\Http\Requests\ReadingRecordRequest;
+
+// Facades
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+
+// Model
 use App\ReadingRecord;
 use App\Book;
 use App\Author;
+use PharIo\Manifest\Library;
+
+// Library
+use App\Library\ImageProccesing;
+
+// others
+use GuzzleHttp\Client;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 
@@ -100,7 +110,6 @@ class RakutenBook
             }
         }
 
-
         //著者が既にテーブルに存在しているか確認する。
         if (!isset($author_name)) {                                          
             $author->author = $item[0]->Item->author;                                                
@@ -110,12 +119,15 @@ class RakutenBook
             $book->author_id = $author_name->id;
         }
 
+        // APIに書籍イメージが含まれていなかった場合の保存先パス
+        $book_image_url =ImageProccesing::getBookImagePath();
+       
         //書籍情報APIが、booksテーブルにまだ存在しないならば、書籍情報を保存しておく。
         //過去既に登録されている本ならば、登録されている書籍のレコードのidを<reading_records>テーブルの<book_id>に登録する。
         if (!isset($book_id)) {
             $book->title =  $item[0]->Item->title ?? '不明';
             $book->book_id = $item[0]->Item->isbn ?? '不明-'.mt_rand(1, 10000);
-            $book->image = $item[0]->Item->largeImageUrl ?? '';
+            $book->image = $item[0]->Item->largeImageUrl ?? $book_image_url[1];
             $book->description = $item[0]->Item->itemCaption ?? '概要なし';                
             $book->save();
             $reading_record->book_id = $book->id;
