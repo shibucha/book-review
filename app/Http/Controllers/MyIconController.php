@@ -32,11 +32,9 @@ class MyIconController extends Controller
         }
         
         $user = User::find($user_id);
-        $disk_name =  ImageProccesing::getImageStorage();
-        ddd($disk_name);
+        $disk_name =  ImageProccesing::getImageStorage();     
         $image_path = ImageProccesing::getIconImagePath();
-        $disk = Storage::disk($disk_name);
-         
+        $disk = Storage::disk($disk_name);         
 
         if (isset($request->icon)) {
 
@@ -70,14 +68,14 @@ class MyIconController extends Controller
         $image_path = ImageProccesing::getIconImagePath();
         $disk = Storage::disk($disk_name);
         
-        if($user->icon === 'default.png'){
+        if(basename($user->icon) === 'default.png'){
             return redirect()->route('books.index');
         }
 
         if (isset($user->icon)) {
             $icon = basename($user->icon);
             $disk->delete($image_path['icon_path'] . '/' .$icon);   //book-reviewプロジェクトのローカルスロレージに保存するイメージパス
-            $user->icon = $image_path['icon_url'] . '/default.png'; //view側で表示するためのイメージパス
+            $user->icon = $image_path['icon_url'] . 'default.png'; //view側で表示するためのイメージパス
             $user->save();
         }
 

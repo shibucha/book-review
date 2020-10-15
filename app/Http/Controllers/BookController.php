@@ -21,7 +21,8 @@ use App\ReadingRecord;
 use App\Library\GoogleBook;
 use App\Library\OpenBd;
 use App\Library\BookReviewCommon;
-use app\Library\RakutenBook;
+use App\Library\RakutenBook;
+use App\Library\ImageProccesing;
 
 class BookController extends Controller
 {
@@ -39,12 +40,14 @@ class BookController extends Controller
         $reviews->load('book');
         $number_of_readings = ReadingRecord::where('user_id', $user_id)->count();
         $reviews_count = ReadingRecord::where('user_id', $user_id)->select('body')->whereNotIn('body', ['null'])->count();
+        $image_path = ImageProccesing::getIconImagePath();
 
         return view('books.index', [
             'user' => $user,
             'reviews' => $reviews,
             'number_of_readings' => $number_of_readings,
             'reviews_count' => $reviews_count,
+            'icon_url' => $image_path['icon_url'],
         ]);
     }
 
