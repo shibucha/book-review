@@ -33,8 +33,15 @@
 
 
   <!-- My custom styles -->
- 
+
+  
+  @env('local')
+  <!-- アプリケーションはlocal環境 -->
+  <link href="{{ asset(mix('/css/app.css')) }}" rel="stylesheet">
+  @else 
+  <!-- アプリケーションは、ステージングまたはプロダクション環境 -->
   <link href="{{ secure_asset(mix('/css/app.css')) }}" rel="stylesheet">
+  @endenv
 
 </head>
 
@@ -44,7 +51,7 @@
     @include('includes.nav')
 
     @yield('content')
-    
+
   </div>
 
   <!-- bootstrap -->

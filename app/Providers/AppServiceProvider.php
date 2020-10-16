@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Blade;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -22,8 +23,11 @@ class AppServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot()
-    {   
+    {
 
+        Blade::if('env', function ($environment) {
+            return app()->environment($environment);
+        });
 
         if (\App::environment('staging')) {
             \URL::forceScheme('https');
