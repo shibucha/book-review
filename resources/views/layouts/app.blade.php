@@ -33,11 +33,8 @@
 
 
   <!-- My custom styles -->
+ 
   <link href="{{ secure_asset(mix('/css/app.css')) }}" rel="stylesheet">
-  <!-- @if(app()->environment('local'))
-  <link href="{{ asset(mix('/css/app.css')) }}" rel="stylesheet">
-  @else
-  @enfif -->
 
 </head>
 
