@@ -70,6 +70,11 @@ class BookController extends Controller
         if (!isset($items)) {
             $message = '本が選択されていません。';
         }
+        
+        // アイテムが空の場合（ISBNコードに誤りがあるか、楽天ブックスに登録されていないか）、マイページにリダイレクト
+        if(empty($items)){
+            return redirect()->route('books.index');
+        }
 
         // これまでレビュー登録があったかどうかの確認
         $book = Book::where('book_id', $book_id)->first();
