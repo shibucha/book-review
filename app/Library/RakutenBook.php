@@ -32,8 +32,6 @@ class RakutenBook
     // わたってきた変数がキーワードか、ISBNコードか検証
     public static function veryfyKeywordOrIsbn($keyword)
     {
-        self::$app_id = self::checkAppId();
-        
         if (is_numeric($keyword)) {
             $isbn = $keyword;
             return self::rakutenBooksIsbn($isbn);
@@ -45,6 +43,7 @@ class RakutenBook
     // ISBNコードで情報を取得
     public static function rakutenBooksIsbn($isbn)
     {
+        self::$app_id = self::checkAppId();
 
         $isbn =  urlencode($isbn);
 
@@ -67,7 +66,8 @@ class RakutenBook
     // キーワードで情報を取得
     public static function rakutenBooksKeyword($keyword)
     {
-
+        self::$app_id = self::checkAppId();
+        
         $keyword = urlencode($keyword);
 
         // $url = 'https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&title=' . $keyword . '&sort=sales&applicationId=1040536237877869158';
