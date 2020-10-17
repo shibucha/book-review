@@ -50,6 +50,14 @@ Stylesheet: 詳細ページ
         }
     }
 
+    // コメントは改行させる。
+    &__comment {
+        font-size: 14px;
+        white-space: pre;
+        line-height: 12px;
+        margin-left: 10px;
+    }
+
     &__options {
         display: flex;
     }

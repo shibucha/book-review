@@ -97,7 +97,7 @@
     {{$user->name}}さんは、まだレビューしていません。
     @endif
 
-    <p>{{ $review->body }}</p>
+    <p class="show__comment">{{ $review->body }}</p>
 
     <div class="show__options">
         <!-- いいねボタン機能(Vueコンポーネント) -->
@@ -170,7 +170,7 @@
         </div>
 
         <div class="netabare__{{ $other_review->netabare}}">
-            <p>{{ $other_review->body }}</p>
+            <p class="show__comment">{{ $other_review->body }}</p>
         </div>
 
         <div class="show__options">

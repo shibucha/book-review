@@ -45,6 +45,11 @@ Stylesheet: Route::get(books/index) → (マイページ)
         }
     }
 
+    // 自己紹介は改行OK
+    &__introduction-body {
+        white-space: pre;
+    }
+
     &__subtitle {
         font-weight: bold;
         padding-bottom: 3px;
@@ -56,10 +61,10 @@ Stylesheet: Route::get(books/index) → (マイページ)
         &-title {
             margin-bottom: 3px;
         }
-        &-link{
+        &-link {
             color: #000;
 
-            &:hover{
+            &:hover {
                 color: #000;
             }
         }
@@ -155,12 +160,11 @@ Stylesheet: Route::get(books/index) → (マイページ)
     }
 }
 
-
 // マイページ共通
-.hover-bold{
+.hover-bold {
     transition: all 0.3s ease;
-    
-    &:hover{
+
+    &:hover {
         font-weight: bold;
     }
 }
