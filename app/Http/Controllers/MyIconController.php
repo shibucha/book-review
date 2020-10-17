@@ -48,7 +48,7 @@ class MyIconController extends Controller
         $user = User::find($user_id);
         $disk_name =  ImageProccesing::getImageStorage();
         $image_path = ImageProccesing::getIconImagePath();
-        $disk = Storage::disk($disk_name);
+        $disk = Storage::disk($disk_name);       
 
         if (isset($request->icon)) {
 
@@ -65,7 +65,7 @@ class MyIconController extends Controller
             $image = $user->icon;
         } else {
             // 元々アイコン画像の設定されておらず、かつリクエストも空の場合
-            $image = 'https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png';
+            $image = $image_path['icon_url'].'default.png';
         }
 
         $user->icon = $image;
