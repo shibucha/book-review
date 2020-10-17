@@ -35,7 +35,7 @@
                 <!-- ISBNコード -->
                 <div class="search__isbn mb-10">
                     @if(isset($item->Item->isbn))
-                    出版日&nbsp;：&nbsp;{{$item->Item->isbn}}
+                    ISBN&nbsp;：&nbsp;{{$item->Item->isbn}}
                     @endif
                 </div>
 
