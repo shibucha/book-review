@@ -15,7 +15,7 @@
                         @if($user->icon)
                         <img class="user__image-circle" src="{{ $user->icon }}" alt="プロフィール画像">
                         @else
-                        <img class="user__image-circle" src="{{$icon_url}}default.png">
+                        <img class="user__image-circle" src="{{ $icon_url }}default.png">
                         @endif
                     </a>
                     <div class="user__name"><span class="user__name-bold">{{ $user->myProfile->nickname ?? $user->name }}</span> さんのマイページ</div>

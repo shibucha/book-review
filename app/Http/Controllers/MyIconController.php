@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
+// Model
+use App\User;
+
+// Requests
 use Illuminate\Http\Request;
 use App\Http\Requests\MyIconRequest;
+
+// Facades
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+
+// Library
 use App\Library\ImageProccesing;
 use App\Library\EnvironmentalConfirmation;
-use App\User;
+
 
 class MyIconController extends Controller
 {
@@ -19,8 +27,14 @@ class MyIconController extends Controller
             return redirect()->route('books.index');
         }
 
+        $image_path = ImageProccesing::getIconImagePath();
+       
         $user = User::find($user_id);
-        return view('settings.icon', ['user' => $user]);
+        
+        return view('settings.icon', [
+            'user' => $user,
+            'icon_url' => $image_path['icon_url'],
+        ]);
     }
 
     //プロフィール画像の登録処理
@@ -30,11 +44,11 @@ class MyIconController extends Controller
         if ($user_id !== Auth::id()) {
             return redirect()->route('books.index');
         }
-        
+
         $user = User::find($user_id);
-        $disk_name =  ImageProccesing::getImageStorage();     
+        $disk_name =  ImageProccesing::getImageStorage();
         $image_path = ImageProccesing::getIconImagePath();
-        $disk = Storage::disk($disk_name);         
+        $disk = Storage::disk($disk_name);
 
         if (isset($request->icon)) {
 
@@ -67,14 +81,14 @@ class MyIconController extends Controller
         $disk_name =  ImageProccesing::getImageStorage();
         $image_path = ImageProccesing::getIconImagePath();
         $disk = Storage::disk($disk_name);
-        
-        if(basename($user->icon) === 'default.png'){
+
+        if (basename($user->icon) === 'default.png') {
             return redirect()->route('books.index');
         }
 
         if (isset($user->icon)) {
             $icon = basename($user->icon);
-            $disk->delete($image_path['icon_path'] . '/' .$icon);   //book-reviewプロジェクトのローカルスロレージに保存するイメージパス
+            $disk->delete($image_path['icon_path'] . '/' . $icon);   //book-reviewプロジェクトのローカルスロレージに保存するイメージパス
             $user->icon = $image_path['icon_url'] . 'default.png'; //view側で表示するためのイメージパス
             $user->save();
         }
