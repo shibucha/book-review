@@ -53,7 +53,7 @@ Stylesheet: 詳細ページ
     // コメントは改行させる。
     &__comment {
         font-size: 14px;
-        white-space: pre;        
+        white-space: pre-wrap;        
         margin-left: 10px;
     }
 
