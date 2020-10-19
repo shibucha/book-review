@@ -97,7 +97,7 @@
     {{$user->name}}さんは、まだレビューしていません。
     @endif
 
-    @if(mb_strlen($review->body, 'UTF-8') < 100) <p class="show__comment">{{ $review->body }}</p>
+    @if(substr_count($review->body, "\n") < 5) <p class="show__comment">{{ $review->body }}</p>
         @else
         <div class="grad-wrap">
             <input id="trigger1" class="grad-trigger" type="checkbox">
