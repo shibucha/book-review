@@ -21,6 +21,10 @@ Route::get('/', 'HomeController@index')->name('index');
 // 書籍検索は、未ログイン（ゲストユーザー）でも閲覧可能
 Route::get('/books/search', 'SearchController@index')->name('books.search');
 
+//お問い合わせ
+Route::get('/contacts/index', 'ContactController@index')->name('contacts.index');
+Route::get('/contacts/confirm', 'ContactController@confirm')->name('contacts.confirm');
+Route::get('/contacts/complete', 'ContactController@complete')->name('contacts.conplete');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/books/{user_id?}', 'BookController@index')->name('books.index');
