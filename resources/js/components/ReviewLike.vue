@@ -1,6 +1,6 @@
 <template>
     <div class="review">
-        <button type="submit">
+        <button type="submit" class="good__btn">
             <i
                 class="fas fa-heart good"
                 :class="{ good__done: this.isLiked }"
@@ -60,5 +60,9 @@ export default {
 .good__done {
     text-shadow: none;
     color: #ff5722;
+}
+
+.good__btn{
+    outline: none;
 }
 </style>

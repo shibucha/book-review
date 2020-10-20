@@ -24,7 +24,7 @@
           <img class="icon__image" src="{{ $user->icon }}" alt="プロフィール画像">
           <div id="new_icon"></div>
           @else
-          <img class="icon__image" src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png" alt="プロフィール画像">
+          <img class="icon__image" src="{{$icon_url}}default.png" alt="プロフィール画像">
           <div id="new_icon"></div>
           @endif
         </div>
