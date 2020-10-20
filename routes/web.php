@@ -23,8 +23,8 @@ Route::get('/books/search', 'SearchController@index')->name('books.search');
 
 //お問い合わせ
 Route::get('/contacts/index', 'ContactController@index')->name('contacts.index');
-Route::get('/contacts/confirm', 'ContactController@confirm')->name('contacts.confirm');
-Route::get('/contacts/complete', 'ContactController@complete')->name('contacts.conplete');
+Route::post('/contacts/confirm', 'ContactController@confirm')->name('contacts.confirm');
+Route::post('/contacts/complete', 'ContactController@complete')->name('contacts.complete');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/books/{user_id?}', 'BookController@index')->name('books.index');
