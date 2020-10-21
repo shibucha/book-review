@@ -33,7 +33,6 @@ class ContactController extends Controller
     public  function complete(ContactRequest $request)
     {
         $data = $request->all();
-        // ddd($data);
 
         Mail::to('no-reply@example.com')->send(new ContactMail($data));
 
