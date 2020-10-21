@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 // Request
 use Illuminate\Http\Request;
-use App\HttP\Requests\ContactRequest;
+use App\Http\Requests\ContactRequest;
 
 // Mail
 use Mail;
