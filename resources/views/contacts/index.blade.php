@@ -7,6 +7,13 @@
 <div class="container">
   <h1>お問い合わせフォーム</h1>
 
+  <!-- 送信完了後のフラッシュメッセージ -->
+  @if(session('flash_message'))
+  <div class="contact__flash">
+    {{session('flash_message')}}
+  </div>
+  @endif
+
   <form action="{{route('contacts.confirm')}}" method="POST">
     @csrf
 

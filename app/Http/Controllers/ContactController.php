@@ -37,8 +37,6 @@ class ContactController extends Controller
 
         Mail::to('no-reply@example.com')->send(new ContactMail($data));
 
-        return redirect()->route('contacts.index', [
-            "message" => "送信完了しました！",
-        ]);
+        return redirect()->route('contacts.index')->with('flash_message', '送信完了しました！');
     }
 }
