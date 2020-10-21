@@ -11,7 +11,7 @@
     @csrf
 
     <div class="contact__input">
-      <div class="contact__name">お名前</div>
+      <div class="contact__name"><span class="contact__required">*</span>お名前</div>
       <input type="text" name="name" value="{{old('name')}}">
 
       <div class="contact__error">
@@ -22,7 +22,7 @@
     </div>
 
     <div class="contact__input">
-      <div class="contact__email">メールアドレス</div>
+      <div class="contact__email"><span class="contact__required">*</span>メールアドレス</div>
       <input type="text" name="email" value="{{old('email')}}">
 
       <div class="contact__error">
@@ -33,7 +33,7 @@
     </div>
 
     <div class="contact__input">
-      <div class="contact__message">お問い合わせ内容</div>
+      <div class="contact__message"><span class="contact__required">*</span>お問い合わせ内容</div>
       <textarea name="message">{{old('message')}}</textarea>
 
       <div class="contact__error">

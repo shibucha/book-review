@@ -176,8 +176,8 @@
         <div>
           <p class="footer-sections-p">サポート</p>
           <ul class="footer-ul">
-            <a href="">
-              <li>要素1</li>
+            <a href="{{route('contacts.index')}}">
+              <li>お問い合わせ</li>
             </a>
             <a href="">
               <li>要素2</li>
@@ -200,7 +200,7 @@
       <ul class="r-footer-info">
         <li class="for-border"><a href="">利用規約</a></li>
         <li><a href="">プライバシーポリシー</a></li><br>
-        <li class="for-border"><a href="">お問い合わせ</a></li>
+        <li class="for-border"><a href="{{route('contacts.index')}}">お問い合わせ</a></li>
         <li><a href="">PC版に切り替え</a></li>
       </ul>
     </div>

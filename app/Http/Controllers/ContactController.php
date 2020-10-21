@@ -6,6 +6,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\HttP\Requests\ContactRequest;
 
+// Mail
+use Mail;
+use App\Mail\ContactMail;
+
 class ContactController extends Controller
 {
     public function index()
@@ -29,8 +33,10 @@ class ContactController extends Controller
     public  function complete(ContactRequest $request)
     {
         $data = $request->all();
-        ddd($data);
-        
+        // ddd($data);
+
+        Mail::to('no-reply@example.com')->send(new ContactMail($data));
+
         return redirect()->route('contacts.index', [
             "message" => "送信完了しました！",
         ]);
