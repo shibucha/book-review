@@ -46,10 +46,9 @@ class RakutenBook
         self::$app_id = self::checkAppId();
 
         $isbn =  urlencode($isbn);
-
-        // $url = 'https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&isbn=' . $isbn . '&sort=sales&applicationId=1040536237877869158';
-        $url = 'https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&isbn=' . $isbn . '&sort=sales&applicationId=' . self::$app_id;
-
+        
+        $url = 'https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&isbn=' . $isbn . '&sort=sales&outOfStockFlag=1&applicationId=' . self::$app_id;
+      
         $client = new Client();
 
         $response = $client->request("GET", $url);
@@ -69,9 +68,8 @@ class RakutenBook
         self::$app_id = self::checkAppId();
         
         $keyword = urlencode($keyword);
-
-        // $url = 'https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&title=' . $keyword . '&sort=sales&applicationId=1040536237877869158';
-        $url = 'https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&title=' . $keyword . '&sort=sales&applicationId=' . self::$app_id;
+       
+        $url = 'https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&title=' . $keyword . '&sort=sales&outOfStockFlag=1&applicationId=' . self::$app_id;
 
         $client = new Client();
 
