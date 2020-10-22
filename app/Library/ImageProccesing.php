@@ -42,7 +42,7 @@ class ImageProccesing
         } else {
             $icon_image_path_data = [
                 'icon_path' => 'icons',
-                'icon_url' => 'https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/',
+                'icon_url' => 'https://book-review-production.s3.ap-northeast-1.amazonaws.com/icons/',
             ];
         }
 
@@ -66,7 +66,7 @@ class ImageProccesing
         } else {
             $book_image_path_data = [
                 'book_path' => 'books',
-                'book_url' => 'https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/books/',
+                'book_url' => 'https://book-review-production.s3.ap-northeast-1.amazonaws.com/books/',
             ];
         }
         return $book_image_path_data;
