@@ -4,9 +4,25 @@ Stylesheet: 960px以上のモニタで適用
 
 ******************************************************************/
 
-.navbar{
-
-    &__btn{
+.navbar {
+    &__btn {
         display: flex;
     }
+}
+
+.contact {
+    &__input {
+        display: flex;
+    }
+
+    &__item {
+        line-height: 30px;
+        margin-right: 20px;
+        margin-bottom: 0;
+        text-align: right;
+        width: 200px;
+        border-right: 1px solid #ddd;
+        padding-right: 20px;
+    }
+
 }

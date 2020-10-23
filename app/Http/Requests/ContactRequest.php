@@ -41,6 +41,7 @@ class ContactRequest extends FormRequest
 
         return [
             'email' => 'メールアドレス',
+            'message' => 'お問い合わせ内容'
         ];
     }
 }

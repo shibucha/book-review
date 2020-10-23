@@ -14,43 +14,44 @@
   </div>
   @endif
 
-  <form action="{{route('contacts.confirm')}}" method="POST">
+  <form action="{{route('contacts.confirm')}}" method="POST" class="contact__form">
     @csrf
 
-    <div class="contact__input">
-      <div class="contact__name"><span class="contact__required">*</span>お名前</div>
-      <input type="text" name="name" value="{{old('name')}}">
-
-      <div class="contact__error">
-        @if($errors->has('name'))
-        <p>{{$errors->first('name')}}</p>
-        @endif
-      </div>
+    <div class="contact__attention">
+      *は必須項目です。
     </div>
 
     <div class="contact__input">
-      <div class="contact__email"><span class="contact__required">*</span>メールアドレス</div>
-      <input type="text" name="email" value="{{old('email')}}">
-
-      <div class="contact__error">
-        @if($errors->has('email'))
-        <p>{{$errors->first('email')}}</p>
-        @endif
-      </div>
+      <div class="contact__name contact__item"><span class="contact__required">*</span>お名前</div>
+      <input type="text" name="name" value="{{old('name')}}" class="contact__input-field">
+    </div>
+    <div class="contact__error">
+      @if($errors->has('name'))
+      <p>{{$errors->first('name')}}</p>
+      @endif
     </div>
 
     <div class="contact__input">
-      <div class="contact__message"><span class="contact__required">*</span>お問い合わせ内容</div>
-      <textarea name="message">{{old('message')}}</textarea>
-
-      <div class="contact__error">
-        @if($errors->has('message'))
-        <p>{{$errors->first('message')}}</p>
-        @endif
-      </div>
+      <div class="contact__email contact__item"><span class="contact__required">*</span>メールアドレス</div>
+      <input type="text" name="email" value="{{old('email')}}" class="contact__input-field">
+    </div>
+    <div class="contact__error">
+      @if($errors->has('email'))
+      <p>{{$errors->first('email')}}</p>
+      @endif
     </div>
 
-    <button type="submit" class="btn btn-secondary">内容を確認する</button>
+    <div class="contact__input">
+      <div class="contact__message contact__item"><span class="contact__required">*</span>お問い合わせ内容</div>
+      <textarea name="message" class="contact__input-field contact__text-field">{{old('message')}}</textarea>
+    </div>
+    <div class="contact__error">
+      @if($errors->has('message'))
+      <p>{{$errors->first('message')}}</p>
+      @endif
+    </div>
+
+    <button type="submit" class="contact__btn btn-dark">内容を確認する</button>
   </form>
 </div>
 @endsection
