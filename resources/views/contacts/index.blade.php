@@ -51,7 +51,9 @@
       @endif
     </div>
 
-    <button type="submit" class="contact__btn btn-dark">内容を確認する</button>
+    <div class="contact__confirm">
+      <button type="submit" class="contact__btn btn-dark">内容を確認する</button>
+    </div>
   </form>
 </div>
 @endsection
