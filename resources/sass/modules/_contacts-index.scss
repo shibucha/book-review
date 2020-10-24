@@ -19,6 +19,7 @@
     &__input {
         margin: 10px 0;
         &-field {
+            outline: none;
             border: 1px #ddd solid;
             width: 100%;
             border-radius: 5px;

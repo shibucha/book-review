@@ -23,21 +23,21 @@
 
     <div class="contact__input">
       <div class="contact__name contact__item"><span class="contact__required">*</span>お名前</div>
-      <input type="text" name="name" value="{{old('name')}}" class="contact__input-field">
+      <input type="text" name="name" value="{{old('name')}}" class="contact__input-field" placeholder="読書 次郎">
     </div>
     <div class="contact__error">
       @if($errors->has('name'))
-      <p>{{$errors->first('name')}}</p>
+      <p>※{{$errors->first('name')}}</p>
       @endif
     </div>
 
     <div class="contact__input">
       <div class="contact__email contact__item"><span class="contact__required">*</span>メールアドレス</div>
-      <input type="text" name="email" value="{{old('email')}}" class="contact__input-field">
+      <input type="text" name="email" value="{{old('email')}}" class="contact__input-field" placeholder="book@example.com">
     </div>
     <div class="contact__error">
       @if($errors->has('email'))
-      <p>{{$errors->first('email')}}</p>
+      <p>※{{$errors->first('email')}}</p>
       @endif
     </div>
 
@@ -47,7 +47,7 @@
     </div>
     <div class="contact__error">
       @if($errors->has('message'))
-      <p>{{$errors->first('message')}}</p>
+      <p>※{{$errors->first('message')}}</p>
       @endif
     </div>
 
