@@ -87,8 +87,8 @@ class BookController extends Controller
         }
 
         // 他人のレビュー取得
-        $others_reviews = ReadingRecord::where('book_id', $book->id)->whereNotIn('user_id', [$user_id])->whereNotIn('public_private', [0])->orderBy('created_at', 'desc')->get();
-
+        $others_reviews = ReadingRecord::where('book_id', $book->id)->whereNotIn('user_id', [$user_id])->whereNotIn('public_private', [0])->orderBy('created_at', 'desc')->paginate(30);
+        
         // その本のレビュー数をカウント
         $review_count = ReadingRecord::where('book_id', $book->id)->count();
 
