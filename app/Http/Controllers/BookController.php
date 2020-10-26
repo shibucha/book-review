@@ -56,8 +56,7 @@ class BookController extends Controller
     {
         // ddd($book_id);
         $user_id = Auth::id();
-        $user = User::find($user_id);
-        // $google_book = new GoogleBook();
+        $user = User::find($user_id);       
         $items = null;
 
         //書籍情報取得(App\Library)
@@ -87,10 +86,10 @@ class BookController extends Controller
         }
 
         // 他人のレビュー取得
-        $others_reviews = ReadingRecord::where('book_id', $book->id)->whereNotIn('user_id', [$user_id])->whereNotIn('public_private', [0])->orderBy('created_at', 'desc')->paginate(30);
-        
+        $others_reviews = ReadingRecord::with(['user','user.myProfile','book','likes'])->where('book_id', $book->id)->whereNotIn('user_id', [$user_id])->whereNotIn('public_private', [0])->orderBy('created_at', 'desc')->paginate(30);
+                            
         // その本のレビュー数をカウント
-        $review_count = ReadingRecord::where('book_id', $book->id)->count();
+        $review_count = ReadingRecord::with('book')->where('book_id', $book->id)->count();       
 
         //本の評価数値を取得
         $rating = ReadingRecord::where('book_id', $book->id)->select('rating')->get()->avg('rating');
