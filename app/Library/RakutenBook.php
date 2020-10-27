@@ -16,9 +16,9 @@ use App\Book;
 use App\Author;
 use PharIo\Manifest\Library;
 
-// Library
-use App\Library\ImageProccesing;
-use App\Library\EnvironmentalConfirmation;
+// Facades
+use App\Facades\ImageProccesing;
+use App\Facades\EnvironmentalConfirmation;
 
 // others
 use GuzzleHttp\Client;
@@ -27,28 +27,28 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class RakutenBook
 {
-    private static $app_id;
+    private $app_id;
 
     // わたってきた変数がキーワードか、ISBNコードか検証
-    public static function veryfyKeywordOrIsbn($keyword)
+    public function veryfyKeywordOrIsbn($keyword)
     {
         if (is_numeric($keyword)) {
             $isbn = $keyword;
-            return self::rakutenBooksIsbn($isbn);
+            return $this->rakutenBooksIsbn($isbn);
         } else {
-            return self::rakutenBooksKeyword($keyword);
+            return $this->rakutenBooksKeyword($keyword);
         }
     }
 
     // ISBNコードで情報を取得
-    public static function rakutenBooksIsbn($isbn)
+    public function rakutenBooksIsbn($isbn)
     {
-        self::$app_id = self::checkAppId();
+        $this->app_id = $this->checkAppId();
 
         $isbn =  urlencode($isbn);
-        
-        $url = 'https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&isbn=' . $isbn . '&sort=sales&outOfStockFlag=1&applicationId=' . self::$app_id;
-      
+
+        $url = 'https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&isbn=' . $isbn . '&sort=sales&outOfStockFlag=1&applicationId=' . $this->app_id;
+
         $client = new Client();
 
         $response = $client->request("GET", $url);
@@ -56,20 +56,18 @@ class RakutenBook
         $body = $response->getBody();
 
         $bodyArray = json_decode($body, false);
-
-        // ddd($hensu[0] = $bodyArray->Items);
 
         return $items[0] = $bodyArray->Items;
     }
 
     // キーワードで情報を取得
-    public static function rakutenBooksKeyword($keyword)
+    public function rakutenBooksKeyword($keyword)
     {
-        self::$app_id = self::checkAppId();
-        
+        $this->app_id = $this->checkAppId();
+
         $keyword = urlencode($keyword);
-       
-        $url = 'https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&title=' . $keyword . '&sort=sales&outOfStockFlag=1&applicationId=' . self::$app_id;
+
+        $url = 'https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&title=' . $keyword . '&sort=sales&outOfStockFlag=1&applicationId=' . $this->app_id;
 
         $client = new Client();
 
@@ -79,13 +77,11 @@ class RakutenBook
 
         $bodyArray = json_decode($body, false);
 
-        // ddd($bodyArray->Items[0]->Item->title);
-
         return $bodyArray->Items;
     }
 
     // 楽天ブックのレビュー保存
-    public static function rakutenBookStore($item, $author, $book, $reading_record, $book_id, $user_id)
+    public function rakutenBookStore($item, $author, $book, $reading_record, $book_id, $user_id)
     {
         $book_id = Book::where('book_id', $book_id)->first();
 
@@ -142,7 +138,7 @@ class RakutenBook
         }
     }
 
-    public static function checkAppId()
+    public function checkAppId()
     {
         $env_name = EnvironmentalConfirmation::veryfyEnvironment();
         if ($env_name === "production") {

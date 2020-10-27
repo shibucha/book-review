@@ -174,6 +174,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\BookServiceProvider::class,
 
     ],
 
@@ -224,9 +225,11 @@ return [
         'Str' => Illuminate\Support\Str::class,
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
-        'View' => Illuminate\Support\Facades\View::class,
-        'RakutenBook' => app\Library\RakutenBook::class,
-        'GoogleBook' => app\Library\GoogleBook::class,
+        'View' => Illuminate\Support\Facades\View::class,      
+        'RakutenBook' => App\Facades\RakutenBook::class,
+        'BookReviewCommon' => App\Facades\BookReviewCommon::class,
+        'EnvironmentalConfirmation' => App\Facades\EnvironmentalConfirmation::class,
+        'ImageProccesing' => App\Facades\ImageProccesing::class,        
     ],
 
 ];

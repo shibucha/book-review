@@ -17,12 +17,9 @@ use App\Book;
 use App\Author;
 use App\ReadingRecord;
 
-// Library
-use App\Library\GoogleBook;
-use App\Library\OpenBd;
-use App\Library\BookReviewCommon;
-use App\Library\RakutenBook;
-use App\Library\ImageProccesing;
+// Facades
+use App\Facades\RakutenBook;
+use App\Facades\ImageProccesing;
 
 class BookController extends Controller
 {

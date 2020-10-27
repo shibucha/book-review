@@ -6,7 +6,7 @@ namespace app\Library;
 class EnvironmentalConfirmation{
 
 
-    public static function veryfyEnvironment(){
+    public function veryfyEnvironment(){
         
         return app()->environment();
     }

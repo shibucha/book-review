@@ -2,14 +2,14 @@
 
 namespace App\Library;
 
-use App\Library\EnvironmentalConfirmation;
+use App\Facades\EnvironmentalConfirmation;
 
 
 class ImageProccesing
 {
 
     // 実行環境別のファイルストレージ取得
-    public static function getImageStorage()
+    public function getImageStorage()
     {
 
         $image_env = EnvironmentalConfirmation::veryfyEnvironment();
@@ -25,7 +25,7 @@ class ImageProccesing
         return $name;
     }
 
-    public static function getIconImagePath()
+    public function getIconImagePath()
     {
         $image_env = EnvironmentalConfirmation::veryfyEnvironment();
 
@@ -49,7 +49,7 @@ class ImageProccesing
         return $icon_image_path_data;
     }
 
-    public static function getBookImagePath()
+    public function getBookImagePath()
     {
         $image_env = EnvironmentalConfirmation::veryfyEnvironment();
 

@@ -9,17 +9,15 @@ use Illuminate\Http\Request;
 use App\Http\Requests\SearchRequest;
 use App\Http\Requests\ReadingRecordRequest;
 
-// Library
-use App\Library\GoogleBook;
-use App\Library\OpenBd;
-use App\Library\BookReviewCommon;
-use App\Library\RakutenBook;
-use App\Library\ImageProccesing;
-
 // Model
 use App\ReadingRecord;
 use App\Book;
 use App\Author;
+
+// Facades
+use App\Facades\RakutenBook;
+use App\Facades\BookReviewCommon;
+use App\Facades\ImageProccesing;
 
 // Pagination
 use Illuminate\Pagination\LengthAwarePaginator;

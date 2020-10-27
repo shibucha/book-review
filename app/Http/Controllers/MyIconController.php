@@ -13,10 +13,9 @@ use App\Http\Requests\MyIconRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-// Library
-use App\Library\ImageProccesing;
-use App\Library\EnvironmentalConfirmation;
-
+// Facades
+use App\Facades\ImageProccesing;
+use App\Facades\EnvironmentalConfirmation;
 
 class MyIconController extends Controller
 {
