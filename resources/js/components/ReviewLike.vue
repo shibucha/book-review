@@ -3,7 +3,7 @@
         <button type="submit" class="good__btn">
             <i
                 class="fas fa-heart good"
-                :class="{ good__done: this.isLiked }"
+                :class="{ 'good__done': this.isLiked, 'animated heartBeat fast': this.Liked }"
                 @click="clickLike"
             ></i
             >{{ this.countLikes }}
@@ -29,7 +29,8 @@ export default {
     data() {
         return {
             isLiked: this.initialLike,
-            countLikes: this.initialCountLikes
+            countLikes: this.initialCountLikes,
+            Liked:false
         };
     },
     methods: {
@@ -41,12 +42,14 @@ export default {
 
             this.isLiked = true;
             this.countLikes = response.data.countLikes;
+            this.Liked = true;
         },
         async unlike() {
             const response = await axios.delete(this.likeRoute);
 
             this.isLiked = false;
             this.countLikes = response.data.countLikes;
+            this.Liked = false;
         }
     }
 };
