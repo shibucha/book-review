@@ -56,7 +56,7 @@ class BookController extends Controller
     {
         // ddd($book_id);
         $user_id = Auth::id();
-        $user = User::find($user_id);       
+        $user = User::with('myProfile')->find($user_id);       
         $items = null;
 
         //書籍情報取得(App\Library)
@@ -82,7 +82,7 @@ class BookController extends Controller
             // 過去にレビューされたことのない本の場合は、以下のページに飛ぶ。             
             return redirect()->route('books.nothingToShow', ['book_id' => $book_id]);
         } else {
-            $review = ReadingRecord::where('user_id', $user_id)->where('book_id', $book->id)->first();
+            $review = ReadingRecord::with('likes')->where('user_id', $user_id)->where('book_id', $book->id)->first();
         }
 
         // 他人のレビュー取得

@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -41,12 +42,19 @@ class User extends Authenticatable
 
 
     // ********************リレーション**********************//
-    
+
     // User1 : ReadingRecord多
     public function readingRecord(): HasMany
     {
         return $this->hasMany('App\ReadingRecord');
     }
+
+    // 中間テーブル"likesテーブル"へのリレーション
+    public function likes(): BelongsToMany
+    {
+        return $this->belongsToMany('App\ReadingRecord', 'likes')->withTimestamps();
+    }
+
     // User1 : MyFavorite1
     public function myFavorite(): HasOne
     {
