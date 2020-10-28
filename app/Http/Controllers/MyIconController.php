@@ -57,8 +57,8 @@ class MyIconController extends Controller
             }
 
             $user->icon = ''; //usersテーブルのアイコンを空にする。            
-            $path = $disk->put($image_path['icon_path'], $request->file('icon'), 'public');
-            $image = Storage::disk($disk_name)->url($path);
+            $path = $disk->put($image_path['icon_path'], $request->file('icon'), 'public'); //開発環境でのファイルパス ※ローカルであればpublic/iconsに保存するということ。
+            $image = Storage::disk($disk_name)->url($path); //ブラウザ上でのファイルパスを返す。ローカルならば、/storage/icons... AWSならば、URLがそのまま返ってくる。
         } elseif (isset($user->icon) && empty($request->icon)) {
             // 元々アイコンの設定はあるが、リクエストが空のまま設定ボタンを押した場合
             $image = $user->icon;
