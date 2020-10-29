@@ -5,6 +5,12 @@ Stylesheet: ナビバー
 ******************************************************************/
 
 .navbar {
+    background-color: $navColor;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+    
     &__inner {
         @extend .content-width;
     }

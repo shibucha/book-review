@@ -3,7 +3,6 @@
 @section('title', "お問い合わせ")
 
 @section('content')
-
 <div class="container">
   <h1>お問い合わせフォーム</h1>
 

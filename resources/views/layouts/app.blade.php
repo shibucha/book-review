@@ -34,11 +34,11 @@
 
   <!-- My custom styles -->
 
-  
+
   @env('local')
   <!-- アプリケーションはlocal環境 -->
   <link href="{{ asset(mix('/css/app.css')) }}" rel="stylesheet">
-  @else 
+  @else
   <!-- アプリケーションは、ステージングまたはプロダクション環境 -->
   <link href="{{ secure_asset(mix('/css/app.css')) }}" rel="stylesheet">
   @endenv
@@ -47,13 +47,14 @@
 
 <body>
 
+  @include('includes.nav')
+
   <div id="app">
-    @include('includes.nav')
-
     @yield('content')
-
   </div>
 
+  @include('includes.footer')
+  
   <!-- bootstrap -->
   <!-- JQuery -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

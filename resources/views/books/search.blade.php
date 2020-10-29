@@ -4,7 +4,6 @@
 
 
 @section('content')
-
 <div class="search__container">
   
     <!-- 検索フォーム -->
@@ -39,6 +38,5 @@
 
     @endif
 </div>
-
-
 @endsection
+

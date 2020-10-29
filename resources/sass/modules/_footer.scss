@@ -1,0 +1,12 @@
+footer{
+    padding: 30px;
+    background-color: $footerColor;
+
+    & li{
+        padding-bottom: 5px;
+        transition: opacity ease;
+        &:hover{
+            opacity: 0.8;   
+        }
+    }
+}

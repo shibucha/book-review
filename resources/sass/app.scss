@@ -15,6 +15,7 @@
 @import "./modules/books-nothing-to-show";
 @import "./modules/read_more";
 @import "./modules/contacts-index";
+@import "./modules/footer";
 
 
 @import "breakpoints/base";
@@ -171,8 +172,7 @@ input {
 /* ------------------------　フッター ------------------------------- */
 
 footer {
-  background-color: rgba(110, 80, 100, 0.01);
-  padding: 60px 0;
+  background-color: $footerColor;
 }
 
 .sections-wrapper {

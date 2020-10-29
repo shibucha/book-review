@@ -1,5 +1,5 @@
 <!--Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light navbar-t" style="background-color: rgba(110, 80, 100, 0.1);">
+<nav class="navbar navbar-expand-lg navbar-light navbar-t">
 
     <div class="navbar__inner">
         <div class="navbar__btn">
