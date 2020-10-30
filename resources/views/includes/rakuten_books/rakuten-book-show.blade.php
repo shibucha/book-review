@@ -167,11 +167,10 @@
 
     <!---------------------------------- START 他人の感想 -------------------------------->
     <div class="show__subtitle"><i class="far fa-smile"></i>みんなのレビュー</div>
+    @if($others_reviews->count() > 0)
+
+    @foreach($others_reviews as $other_review)
     <div class="show__other-review">
-        @if($others_reviews->count() > 0)
-
-        @foreach($others_reviews as $other_review)
-
         <div class="show__user-icon">
             <a href="{{route('books.index',['user_id'=>$other_review->user->id])}}">
                 @if($other_review->user->icon)
@@ -182,6 +181,8 @@
             </a>
             {{ $other_review->user->myProfile->nickname ?? $other_review->user->name }} {{$other_review->dateFormat($other_review->created_at)}}
         </div>
+
+        <div class="netabare__{{$other_review->netabare}}-mark"></div>
 
         <div class="netabare__{{ $other_review->netabare}}">
             @if(mb_strlen($other_review->body) < 100) <p class="show__comment">{{ $other_review->body }}</p>
@@ -205,12 +206,12 @@
             </div>
             @endif
         </div>
-
-        @endforeach
-        @else
-        <p>まだ他の方の感想がありません。</p>
-        @endif
     </div>
+    @endforeach
+
+    @else
+    <p class="show__no-review">まだ他の方の感想がありません。</p>
+    @endif
 
     <!-- レビューのペジネーション -->
     {{$others_reviews->links()}}

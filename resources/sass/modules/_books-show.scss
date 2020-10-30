@@ -68,9 +68,17 @@ Stylesheet: 詳細ページ
     }
 
     &__other-review {
+        position: relative;
         padding: 10px;
         background-color: $whiteColor;
         border: 1px solid #ddd;
+        margin-bottom: 10px;
+    }
+
+    &__no-review {
+        text-align: center;
+        margin-bottom: 0;
+        padding: 20px;
     }
 
     // コメントは改行させる。
@@ -89,8 +97,8 @@ Stylesheet: 詳細ページ
         margin-left: 10px;
     }
 
-    &__btn{
-        & button{
+    &__btn {
+        & button {
             border-radius: 30px;
         }
     }
