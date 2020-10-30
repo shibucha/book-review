@@ -80,8 +80,8 @@
 
 
     <!---------------------------------- START 自分の感想 -------------------------------->
+    <div class="show__subtitle"><i class="far fa-smile"></i>あなたのレビュー</div>
     <div class="show__my-review">
-        <div><i class="far fa-smile"></i>あなたのレビュー</div>
         @if($review)
         <div class="show__user-icon">
             @if($user->icon)
@@ -107,32 +107,34 @@
             </div>
             @endif
 
+            <div class="show__my-flex">
+                <div class="show__options">
+                    <!-- いいねボタン機能(Vueコンポーネント) -->
+                    <review-like :initial-like="@json($review->isLiked($user_id))" :initial-count-likes="@json($review->count_likes)" like-route="{{ route('books.like',['reading_record_id'=>$review->id])}}"></review-like>
 
-            <div class="show__options">
-                <!-- いいねボタン機能(Vueコンポーネント) -->
-                <review-like :initial-like="@json($review->isLiked($user_id))" :initial-count-likes="@json($review->count_likes)" like-route="{{ route('books.like',['reading_record_id'=>$review->id])}}"></review-like>
+                    <!-- 評価 -->
+                    @if($review->rating)
+                    <div class="show__rating">
+                        <i class="fas fa-star c-rating"></i>{{$review->rating}}
+                    </div>
 
-                <!-- 評価 -->
-                @if($review->rating)
-                <div class="show__rating">
-                    <i class="fas fa-star c-rating"></i>{{$review->rating}}
+                    @endif
                 </div>
 
-                @endif
+                <div class="show__btn">
+                    <!-- START もしも、まだ自分の感想が登録されていないならば、編集ボタン・削除ボタンは表示しない。 -->
+                    <!-- モーダル 感想の編集 -->
+                    <button type="button" class="btn btn-dark letter-white" data-toggle="modal" data-target="#edit">編集</button>
+                    <button type="button" class="btn btn-danger letter-white" data-toggle="modal" data-target="#delete-{{ $review->id }}">削除</button>
+
+                    <!-- 編集モーダル -->
+                    @include('includes.edit-book-form')
+
+                    <!-- 削除モーダル -->
+                    @include('includes.delete-book-form')
+                </div>
             </div>
 
-            <div class="show__btn">
-                <!-- START もしも、まだ自分の感想が登録されていないならば、編集ボタン・削除ボタンは表示しない。 -->
-                <!-- モーダル 感想の編集 -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit">編集</button>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-{{ $review->id }}">削除</button>
-
-                <!-- 編集モーダル -->
-                @include('includes.edit-book-form')
-
-                <!-- 削除モーダル -->
-                @include('includes.delete-book-form')
-            </div>
             @else
 
             <!------------------- まだ、読書済みに登録していない。 ---------------------->
@@ -164,8 +166,8 @@
 
 
     <!---------------------------------- START 他人の感想 -------------------------------->
+    <div class="show__subtitle"><i class="far fa-smile"></i>みんなのレビュー</div>
     <div class="show__other-review">
-        <div><i class="far fa-smile"></i>みんなのレビュー</div>
         @if($others_reviews->count() > 0)
 
         @foreach($others_reviews as $other_review)
@@ -204,7 +206,6 @@
             @endif
         </div>
 
-        <hr>
         @endforeach
         @else
         <p>まだ他の方の感想がありません。</p>

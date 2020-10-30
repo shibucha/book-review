@@ -31,6 +31,7 @@ Stylesheet: 詳細ページ
         padding: 20px;
         background-color: $whiteColor;
         border-radius: 5px;
+        border: 2px solid #ddd;
     }
 
     &__description {
@@ -50,18 +51,47 @@ Stylesheet: 詳細ページ
         }
     }
 
+    &__subtitle {
+        margin-bottom: 20px;
+    }
+
+    &__my-review {
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 3px;
+        border: 1px solid #ddd;
+    }
+
+    &__my-flex {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__other-review {
+        padding: 10px;
+        background-color: $whiteColor;
+        border: 1px solid #ddd;
+    }
+
     // コメントは改行させる。
     &__comment {
         font-size: 14px;
-        white-space: pre-wrap;        
+        white-space: pre-wrap;
         margin-left: 10px;
     }
 
     &__options {
         display: flex;
+        align-items: center;
     }
 
     &__rating {
         margin-left: 10px;
+    }
+
+    &__btn{
+        & button{
+            border-radius: 30px;
+        }
     }
 }

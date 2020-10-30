@@ -56,7 +56,7 @@
             <!-- Button trigger modal -->
             @if(in_array($item->Item->isbn, $book_ids))
             <a href="{{ route('books.show',['book_id'=>$item->Item->isbn])}}">
-                <button class="btn">詳細ページへ</button>
+                <button class="btn letter-dark border-dark">詳細ページへ</button>
             </a>
             @else
             <button type="button" class="btn btn-dark letter-white" data-toggle="modal" data-target="#{{ 'a-'.$item->Item->isbn }}">

@@ -7,7 +7,7 @@
             <a class="navbar-brand display__none-900down" href="{{ route('index') }}"><img src="" alt="">Your Bookshelf</img></a>
             @endguest
             @auth
-            <a class="navbar-brand display__none-900down" href="{{ route('books.index') }}"><img src="" alt="">Your Bookshelf</img></a>
+            <a class="navbar-brand display__none-900down letter-white" href="{{ route('books.index') }}"><img src="" alt="">Your Bookshelf</img></a>
             @endauth
 
             <!-- Collapse button -->
