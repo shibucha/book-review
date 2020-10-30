@@ -8,21 +8,36 @@ Stylesheet: 検索結果の表示
     &__container {
         @extend .content-width;
         padding-top: 50px;
-        
+
         .fs-m {
             font-size: 12px;
         }
     }
 
+    &__result {
+        border: 1px #ddd solid;
+        border-radius: 5px;
+        margin: 30px 0;
+        background-color: $searchItemResultColor;
+
+        &-btn{
+            text-align: end;
+        }
+
+        & .btn {
+            border-radius: 30px;
+        }
+    }
+
     &__item {
         padding: 20px;
+        border-bottom: 1px solid #ddd;
     }
 
     &__form {
         display: flex;
         flex-direction: column;
         margin: 10px 0;
-        
 
         &-flex {
             display: flex;
@@ -31,9 +46,10 @@ Stylesheet: 検索結果の表示
     }
 
     &__input-field {
-        border: 1px solid #757575;        
+        border: 1px solid #757575;
         padding: 5px;
         border-radius: 5px;
+        background-color: $whiteColor;
     }
 
     &__input-btn {
@@ -48,7 +64,7 @@ Stylesheet: 検索結果の表示
         margin-bottom: 0;
         margin-right: 20px;
 
-        &-bold{
+        &-bold {
             font-weight: bold;
         }
     }

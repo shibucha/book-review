@@ -20,7 +20,7 @@ Stylesheet: Route::get(books/index) → (マイページ)
 
 // ユーザー情報
 .user {
-    background-color: $themeColor;
+    background-color: $whiteColor;
     border-radius: 5px;
     padding: 30px 30px;
     text-align: center;
@@ -125,6 +125,7 @@ Stylesheet: Route::get(books/index) → (マイページ)
         height: 40px;
         border: 1px double #808080;
         border-radius: 3px;
+        background-color: $whiteColor;
     }
 
     &__btn {

@@ -5,6 +5,10 @@ Stylesheet: ベーススタイル
 ******************************************************************/
 body {
     font-family: "Kameron", "Noto Sans JP", sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: $backgroundColor;
 }
 img {
     vertical-align: bottom;
@@ -59,5 +63,21 @@ img {
 }
 
 #app{
+    flex: 1;
     padding: 70px 0;
+}
+
+// 文字色
+.letter-white{
+    color: #fff;
+}
+
+.letter-dark{
+    color: #000;
+}
+
+
+// ボーダー
+.border-dark{
+    border: 1px solid #000;
 }

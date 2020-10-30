@@ -52,19 +52,21 @@
 
         <!--------------------------- START 認証済みの場合、本の登録可能 --------------------------->
         @auth
-        <!-- Button trigger modal -->
-        @if(in_array($item->Item->isbn, $book_ids))
-        <a href="{{ route('books.show',['book_id'=>$item->Item->isbn])}}">
-            <button class="btn btn-success">詳細ページへ</button>
-        </a>
-        @else
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ 'a-'.$item->Item->isbn }}">
-            本を登録する。
-        </button>
-        <a href="{{ route('books.show',['book_id'=>$item->Item->isbn])}}">
-            <button class="btn btn-success">詳細ページへ</button>
-        </a>
-        @endif
+        <div class="search__result-btn">
+            <!-- Button trigger modal -->
+            @if(in_array($item->Item->isbn, $book_ids))
+            <a href="{{ route('books.show',['book_id'=>$item->Item->isbn])}}">
+                <button class="btn">詳細ページへ</button>
+            </a>
+            @else
+            <button type="button" class="btn btn-dark letter-white" data-toggle="modal" data-target="#{{ 'a-'.$item->Item->isbn }}">
+                本を登録する。
+            </button>
+            <a href="{{ route('books.show',['book_id'=>$item->Item->isbn])}}">
+                <button class="btn letter-dark border-dark">詳細ページへ</button>
+            </a>
+            @endif
+        </div>
 
 
         <!-- モーダル グーグルブックの登録フォーム -->
@@ -72,8 +74,8 @@
 
         @endauth
         <!--------------------------- END 認証済みの場合、本の登録可能 --------------------------->
+
     </div>
-    <hr>
 
     @endforeach
 </div>
