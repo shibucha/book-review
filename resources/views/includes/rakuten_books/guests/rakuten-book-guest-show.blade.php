@@ -86,14 +86,12 @@
 
     @foreach($others_reviews as $other_review)
     <div class="show__other-review">
-        <div class="show__user-icon">
-            <a href="{{route('books.index',['user_id'=>$other_review->user->id])}}">
+        <div class="show__user-icon">           
                 @if($other_review->user->icon)
                 <img src="{{$other_review->user->icon}}" alt="ユーザーアイコン" width="30px" height="30px">
                 @else
                 <img src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png" alt="ユーザーアイコン" width="30px" height="30px">
-                @endif
-            </a>
+                @endif         
             {{ $other_review->user->myProfile->nickname ?? $other_review->user->name }} {{$other_review->dateFormat($other_review->created_at)}}
         </div>
 
