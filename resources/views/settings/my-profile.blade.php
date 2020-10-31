@@ -41,7 +41,7 @@
 
             <div class="my-favorite">
                 <div class="my-profile__item">
-                    <div><span class="marker-red">お気に入り1</span></div>
+                    <div><span class="favorite-marker-red">お気に入り1</span></div>
                     <input type="text" class="my-favorite__title my-profile__input-field" name="my_favorite_01" value="{{$my_favorite->my_favorite_01??old('my_favorite_01')}}" placeholder="タイトル">
                     <!-- お気に入りの理由 -->
                     <input type="text" class="my-favorite__reason my-profile__input-field" name="my_favorite_reason_01" value="{{$my_favorite->my_favorite_reason_01 ?? old('my_favorite_reason_01')}}" placeholder="理由">
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="my-profile__item">
-                    <div><span class="marker-yellow">お気に入り2</span></div>
+                    <div><span class="favorite-marker-yellow">お気に入り2</span></div>
                     <input type="text" class="my-favorite__title my-profile__input-field" name="my_favorite02" value="{{$my_favorite->my_favorite_02??old('my_favorite_02')}}" placeholder="タイトル">
                     <!-- お気に入りの理由 -->
                     <input type="text" class="my-favorite__reason my-profile__input-field" name="my_favorite_reason_02" value="{{$my_favorite->my_favorite_reason_02 ?? old('my_favorite_reason_02')}}" placeholder="理由">
@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="my-profile__item">
-                    <div><span class="marker-green">お気に入り3</span></div>
+                    <div><span class="favorite-marker-green">お気に入り3</span></div>
                     <input type="text" class="my-favorite__title my-profile__input-field" name="my_favorite03" value="{{$my_favorite->my_favorite_03??old('my_favorite_03')}}" placeholder="タイトル">
                     <!-- お気に入りの理由 -->
                     <input type="text" class="my-favorite__reason my-profile__input-field" name="my_favorite_reason_03" value="{{$my_favorite->my_favorite_reason_03 ?? old('my_favorite_reason_03')}}" placeholder="理由">
@@ -68,7 +68,9 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">更新する</button>
+            <div class="my-profile__btn">
+                <button type="submit" class="">更新する</button>
+            </div>
         </form>
 
     </div>

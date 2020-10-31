@@ -29,8 +29,22 @@ Stylesheet: Route::get(books/settings/my-profile)  resources/views/settings/my-p
         outline: none;
     }
 
-    &__item{
+    &__item {
         margin-bottom: 20px;
+    }
+
+    &__btn {
+        text-align: center;
+        & button {
+            border-radius: 3px;
+            background-color: #000;
+            padding: 10px 30px;
+            color: #fff;
+
+            &:hover{
+                box-shadow: 0px 6px 7px 3px rgb(0 0 0 / 28%);
+            }
+        }
     }
 }
 
@@ -38,4 +52,15 @@ Stylesheet: Route::get(books/settings/my-profile)  resources/views/settings/my-p
     width: 200px;
     margin: 3px auto 0;
     word-break: break-all;
+}
+
+.favorite-marker-red{
+    background: linear-gradient(transparent 0%, #f36767 0%);
+}
+
+.favorite-marker-yellow{
+    background: linear-gradient(transparent 0%, #fcea6b 0%);
+}
+.favorite-marker-green{
+    background: linear-gradient(transparent 0%, #8bd187 0%);
 }
