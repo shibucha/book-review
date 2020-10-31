@@ -29,6 +29,10 @@ Route::post('/contacts/complete', 'ContactController@complete')->name('contacts.
 // 利用規約
 Route::get('/term', 'TermController@index')->name('term');
 
+// ゲストはレビューのみ閲覧可
+Route::get('/books/guest/show/{book_id}', 'GuestShowController@show')->name('guest.show');
+Route::get('/books/guest/nothing-to-show/{book_id}', 'GuestShowController@nothingToShow')->name('guest.nothingToShow');
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/books/{user_id?}', 'BookController@index')->name('books.index');
 

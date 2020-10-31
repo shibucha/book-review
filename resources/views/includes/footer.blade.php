@@ -14,7 +14,7 @@
         </divc>
 
         <div class="footer__about">
-          <p class="footer-sections-p"><span class="marker-grey">book-reviewについて</span></p>
+          <p class="footer-sections-p"><span class="marker-grey">Your Bookshelfについて</span></p>
           <ul class="footer-ul">
             <a href="{{route('term')}}">
               <li>利用規約</li>

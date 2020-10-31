@@ -67,13 +67,23 @@
             </a>
             @endif
         </div>
-
-
         <!-- モーダル グーグルブックの登録フォーム -->
         @include('includes.rakuten_books.rakuten-book-register')
 
         @endauth
         <!--------------------------- END 認証済みの場合、本の登録可能 --------------------------->
+
+
+        
+        <!-- Start ゲストの場合は、詳細ボタンのみ -->
+        @guest
+        <div class="search__result-btn">
+            <a href="{{ route('guest.show',['book_id'=>$item->Item->isbn])}}">
+                <button class="btn letter-dark border-dark">詳細ページへ</button>
+            </a>
+        </div>
+        @endguest
+        <!-- End ゲストの場合は、詳細ボタンのみ -->
 
     </div>
 

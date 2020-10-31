@@ -33,7 +33,7 @@ class BookController extends Controller
         $user = User::find($user_id);
 
         //user_idが登録されているレビューを全取得
-        $reviews = ReadingRecord::where('user_id', $user_id)->paginate(8);
+        $reviews = ReadingRecord::where('user_id', $user_id)->paginate(10);
         $reviews->load('book');
         $number_of_readings = ReadingRecord::where('user_id', $user_id)->count();
         $reviews_count = ReadingRecord::where('user_id', $user_id)->select('body')->whereNotIn('body', ['null'])->count();
@@ -51,13 +51,12 @@ class BookController extends Controller
     // 詳細ページの表示
     public function show($book_id, ReadingRecord $reading_record)
     {
-        // ddd($book_id);
         $user_id = Auth::id();
-        $user = User::with('myProfile')->find($user_id);       
+        $user = User::with('myProfile')->find($user_id);
         $items = null;
 
         //書籍情報取得(App\Library)
-        if (isset($book_id)) { 
+        if (isset($book_id)) {
             $items = RakutenBook::rakutenBooksIsbn($book_id);
             $message = null;
         } else {
@@ -66,9 +65,9 @@ class BookController extends Controller
         if (!isset($items)) {
             $message = '本が選択されていません。';
         }
-        
+
         // アイテムが空の場合（ISBNコードに誤りがあるか、楽天ブックスに登録されていないか）、マイページにリダイレクト
-        if(empty($items)){
+        if (empty($items)) {
             return redirect()->route('books.index');
         }
 
@@ -83,10 +82,10 @@ class BookController extends Controller
         }
 
         // 他人のレビュー取得
-        $others_reviews = ReadingRecord::with(['user','user.myProfile','book','likes'])->where('book_id', $book->id)->whereNotIn('user_id', [$user_id])->whereNotIn('public_private', [0])->orderBy('created_at', 'desc')->paginate(30);
-                            
+        $others_reviews = ReadingRecord::with(['user', 'user.myProfile', 'book', 'likes'])->where('book_id', $book->id)->whereNotIn('user_id', [$user_id])->whereNotIn('public_private', [0])->orderBy('created_at', 'desc')->paginate(30);
+
         // その本のレビュー数をカウント
-        $review_count = ReadingRecord::with('book')->where('book_id', $book->id)->count();       
+        $review_count = ReadingRecord::with('book')->where('book_id', $book->id)->count();
 
         //本の評価数値を取得
         $rating = ReadingRecord::where('book_id', $book->id)->select('rating')->get()->avg('rating');
@@ -112,18 +111,17 @@ class BookController extends Controller
     public function nothingToShow($book_id)
     {
         $items = null;
-        // $google_book = new GoogleBook();
-
+  
         //書籍情報取得(App\Library)
-        if (isset($book_id)) {   
+        if (isset($book_id)) {
             $items = RakutenBook::rakutenBooksIsbn($book_id);
             $message = null;
         }
         $book_image_path = ImageProccesing::getBookImagePath();
         return view('books.nothing-to-show', [
-            'items' => $items, 
+            'items' => $items,
             'book_image_path' => $book_image_path['book_url'],
-            ]);
+        ]);
     }
 
     // レビューの編集
