@@ -1,4 +1,18 @@
 .contact {
+
+    &__container{
+        margin-top: 20px;
+    }
+
+    &__title{
+        font-size: 30px;
+    }
+
+    &__summary{
+        font-size: 14px;
+        line-height: 25px;
+    }
+
     &__required {
         color: $requiredColor;
     }
@@ -17,7 +31,7 @@
     }
 
     &__input {
-        margin: 10px 0;
+        margin: 10px 0 20px;
         &-field {
             outline: none;
             border: 1px #ddd solid;

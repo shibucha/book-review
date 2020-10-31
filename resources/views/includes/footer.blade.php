@@ -2,7 +2,7 @@
 
       <div class=".footer_wrapper sections">
         <divc class="footer__search">
-          <p class="footer-sections-p">本を探す</p>
+          <p class="footer-sections-p"><span class="marker-grey">本を探す</span></p>
           <ul class="footer-ul">
             <a href="">
               <li>検索</li>
@@ -14,7 +14,7 @@
         </divc>
 
         <div class="footer__about">
-          <p class="footer-sections-p">book-reviewについて</p>
+          <p class="footer-sections-p"><span class="marker-grey">book-reviewについて</span></p>
           <ul class="footer-ul">
             <a href="">
               <li>利用規約</li>
@@ -23,7 +23,7 @@
         </div>
 
         <div class="footer__support">
-          <p class="footer-sections-p">サポート</p>
+          <p class="footer-sections-p"><span class="marker-grey">サポート</span></p>
           <ul class="footer-ul">
             <a href="{{route('contacts.index')}}">
               <li>お問い合わせ</li>

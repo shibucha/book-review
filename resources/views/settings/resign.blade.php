@@ -10,7 +10,8 @@
 
     <div class="resign__block">
         <h1 class="resign__title">Your Bookshelfを退会する</h1>
-        <p>
+
+        <p class="resign__summary">
             Your Bookshelfを一度退会すると、全てのデータが削除され復帰できませんのでご注意ください。
         </p>
 

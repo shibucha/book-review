@@ -4,18 +4,31 @@ Stylesheet: Route::get(books/settings/resign)  resources/views/settings/resign
 
 ******************************************************************/
 
-.resign{
-    &__container{
+.resign {
+    &__title {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    &__summary {
+        color: #961818;
+        font-size: 14px;
+        background-color: #f9b0b0;
+        padding: 20px;
+        border: 2px solid #961818;
+        border-radius: 5px;
+    }
+
+    &__container {
         @extend .content-width;
         margin-top: 50px !important;
     }
 
-    &__block{
+    &__block {
         margin-top: 20px;
-    }  
+    }
 
-    &__btn-area{
+    &__btn-area {
         text-align: center;
     }
 }
-

@@ -3,8 +3,16 @@
 @section('title', "お問い合わせ")
 
 @section('content')
-<div class="container">
-  <h1>お問い合わせフォーム</h1>
+<div class="contact__container  container">
+
+
+  <h1 class="contact__title"><span>お問い合わせ</span></h1>
+
+  <div class="contact__summary">
+    <p>&nbsp;&nbsp;book-reviewに対するご意見やご感想、その他お問い合わせがございましたら下記お問い合わせフォームよりお聞かせください。</p>
+  </div>
+
+  <hr>
 
   <!-- 送信完了後のフラッシュメッセージ -->
   @if(session('flash_message'))

@@ -210,7 +210,7 @@
     @endforeach
 
     @else
-    <p class="show__no-review">まだ他の方の感想がありません。</p>
+    <p class="show__no-review">まだ他の方のレビューがありません。</p>
     @endif
 
     <!-- レビューのペジネーション -->
