@@ -16,7 +16,7 @@
         </p>
 
         <div class="resign__btn-area">
-            <button type="button" class="btn btn-danger resign__btn" data-toggle="modal" data-target="#resign">Your Bookshelfを退会する</button>
+            <button type="button" class="resign__btn" data-toggle="modal" data-target="#resign">退会する</button>
         </div>
         
         <!-- 退会モーダル -->

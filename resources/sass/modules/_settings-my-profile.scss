@@ -5,6 +5,11 @@ Stylesheet: Route::get(books/settings/my-profile)  resources/views/settings/my-p
 ******************************************************************/
 
 .my-profile {
+    &__title {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
     &__container {
         @extend .content-width;
         margin-top: 50px !important;
@@ -14,8 +19,18 @@ Stylesheet: Route::get(books/settings/my-profile)  resources/views/settings/my-p
         margin-top: 20px;
     }
 
-    &__input-field{
-        border: 1px solid #000;
+    &__input-field {
+        margin: 5px 0 10px 10px;
+        border: 1px solid #ddd;
+        padding: 5px;
+        border-radius: 3px;
+        background: $whiteColor;
+        width: 100%;
+        outline: none;
+    }
+
+    &__item{
+        margin-bottom: 20px;
     }
 }
 

@@ -31,4 +31,19 @@ Stylesheet: Route::get(books/settings/resign)  resources/views/settings/resign
     &__btn-area {
         text-align: center;
     }
+
+    &__btn {
+        outline: none;
+        border-radius: 3px;
+        background-color: #dc0000;   
+        padding: 10px 30px;
+        color: #fff;
+        box-shadow: 0px 5px black;
+
+        &:active{
+            outline: none;
+            margin-top: 3px;
+            box-shadow: 0px 2px black;
+        }
+    }
 }

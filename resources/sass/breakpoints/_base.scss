@@ -13,6 +13,11 @@ body {
 img {
     vertical-align: bottom;
 }
+
+button:focus {
+    outline: none;
+}
+
 .font-sm {
     font-size: 14px;
 }
@@ -49,41 +54,50 @@ img {
     margin: 20px 0;
 }
 
-.font-bold{
+.font-bold {
     font-weight: bold;
 }
 
-.mb-10{
+.mb-10 {
     margin-bottom: 10px;
 }
 
-.pagination{
+.pagination {
     display: flex;
     justify-content: center;
 }
 
-#app{
+#app {
     flex: 1;
     padding: 70px 0;
 }
 
 // 文字色
-.letter-white{
+.letter-white {
     color: #fff;
 }
 
-.letter-dark{
+.letter-dark {
     color: #000;
 }
 
-
 // ボーダー
-.border-dark{
+.border-dark {
     border: 1px solid #000;
 }
 
-
 // マーカー
-.marker-grey{
+.marker-grey {
     background: linear-gradient(transparent 60%, #ddd 60%);
+}
+.marker-red {
+    background: linear-gradient(transparent 80%, #f36767 60%);
+}
+
+.marker-yellow {
+    background: linear-gradient(transparent 80%, #fcea6b 60%);
+}
+
+.marker-green {
+    background: linear-gradient(transparent 80%, #00b400 60%);
 }
