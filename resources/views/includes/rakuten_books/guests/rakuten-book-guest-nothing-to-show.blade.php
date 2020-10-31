@@ -55,7 +55,8 @@
 
 <hr>
 
-<p>まだ誰もレビューしていません。</p>
+<div class="nothing-to-show__subtitle"><i class="far fa-smile"></i>みんなのレビュー</div>
+<p class="nothing-to-show__no-review">まだレビューがありません。</p>
 
 @endforeach
 @endif

@@ -123,7 +123,7 @@
     @endforeach
 
     @else
-    <p class="show__no-review">まだ他の方のレビューがありません。</p>
+    <p class="show__no-review">まだレビューがありません。</p>
     @endif
 
     <!-- レビューのペジネーション -->

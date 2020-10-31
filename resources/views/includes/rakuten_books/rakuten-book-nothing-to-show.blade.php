@@ -55,12 +55,14 @@
 
 <hr>
 
-<p>まだ誰もレビューしていません。</p>
-<p>読んで気に入ったら、本棚に追加してみませんか？</p>
+<div class="nothing-to-show__subtitle"><i class="far fa-smile"></i>みんなのレビュー</div>
+<p class="nothing-to-show__no-review">まだ誰もレビューをしたことがありません。</p>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#a-{{ $item->Item->isbn }}">
-    本を登録する。
-</button>
+<div class="nothing-to-show__btn">
+    <button type="button" class="" data-toggle="modal" data-target="#a-{{ $item->Item->isbn }}">
+        初めてのレビュアーになる。
+    </button>
+</div>
 
 @endforeach
 @endif

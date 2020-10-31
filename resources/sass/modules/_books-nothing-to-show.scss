@@ -5,10 +5,10 @@ Stylesheet: レビュー登録のない書籍
 ******************************************************************/
 
 .nothing-to-show {
-    &__image{
+    &__image {
         text-align: center;
     }
-    
+
     &__container {
         @extend .content-width;
         padding-top: 40px;
@@ -21,9 +21,28 @@ Stylesheet: レビュー登録のない書籍
         margin-top: 20px;
     }
 
-    &__description{
-        .fs-m{
+    &__description {
+        .fs-m {
             font-size: 12px;
+        }
+    }
+
+    &__subtitle {
+        margin-bottom: 20px;
+    }
+
+    &__no-review {
+        text-align: center;
+    }
+
+    &__btn {
+        text-align: center;
+        & button {
+            font-size: 14px;
+            color: #fff;
+            padding: 10px;
+            background: #000;
+            border-radius: 3px;
         }
     }
 }
