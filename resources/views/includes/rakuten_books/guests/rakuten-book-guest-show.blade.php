@@ -99,7 +99,7 @@
         <div class="netabare__{{$other_review->netabare}}-mark"></div>
 
         <div class="netabare__{{ $other_review->netabare}}">
-            @if(substr_count($review->body, "\n") < 5) <p class="show__comment">{{ $other_review->body }}</p>
+            @if(substr_count($other_review->body, "\n") < 5) <p class="show__comment">{{ $other_review->body }}</p>
                 @else
                 <div class="grad-wrap">
                     <input id="trigger{{$other_review->id}}" class="grad-trigger" type="checkbox">
