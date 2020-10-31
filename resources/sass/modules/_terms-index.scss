@@ -1,0 +1,25 @@
+.term {
+    &__title {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    &__container {
+        margin-top: 30px;
+    }
+
+    &__wrapper {
+        background-color: $whiteColor;
+        border: 1px solid #ddd;
+        padding: 20px;
+    }
+    &__body {
+        margin-top: 20px;
+    }
+    
+    &__pre {
+        font-size: 14px;
+        white-space: pre-wrap;
+        line-height: 24px;
+    }
+}

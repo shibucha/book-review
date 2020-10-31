@@ -4,7 +4,7 @@
         <divc class="footer__search">
           <p class="footer-sections-p"><span class="marker-grey">本を探す</span></p>
           <ul class="footer-ul">
-            <a href="">
+            <a href="{{route('books.search')}}">
               <li>検索</li>
             </a>
             <a href="">
@@ -16,7 +16,7 @@
         <div class="footer__about">
           <p class="footer-sections-p"><span class="marker-grey">book-reviewについて</span></p>
           <ul class="footer-ul">
-            <a href="">
+            <a href="{{route('term')}}">
               <li>利用規約</li>
             </a>
           </ul>
@@ -36,7 +36,7 @@
 
     <div class="r-footer">
       <ul class="r-footer-info">
-        <li class="for-border"><a href="">利用規約</a></li>
+        <li class="for-border"><a href="{{route('term')}}">利用規約</a></li>
         <li><a href="">プライバシーポリシー</a></li><br>
         <li class="for-border"><a href="{{route('contacts.index')}}">お問い合わせ</a></li>
         <li><a href="">PC版に切り替え</a></li>

@@ -26,6 +26,9 @@ Route::get('/contacts/index', 'ContactController@index')->name('contacts.index')
 Route::post('/contacts/confirm', 'ContactController@confirm')->name('contacts.confirm');
 Route::post('/contacts/complete', 'ContactController@complete')->name('contacts.complete');
 
+// 利用規約
+Route::get('/term', 'TermController@index')->name('term');
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/books/{user_id?}', 'BookController@index')->name('books.index');
 
