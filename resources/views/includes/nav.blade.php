@@ -4,21 +4,21 @@
     <div class="navbar__inner">
         <div class="navbar__btn">
             @guest
-            <a class="navbar-brand display__none-900down" href="{{ route('index') }}"><img src="" alt="">Your Bookshelf</img></a>
+            <a class="display__none-900down letter-white navbar__service-name" href="{{ route('index') }}"><img src="" alt="">Your Bookshelf</img></a>
             @endguest
             @auth
-            <a class="navbar-brand display__none-900down letter-white" href="{{ route('books.index') }}"><img src="" alt="">Your Bookshelf</img></a>
+            <a class="display__none-900down letter-white navbar__service-name" href="{{ route('books.index') }}"><img src="" alt="">Your Bookshelf</img></a>
             @endauth
 
-            <!-- Collapse button -->
+            <!-- Collapse button -->            
             <button class="navbar-toggler navbar__hamburger" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <!-- Collapsible content -->
-            <div class="collapse navbar-collapse" id="basicExampleNav">       
+            <div class="collapse navbar-collapse" id="basicExampleNav">
                 <!-- Links -->
-                <ul class="navbar-nav ml-auto">                   
+                <ul class="navbar-nav ml-auto">
 
                     @guest
                     <li class="nav-item for-none">
@@ -39,14 +39,14 @@
                     @endguest
 
                     @auth
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('books.search')}}"><i class="fas fa-book-open"></i>本を検索する</a>
+                    <li class="nav-item navbar__item">
+                        <a class="letter-white" href="{{ route('books.search')}}"><i class="fas fa-book-open"></i>本を検索する</a>
                     </li>
                     @endauth
 
                     @auth
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">メニュー</a>
+                    <li class="nav-item dropdown navbar__item">
+                        <a class="navbar__menu-btn dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">メニュー</a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                             <button class="dropdown-item btn__mypage" onclick="location.href='{{ route('books.index') }}'">マイページ</button>
                             <button type="submit" class="dropdown-item btn__logout" form="logout-button">ログアウト</button>
