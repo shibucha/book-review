@@ -22,7 +22,7 @@
 
                     @guest
                     <li class="nav-item for-none">
-                        <a class="btn btn-primary-s" href="{{ route('register')}}" role="button">新規登録</a>
+                        <a class="btn btn-primary-s for-r-sign" href="{{ route('register')}}" role="button">新規登録</a>
                     </li>
                     <li class="nav-item for-r-li">
                         <a class="btn-primary-s for-r-sign" href="{{ route('register')}}">新規登録</a>
@@ -31,7 +31,7 @@
 
                     @guest
                     <li class="nav-item for-none">
-                        <a class="btn btn-primary-l" href="{{ route('login')}}" role="button">ログイン</a>
+                        <a class="btn btn-primary-l for-r-sign" href="{{ route('login')}}" role="button">ログイン</a>
                     </li>
                     <li class="nav-item for-r-li">
                         <a class="btn-primary-l for-r-sign" href="{{ route('login')}}" role="button">ログイン</a>

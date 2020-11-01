@@ -24,42 +24,13 @@
         <img src="images/hon-1.jpeg" alt="本" class="book">
         <img src="images/hon-2.jpeg" alt="本" class="book">
         <img src="images/hon-3.jpeg" alt="本" class="book">
-        <img src="images/hon-4.jpg" alt="本" class="book">
-        <img src="images/hon-5.jpg" alt="本" class="book">
-        <img src="images/hon-3.jpeg" alt="本" class="book">
-        <img src="images/hon-1.jpeg" alt="本" class="book">
+        <img src="images/hon-4.jpg" alt="本" class="book">       
+        <img src="images/hon-4.jpg" alt="本" class="book">       
+        <img src="images/hon-4.jpg" alt="本" class="book">       
       </div>
       <div class="ita-cover">
         <img src="images/shelf.jpeg" alt="" class="shelves">
       </div>
-    </div>
-    <div class="j">
-      <h1>ジャンル２</h1>
-      <div class="books">
-        <img src="images/hon-1.jpeg" alt="本" class="book">
-        <img src="images/hon-2.jpeg" alt="本" class="book">
-        <img src="images/hon-3.jpeg" alt="本" class="book">
-        <img src="images/hon-4.jpg" alt="本" class="book">
-        <img src="images/hon-5.jpg" alt="本" class="book">
-        <img src="images/hon-3.jpeg" alt="本" class="book">
-        <img src="images/hon-1.jpeg" alt="本" class="book">
-      </div>
-      <img src="images/shelf.jpeg" alt="" class="shelves">
-      <div>
-      </div>
-    </div>
-    <div class="j">
-      <h1>ジャンル３</h1>
-      <div class="books">
-        <img src="images/hon-1.jpeg" alt="本" class="book">
-        <img src="images/hon-2.jpeg" alt="本" class="book">
-        <img src="images/hon-3.jpeg" alt="本" class="book">
-        <img src="images/hon-4.jpg" alt="本" class="book">
-        <img src="images/hon-5.jpg" alt="本" class="book">
-        <img src="images/hon-3.jpeg" alt="本" class="book">
-        <img src="images/hon-1.jpeg" alt="本" class="book">
-      </div>
-      <img src="images/shelf.jpeg" alt="" class="shelves">
     </div>
   </div>
 </div>

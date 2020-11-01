@@ -18,591 +18,591 @@
 @import "./modules/footer";
 @import "./modules/terms-index";
 
-
 @import "breakpoints/base";
 
 @media (min-width: 480px) {
-  @import "breakpoints/480up";
+    @import "breakpoints/480up";
 }
 
 @media (min-width: 600px) {
-  @import "breakpoints/600up";
+    @import "breakpoints/600up";
 }
 
 @media (min-width: 960px) {
-  @import "breakpoints/960up";
+    @import "breakpoints/960up";
 }
 
 @media (min-width: 1280px) {
-  @import "breakpoints/1280up";
+    @import "breakpoints/1280up";
 }
 
 /* -------------------------- 共通部分 ----------------------------*/
 
 html {
-  font-size: 100%;
+    font-size: 100%;
 }
 
 a {
-  text-decoration: none;
-  font-size: 0.8rem;
+    text-decoration: none;
+    font-size: 0.8rem;
 }
 
 ul {
-  list-style: none;
+    list-style: none;
 }
 
 input {
-  padding-left: 10px;
+    padding-left: 10px;
 }
 
 /* -------------------------　ヘッダー ----------------------------*/
 
 .nav-a {
-  margin: 0 20px;
-  padding-top: 10px;
-  color: #432;
+    margin: 0 20px;
+    padding-top: 10px;
+    color: #432;
 }
 
 .btn-primary-s,
 .btn-primary-l {
-  border-radius: 5px;
-  padding: 5px 15px;
-  margin: 5px 10px 0 0;
-  color: white;
+    border-radius: 5px;
+    padding: 5px 15px;
+    margin: 5px 10px 0 0;
+    color: white;
 }
 
 .btn-primary-s {
-  background-color: #ff7f50;
-  margin-left: 40px;
+    background-color: #ff7f50;
+    margin-left: 40px;
 }
 
 .btn-primary-l {
-  background-color: #8fbc8f;
+    background-color: #8fbc8f;
 }
 
 /* -------------------------- トップ画面 --------------------------*/
 
 #home {
-  background-image: url(/images/books-2568151.jpg?728c835d887d224e26fcfdf3937061fa);
-  background-size: cover;
-  height: 400px;
-  width: 100%;
-  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.15);
+    background-image: url(/images/books-2568151.jpg?728c835d887d224e26fcfdf3937061fa);
+    background-size: cover;
+    height: 400px;
+    width: 100%;
+    box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.15);
 }
 
 #home h1 {
-  color: white;
-  text-align: center;
-  font-size: 3rem;
-  font-weight: 550;
-  padding-top: 80px;
-  font-family: "Noto Serif JP", serif;
+    color: white;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 550;
+    padding-top: 80px;
+    font-family: "Noto Serif JP", serif;
 }
 
 .search_container {
-  box-sizing: border-box;
-  text-align: center;
-  padding-top: 50px;
+    box-sizing: border-box;
+    text-align: center;
+    padding-top: 50px;
 }
 
-.search_container input[type=text] {
-  background: #fff;
-  border: none;
-  height: 40px;
-  width: 350px;
-  border-radius: 5px 0 0 5px;
+.search_container input[type="text"] {
+    background: #fff;
+    border: none;
+    height: 40px;
+    width: 350px;
+    border-radius: 5px 0 0 5px;
 }
 
-.search_container input[type=text]:focus {
-  outline: 0;
+.search_container input[type="text"]:focus {
+    outline: 0;
 }
 
-.search_container input[type=submit] {
-  cursor: pointer;
-  font-family: FontAwesome;
-  border: none;
-  background: #3aacad;
-  color: #fff;
-  width: 50px;
-  outline: none;
-  height: 40px;
-  border-radius: 0 5px 5px 0;
+.search_container input[type="submit"] {
+    cursor: pointer;
+    font-family: FontAwesome;
+    border: none;
+    background: #3aacad;
+    color: #fff;
+    width: 50px;
+    outline: none;
+    height: 40px;
+    border-radius: 0 5px 5px 0;
 }
 
 /* -----------------------　ジャンル別 --------------------------- */
 
 .wrapper {
-  width: 85%;
-  margin: 0 auto;
-  display: block !important;
+    width: 85%;
+    margin: 0 auto;
+    display: block !important;
 }
 
 .r-wrapper {
-  display: none !important;
+    display: none !important;
 }
 
 .j {
-  padding: 50px 0;
+    padding: 50px 0;
 }
 
 .j h1 {
-  font-size: 1.8rem;
-  font-family: "Noto Serif JP", serif;
+    font-size: 1.8rem;
+    font-family: "Noto Serif JP", serif;
 }
 
 .book {
-  width: 120px;
-  margin: 0 20px;
+    width: 120px;
+    margin: 0 20px;
 }
 
 .books {
-  margin-top: 50px;
+    margin-top: 50px;
 }
 
 .shelves {
-  width: 100%;
-  height: 25px;
-  box-shadow: 0 5px 6.1px rgba(0, 0, 0, 0.076), 0 10.1px 11.4px rgba(0, 0, 0, 0.086), 0 19.2px 19.8px rgba(0, 0, 0, 0.092), 0 38.4px 34.8px rgba(0, 0, 0, 0.1), 0 101px 74px rgba(0, 0, 0, 0.13);
+    width: 100%;
+    height: 25px;
+    box-shadow: 0 5px 6.1px rgba(0, 0, 0, 0.076),
+        0 10.1px 11.4px rgba(0, 0, 0, 0.086),
+        0 19.2px 19.8px rgba(0, 0, 0, 0.092), 0 38.4px 34.8px rgba(0, 0, 0, 0.1),
+        0 101px 74px rgba(0, 0, 0, 0.13);
 }
 
 /* ------------------------　フッター ------------------------------- */
 
 footer {
-  background-color: footerColor;
+    background-color: footerColor;
 }
 
 .sections-wrapper {
-  display: block !important;
+    display: block !important;
 }
 
 .sections {
-  background-color: #fff;
-  width: 60%;
-  margin: 0 auto;
-  border-radius: 20px;
-  display: flex;
-  justify-content: space-between;
-  padding: 50px 140px;
+    background-color: #fff;
+    width: 60%;
+    margin: 0 auto;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 140px;
 }
 
 .footer-sections-p {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .footer-ul a {
-  color: #656565;
-  display: block;
+    color: #656565;
+    display: block;
 }
 
 .r-footer {
-  display: none !important;
+    display: none !important;
 }
 
 /*-------------------------　新規登録ページ　---------------------------*/
 
 .for-backgrounds {
-  background-color: rgba(110, 80, 100, 0.1);
-  height: 100vh;
-  padding-top: 100px;
+    background-color: rgba(110, 80, 100, 0.1);
+    height: 100vh;
+    padding-top: 100px;
 }
 
 .register-page {
-  display: flex;
-  padding: 50px;
+    display: flex;
+    padding: 50px;
 }
 
 .register-prompt {
-  font-size: 3.5rem;
-  margin: 120px 40px 0 80px;
-  line-height: 1.7;
-  font-family: "Noto Serif JP", serif;
+    font-size: 3.5rem;
+    margin: 120px 40px 0 80px;
+    line-height: 1.7;
+    font-family: "Noto Serif JP", serif;
 }
 
 .register-wrapper {
-  background-color: #fff;
-  width: 40%;
-  height: 92%;
-  margin: 0 auto;
-  border-radius: 5px;
+    background-color: #fff;
+    width: 40%;
+    height: 92%;
+    margin: 0 auto;
+    border-radius: 5px;
 }
 
 .register-wrapper h1 {
-  text-align: center;
-  padding: 55px 0 25px;
+    text-align: center;
+    padding: 55px 0 25px;
 }
 
 .register-button {
-  border-radius: 10px;
-  background-color: #ff7f50;
-  color: #fff;
+    border-radius: 10px;
+    background-color: #ff7f50;
+    color: #fff;
 }
 
 .to-login-wrapper {
-  text-align: center;
-  margin: 0 auto;
+    text-align: center;
+    margin: 0 auto;
 }
 
 /* -------------------------　ログインページ　---------------------------- */
 
 .login-wrapper {
-  background-color: #fff;
-  width: 50%;
-  margin: 0 auto;
-  border-radius: 5px;
+    background-color: #fff;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 5px;
 }
 
 .login-container {
-  width: 80%;
-  margin: 0 auto;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .login-wrapper h1 {
-  text-align: center;
-  padding: 70px 0 30px;
+    text-align: center;
+    padding: 70px 0 30px;
 }
 
 .entry-field {
-  width: 60%;
-  margin: 0 auto;
+    width: 60%;
+    margin: 0 auto;
 }
 
 .password-field {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
 .login-button {
-  width: 60%;
-  border-radius: 10px;
-  background-color: #8fbc8f;
-  color: #fff;
+    width: 60%;
+    border-radius: 10px;
+    background-color: #8fbc8f;
+    color: #fff;
 }
 
 .no-account {
-  text-align: center;
-  margin-top: 40px;
+    text-align: center;
+    margin-top: 40px;
 }
 
 .to-register-wrapper {
-  margin: 0 auto 50px;
-  width: 60%;
+    margin: 0 auto 50px;
+    width: 60%;
 }
 
 /* ---------------------------------　表示・非表示切り替え ------------------------------------ */
 
 .r-sign-wrapper {
-  display: none !important;
+    display: none !important;
 }
 
 .for-r-li {
-  display: none !important;
+    display: none !important;
 }
 
 .for-ipad-youkoso {
-  display: none !important;
+    display: none !important;
 }
 
+.for-r-sign {
+    color: #fff;
+    margin: 3px 10px;
+}
 /* ----------------------------　↓レスポンシブ(スマートフォン用)↓-------------------------------- */
 
 @media (max-width: 670px) {
-  /* ----------------------------- トップ画面（レスポンシブ） ----------------------------------- */
+    /* ----------------------------- トップ画面（レスポンシブ） ----------------------------------- */
 
-  .for-r-sign {
-    background-color: rgba(110, 80, 100, 0.01);
-    color: #432;
-    margin: 0;
-    padding: 5px 0 0 0;
-  }
+    .for-r-sign {
+        background-color: rgba(110, 80, 100, 0.01);
+        color: #fff;
+        margin: 5px 10px;
+        padding: 5px 0 0 0;
+    }
 
-  .for-r-li {
-    display: block !important;
-    border-bottom: solid 0.4px #432;
-  }
+    .for-r-li {
+        display: block !important;
+        border-bottom: solid 0.4px #fff;
+    }
 
-  .for-none {
-    display: none;
-  }
+    .for-none {
+        display: none;
+    }
 
-  #home {
-    width: 100%;
-    height: 250px;
-  }
+    #home {
+        width: 100%;
+        height: 250px;
+    }
 
-  #home h1 {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 500;
-    padding-top: 60px;
-    font-family: "Noto Serif JP", serif;
-  }
+    #home h1 {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 500;
+        padding-top: 60px;
+        font-family: "Noto Serif JP", serif;
+    }
 
-  .search_container {
-    box-sizing: border-box;
-    text-align: center;
-    padding-top: 30px;
-  }
+    .search_container {
+        box-sizing: border-box;
+        text-align: center;
+        padding-top: 30px;
+    }
 
-  .search_container input[type=text] {
-    height: 50px;
-    width: 80%;
-  }
+    .search_container input[type="text"] {
+        height: 50px;
+        width: 80%;
+    }
 
-  .search_container input[type=submit] {
-    height: 50px;
-  }
+    .search_container input[type="submit"] {
+        height: 50px;
+    }
 
-  .wrapper {
-    display: none !important;
-  }
+    .wrapper {
+        display: none !important;
+    }
 
-  .r-wrapper {
-    display: block !important;
-  }
+    .r-wrapper {
+        display: block !important;
+    }
 
-  .r-j {
-    display: flex;
-    padding: 30px 0;
-  }
+    .r-j {
+        display: flex;
+        padding: 30px 0;
+    }
 
-  .r-j h3 {
-    margin-top: 5px;
-  }
+    .r-j h3 {
+        margin-top: 5px;
+    }
 
-  .register-book {
-    color: #fff;
-    background-color: #00ced1;
-    border-radius: 5px;
-    padding: 12px 15px;
-  }
+    .register-book {
+        color: #fff;
+        background-color: #00ced1;
+        border-radius: 5px;
+        padding: 12px 15px;
+    }
 
-  .for-r-j-border {
-    border: solid 1px #656565;
-    width: 92%;
-    margin: 0 auto;
-  }
+    .for-r-j-border {
+        border: solid 1px #656565;
+        width: 92%;
+        margin: 0 auto;
+    }
 
-  .r-sign-wrapper {
-    display: block !important;
-  }
+    .r-sign-wrapper {
+        display: block !important;
+    }
 
-  .to-register-wrapper {
-    margin: 0 auto;
-  }
+    .to-register-wrapper {
+        margin: 0 auto;
+    }
 
-  .to-login-wrapper {
-    margin-bottom: 50px;
-  }
+    .to-login-wrapper {
+        margin-bottom: 50px;
+    }
 
-  .no-account {
-    font-weight: 550;
-  }
+    .no-account {
+        font-weight: 550;
+    }
 
-  footer {
-    padding: 0;
-  }
+    footer {
+        padding: 0;
+    }
 
-  .sections {
-    display: none !important;
-  }
+    .sections {
+        display: none !important;
+    }
 
-  .r-footer {
-    display: block !important;
-    background-color: #696969;
-    padding: 40px 0;
-  }
+    .r-footer {
+        display: block !important;
+        background-color: #696969;
+        padding: 40px 0;
+    }
 
-  .r-footer-info {
-    margin: 0 0 0 20%;
-  }
+    .r-footer-info {
+        margin: 0 0 0 20%;
+    }
 
-  .r-footer-info li {
-    display: inline;
-    padding: 0 10px;
-  }
+    .r-footer-info li {
+        display: inline;
+        padding: 0 10px;
+    }
 
-  li a {
-    color: #fff;
-  }
+    li a {
+        color: #fff;
+    }
 
-  .for-border {
-    border-right: solid 1.2px #fff;
-  }
+    .for-border {
+        border-right: solid 1.2px #fff;
+    }
 
-  /* -------------------------- 新規登録ページ（レスポンシブ） --------------------------- */
+    /* -------------------------- 新規登録ページ（レスポンシブ） --------------------------- */
 
-  .for-backgrounds {
-    padding-top: 10px;
-  }
+    .for-backgrounds {
+        padding-top: 10px;
+    }
 
-  .register-page {
-    padding: 0;
-  }
+    .register-page {
+        padding: 0;
+    }
 
-  .r-register-prompt {
-    display: none;
-  }
+    .r-register-prompt {
+        display: none;
+    }
 
-  .register-wrapper {
-    background-color: rgba(110, 80, 100, 0.01);
-    width: 100%;
-    height: 100%;
-  }
+    .register-wrapper {
+        background-color: rgba(110, 80, 100, 0.01);
+        width: 100%;
+        height: 100%;
+    }
 
-  .register-wrapper h1 {
-    font-size: 1.5rem;
-    padding: 30px 0 20px;
-  }
+    .register-wrapper h1 {
+        font-size: 1.5rem;
+        padding: 30px 0 20px;
+    }
 
-  /* --------------------------- ログインページ（レスポンシブ） --------------------------- */
+    /* --------------------------- ログインページ（レスポンシブ） --------------------------- */
 
-  .login-wrapper {
-    width: 100%;
-    background-color: rgba(110, 80, 100, 0.01);
-  }
+    .login-wrapper {
+        width: 100%;
+        background-color: rgba(110, 80, 100, 0.01);
+    }
 
-  .login-container {
-    width: 100%;
-  }
+    .login-container {
+        width: 100%;
+    }
 
-  .login-wrapper h1 {
-    font-size: 1.5rem;
-    padding: 30px 0 20px;
-  }
+    .login-wrapper h1 {
+        font-size: 1.5rem;
+        padding: 30px 0 20px;
+    }
 
-  .entry-field {
-    width: 88%;
-  }
+    .entry-field {
+        width: 88%;
+    }
 
-  .password-field {
-    margin-top: 30px;
-  }
+    .password-field {
+        margin-top: 30px;
+    }
 
-  .login-button {
-    width: 86%;
-    border-radius: 10px;
-  }
+    .login-button {
+        width: 86%;
+        border-radius: 10px;
+    }
 
-  .to-register-wrapper {
-    width: 86%;
-  }
+    .to-register-wrapper {
+        width: 86%;
+    }
 }
 
 /* -----------------------------　レスポンシブ（タブレット用）------------------------------- */
 
-@media (min-width:671px) and (max-width:1204px) {
-.sections {
-  background-color: #fff;
-  width: 80%;
-  margin: 0 auto;
-  border-radius: 20px;
-  padding: 50px 80px;
+@media (min-width: 671px) and (max-width: 1204px) {
+    .sections {
+        background-color: #fff;
+        width: 80%;
+        margin: 0 auto;
+        border-radius: 20px;
+        padding: 50px 80px;
+    }
+
+    .for-backgrounds {
+        background-color: rgba(110, 80, 100, 0.1);
+        height: 100vh;
+        padding-top: 100px;
+    }
+
+    .register-page {
+        display: flex;
+        padding: 50px 40px;
+    }
+
+    .register-prompt {
+        font-size: 2.9rem;
+        margin: 80px 20px 0 0;
+    }
+
+    .register-wrapper {
+        background-color: #fff;
+        width: 90%;
+        height: 60%;
+        margin: 0 auto;
+        border-radius: 20px;
+    }
+
+    .register-wrapper h1 {
+        text-align: center;
+        padding: 55px 0 25px;
+    }
+
+    .register-button {
+        border-radius: 10px;
+        background-color: #ff7f50;
+        color: #fff;
+    }
+
+    .to-login-wrapper {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .entry-field {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .to-register-wrapper {
+        width: 80%;
+    }
+
+    .to-login-wrapper {
+        margin: 0 auto;
+        width: 80%;
+    }
+
+    .login-button {
+        width: 100%;
+    }
+
+    .for-ipad-youkoso {
+        display: block !important;
+    }
+    .for-youkoso {
+        display: none !important;
+    }
+
+    .login-wrapper {
+        width: 70%;
+        border-radius: 20px;
+    }
+
+    .password-field {
+        margin-top: 30px;
+    }
 }
 
-.for-backgrounds {
-  background-color: rgba(110, 80, 100, 0.1);
-  height: 100vh;
-  padding-top: 100px;
-}
+@media (min-width: 671px) and (max-width: 770px) {
+    .register-wrapper {
+        width: 100%;
+        height: 77%;
+    }
 
-.register-page {
-  display: flex;
-  padding: 50px 40px;
-}
+    .register-prompt {
+        font-size: 2.5rem;
+        margin: 60px 20px 0 0;
+    }
 
-.register-prompt {
-  font-size: 2.9rem;
-  margin: 80px 20px 0 0;
+    .for-r-sign {
+        background-color: rgba(110, 80, 100, 0.01);
+        color: #fff;
+        margin: 0;
+        padding: 5px 0 0 0;
+    }
 
-}
+    .for-r-li {
+        display: block !important;
+        border-bottom: solid 0.4px #fff;
+    }
 
-.register-wrapper {
-  background-color: #fff;
-  width: 90%;
-  height: 60%;
-  margin: 0 auto;
-  border-radius: 20px;
-}
-
-.register-wrapper h1 {
-  text-align: center;
-  padding: 55px 0 25px;
-}
-
-.register-button {
-  border-radius: 10px;
-  background-color: #ff7f50;
-  color: #fff;
-}
-
-.to-login-wrapper {
-  text-align: center;
-  margin: 0 auto;
-}
-
-.entry-field {
-  width: 80%;
-  margin: 0 auto;
-}
-
-.to-register-wrapper {
-  width: 80%;
-}
-
-.to-login-wrapper {
-  margin: 0 auto;
-  width: 80%;
-}
-
-.login-button {
-  width: 100%;
-}
-
-.for-ipad-youkoso {
-  display: block !important;
-}
-.for-youkoso {
-  display: none !important;
-}
-
-
-
-.login-wrapper {
-  width: 70%;
-  border-radius: 20px;
-}
-
-.password-field {
-  margin-top: 30px;
-}
-
-}
-
-@media (min-width:671px) and (max-width:770px) {
-
-.register-wrapper {
-  width: 100%;
-  height: 77%;
-}
-
-.register-prompt {
-  font-size: 2.5rem;
-  margin: 60px 20px 0 0;
-}
-
-.for-r-sign {
-  background-color: rgba(110, 80, 100, 0.01);
-  color: #432;
-  margin: 0;
-  padding: 5px 0 0 0;
-}
-
-.for-r-li {
-  display: block !important;
-  border-bottom: solid 0.4px #432;
-}
-
-.for-none {
-  display: none;
-}
-
+    .for-none {
+        display: none;
+    }
 }
