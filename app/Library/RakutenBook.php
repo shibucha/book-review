@@ -32,18 +32,52 @@ class RakutenBook
     // サービス起動時に、トップページのブックコンテンツ情報を取得（2020/11/1　使用について検討中）
     public function getTopPageContents()
     {
-        $books = [
+        $book = new Book;
+        $author = new Author;
+
+        $author_names = Author::select('author')->get();
+        $book_ids = Book::select('book_id')->get();
+
+        foreach ($book_ids as $book_id) {
+            $book_data[] = $book_id->book_id;
+        }
+        foreach ($author_names as $author_name) {
+            $author_data[] = $author_name->author;
+        }
+
+        // おすすめの本
+        $recommendations = [
             '9784798060996',
             '9784798135472',
             '9784065190166',
             '9784088815572',
         ];
 
-        foreach ($books as $isbn) {
-            $item = $this->rakutenBooksIsbn($isbn);            
-            $data[] = $item[0]->Item;           
-        }   
-  
+        // もし、おすすめ本がまだbooksテーブルに登録されていないならば、先にbooksテーブルへ登録を行う
+        // もし、おすすめ本の著者が、まだauhtorsテーブルに登録されていないならば、先にauthorsテーブルへ登録を行う
+        foreach ($recommendations as $rec) {
+            if (!in_array($rec, $book_data)) {
+                $item = $this->rakutenBooksIsbn($rec);
+
+                if (!in_array($item[0]->Item->author, $author_data)) {
+                    $author->author = $item[0]->Item->author;
+                    $author->save();
+                    $author_id = $author->id;
+                } else {
+                    $author_id = Author::where('author', $item[0]->Item->author)->select('id')->get();
+                }
+
+                $book->title = $item[0]->Item->title;
+                $book->book_id = $item[0]->Item->isbn;
+                $book->author_id = $author_id;
+                $book->image = $item[0]->Item->largeImageUrl;
+                $book->description = $item[0]->Item->itemCaption;
+                $book->save();               
+            }
+        }
+
+        $data = Book::with('author')->whereIn('book_id', $recommendations)->get();
+
         return $data;
     }
 
