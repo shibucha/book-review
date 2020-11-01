@@ -29,6 +29,24 @@ class RakutenBook
 {
     private $app_id;
 
+    // サービス起動時に、トップページのブックコンテンツ情報を取得
+    public function getTopPageContents()
+    {
+        $books = [
+            '9784798060996',
+            '9784798135472',
+            '9784065190166',
+            '9784088815572',
+        ];
+
+        foreach ($books as $isbn) {
+            $item = $this->rakutenBooksIsbn($isbn);            
+            $data[] = $item[0]->Item;           
+        }   
+  
+        return $data;
+    }
+
     // わたってきた変数がキーワードか、ISBNコードか検証
     public function veryfyKeywordOrIsbn($keyword)
     {

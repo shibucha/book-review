@@ -15,18 +15,24 @@
 
 </div>
 
-
+@if($data)
+<!-- PC画面用 -->
 <div class="background">
-  <div class="wrapper">
+  <div class="home__wrapper wrapper">
     <div class="j">
-      <h1>ジャンル１</h1>
+      <h1 class="home__osusume">今週のおすすめ</h1>
       <div class="books">
-        <img src="images/hon-1.jpeg" alt="本" class="book">
-        <img src="images/hon-2.jpeg" alt="本" class="book">
-        <img src="images/hon-3.jpeg" alt="本" class="book">
-        <img src="images/hon-4.jpg" alt="本" class="book">       
-        <img src="images/hon-4.jpg" alt="本" class="book">       
-        <img src="images/hon-4.jpg" alt="本" class="book">       
+        @foreach($data as $book)
+        @if(Auth::check())
+        <a href="{{route('books.show',['book_id'=>$book->isbn])}}">
+          <img src="{{$book->largeImageUrl}}" alt="本" class="book">
+        </a>
+        @else
+        <a href="{{route('guest.show',['book_id'=>$book->isbn])}}">
+          <img src="{{$book->largeImageUrl}}" alt="本" class="book">
+        </a>
+        @endif
+        @endforeach
       </div>
       <div class="ita-cover">
         <img src="images/shelf.jpeg" alt="" class="shelves">
@@ -34,73 +40,58 @@
     </div>
   </div>
 </div>
-  <!-- ------------------------------------------------- -->
 
-  <div class="r-wrapper">
-    <div class="r-j">
-      <div>
-        <img src="images/hon-1.jpeg" alt="本" class="book">
-      </div>
-      <div>
-        <h3>本のタイトル</h3>
-        <p>著者・作者</p>
-        <a href="" class="register-book">本を登録する</a>
-      </div>
+<!-- ------------------------------------------------- -->
+
+<!-- レスポンシブ -->
+<div class="r-wrapper">
+  @foreach($data as $book)
+  <div class="r-j">
+    <div>
+      @if(Auth::check())
+      <a href="{{route('books.show',['book_id'=>$book->isbn])}}">
+        <img src="{{$book->largeImageUrl}}" alt="本" class="book">
+      </a>
+      @else
+      <a href="{{route('guest.show',['book_id'=>$book->isbn])}}">
+        <img src="$book->largeImageUrl" alt="本" class="book">
+      </a>
+      @endif
     </div>
-    <div class="for-r-j-border"></div>
-    <div class="r-j">
-      <div>
-        <img src="images/hon-2.jpeg" alt="本" class="book">
-      </div>
-      <div>
-        <h3>本のタイトル</h3>
-        <p>著者・作者</p>
-        <a href="" class="register-book">本を登録する</a>
-      </div>
+    <div>
+      <h3 class="r-book__title">{{$book->title}}</h3>
+      <p class="r-book__author">{{$book->author}}/著</p>
     </div>
-    <div class="for-r-j-border"></div>
-    <div class="r-j">
-      <div>
-        <img src="images/hon-3.jpeg" alt="本" class="book">
-      </div>
-      <div>
-        <h3>本のタイトル</h3>
-        <p>著者・作者</p>
-        <a href="" class="register-book">本を登録する</a>
-      </div>
-    </div>
-    <div class="for-r-j-border"></div>
-    <div class="r-j">
-      <div>
-        <img src="images/hon-4.jpg" alt="本" class="book">
-      </div>
-      <div>
-        <h3>本のタイトル</h3>
-        <p>著者・作者</p>
-        <a href="" class="register-book">本を登録する</a>
-      </div>
-    </div>
-    <div class="for-r-j-border"></div>
+  </div>
+  <div class="for-r-j-border"></div>
+  @endforeach
+</div>
+
+@else
+
+<div class="home__no-book">
+  <p>ただいま準備中です。少々お待ちください。</p>
+</div>
+
+@endif
+<div class="r-sign-wrapper">
+
+  <p class="no-account">読んだ本を記録しよう！</p>
+
+  <div class="to-register-wrapper">
+    <a class="btn btn-rounded btn-block waves-effect z-depth-0 register-button" href="{{ route('register')}}" role="button">新規登録</a>
   </div>
 
-  <div class="r-sign-wrapper">
+  <p class="no-account">すでにアカウントをお持ちの方はこちら</p>
 
-    <p class="no-account">読んだ本を記録しよう！</p>
-
-    <div class="to-register-wrapper">
-      <a class="btn btn-rounded btn-block waves-effect z-depth-0 register-button" href="{{ route('register')}}" role="button">新規登録</a>
-    </div>
-
-    <p class="no-account">すでにアカウントをお持ちの方はこちら</p>
-
-    <div class="to-login-wrapper">
-      <a href="{{ route('login') }}" class="btn btn-rounded btn-block waves-effect z-depth-0 login-button">ログイン</a>
-    </div>
-
+  <div class="to-login-wrapper">
+    <a href="{{ route('login') }}" class="btn btn-rounded btn-block waves-effect z-depth-0 login-button">ログイン</a>
   </div>
 
-  <!-- --------------------------------------------------- -->
+</div>
 
- 
+<!-- --------------------------------------------------- -->
 
-  @endsection
+
+
+@endsection

@@ -55,6 +55,7 @@ input {
     padding-left: 10px;
 }
 
+
 /* -------------------------　ヘッダー ----------------------------*/
 
 .nav-a {
@@ -129,10 +130,16 @@ input {
     border-radius: 0 5px 5px 0;
 }
 
+.home__no-book{
+    margin-top: 100px;
+    text-align: center;   
+}
+
 /* -----------------------　ジャンル別 --------------------------- */
 
-.wrapper {
-    width: 85%;
+.home__wrapper {
+    @extend .content-width;
+    max-width: 100%;
     margin: 0 auto;
     display: block !important;
 }
@@ -151,11 +158,12 @@ input {
 }
 
 .book {
-    width: 120px;
-    margin: 0 20px;
+    width: 130px;
+    margin: 0 10px;
 }
 
 .books {
+    text-align: left;
     margin-top: 50px;
 }
 
@@ -583,6 +591,13 @@ footer {
 
     .password-field {
         margin-top: 30px;
+    }
+
+    .r-book__title{
+        font-size: 20px;
+    }
+    .r-book__author{
+        letter-spacing: 2px;
     }
 }
 
