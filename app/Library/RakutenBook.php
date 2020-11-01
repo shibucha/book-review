@@ -29,7 +29,7 @@ class RakutenBook
 {
     private $app_id;
 
-    // サービス起動時に、トップページのブックコンテンツ情報を取得
+    // サービス起動時に、トップページのブックコンテンツ情報を取得（2020/11/1　使用について検討中）
     public function getTopPageContents()
     {
         $books = [
