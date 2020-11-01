@@ -19,6 +19,7 @@ Stylesheet: 960px以上のモニタで適用
     }
 }
 
+// お問い合わせ
 .contact {
     &__input {
         display: flex;
@@ -42,4 +43,8 @@ Stylesheet: 960px以上のモニタで適用
         width: 300px;
         display: inline-block;
     }
+}
+
+.confirm__field{
+    width: 100%;
 }
