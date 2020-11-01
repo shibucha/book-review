@@ -94,9 +94,11 @@
 
 
         <!-- 読書済みにしているが、レビューはしていない。 -->
-        @if(!$review->body)
-        {{$user->name}}さんは、まだレビューしていません。
-        @endif
+        <div class="show__no-review">
+            @if(!$review->body)
+            {{$user->name}}さんは、まだレビューしていません。
+            @endif
+        </div>
 
         @if(substr_count($review->body, "\n") < 5) <p class="show__comment">{{ $review->body }}</p>
             @else
@@ -182,6 +184,10 @@
             {{ $other_review->user->myProfile->nickname ?? $other_review->user->name }} {{$other_review->dateFormat($other_review->created_at)}}
         </div>
 
+        <!-- 読書済み、かつレビュー登録済みの場合　 -->
+        @if($other_review->body)
+
+        <!-- ネタバレマーク -->
         <div class="netabare__{{$other_review->netabare}}-mark"></div>
 
         <div class="netabare__{{ $other_review->netabare}}">
@@ -195,6 +201,14 @@
                 @endif
         </div>
 
+        <!-- 読書済みにしているが、レビューはしていない場合　 -->
+        @else
+        <div class="show__no-review">            
+            {{$other_review->user->myProfile->nickname ?? $other_review->user->name}}さんは、まだレビューしていません。           
+        </div>
+        @endif
+        
+        <!-- いいね、書籍評価 -->
         <div class="show__options">
             <!-- いいねボタン機能(Vueコンポーネント) -->
             <review-like :initial-like="@json($other_review->isLiked($user_id))" :initial-count-likes="@json($other_review->count_likes)" like-route="{{ route('books.like',['reading_record_id'=>$other_review->id])}}"></review-like>

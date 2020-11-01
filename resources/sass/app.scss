@@ -203,8 +203,7 @@ footer {
 
 /*-------------------------　新規登録ページ　---------------------------*/
 
-.for-backgrounds {
-    background-color: rgba(110, 80, 100, 0.1);
+.for-backgrounds {    
     height: 100vh;
     padding-top: 100px;
 }
@@ -412,18 +411,27 @@ footer {
     }
 
     .r-footer {
-        display: block !important;
+        display: flex !important;
         background-color: #696969;
         padding: 40px 0;
+        justify-content: space-evenly;
     }
 
     .r-footer-info {
-        margin: 0 0 0 20%;
+        display: flex;
+        flex-direction: column;
     }
 
     .r-footer-info li {
         display: inline;
-        padding: 0 10px;
+        padding: 5px 0;
+    }
+    .r-footer-el{
+        font-size: 10px;
+        color: #fff;
+        font-weight: bold;
+        padding-bottom: 3px;
+        border-bottom: 1px solid #fff;
     }
 
     li a {
@@ -505,7 +513,6 @@ footer {
     }
 
     .for-backgrounds {
-        background-color: rgba(110, 80, 100, 0.1);
         height: 100vh;
         padding-top: 100px;
     }

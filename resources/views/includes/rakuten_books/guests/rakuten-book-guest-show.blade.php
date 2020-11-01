@@ -76,7 +76,7 @@
     </div>
     <!---------------------------------- END 書籍のAPI情報 -------------------------------->
 
-    
+
     <hr>
 
 
@@ -86,14 +86,17 @@
 
     @foreach($others_reviews as $other_review)
     <div class="show__other-review">
-        <div class="show__user-icon">           
-                @if($other_review->user->icon)
-                <img src="{{$other_review->user->icon}}" alt="ユーザーアイコン" width="30px" height="30px">
-                @else
-                <img src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png" alt="ユーザーアイコン" width="30px" height="30px">
-                @endif         
+        <div class="show__user-icon">
+            @if($other_review->user->icon)
+            <img src="{{$other_review->user->icon}}" alt="ユーザーアイコン" width="30px" height="30px">
+            @else
+            <img src="https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/default.png" alt="ユーザーアイコン" width="30px" height="30px">
+            @endif
             {{ $other_review->user->myProfile->nickname ?? $other_review->user->name }} {{$other_review->dateFormat($other_review->created_at)}}
         </div>
+
+        <!-- 読書済み、かつレビュー登録済みの場合　 -->
+        @if($other_review->body)
 
         <!-- ネタバレマーク -->
         <div class="netabare__{{$other_review->netabare}}-mark"></div>
@@ -109,7 +112,14 @@
                 @endif
         </div>
 
-        <div class="show__options">           
+        <!-- 読書済みにしているが、レビューはしていない場合　 -->
+        @else
+        <div class="show__no-review">
+            {{$other_review->user->myProfile->nickname ?? $other_review->user->name}}さんは、まだレビューしていません。
+        </div>
+        @endif
+
+        <div class="show__options">
             <!-- 星評価 -->
             @if($other_review->rating)
             <div class="show__rating">
