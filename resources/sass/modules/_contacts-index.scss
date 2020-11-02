@@ -1,14 +1,13 @@
 .contact {
-
-    &__container{
+    &__container {
         margin-top: 20px;
     }
 
-    &__title{
+    &__title {
         font-size: 30px;
     }
 
-    &__summary{
+    &__summary {
         font-size: 14px;
         line-height: 25px;
     }
@@ -60,4 +59,8 @@
         width: 100%;
         border-radius: 5px;
     }
+}
+
+.confirm__field {
+    word-break: break-all;
 }

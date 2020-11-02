@@ -24,12 +24,12 @@
       <div class="books">
         @foreach($data as $book)
         @if(Auth::check())
-        <a href="{{route('books.show',['book_id'=>$book->isbn])}}">
-          <img src="{{$book->largeImageUrl}}" alt="本" class="book">
+        <a href="{{route('books.show',['book_id'=>$book->book_id])}}">
+          <img src="{{$book->image}}" alt="本" class="book">
         </a>
         @else
-        <a href="{{route('guest.show',['book_id'=>$book->isbn])}}">
-          <img src="{{$book->largeImageUrl}}" alt="本" class="book">
+        <a href="{{route('guest.show',['book_id'=>$book->book_id])}}">
+          <img src="{{$book->image}}" alt="本" class="book">
         </a>
         @endif
         @endforeach
@@ -49,18 +49,18 @@
   <div class="r-j">
     <div>
       @if(Auth::check())
-      <a href="{{route('books.show',['book_id'=>$book->isbn])}}">
-        <img src="{{$book->largeImageUrl}}" alt="本" class="book">
+      <a href="{{route('books.show',['book_id'=>$book->book_id])}}">
+        <img src="{{$book->image}}" alt="本" class="book">
       </a>
       @else
-      <a href="{{route('guest.show',['book_id'=>$book->isbn])}}">
-        <img src="$book->largeImageUrl" alt="本" class="book">
+      <a href="{{route('guest.show',['book_id'=>$book->book_id])}}">
+        <img src="$book->image" alt="本" class="book">
       </a>
       @endif
     </div>
     <div>
       <h3 class="r-book__title">{{$book->title}}</h3>
-      <p class="r-book__author">{{$book->author}}/著</p>
+      <p class="r-book__author">{{$book->author->author}}/著</p>
     </div>
   </div>
   <div class="for-r-j-border"></div>
