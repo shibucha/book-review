@@ -54,7 +54,7 @@
       </a>
       @else
       <a href="{{route('guest.show',['book_id'=>$book->book_id])}}">
-        <img src="$book->image" alt="本" class="book">
+        <img src="{{$book->image}}" alt="本" class="book">
       </a>
       @endif
     </div>

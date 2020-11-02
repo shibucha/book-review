@@ -55,7 +55,6 @@ input {
     padding-left: 10px;
 }
 
-
 /* -------------------------　ヘッダー ----------------------------*/
 
 .nav-a {
@@ -130,9 +129,9 @@ input {
     border-radius: 0 5px 5px 0;
 }
 
-.home__no-book{
+.home__no-book {
     margin-top: 100px;
-    text-align: center;   
+    text-align: center;
 }
 
 /* -----------------------　ジャンル別 --------------------------- */
@@ -163,7 +162,11 @@ input {
 }
 
 .books {
-    text-align: center;
+    justify-content: center;
+    align-items: flex-end;
+    overflow-x: scroll;
+    display: flex;
+    flex-wrap: nowrap;
     margin-top: 50px;
 }
 
@@ -211,7 +214,7 @@ footer {
 
 /*-------------------------　新規登録ページ　---------------------------*/
 
-.for-backgrounds {    
+.for-backgrounds {
     height: 100vh;
     padding-top: 100px;
 }
@@ -434,7 +437,7 @@ footer {
         display: inline;
         padding: 5px 0;
     }
-    .r-footer-el{
+    .r-footer-el {
         font-size: 10px;
         color: #fff;
         font-weight: bold;
@@ -593,10 +596,10 @@ footer {
         margin-top: 30px;
     }
 
-    .r-book__title{
+    .r-book__title {
         font-size: 20px;
     }
-    .r-book__author{
+    .r-book__author {
         letter-spacing: 2px;
     }
 }

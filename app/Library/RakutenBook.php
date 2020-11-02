@@ -29,7 +29,7 @@ class RakutenBook
 {
     private $app_id;
 
-    // サービス起動時に、トップページのブックコンテンツ情報を取得（2020/11/1　使用について検討中）
+    // サービス起動時に、トップページのブックコンテンツ情報を取得（ISBNコードで、トップページのコンテンツを変更可能）
     public function getTopPageContents()
     {
         $book = new Book;
@@ -47,11 +47,14 @@ class RakutenBook
 
         // おすすめの本
         $recommendations = [
-            '9784798060996',
-            '9784798135472',
-            '9784065190166',
-            '9784088815572',
-            '9784101240527',
+            '9784798060996', //PHPフレームワーク入門
+            '9784798135472', //独習PHP
+            '9784065190166', //岸辺露伴は動かない
+            '9784088815572', //アルルカンと道化師
+            '9784101240527', //十二国記
+            '9784197735815', //ナウシカ
+            '9784063884852', //ピアノの森
+            '9784088812489', //ハンターハンター
         ];
 
         // もし、おすすめ本がまだbooksテーブルに登録されていないならば、先にbooksテーブルへ登録を行う
@@ -73,7 +76,7 @@ class RakutenBook
                 $book->author_id = $author_id;
                 $book->image = $item[0]->Item->largeImageUrl;
                 $book->description = $item[0]->Item->itemCaption;
-                $book->save();               
+                $book->save();
             }
         }
 
