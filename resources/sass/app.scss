@@ -156,14 +156,11 @@ input {
     font-family: "Noto Serif JP", serif;
 }
 
-.book {
-    width: 130px;
+.book {    
     margin: 0 10px;
 }
 
 .books {
-    justify-content: center;
-    align-items: flex-end;
     overflow-x: scroll;
     display: flex;
     flex-wrap: nowrap;

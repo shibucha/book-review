@@ -81,6 +81,12 @@ Stylesheet: 詳細ページ
         padding: 10px;
     }
 
+    &__no-register {
+        text-align: center;
+        margin-bottom: 0;
+        padding: 10px;
+    }
+
     // コメントは改行させる。
     &__comment {
         font-size: 14px;
@@ -100,6 +106,18 @@ Stylesheet: 詳細ページ
     &__btn {
         & button {
             border-radius: 30px;
+        }
+    }
+
+    &__no-register-btn {
+        text-align: end;
+
+        & button {
+            color: #fff;
+            padding: 10px;
+            background-color: #000;
+            border-radius: 3px;
+            font-size: 12px;
         }
     }
 }

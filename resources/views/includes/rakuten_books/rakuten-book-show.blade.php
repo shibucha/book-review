@@ -96,7 +96,7 @@
         <!-- 読書済みにしているが、レビューはしていない。 -->
         <div class="show__no-review">
             @if(!$review->body)
-            {{$user->name}}さんは、まだレビューしていません。
+            {{$user->myProfile->nickname ?? $user->name}}さんは、まだレビューしていません。
             @endif
         </div>
 
@@ -150,11 +150,13 @@
             </div>
 
 
-            <p>まだ、あなたの本棚に追加されていません。</p>
+            <p class="show__no-register">まだ、あなたの本棚に追加されていません。</p>
 
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{ 'a-'.$item->Item->isbn }}">
-                本を登録する。
-            </button>
+            <div class="show__no-register-btn">
+                <button type="button" class="" data-toggle="modal" data-target="#{{ 'a-'.$item->Item->isbn }}">
+                    本を登録する。
+                </button>
+            </div>
 
             @include('includes.rakuten_books.rakuten-book-register')
 
@@ -203,11 +205,11 @@
 
         <!-- 読書済みにしているが、レビューはしていない場合　 -->
         @else
-        <div class="show__no-review">            
-            {{$other_review->user->myProfile->nickname ?? $other_review->user->name}}さんは、まだレビューしていません。           
+        <div class="show__no-review">
+            {{$other_review->user->myProfile->nickname ?? $other_review->user->name}}さんは、まだレビューしていません。
         </div>
         @endif
-        
+
         <!-- いいね、書籍評価 -->
         <div class="show__options">
             <!-- いいねボタン機能(Vueコンポーネント) -->
