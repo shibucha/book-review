@@ -13,11 +13,11 @@ class HomeController extends Controller
 {
    //トップページ の表示
     public function index(){
-        $data = RakutenBook::getTopPageContents();
+        // $data = RakutenBook::getTopPageContents();
         // foreach($data as $d){
         //     ddd($d->author->author); 
         // }
-        // $data =null;       
+        $data =null;       
         return view('home', ['data'=>$data]);
     }
 }
