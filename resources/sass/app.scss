@@ -156,7 +156,7 @@ input {
     font-family: "Noto Serif JP", serif;
 }
 
-.book {    
+.book {
     margin: 0 10px;
 }
 
@@ -320,6 +320,14 @@ footer {
 @media (max-width: 670px) {
     /* ----------------------------- トップ画面（レスポンシブ） ----------------------------------- */
 
+    .r-book {
+        width: 100px;
+
+        &__intro{
+            width: 60%;
+        }
+    }
+
     .for-r-sign {
         background-color: rgba(110, 80, 100, 0.01);
         color: #fff;
@@ -373,12 +381,16 @@ footer {
     }
 
     .r-j {
+        width: 90%;
+        margin: 0 auto;
+        justify-content: space-around;
         display: flex;
         padding: 30px 0;
     }
 
     .r-j h3 {
         margin-top: 5px;
+        font-size: 20px;
     }
 
     .register-book {

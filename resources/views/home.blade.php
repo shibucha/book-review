@@ -50,15 +50,15 @@
     <div>
       @if(Auth::check())
       <a href="{{route('books.show',['book_id'=>$book->book_id])}}">
-        <img src="{{$book->image}}" alt="本" class="book">
+        <img src="{{$book->image}}" alt="本" class="r-book">
       </a>
       @else
       <a href="{{route('guest.show',['book_id'=>$book->book_id])}}">
-        <img src="{{$book->image}}" alt="本" class="book">
+        <img src="{{$book->image}}" alt="本" class="r-book">
       </a>
       @endif
     </div>
-    <div>
+    <div class="r-book__intro">
       <h3 class="r-book__title">{{$book->title}}</h3>
       <p class="r-book__author">{{$book->author->author}}/著</p>
     </div>
