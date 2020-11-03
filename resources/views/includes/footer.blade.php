@@ -35,7 +35,7 @@
   <div class="r-footer">
     <ul class="r-footer-info">
       <div class="r-footer-el">コンテンツ</div>
-      <li class=""><a href="{{route('term')}}">検索</a></li>
+      <li class=""><a href="{{route('books.search')}}">検索</a></li>
       <!-- <li class=""><a href="{{route('contacts.index')}}">ランキング</a></li> -->
     </ul>
     <ul class="r-footer-info">
