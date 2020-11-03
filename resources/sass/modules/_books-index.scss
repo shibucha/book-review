@@ -46,8 +46,11 @@ Stylesheet: Route::get(books/index) → (マイページ)
     }
 
     // 自己紹介は改行OK
-    &__introduction-body {
-        white-space: pre;
+    &__introduction {
+        padding: 5px;
+        &-body {
+            white-space: pre-wrap;
+        }
     }
 
     &__subtitle {

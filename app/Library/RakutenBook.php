@@ -69,12 +69,13 @@ class RakutenBook
                     $author->save();
                     $author_id = $author->id;
                 } else {
-                    $author_id = Author::where('author', $item[0]->Item->author)->select('id')->first();                                      
+                    $author_id = Author::where('author', $item[0]->Item->author)->select('id')->first();
+                    $author_id = $author_id->id;
                 }
 
                 $book->title = $item[0]->Item->title;
                 $book->book_id = $item[0]->Item->isbn;
-                $book->author_id = $author_id->id;                
+                $book->author_id = $author_id;
                 $book->image = $item[0]->Item->largeImageUrl;
                 $book->description = $item[0]->Item->itemCaption;
                 $book->save();
