@@ -91,3 +91,11 @@ button:focus {
 .marker-grey {
     background: linear-gradient(transparent 60%, #ddd 60%);
 }
+
+// 文字カウント
+.count-length {
+    text-align: end;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    font-size: 10px;
+}
