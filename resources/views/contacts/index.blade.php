@@ -50,10 +50,10 @@
 
     <div class="contact__input">
       <div class="contact__message contact__item"><span class="contact__required">*</span>お問い合わせ内容</div>
-      <textarea name="message" class="contact__input-field contact__text-field" id="text-field" max-length="1000">{{old('message')}}</textarea>
+      <textarea name="message" class="contact__input-field contact__text-field text-field" max-length="1000">{{old('message')}}</textarea>
     </div>
     <div class="count-length">
-      現在の文字数：<span id="text-length">0</span>/1000文字
+      現在の文字数：<span class="text-length">0</span>/1000文字
     </div>
     <div class="contact__error">
       @if($errors->has('message'))
