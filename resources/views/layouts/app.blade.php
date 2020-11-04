@@ -72,7 +72,11 @@
   <script src="https://npmcdn.com/flatpickr/dist/l10n/ja.js"></script>
 
   <!-- My custom styles -->
+  @env('local')
   <script src="{{ asset(mix('/js/app.js')) }}" type="module" defer></script>
+  @else
+  <script src="{{ secure_asset(mix('/js/app.js')) }}" type="module" defer></script>
+  @endenv
 </body>
 
 </html>
