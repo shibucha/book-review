@@ -33,5 +33,6 @@ const file = new Profile("icon__input", "new_icon", ".icon__image");
 file.getFileName(); //画像の下に新しく登録するファイル名を取得して画面に表示
 
 // 文字カウント
-const count = new CountStr(".text-field",".text-length");
-count.updateCount();
+const count = new CountStr(".text-field",".text-length", ".register-btn", ".edit-btn");
+count.strCount();
+count.editCount();

@@ -52,7 +52,10 @@
                         </div>
                         <div class="form-group modal-book__review">
                             <label for="">感想・レビュー:</label>
-                            <textarea name="body" placeholder="感想・レビュー" cols="50" rows="10" class="modal-book__input-field">{{ $review->body ?? old('body')}}</textarea>
+                            <textarea name="body" placeholder="感想・レビュー" cols="50" rows="10" class="modal-book__input-field text-field">{{ $review->body ?? old('body')}}</textarea>
+                        </div>
+                        <div class="count-length">
+                            現在の文字数：<span class="text-length">{{mb_strlen($review->body ?? "0")}}</span>/500文字
                         </div>
                         <div class="modal-book__option modal-book__private">
                             @if($review->public_private === 1)

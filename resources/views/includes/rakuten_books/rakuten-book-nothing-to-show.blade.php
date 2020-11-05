@@ -59,7 +59,7 @@
 <p class="nothing-to-show__no-review">まだ誰もレビューをしたことがありません。</p>
 
 <div class="nothing-to-show__btn">
-    <button type="button" class="" data-toggle="modal" data-target="#a-{{ $item->Item->isbn }}">
+    <button type="button" class="register-btn" data-toggle="modal" data-target="#a-{{ $item->Item->isbn }}">
         初めてのレビュアーになる。
     </button>
 </div>

@@ -1,20 +1,70 @@
-export class CountStr{
-    constructor(input_str, count_str){
+export class CountStr {
+    constructor(input_str, count_str, register_btn, edit_btn) {
         this.input_str = document.querySelectorAll(input_str);
-        this.count_str = document.querySelectorAll(count_str);      
-        this.count = null;      
+        this.count_str = document.querySelectorAll(count_str);
+        this.register_btn = document.querySelectorAll(register_btn);
+        this.edit_btn = document.querySelectorAll(edit_btn);
+        this.count = null;
     }
 
-    updateCount(){
-        this.input_str.forEach(input=>{
-            input.addEventListener("keyup", function(){
-                this.count = input.value.length;
+    // 文字カウント
+    strCount() {
+        this._resetCount();
 
-                this.count_str.forEach(count=>{
-                    count.innerText = this.count;
-                });
+        this._updateCount();
+    }
 
-            }.bind(this));
-        }); 
+    // 編集フォームの文字カウント
+    editCount() {
+        this.edit_btn.forEach(btn => {
+            btn.addEventListener(
+                "click",
+                function() {
+                    this.input_str.forEach(input => {
+                        if (input.value) {
+                            this.count_str.forEach(count => {
+                                count.innerText = input.value.length;
+                            });
+                        } else {
+                            this.count_str.forEach(count => {
+                                count.innerText = 0;
+                            });
+                        }
+                    });
+                }.bind(this)
+            );
+        });
+
+        this._updateCount();
+    }
+
+    // 違うフォームを開いた時に、文字数をリセットする。
+    _resetCount() {
+        this.register_btn.forEach(btn => {
+            btn.addEventListener(
+                "click",
+                function() {
+                    this.count_str.forEach(count => {
+                        count.innerText = 0;
+                    });
+                }.bind(this)
+            );
+        });
+    }
+
+    // 文字数のアップデートカウント
+    _updateCount() {
+        this.input_str.forEach(input => {
+            input.addEventListener(
+                "keyup",
+                function() {
+                    this.count = input.value.length;
+
+                    this.count_str.forEach(count => {
+                        count.innerText = this.count;
+                    });
+                }.bind(this)
+            );
+        });
     }
 }

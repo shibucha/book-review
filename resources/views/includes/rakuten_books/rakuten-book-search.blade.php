@@ -59,7 +59,7 @@
                 <button class="btn letter-dark border-dark">詳細ページへ</button>
             </a>
             @else
-            <button type="button" class="btn btn-dark letter-white" data-toggle="modal" data-target="#{{ 'a-'.$item->Item->isbn }}">
+            <button type="button" class="btn btn-dark letter-white register-btn" data-toggle="modal" data-target="#{{ 'a-'.$item->Item->isbn }}">
                 本を登録する。
             </button>
             <a href="{{ route('books.show',['book_id'=>$item->Item->isbn])}}">

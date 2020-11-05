@@ -126,7 +126,7 @@
                 <div class="show__btn">
                     <!-- START もしも、まだ自分の感想が登録されていないならば、編集ボタン・削除ボタンは表示しない。 -->
                     <!-- モーダル 感想の編集 -->
-                    <button type="button" class="btn btn-dark letter-white" data-toggle="modal" data-target="#edit">編集</button>
+                    <button type="button" class="btn btn-dark letter-white edit-btn" data-toggle="modal" data-target="#edit">編集</button>
                     <button type="button" class="btn btn-danger letter-white" data-toggle="modal" data-target="#delete-{{ $review->id }}">削除</button>
 
                     <!-- 編集モーダル -->
@@ -153,7 +153,7 @@
             <p class="show__no-register">まだ、あなたの本棚に追加されていません。</p>
 
             <div class="show__no-register-btn">
-                <button type="button" class="" data-toggle="modal" data-target="#{{ 'a-'.$item->Item->isbn }}">
+                <button type="button" class="register-btn" data-toggle="modal" data-target="#{{ 'a-'.$item->Item->isbn }}">
                     本を登録する。
                 </button>
             </div>
