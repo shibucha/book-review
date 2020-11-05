@@ -9,8 +9,10 @@ export class CountStr {
 
     // 文字カウント
     strCount() {
+        // ページ更新を行わずに別の検索結果をクリックした場合、他の検索結果で入力した文字カウントに影響を受けないように設定
         this._resetCount();
-
+        
+        // 入力更新カウント
         this._updateCount();
     }
 
@@ -35,6 +37,7 @@ export class CountStr {
             );
         });
 
+        // 編集フォームの文字カウント後の、入力更新カウント
         this._updateCount();
     }
 
