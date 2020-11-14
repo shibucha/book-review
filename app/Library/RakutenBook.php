@@ -55,7 +55,7 @@ class RakutenBook
             '9784197735815', //ナウシカ
             '9784063884852', //ピアノの森
             '9784088812489', //ハンターハンター
-            '9784863895201', //ハリーポッター
+            '9784822283117', //ネットワークはなぜつながるのか
         ];
 
         // もし、おすすめ本がまだbooksテーブルに登録されていないならば、先にbooksテーブルへ登録を行う
@@ -72,7 +72,7 @@ class RakutenBook
                     $author_id = Author::where('author', $item[0]->Item->author)->select('id')->first();
                     $author_id = $author_id->id;
                 }
-
+                
                 $book->title = $item[0]->Item->title;
                 $book->book_id = $item[0]->Item->isbn;
                 $book->author_id = $author_id;
