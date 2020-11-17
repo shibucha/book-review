@@ -1,5 +1,5 @@
 <footer>
-  <div class=".footer_wrapper sections">
+  <div class="footer_wrapper sections">
     <divc class="footer__search">
       <p class="footer-sections-p"><span class="marker-grey">本を探す</span></p>
       <ul class="footer-ul">

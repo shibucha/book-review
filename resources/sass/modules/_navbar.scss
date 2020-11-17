@@ -8,20 +8,22 @@ Stylesheet: ナビバー
     background-color: $navColor;
     position: fixed;
     width: 100%;
-    padding: 20px 0;
+    padding: 10px 0;
     top: 0;
     z-index: 1;
 
     &__service-name {
         font-size: 20px;
+        display: flex;
+        align-items: center;
 
-        &:hover{
+        &:hover {
             color: $whiteColor;
         }
     }
 
     &-nav {
-        padding-left:10px;
+        padding-left: 10px;
         margin-top: 25px;
     }
 
@@ -44,4 +46,15 @@ Stylesheet: ナビバー
         right: 0;
     }
 
+    &__btn {
+        padding: 5px 20px;
+        border-radius: 3px;
+    }
+    &__register-btn {
+        background-color: $register-btn;
+    }
+    &__login-btn {
+        color: #000;
+        background-color: $login-btn;
+    }
 }

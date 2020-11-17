@@ -63,22 +63,14 @@ input {
     color: #432;
 }
 
-.btn-primary-s,
-.btn-primary-l {
-    border-radius: 5px;
-    padding: 5px 15px;
-    margin: 5px 10px 0 0;
-    color: white;
-}
+// .btn-primary-s,
+// .btn-primary-l {
+//     border-radius: 5px;
+//     padding: 5px 15px;
+//     margin: 5px 10px 0 0;
+//     color: white;
+// }
 
-.btn-primary-s {
-    background-color: #ff7f50;
-    margin-left: 40px;
-}
-
-.btn-primary-l {
-    background-color: #8fbc8f;
-}
 
 /* -------------------------- トップ画面 --------------------------*/
 
@@ -121,7 +113,7 @@ input {
     cursor: pointer;
     font-family: FontAwesome;
     border: none;
-    background: #3aacad;
+    background: $navColor;
     color: #fff;
     width: 50px;
     outline: none;
@@ -312,7 +304,6 @@ footer {
 }
 
 .for-r-sign {
-    color: #fff;
     margin: 3px 10px;
 }
 /* ----------------------------　↓レスポンシブ(スマートフォン用)↓-------------------------------- */
@@ -330,7 +321,6 @@ footer {
 
     .for-r-sign {
         background-color: rgba(110, 80, 100, 0.01);
-        color: #fff;
         margin: 5px 10px;
         padding: 5px 0 0 0;
     }

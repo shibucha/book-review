@@ -10,7 +10,7 @@
             <a class="display__none-900down letter-white navbar__service-name" href="{{ route('books.index') }}"><img src="" alt="">Your Bookshelf</img></a>
             @endauth
 
-            <!-- Collapse button -->            
+            <!-- Collapse button -->
             <button class="navbar-toggler navbar__hamburger" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -22,19 +22,19 @@
 
                     @guest
                     <li class="nav-item for-none">
-                        <a class="btn btn-primary-s for-r-sign" href="{{ route('register')}}" role="button">新規登録</a>
+                        <a class="btn-primary-s for-r-sign navbar__btn navbar__register-btn" href="{{ route('register')}}" role="button">新規登録</a>
                     </li>
                     <li class="nav-item for-r-li">
-                        <a class="btn-primary-s for-r-sign" href="{{ route('register')}}">新規登録</a>
+                        <a class="btn-primary-s for-r-sign navbar__btn navbar__register-btn" href="{{ route('register')}}">新規登録</a>
                     </li>
                     @endguest
 
                     @guest
                     <li class="nav-item for-none">
-                        <a class="btn btn-primary-l for-r-sign" href="{{ route('login')}}" role="button">ログイン</a>
+                        <a class="btn-primary-l for-r-sign navbar__btn navbar__login-btn" href="{{ route('login')}}" role="button">ログイン</a>
                     </li>
                     <li class="nav-item for-r-li">
-                        <a class="btn-primary-l for-r-sign" href="{{ route('login')}}" role="button">ログイン</a>
+                        <a class="btn-primary-l for-r-sign navbar__btn navbar__login-btn" href="{{ route('login')}}" role="button">ログイン</a>
                     </li>
                     @endguest
 
