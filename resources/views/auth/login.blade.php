@@ -29,7 +29,7 @@
 
                 <!-- 登録ボタン -->
                 <div class="to-login-wrapper">
-                    <button class="btn btn-rounded btn-block my-4 waves-effect z-depth-0 login-button" type="submit" style="height: 46px; border-radius:8px;">ログイン</button>
+                    <button class="btn btn-rounded btn-block my-4 waves-effect z-depth-0 login-btn" type="submit" style="height: 46px; border-radius:8px;">ログイン</button>
                 </div>
 
             </form>
@@ -37,7 +37,7 @@
             <p class="no-account">アカウントをお持ちでない方はこちら</p>
 
             <div class="to-register-wrapper">
-                <a class="btn btn-rounded btn-block waves-effect z-depth-0 register-button" href="{{ route('register')}}" role="button">新規登録</a>
+                <a class="btn btn-rounded btn-block waves-effect z-depth-0 register-btn" href="{{ route('register')}}" role="button">新規登録</a>
             </div>
         </div>
     </div>

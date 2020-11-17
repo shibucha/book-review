@@ -79,13 +79,13 @@
   <p class="no-account">読んだ本を記録しよう！</p>
 
   <div class="to-register-wrapper">
-    <a class="btn btn-rounded btn-block waves-effect z-depth-0 register-button" href="{{ route('register')}}" role="button">新規登録</a>
+    <a class="btn btn-rounded btn-block waves-effect z-depth-0 register-btn" href="{{ route('register')}}" role="button">新規登録</a>
   </div>
 
   <p class="no-account">すでにアカウントをお持ちの方はこちら</p>
 
   <div class="to-login-wrapper">
-    <a href="{{ route('login') }}" class="btn btn-rounded btn-block waves-effect z-depth-0 login-button">ログイン</a>
+    <a href="{{ route('login') }}" class="btn btn-rounded btn-block waves-effect z-depth-0 login-btn">ログイン</a>
   </div>
 
 </div>

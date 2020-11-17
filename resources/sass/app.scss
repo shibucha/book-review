@@ -17,6 +17,8 @@
 @import "./modules/contacts-index";
 @import "./modules/footer";
 @import "./modules/terms-index";
+@import "./modules/login";
+@import "./modules/register";
 
 @import "breakpoints/base";
 
@@ -233,11 +235,7 @@ footer {
     padding: 55px 0 25px;
 }
 
-.register-button {
-    border-radius: 10px;
-    background-color: #ff7f50;
-    color: #fff;
-}
+
 
 .to-login-wrapper {
     text-align: center;
@@ -272,16 +270,16 @@ footer {
     margin-top: 30px;
 }
 
-.login-button {
-    width: 60%;
-    border-radius: 10px;
-    background-color: #8fbc8f;
-    color: #fff;
-}
+
 
 .no-account {
     text-align: center;
     margin-top: 40px;
+}
+
+.to-login-wrapper {
+    margin: 0 auto 50px;
+    width: 60%;
 }
 
 .to-register-wrapper {
@@ -501,11 +499,10 @@ footer {
         margin-top: 30px;
     }
 
-    .login-button {
+    .to-login-wrapper {
         width: 86%;
-        border-radius: 10px;
     }
-
+    
     .to-register-wrapper {
         width: 86%;
     }
@@ -550,11 +547,7 @@ footer {
         padding: 55px 0 25px;
     }
 
-    .register-button {
-        border-radius: 10px;
-        background-color: #ff7f50;
-        color: #fff;
-    }
+  
 
     .to-login-wrapper {
         text-align: center;
@@ -575,9 +568,6 @@ footer {
         width: 80%;
     }
 
-    .login-button {
-        width: 100%;
-    }
 
     .for-ipad-youkoso {
         display: block !important;

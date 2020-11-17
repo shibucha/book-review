@@ -45,7 +45,7 @@
 
                 <!-- 登録ボタン -->
                     <div class="to-register-wrapper">
-                        <button class="btn btn-rounded btn-block my-4 waves-effect z-depth-0 register-button" type="submit">新規登録</button>
+                        <button class="btn btn-rounded btn-block my-4 waves-effect z-depth-0 register-btn" type="submit">新規登録</button>
                     </div>
 
                 </form>
@@ -53,7 +53,7 @@
                 <p class="no-account">すでにアカウントをお持ちの方はこちら</p>
 
                 <div class="to-login-wrapper">
-                    <a href="{{ route('login') }}" class="btn btn-rounded btn-block waves-effect z-depth-0 login-button">ログイン</a>
+                    <a href="{{ route('login') }}" class="btn btn-rounded btn-block waves-effect z-depth-0 login-btn">ログイン</a>
                 </div>
 
             </div>

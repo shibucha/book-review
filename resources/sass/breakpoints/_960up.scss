@@ -48,3 +48,11 @@ Stylesheet: 960px以上のモニタで適用
 .confirm__field{
     width: 100%;
 }
+
+
+
+.navbar{
+    &__login-btn {
+        color: #000;       
+    }
+}
