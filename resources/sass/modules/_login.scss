@@ -1,10 +1,18 @@
 .register-btn {
+    color: #fff;
     background-color: $register-btn;
     border-radius: 3px;
+
+    &:hover{
+  
+    }
+    
 }
 
 .login-btn {
     border-radius: 3px;
     background-color: $login-btn;
     border: 1px solid #000;
+
+
 }

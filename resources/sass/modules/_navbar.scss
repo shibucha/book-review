@@ -8,7 +8,7 @@ Stylesheet: ナビバー
     background-color: $navColor;
     position: fixed;
     width: 100%;
-    padding: 10px 0;
+    padding: 15px 0;
     top: 0;
     z-index: 1;
 
@@ -51,6 +51,7 @@ Stylesheet: ナビバー
         border-radius: 3px;
     }
     &__register-btn {
+        color: #fff;
         background-color: $register-btn;
     }
     &__login-btn {

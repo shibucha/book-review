@@ -29,7 +29,7 @@
 
                 <!-- 登録ボタン -->
                 <div class="to-login-wrapper">
-                    <button class="btn btn-rounded btn-block my-4 waves-effect z-depth-0 login-btn" type="submit" style="height: 46px; border-radius:8px;">ログイン</button>
+                    <button class="btn btn-rounded btn-block my-4 waves-effect z-depth-0 login-btn" type="submit" style="height: 46px;">ログイン</button>
                 </div>
 
             </form>
