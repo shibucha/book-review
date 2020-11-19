@@ -4,10 +4,10 @@
     <div class="navbar__inner">
         <div class="navbar__btn">
             @guest
-            <a class="display__none-900down letter-white navbar__service-name" href="{{ route('index') }}"><img class="navbar__logo" src="images/logo-white.png" alt="サイトロゴ"></a>
+            <a class="display__none-900down letter-white navbar__service-name" href="{{ route('index') }}"><img class="navbar__logo" src="/images/logo-white.png" alt="サイトロゴ"></a>
             @endguest
             @auth
-            <a class="display__none-900down letter-white navbar__service-name" href="{{ route('books.index') }}"><img class="navbar__logo" src="images/logo-white.png" alt="サイトロゴ"></a>
+            <a class="display__none-900down letter-white navbar__service-name" href="{{ route('books.index') }}"><img class="navbar__logo" src="/images/logo-white.png" alt="サイトロゴ"></a>
             @endauth
 
             <!-- Collapse button -->
