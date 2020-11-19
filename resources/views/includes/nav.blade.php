@@ -22,16 +22,16 @@
 
                     @guest
                     <li class="nav-item for-none">
-                        <a class="btn-primary-s for-r-sign navbar__btn navbar__register-btn" href="{{ route('register')}}" role="button">新規登録</a>
+                        <a class="nav-link nav-link-white btn-primary-s for-r-sign navbar__guest-btn navbar__btn navbar__register-btn" href="{{ route('register')}}" role="button">新規登録</a>
                     </li>
                     <li class="nav-item for-r-li">
-                        <a class="btn-primary-s for-r-sign navbar__btn navbar__register-btn" href="{{ route('register')}}">新規登録</a>
+                        <a class="btn-primary-s for-r-sign navbar__register-btn" href="{{ route('register')}}">新規登録</a>
                     </li>
                     @endguest
 
                     @guest
                     <li class="nav-item for-none">
-                        <a class="btn-primary-l for-r-sign navbar__btn navbar__login-btn" href="{{ route('login')}}" role="button">ログイン</a>
+                        <a class="nav-link nav-link-black btn-primary-l for-r-sign navbar__guest-btn navbar__btn navbar__login-btn" href="{{ route('login')}}" role="button">ログイン</a>
                     </li>
                     <li class="nav-item for-r-li">
                         <a class="btn-primary-l for-r-sign navbar__btn navbar__login-btn" href="{{ route('login')}}" role="button">ログイン</a>
@@ -40,7 +40,7 @@
 
                     @auth
                     <li class="nav-item navbar__item">                    
-                        <a class="nav-link letter-white navbar__link" href="{{ route('books.search')}}"><i class="fas fa-book-open"></i>本を検索する</a>
+                        <a class="nav-link nav-link-white letter-white navbar__link" href="{{ route('books.search')}}"><i class="fas fa-book-open"></i>本を検索する</a>
                     </li>                   
                     @endauth
 

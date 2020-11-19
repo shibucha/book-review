@@ -4,6 +4,7 @@ Stylesheet: 960px以上のモニタで適用
 
 ******************************************************************/
 
+// ヘッダー
 .navbar {
     &__btn {
         display: flex;
@@ -11,13 +12,27 @@ Stylesheet: 960px以上のモニタで適用
 
     &__item {
         margin: 0 20px;
+        border-bottom: none;
     }
 
     &-nav {
         padding-left: 0px;
         margin-top: 0px;
     }
+
+    &__login-btn {
+        color: #000;
+    }
+
+    &__guest-btn {
+        padding: 5px 30px !important;
+
+        &:hover{
+            box-shadow: 0 0 8px 0px #fff;
+        }
+    }
 }
+
 
 // お問い合わせ
 .contact {
@@ -44,23 +59,6 @@ Stylesheet: 960px以上のモニタで適用
         display: inline-block;
     }
 }
-
 .confirm__field {
     width: 100%;
-}
-
-
-// ヘッダー
-.navbar {
-    &__login-btn {
-        color: #000;
-    }
-
-    &__item {
-        border-bottom: none;
-    }
-}
-
-.nav-link{
-    color: #fff !important;
 }

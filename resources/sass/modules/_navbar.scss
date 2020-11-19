@@ -45,7 +45,7 @@ Stylesheet: ナビバー
         color: $whiteColor !important;
     }
 
-    &__btn {
+    &__btn {        
         position: relative;
     }
 
@@ -68,11 +68,18 @@ Stylesheet: ナビバー
     &__login-btn {
         color: #fff;
         background-color: $login-btn;
-    }
+    }    
 }
 
 
 // bootstrapデフォルトクラス
-.nav-link{
-    color: #fff !important;
+.nav-link{   
+    
+    &-white{
+        color: #fff !important;
+    }
+
+    &-black{
+        color: #000 !important;
+    }
 }
