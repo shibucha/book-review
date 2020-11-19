@@ -8,10 +8,13 @@ Stylesheet: ナビバー
     background-color: $navColor;
     position: fixed;
     width: 100%;
-    padding: 15px 0;
+    padding: 5px 0;
     top: 0;
     z-index: 1;
 
+    &__logo {
+        width: 200px;
+    }
     &__service-name {
         font-size: 20px;
         display: flex;
@@ -39,11 +42,12 @@ Stylesheet: ナビバー
         position: relative;
     }
 
-    &__hamburger {
+    &__hamburger {        
         background-color: $whiteColor;
         position: absolute;
         top: 0;
         right: 0;
+        transform: translateY(40%);
     }
 
     &__btn {
