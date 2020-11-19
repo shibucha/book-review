@@ -39,14 +39,14 @@
                     @endguest
 
                     @auth
-                    <li class="nav-item navbar__item">
-                        <a class="letter-white" href="{{ route('books.search')}}"><i class="fas fa-book-open"></i>本を検索する</a>
-                    </li>
+                    <li class="nav-item navbar__item">                    
+                        <a class="nav-link letter-white navbar__link" href="{{ route('books.search')}}"><i class="fas fa-book-open"></i>本を検索する</a>
+                    </li>                   
                     @endauth
 
                     @auth
                     <li class="nav-item dropdown navbar__item">
-                        <a class="navbar__menu-btn dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">メニュー</a>
+                        <a class="nav-link navbar__menu-btn dropdown-toggle navbar__link" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">メニュー</a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                             <button class="dropdown-item btn__mypage" onclick="location.href='{{ route('books.index') }}'">マイページ</button>
                             <button class="dropdown-item btn__mypage" onclick="location.href='{{ route('index') }}'">トップページ</button>

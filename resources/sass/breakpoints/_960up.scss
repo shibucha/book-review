@@ -9,12 +9,12 @@ Stylesheet: 960px以上のモニタで適用
         display: flex;
     }
 
-    &__item{
+    &__item {
         margin: 0 20px;
     }
 
     &-nav {
-        padding-left:0px;
+        padding-left: 0px;
         margin-top: 0px;
     }
 }
@@ -45,14 +45,22 @@ Stylesheet: 960px以上のモニタで適用
     }
 }
 
-.confirm__field{
+.confirm__field {
     width: 100%;
 }
 
 
-
-.navbar{
+// ヘッダー
+.navbar {
     &__login-btn {
-        color: #000;       
+        color: #000;
     }
+
+    &__item {
+        border-bottom: none;
+    }
+}
+
+.nav-link{
+    color: #fff !important;
 }

@@ -12,9 +12,16 @@ Stylesheet: ナビバー
     top: 0;
     z-index: 1;
 
+   
     &__logo {
         width: 200px;
     }
+
+    &__item {
+        padding: 8px 0 3px 0;
+        border-bottom: 1px #fff solid;
+    }
+
     &__service-name {
         font-size: 20px;
         display: flex;
@@ -42,7 +49,7 @@ Stylesheet: ナビバー
         position: relative;
     }
 
-    &__hamburger {        
+    &__hamburger {
         background-color: $whiteColor;
         position: absolute;
         top: 0;
@@ -62,4 +69,10 @@ Stylesheet: ナビバー
         color: #fff;
         background-color: $login-btn;
     }
+}
+
+
+// bootstrapデフォルトクラス
+.nav-link{
+    color: #fff !important;
 }
