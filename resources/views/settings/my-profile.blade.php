@@ -29,14 +29,18 @@
 
             <div class="nickname my-profile__item">
                 <div><span class="marker-grey">ニックネーム</span></div>
-                <input class="nickname__input my-profile__input-field" type="text" name="nickname" value="{{ $my_profile->nickname??old('nickname')}}">
-                <small>20文字以内</small>
+                <input class="nickname__input my-profile__input-field text-field" type="text" name="nickname" value="{{ $my_profile->nickname??old('nickname')}}">
+                <div class="count-length">
+                    現在の文字数：<span class="text-length">0</span>/20文字
+                </div>               
             </div>
 
             <div class="self-introduction my-profile__item">
                 <div><span class="marker-grey">自己紹介</span></div>
-                <textarea class="self-introduction__body my-profile__input-field" name="self_introduction" id="" cols="30" rows="8">{{$my_profile->self_introduction??old('self-introduction')}}</textarea>
-                <small>255文字以内</small>
+                <textarea class="self-introduction__body my-profile__input-field text-field" name="self_introduction" id="" cols="30" rows="8">{{$my_profile->self_introduction??old('self-introduction')}}</textarea>
+                <div class="count-length">
+                    現在の文字数：<span class="text-length">0</span>/255文字
+                </div>               
             </div>
 
             <div class="my-favorite">

@@ -11,7 +11,7 @@ export class CountStr {
     strCount() {
         // ページ更新を行わずに別の検索結果をクリックした場合、他の検索結果で入力した文字カウントに影響を受けないように設定
         this._resetCount();
-        
+
         // 入力更新カウント
         this._updateCount();
     }
@@ -58,6 +58,13 @@ export class CountStr {
     // 文字数のアップデートカウント
     _updateCount() {
         this.input_str.forEach(input => {
+            console.log(this.count_str);
+            this.count_str.forEach(count => {
+                console.log(count);
+                this.count = input.value.length;
+                count.innerText = this.count;
+            });
+
             input.addEventListener(
                 "keyup",
                 function() {
