@@ -58,7 +58,6 @@ export class CountStr {
     // 文字数のアップデートカウント
     _updateCount() {
         this.input_str.forEach(input => {
-            console.log(this.count_str);
             this.count_str.forEach(count => {
                 console.log(count);
                 this.count = input.value.length;
