@@ -36,3 +36,6 @@ file.getFileName(); //画像の下に新しく登録するファイル名を取�
 const count = new CountStr(".text-field",".text-length", ".register-btn", ".edit-btn");
 count.strCount();
 count.editCount();
+
+const profileCount = new CountStr(".profile-text-field",".profile-text-length", ".register-btn", ".edit-btn");
+profileCount.strCount();

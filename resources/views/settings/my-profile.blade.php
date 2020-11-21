@@ -29,9 +29,9 @@
 
             <div class="nickname my-profile__item">
                 <div><span class="marker-grey">ニックネーム</span></div>
-                <input class="nickname__input my-profile__input-field" type="text" name="nickname" value="{{ $my_profile->nickname??old('nickname')}}">
+                <input class="nickname__input my-profile__input-field profile-text-field" type="text" name="nickname" value="{{ $my_profile->nickname??old('nickname')}}">
                 <div class="count-length">
-                    20文字以内
+                    現在の文字数：<span class="profile-text-length">0</span>/20文字
                 </div>
             </div>
 
