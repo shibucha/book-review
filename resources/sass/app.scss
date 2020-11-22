@@ -73,7 +73,6 @@ input {
 //     color: white;
 // }
 
-
 /* -------------------------- トップ画面 --------------------------*/
 
 #home {
@@ -82,9 +81,22 @@ input {
     height: 400px;
     width: 100%;
     box-shadow: 0 10px 25px 0 rgba(0, 0, 0, 0.15);
+    position: relative;
+}
+
+#home::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 #home h1 {
+    position: relative;
+    z-index: 1;
     color: white;
     text-align: center;
     font-size: 3rem;
@@ -94,6 +106,8 @@ input {
 }
 
 .search_container {
+    position: relative;
+    z-index: 2;
     box-sizing: border-box;
     text-align: center;
     padding-top: 50px;
@@ -235,8 +249,6 @@ footer {
     padding: 55px 0 25px;
 }
 
-
-
 .to-login-wrapper {
     text-align: center;
     margin: 0 auto;
@@ -269,8 +281,6 @@ footer {
 .password-field {
     margin-top: 30px;
 }
-
-
 
 .no-account {
     text-align: center;
@@ -312,7 +322,7 @@ footer {
     .r-book {
         width: 100px;
 
-        &__intro{
+        &__intro {
             width: 60%;
         }
     }
@@ -334,6 +344,10 @@ footer {
 
     #home {
         width: 100%;
+        height: 250px;
+    }
+
+    #home::before {
         height: 250px;
     }
 
@@ -502,7 +516,7 @@ footer {
     .to-login-wrapper {
         width: 86%;
     }
-    
+
     .to-register-wrapper {
         width: 86%;
     }
@@ -547,8 +561,6 @@ footer {
         padding: 55px 0 25px;
     }
 
-  
-
     .to-login-wrapper {
         text-align: center;
         margin: 0 auto;
@@ -567,7 +579,6 @@ footer {
         margin: 0 auto;
         width: 80%;
     }
-
 
     .for-ipad-youkoso {
         display: block !important;

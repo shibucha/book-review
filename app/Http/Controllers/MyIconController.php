@@ -56,8 +56,8 @@ class MyIconController extends Controller
                 $disk->delete($image_path['icon_path'] . '/' . $icon); //画像の更新があったら、前の画像をストレージファイルから削除する。
             }
 
-            $user->icon = ''; //usersテーブルのアイコンを空にする。            
-            $path = $disk->put($image_path['icon_path'], $request->file('icon'), 'public'); //開発環境でのファイルパス ※ローカルであればpublic/iconsに保存するということ。
+            $user->icon = ''; //usersテーブルのアイコンを空にする。
+            $path = $disk->put($image_path['icon_path'], $request->file('icon'), 'public'); //開発環境でのファイルパス ※ローカルであればpublic/iconsに保存するということ。               
             $image = Storage::disk($disk_name)->url($path); //ブラウザ上でのファイルパスを返す。ローカルならば、/storage/icons... AWSならば、URLがそのまま返ってくる。
         } elseif (isset($user->icon) && empty($request->icon)) {
             // 元々アイコンの設定はあるが、リクエストが空のまま設定ボタンを押した場合
