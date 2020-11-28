@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 // Model
-use App\ReadingRecord;
-use App\Book;
-use App\Author;
+use App\Models\ReadingRecord;
+use App\Models\Book;
+use App\Models\Author;
 use PharIo\Manifest\Library;
 
 // Facades

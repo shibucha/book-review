@@ -10,9 +10,9 @@ use App\Http\Requests\SearchRequest;
 use App\Http\Requests\ReadingRecordRequest;
 
 // Model
-use App\ReadingRecord;
-use App\Book;
-use App\Author;
+use App\Models\ReadingRecord;
+use App\Models\Book;
+use App\Models\Author;
 
 // Facades
 use App\Facades\RakutenBook;

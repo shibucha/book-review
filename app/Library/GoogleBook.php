@@ -8,9 +8,9 @@ use GuzzleHttp\Client;
 
 use App\Http\Requests\ReadingRecordRequest;
 use Illuminate\Support\Facades\Auth;
-use App\ReadingRecord;
-use App\Book;
-use App\Author;
+use App\Models\ReadingRecord;
+use App\Models\Book;
+use App\Models\Author;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class GoogleBook

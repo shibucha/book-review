@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Facades\RakutenBook;
 
 // Model
-use App\Book;
-use App\Author;
+use App\Models\Book;
+use App\Models\Author;
 
 class HomeController extends Controller
 {

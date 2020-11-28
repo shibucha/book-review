@@ -12,10 +12,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ReadingRecordRequest;
 
 // Model
-use App\User;
-use App\Book;
-use App\Author;
-use App\ReadingRecord;
+use App\Models\User;
+use App\Models\Book;
+use App\Models\Author;
+use App\Models\ReadingRecord;
 
 // Facades
 use App\Facades\RakutenBook;
