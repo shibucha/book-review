@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -46,23 +46,23 @@ class User extends Authenticatable
     // User1 : ReadingRecord多
     public function readingRecord(): HasMany
     {
-        return $this->hasMany('App\ReadingRecord');
+        return $this->hasMany('App\Models\ReadingRecord');
     }
 
     // 中間テーブル"likesテーブル"へのリレーション
     public function likes(): BelongsToMany
     {
-        return $this->belongsToMany('App\ReadingRecord', 'likes')->withTimestamps();
+        return $this->belongsToMany('App\Models\ReadingRecord', 'likes')->withTimestamps();
     }
 
     // User1 : MyFavorite1
     public function myFavorite(): HasOne
     {
-        return $this->hasOne('App\MyFavorite');
+        return $this->hasOne('App\Models\MyFavorite');
     }
     // User1 : MyProfile1
     public function myProfile(): HasOne
     {
-        return $this->hasOne('App\MyProfile');
+        return $this->hasOne('App\Models\MyProfile');
     }
 }

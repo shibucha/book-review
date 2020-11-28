@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -22,17 +22,17 @@ class ReadingRecord extends Model
     
     public function user() : BelongsTo
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
     public function book():BelongsTo
     {
-        return $this->belongsTo('App\Book');
+        return $this->belongsTo('App\Models\Book');
     }
 
     // 中間テーブル"likesテーブル"へのリレーション
     public function likes() : BelongsToMany
     {
-        return $this->belongsToMany('App\User', 'likes')->withTimestamps();
+        return $this->belongsToMany('App\Models\User', 'likes')->withTimestamps();
     }
 
     // ユーザーが既にいいねしているかどうかの確認処理(true,falseで返す)
