@@ -31,8 +31,8 @@ class ImageProccesing
 
         if ($image_env === "local") {
             $icon_image_path_data = [
-                'icon_path' => 'public/icons',
-                'icon_url' => '/storage/icons/',
+                'icon_path' => config('consts.info.storage_folders.icons.local'),
+                'icon_url' => config('consts.info.aws_s3.icons.url_local'),
             ];
         } elseif ($image_env === "staging") {
             $icon_image_path_data = [
@@ -55,7 +55,7 @@ class ImageProccesing
 
         if ($image_env === "local") {
             $book_image_path_data = [
-                'book_path' => 'public/icons',
+                'book_path' => 'public/books',
                 'book_url' => '/storage/books/',
             ];
         } elseif ($image_env === "staging") {

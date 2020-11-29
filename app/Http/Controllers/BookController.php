@@ -111,7 +111,7 @@ class BookController extends Controller
     public function nothingToShow($book_id)
     {
         $items = null;
-  
+
         //書籍情報取得(App\Library)
         if (isset($book_id)) {
             $items = RakutenBook::rakutenBooksIsbn($book_id);

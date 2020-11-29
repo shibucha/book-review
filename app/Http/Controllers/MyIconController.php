@@ -27,9 +27,9 @@ class MyIconController extends Controller
         }
 
         $image_path = ImageProccesing::getIconImagePath();
-       
+  
         $user = User::find($user_id);
-        
+
         return view('settings.icon', [
             'user' => $user,
             'icon_url' => $image_path['icon_url'],
@@ -47,7 +47,7 @@ class MyIconController extends Controller
         $user = User::find($user_id);
         $disk_name =  ImageProccesing::getImageStorage();
         $image_path = ImageProccesing::getIconImagePath();
-        $disk = Storage::disk($disk_name);       
+        $disk = Storage::disk($disk_name);
 
         if (isset($request->icon)) {
 
@@ -64,7 +64,7 @@ class MyIconController extends Controller
             $image = $user->icon;
         } else {
             // 元々アイコン画像の設定されておらず、かつリクエストも空の場合
-            $image = $image_path['icon_url'].'default.png';
+            $image = $image_path['icon_url'] . 'default.png';
         }
 
         $user->icon = $image;
