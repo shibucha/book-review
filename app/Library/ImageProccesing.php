@@ -38,15 +38,11 @@ class ImageProccesing
             $icon_image_path_data = [
                 'icon_path' => config('consts.info.storage_folders.icons.staging'),
                 'icon_url' => config('consts.info.aws_s3.icons.url_staging'),
-                // 'icon_path' => 'icons',
-                // 'icon_url' => 'https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/icons/',
             ];
         } else {
             $icon_image_path_data = [
                 'icon_path' => config('consts.info.storage_folders.icons.production'),
                 'icon_url' => config('consts.info.aws_s3.icons.url_production'),
-                // 'icon_path' => 'icons',
-                // 'icon_url' => 'https://book-review-production.s3.ap-northeast-1.amazonaws.com/icons/',
             ];
         }
 
@@ -61,22 +57,16 @@ class ImageProccesing
             $book_image_path_data = [
                 'book_path' => config('consts.info.storage_folders.books.local'),
                 'book_url' => config('consts.info.aws_s3.books.url_local'),
-                // 'book_path' => 'public/books',
-                // 'book_url' => '/storage/books/',
             ];
         } elseif ($image_env === "staging") {
             $book_image_path_data = [
                 'book_path' => config('consts.info.storage_folders.books.staging'),
                 'book_url' => config('consts.info.aws_s3.books.url_staging'),
-                // 'book_path' => 'books',
-                // 'book_url' => 'https://book-review-shibucha.s3.ap-northeast-1.amazonaws.com/books/',
             ];
         } else {
             $book_image_path_data = [
                 'book_path' => config('consts.info.storage_folders.books.production'),
                 'book_url' => config('consts.info.aws_s3.books.url_production'),
-                // 'book_path' => 'books',
-                // 'book_url' => 'https://book-review-production.s3.ap-northeast-1.amazonaws.com/books/',
             ];
         }
         return $book_image_path_data;
