@@ -19,9 +19,7 @@
 @import "./modules/terms-index";
 @import "./modules/login";
 @import "./modules/register";
-
 @import "breakpoints/base";
-
 @media (min-width: 480px) {
     @import "breakpoints/480up";
 }
@@ -37,6 +35,7 @@
 @media (min-width: 1280px) {
     @import "breakpoints/1280up";
 }
+
 
 /* -------------------------- 共通部分 ----------------------------*/
 
@@ -56,6 +55,7 @@ ul {
 input {
     padding-left: 10px;
 }
+
 
 /* -------------------------　ヘッダー ----------------------------*/
 
@@ -142,6 +142,7 @@ input {
     text-align: center;
 }
 
+
 /* -----------------------　ジャンル別 --------------------------- */
 
 .home__wrapper {
@@ -178,11 +179,9 @@ input {
 .shelves {
     width: 100%;
     height: 25px;
-    box-shadow: 0 5px 6.1px rgba(0, 0, 0, 0.076),
-        0 10.1px 11.4px rgba(0, 0, 0, 0.086),
-        0 19.2px 19.8px rgba(0, 0, 0, 0.092), 0 38.4px 34.8px rgba(0, 0, 0, 0.1),
-        0 101px 74px rgba(0, 0, 0, 0.13);
+    box-shadow: 0 5px 6.1px rgba(0, 0, 0, 0.076), 0 10.1px 11.4px rgba(0, 0, 0, 0.086), 0 19.2px 19.8px rgba(0, 0, 0, 0.092), 0 38.4px 34.8px rgba(0, 0, 0, 0.1), 0 101px 74px rgba(0, 0, 0, 0.13);
 }
+
 
 /* ------------------------　フッター ------------------------------- */
 
@@ -216,6 +215,7 @@ footer {
 .r-footer {
     display: none !important;
 }
+
 
 /*-------------------------　新規登録ページ　---------------------------*/
 
@@ -253,6 +253,14 @@ footer {
     text-align: center;
     margin: 0 auto;
 }
+
+.to-reset-wrapper {
+    padding-bottom: 30px;
+    text-align: center;
+    margin-top: -50px;
+    margin-bottom: 0;
+}
+
 
 /* -------------------------　ログインページ　---------------------------- */
 
@@ -297,6 +305,7 @@ footer {
     width: 60%;
 }
 
+
 /* ---------------------------------　表示・非表示切り替え ------------------------------------ */
 
 .r-sign-wrapper {
@@ -314,43 +323,37 @@ footer {
 .for-r-sign {
     margin: 3px 10px;
 }
+
+
 /* ----------------------------　↓レスポンシブ(スマートフォン用)↓-------------------------------- */
 
 @media (max-width: 670px) {
     /* ----------------------------- トップ画面（レスポンシブ） ----------------------------------- */
-
     .r-book {
         width: 100px;
-
         &__intro {
             width: 60%;
         }
     }
-
     .for-r-sign {
         background-color: rgba(110, 80, 100, 0.01);
         margin: 5px 10px;
         padding: 5px 0 0 0;
     }
-
     .for-r-li {
         display: block !important;
         border-bottom: solid 0.4px #fff;
     }
-
     .for-none {
         display: none;
     }
-
     #home {
         width: 100%;
         height: 250px;
     }
-
     #home::before {
         height: 250px;
     }
-
     #home h1 {
         text-align: center;
         font-size: 2rem;
@@ -358,30 +361,24 @@ footer {
         padding-top: 60px;
         font-family: "Noto Serif JP", serif;
     }
-
     .search_container {
         box-sizing: border-box;
         text-align: center;
         padding-top: 30px;
     }
-
     .search_container input[type="text"] {
         height: 50px;
         width: 80%;
     }
-
     .search_container input[type="submit"] {
         height: 50px;
     }
-
     .wrapper {
         display: none !important;
     }
-
     .r-wrapper {
         display: block !important;
     }
-
     .r-j {
         width: 90%;
         margin: 0 auto;
@@ -389,61 +386,49 @@ footer {
         display: flex;
         padding: 30px 0;
     }
-
     .r-j h3 {
         margin-top: 5px;
         font-size: 20px;
     }
-
     .register-book {
         color: #fff;
         background-color: #00ced1;
         border-radius: 5px;
         padding: 12px 15px;
     }
-
     .for-r-j-border {
         border: solid 1px #656565;
         width: 92%;
         margin: 0 auto;
     }
-
     .r-sign-wrapper {
         display: block !important;
     }
-
     .to-register-wrapper {
         margin: 0 auto;
     }
-
     .to-login-wrapper {
         margin-bottom: 50px;
     }
-
     .no-account {
         font-weight: 550;
     }
-
     footer {
         padding: 0;
     }
-
     .sections {
         display: none !important;
     }
-
     .r-footer {
         display: flex !important;
         background-color: #696969;
         padding: 40px 0;
         justify-content: space-evenly;
     }
-
     .r-footer-info {
         display: flex;
         flex-direction: column;
     }
-
     .r-footer-info li {
         display: inline;
         padding: 5px 0;
@@ -455,72 +440,57 @@ footer {
         padding-bottom: 3px;
         border-bottom: 1px solid #fff;
     }
-
     li a {
         color: #fff;
     }
-
     .for-border {
         border-right: solid 1.2px #fff;
     }
-
     /* -------------------------- 新規登録ページ（レスポンシブ） --------------------------- */
-
     .for-backgrounds {
         padding-top: 10px;
     }
-
     .register-page {
         padding: 0;
     }
-
     .r-register-prompt {
         display: none;
     }
-
     .register-wrapper {
         background-color: rgba(110, 80, 100, 0.01);
         width: 100%;
         height: 100%;
     }
-
     .register-wrapper h1 {
         font-size: 1.5rem;
         padding: 30px 0 20px;
     }
-
     /* --------------------------- ログインページ（レスポンシブ） --------------------------- */
-
     .login-wrapper {
         width: 100%;
         background-color: rgba(110, 80, 100, 0.01);
     }
-
     .login-container {
         width: 100%;
     }
-
     .login-wrapper h1 {
         font-size: 1.5rem;
         padding: 30px 0 20px;
     }
-
     .entry-field {
         width: 88%;
     }
-
     .password-field {
         margin-top: 30px;
     }
-
     .to-login-wrapper {
         width: 86%;
     }
-
     .to-register-wrapper {
         width: 86%;
     }
 }
+
 
 /* -----------------------------　レスポンシブ（タブレット用）------------------------------- */
 
@@ -532,22 +502,18 @@ footer {
         border-radius: 20px;
         padding: 50px 80px;
     }
-
     .for-backgrounds {
         height: 100vh;
         padding-top: 100px;
     }
-
     .register-page {
         display: flex;
         padding: 50px 40px;
     }
-
     .register-prompt {
         font-size: 2.9rem;
         margin: 80px 20px 0 0;
     }
-
     .register-wrapper {
         background-color: #fff;
         width: 90%;
@@ -555,47 +521,38 @@ footer {
         margin: 0 auto;
         border-radius: 20px;
     }
-
     .register-wrapper h1 {
         text-align: center;
         padding: 55px 0 25px;
     }
-
     .to-login-wrapper {
         text-align: center;
         margin: 0 auto;
     }
-
     .entry-field {
         width: 80%;
         margin: 0 auto;
     }
-
     .to-register-wrapper {
         width: 80%;
     }
-
     .to-login-wrapper {
         margin: 0 auto;
         width: 80%;
     }
-
     .for-ipad-youkoso {
         display: block !important;
     }
     .for-youkoso {
         display: none !important;
     }
-
     .login-wrapper {
         width: 70%;
         border-radius: 20px;
     }
-
     .password-field {
         margin-top: 30px;
     }
-
     .r-book__title {
         font-size: 20px;
     }
@@ -609,24 +566,20 @@ footer {
         width: 100%;
         height: 77%;
     }
-
     .register-prompt {
         font-size: 2.5rem;
         margin: 60px 20px 0 0;
     }
-
     .for-r-sign {
         background-color: rgba(110, 80, 100, 0.01);
         color: #fff;
         margin: 0;
         padding: 5px 0 0 0;
     }
-
     .for-r-li {
         display: block !important;
         border-bottom: solid 0.4px #fff;
     }
-
     .for-none {
         display: none;
     }

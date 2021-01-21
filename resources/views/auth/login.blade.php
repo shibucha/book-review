@@ -39,6 +39,8 @@
             <div class="to-register-wrapper">
                 <a class="btn btn-rounded btn-block waves-effect z-depth-0 register-btn" href="{{ route('register')}}" role="button">新規登録</a>
             </div>
+
+            <p class="to-reset-wrapper"><a href="{{route('password.request')}}">パスワードを忘れた方</a></p>
         </div>
     </div>
 </div>

@@ -58,6 +58,7 @@
             <a href="{{ route('books.show',['book_id'=>$item->Item->isbn])}}">
                 <button class="btn letter-dark border-dark">詳細ページへ</button>
             </a>
+            <div class="search__read">読了</div>
             @else
             <button type="button" class="btn btn-dark letter-white register-btn" data-toggle="modal" data-target="#{{ 'a-'.$item->Item->isbn }}">
                 本を登録する。
