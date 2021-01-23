@@ -48,10 +48,11 @@
                     <li class="nav-item dropdown navbar__item">
                         <a class="nav-link navbar__menu-btn dropdown-toggle navbar__link" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">メニュー</a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                            <button class="dropdown-item btn__mypage" onclick="location.href='{{ route('books.index') }}'">マイページ</button>
                             <button class="dropdown-item btn__mypage" onclick="location.href='{{ route('index') }}'">トップページ</button>
-                            <button type="submit" class="dropdown-item btn__logout" form="logout-button">ログアウト</button>
+                            <button class="dropdown-item btn__mypage" onclick="location.href='{{ route('books.index') }}'">マイページ</button>
+                            <button type="submit" class="dropdown-item btn__setting" form="history-button" onclick="location.href='{{ route('curious.index') }}'">読書履歴</button>                            
                             <button type="submit" class="dropdown-item btn__setting" form="resign-button" onclick="location.href='{{ route('settings.my_profile') }}'">設定</button>
+                            <button type="submit" class="dropdown-item btn__logout" form="logout-button">ログアウト</button>
                         </div>
                     </li>
 

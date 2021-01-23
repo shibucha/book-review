@@ -9,23 +9,19 @@ Stylesheet: 600px以上のタブレットやモニタで適用
     &__inner {
         display: flex;
     }
-
     &__info {
         display: flex;
         justify-content: space-between;
         flex-basis: 90%;
-
         &-common {
             padding: 10px 20px 0;
             width: 100%;
         }
     }
-
     &__introduction {
         border-left: 1px solid #dcdcdc;
         border-right: 1px solid #dcdcdc;
     }
-
     &__name {
         text-align: center;
         padding-top: 10px;
@@ -36,7 +32,6 @@ Stylesheet: 600px以上のタブレットやモニタで適用
 // _books-index 読書歴
 .review {
     justify-content: left;
-
     &__show {
         flex-basis: 150px;
         margin-left: 10px;
@@ -60,15 +55,12 @@ Stylesheet: 600px以上のタブレットやモニタで適用
         display: flex;
         margin-bottom: 10px;
     }
-
     &__right {
         margin-left: 20px;
     }
-
     &__title {
         margin-top: 0;
     }
-
     &__description {
         .fs-m {
             font-size: 14px;
@@ -90,16 +82,13 @@ Stylesheet: 600px以上のタブレットやモニタで適用
     &__btn {
         margin: 0 0 20px;
     }
-
     &__upload {
         margin-top: 20px;
     }
-
     &__image {
         width: 200px;
         height: 200px;
     }
-
     &__error {
         margin-top: 20px;
     }
@@ -111,7 +100,6 @@ Stylesheet: 600px以上のタブレットやモニタで適用
         display: flex;
         justify-content: space-between;
     }
-
     &__block {
         margin-top: 0;
         flex-basis: 65%;
@@ -133,39 +121,49 @@ Stylesheet: 600px以上のタブレットやモニタで適用
             font-size: 14px;
         }
     }
-
     &__flex {
         display: flex;
     }
     &__right {
         margin-left: 20px;
     }
-
     &__result {
-        
-        &-btn{
+        &-btn {
             display: block;
             text-align: end;
         }
-
     }
 }
 
 // 表示結果なしのページ
 .nothing-to-show {
-
     &__flex {
         display: flex;
     }
-
-    &__left{
+    &__left {
         margin-left: 20px;
     }
-
-    &__description{
-        .fs-m{
+    &__description {
+        .fs-m {
             font-size: 14px;
         }
     }
 }
 
+.history {
+    &__block {
+        margin: 0;
+        flex-basis: 30%;
+    }
+}
+
+.curious {
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 50px;
+    }
+    &__block {
+        flex-basis: 65%;
+    }
+}
