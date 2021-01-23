@@ -47,6 +47,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::patch('/books/{reading_record_id}/update', 'BookController@update')->name('books.update');
     Route::delete('/books/{reading_record_id}/delete', 'BookController@destroy')->name('books.delete');
 
+    // *************読書履歴関連 **********//
+    Route::get('/curious-book/index', 'CuriousBookController@index')->name('curious.index');
+    
     // **************設定関連************** //
     //アイコン   
     Route::get('/books/{user_id}/icon', 'MyIconController@index')->name('settings.icon');
