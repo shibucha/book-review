@@ -19,11 +19,11 @@ Stylesheet: 検索結果の表示
         background-color: $searchItemResultColor;
         &-btn {
             display: flex;
-            justify-content: space-around;
+            justify-content: flex-end;
         }
         & .btn {
             padding: 10px;
-            border-radius: 30px;
+            border-radius: 10px;
         }
     }
     &__item {

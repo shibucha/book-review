@@ -5,6 +5,9 @@ Stylesheet:  resources/views/includes/setting （設定リストのパーツ）
 ******************************************************************/
 
 .history {
+    &__title {
+        font-size: 1.5rem;
+    }
     &__block {
         margin: 40px 0;
         height: 20vh;

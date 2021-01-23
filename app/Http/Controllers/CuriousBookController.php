@@ -2,22 +2,37 @@
 
 namespace App\Http\Controllers;
 
+// Request
 use Illuminate\Http\Request;
+
+// Model
 use App\Models\CuriousBook;
+use App\Models\Book;
+
+// Facade
+use App\Facades\RakutenBook;
 
 class CuriousBookController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         return view('curious-books.index');
     }
 
     // 読みたい本に追加
-    public function update(){
-
+    public function update($book_id)
+    {       
+        RakutenBook::bookStore($book_id); 
+        // $book = Book::where('book_id', $book_id)->first();
+        
+        // if(!isset($book)){          
+        //     RakutenBook::bookStore($book_id);
+        // }
+        // return redirect()->route('curious.index');
     }
 
     // 読んだor読みたい本リストから削除
-    public function delete(){
-
+    public function delete()
+    {
     }
 }

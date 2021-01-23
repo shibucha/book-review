@@ -28,7 +28,8 @@ use Illuminate\Pagination\LengthAwarePaginator;
 class RakutenBook
 {
     private $app_id;
-
+    
+    
     // サービス起動時に、トップページのブックコンテンツ情報を取得（ISBNコードで、トップページのコンテンツを変更可能）
     public function getTopPageContents()
     {
@@ -72,7 +73,7 @@ class RakutenBook
                     $author_id = Author::where('author', $item[0]->Item->author)->select('id')->first();
                     $author_id = $author_id->id;
                 }
-                
+
                 $book->title = $item[0]->Item->title;
                 $book->book_id = $item[0]->Item->isbn;
                 $book->author_id = $author_id;
@@ -205,4 +206,35 @@ class RakutenBook
             return 1040536237877869158;
         }
     }
+
+    // 書籍情報登録
+    public function bookStore($book_id)
+    {
+        $book = Book::where('book_id', $book_id)->first();
+        if (!isset($book)) {
+            $book = new Book();
+            $item = $this->rakutenBooksIsbn($book_id);
+            // ddd($book);
+            $book->title =  $item[0]->Item->title ?? '不明';
+            $book->book_id = $item[0]->Item->isbn ?? '不明-' . mt_rand(1, 10000);
+            $book->image = $item[0]->Item->largeImageUrl ?? 'null';
+            $book->description = $item[0]->Item->itemCaption ?? '概要なし';
+            $book->save();
+        } else {
+            return;
+        }
+    }
+
+    public function authorStore($item){
+        $author = Author::where('author', $item[0]->Item->author)->first();
+
+        if(!isset($author)){
+            $author = new Author();
+            $author_name = $this->checkExistenceOfAuthorName($item[0]->Item->author);
+        } else {
+            
+        }
+    } 
+   
+
 }

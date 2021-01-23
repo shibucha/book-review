@@ -7,12 +7,16 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class CuriousBook extends Model
 {
+    private $curiousBooks = [];
+
     // リレーション
-    public function user(): BelongsTo{
+    public function user(): BelongsTo
+    {
         return $this->belongsTo('App\Models\User');
     }
 
-    public function book():BelongsTo{
+    public function book(): BelongsTo
+    {
         return $this->belongsTo('App\Models\Book');
     }
 }
