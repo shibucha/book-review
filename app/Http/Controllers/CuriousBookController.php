@@ -24,12 +24,6 @@ class CuriousBookController extends Controller
     {
         $book = new CuriousBook($book_id);
         $book->storeCuriousBook();
-        // RakutenBook::bookStore($book_id); 
-        // $book = Book::where('book_id', $book_id)->first();
-
-        // if(!isset($book)){          
-        //     RakutenBook::bookStore($book_id);
-        // }
         return redirect()->route('curious.index');
     }
 
