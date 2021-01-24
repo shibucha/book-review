@@ -213,8 +213,7 @@ class RakutenBook
         $book = Book::where('book_id', $book_id)->first();
         if (!isset($book)) {
             $book = new Book();
-            $item = $this->rakutenBooksIsbn($book_id);
-            // ddd($book);
+            $item = $this->rakutenBooksIsbn($book_id);                  
             $book->title =  $item[0]->Item->title ?? '不明';
             $book->book_id = $item[0]->Item->isbn ?? '不明-' . mt_rand(1, 10000);
             $book->image = $item[0]->Item->largeImageUrl ?? 'null';
@@ -236,5 +235,15 @@ class RakutenBook
         }
     } 
    
+    public function checkExistenceOfAuthorName($author_name){
+        if(!isset($author_name)){
+            $author_name = '不明';
+        } 
+
+        if($author_name === "不明"){
+            $author_name = Author::where('author', '不明')->first();
+        }
+
+    }
 
 }
