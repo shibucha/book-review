@@ -11,6 +11,7 @@ use App\Models\Author;
 
 // Facade
 use App\Facades\RakutenBook;
+use Illuminate\Support\Facades\Auth;
 
 class CuriousBook extends Model
 {
@@ -42,9 +43,17 @@ class CuriousBook extends Model
 
 
     // **************その他************************//
+
+    public function getCuriousBook()
+    {
+        if (Auth::user()) {
+           return $this->with(['user','book'])->where('user_id', Auth::user()->id)->get();           
+        }
+    }
+
     public function storeCuriousBook()
     {
-       return $book_id = $this->bookStore($this->book_isbn);
+        return $book_id = $this->bookStore($this->book_isbn);
     }
 
     public function bookStore($book_isbn)
@@ -56,7 +65,7 @@ class CuriousBook extends Model
             $this->book->author_id = $this->authorStore($this->item);
             $this->book->image = $this->item[0]->Item->largeImageUrl ?? 'null';
             $this->book->description = $this->item[0]->Item->itemCaption ?? '概要なし';
-            $this->book->save();    
+            $this->book->save();
             return $this->book->id;
         } else {
             return $book->id;

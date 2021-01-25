@@ -13,6 +13,7 @@ use App\Http\Requests\ReadingRecordRequest;
 use App\Models\ReadingRecord;
 use App\Models\Book;
 use App\Models\Author;
+use App\Models\CuriousBook;
 
 // Facades
 use App\Facades\RakutenBook;
@@ -24,6 +25,13 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class SearchController extends Controller
 {
+
+    private $curious_book;
+
+    public function __construct()
+    {
+        $this->curious_book = new CuriousBook();
+    }
 
     //本の検索結果を表示
     public function index(SearchRequest $request, ReadingRecord $reading_record)
@@ -64,6 +72,15 @@ class SearchController extends Controller
             $book_ids[] = null;
         }
 
+        $curious_books = $this->curious_book->getCuriousBook();
+        if(count($curious_books)>0){
+            foreach ($curious_books as $book) {
+                $curious_isbn[] = $book->book->book_id;
+            }
+        }else{
+            $curious_isbn[] = null;
+        }        
+
         // APIに書籍イメージが含まれていなかった場合に、別の画像を表示するためのパス
         $book_image_path = ImageProccesing::getBookImagePath();
 
@@ -74,6 +91,7 @@ class SearchController extends Controller
             'user_id' => $user_id,
             'book_ids' => $book_ids,
             'book_image_path' => $book_image_path['book_url'],
+            'curious_isbn' => $curious_isbn,
         ]);
     }
 

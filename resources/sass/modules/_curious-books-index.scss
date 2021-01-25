@@ -2,4 +2,11 @@
     &__container {
         @extend .content-width;
     }
+    &__lists {
+        display: flex;
+        justify-content: space-around;
+    }
+    &__item {
+        flex-basis: 45%;
+    }
 }

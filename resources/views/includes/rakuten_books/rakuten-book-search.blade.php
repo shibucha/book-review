@@ -62,7 +62,11 @@
             @else
             <form action="{{route('curious.update',['book_isbn'=>$item->Item->isbn])}}" method="post">
                 @csrf
-                <button type="submit" class="btn letter-dark border-dark">読みたい</button>
+                @if(isset($curious_isbn))
+                <button class="{{ in_array($item->Item->isbn,$curious_isbn) ? 'search__non-curious' : 'search__curious'}}"></button>
+                @else
+                <button type="submit">読みたい</button>
+                @endif
             </form>
             <button type="button" class="btn btn-dark letter-white register-btn" data-toggle="modal" data-target="#{{ 'a-'.$item->Item->isbn }}">
                 本を登録する
@@ -79,7 +83,7 @@
         <!--------------------------- END 認証済みの場合、本の登録可能 --------------------------->
 
 
-        
+
         <!-- Start ゲストの場合は、詳細ボタンのみ -->
         @guest
         <div class="search__result-btn">
