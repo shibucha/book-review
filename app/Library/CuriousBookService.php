@@ -9,38 +9,40 @@ use App\Models\Author;
 // Facade
 use App\Facades\RakutenBook;
 
-class CuriousBook
+class CuriousBookService
 {
     private $book;
     private $author;
     private $item;
-    private $book_id;
+    private $book_isbn;
 
-    public function __construct($book_id)
+    public function __construct($book_isbn)
     {
-        $this->book_id = $book_id;
+        $this->book_isbn = $book_isbn;
         $this->book = new Book();
         $this->author = new Author();
-        $this->item = RakutenBook::rakutenBooksIsbn($this->book_id);
+        $this->item = RakutenBook::rakutenBooksIsbn($this->book_isbn);
     }
 
     public function storeCuriousBook()
     {
-        $this->bookStore($this->book_id);
+        return $book_id = $this->bookStore($this->book_isbn);
     }
 
-    public function bookStore($book_id)
+    public function bookStore($book_isbn)
     {
-        $book = Book::where('book_id', $book_id)->first();
+        $book = Book::where('book_id', $book_isbn)->first();
+
         if (!isset($book)) {
             $this->book->title =  $this->item[0]->Item->title ?? '不明';
             $this->book->book_id = $this->item[0]->Item->isbn ?? '不明-' . mt_rand(1, 10000);
-            $this->book->author_id = $this->authorStore($this->item);           
+            $this->book->author_id = $this->authorStore($this->item);
             $this->book->image = $this->item[0]->Item->largeImageUrl ?? 'null';
             $this->book->description = $this->item[0]->Item->itemCaption ?? '概要なし';
             $this->book->save();
+            return $this->book->id;
         } else {
-            return;
+            return $book->id;
         }
     }
 
@@ -83,5 +85,4 @@ class CuriousBook
         //含まれているのならば、既に登録されているidを$this->book->book_idに挿入
         return $author_id;
     }
-
 }

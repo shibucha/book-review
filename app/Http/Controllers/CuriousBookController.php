@@ -6,29 +6,51 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 // Model
-// use App\Models\CuriousBook;
+use App\Models\CuriousBook;
 use App\Models\Book;
-use App\Library\CuriousBook;
+
+use App\Library\CuriousBookService;
+
 // Facade
 use App\Facades\RakutenBook;
+use Illuminate\Support\Facades\Auth;
 
 class CuriousBookController extends Controller
 {
+    private $curious_book;
+
+    public function __construct()
+    {
+        $this->curious_book =  new CuriousBook();
+    }
+
     public function index()
     {
         return view('curious-books.index');
     }
 
     // 読みたい本に追加
-    public function update($book_id)
+    public function update($book_isbn)
     {
-        $book = new CuriousBook($book_id);
-        $book->storeCuriousBook();
-        return redirect()->route('curious.index');
-    }
+        $curious_book_service = new CuriousBookService($book_isbn);
+        $book_id = $curious_book_service->storeCuriousBook();
 
-    // 読んだor読みたい本リストから削除
-    public function delete()
-    {
+        $curious_book = CuriousBook::where('user_id', Auth::user()->id)->where('book_id', $book_id)->first();
+
+        
+        /*
+        @ボタンを押した際の挙動        
+        <読みたい本のリストから削除>既に登録済みのレコード削除
+        <読みたい本のリストに追加>新規レコードの追加
+        */
+        if (isset($curious_book)) {
+            $curious_book->delete();
+        } else {
+            $this->curious_book->user_id = Auth::user()->id;
+            $this->curious_book->book_id = $book_id;
+            $this->curious_book->save();
+        }
+
+        return redirect()->route('curious.index');
     }
 }

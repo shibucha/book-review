@@ -60,9 +60,9 @@
             </a>
             <div class="search__read">読了</div>
             @else
-            <form action="{{route('curious.update',['book_id'=>$item->Item->isbn])}}" method="post">
+            <form action="{{route('curious.update',['book_isbn'=>$item->Item->isbn])}}" method="post">
                 @csrf
-                <button class="btn letter-dark border-dark">読みたい</button>
+                <button type="submit" class="btn letter-dark border-dark">読みたい</button>
             </form>
             <button type="button" class="btn btn-dark letter-white register-btn" data-toggle="modal" data-target="#{{ 'a-'.$item->Item->isbn }}">
                 本を登録する
