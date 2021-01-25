@@ -26,7 +26,11 @@ class CuriousBookController extends Controller
 
     public function index()
     {
-        return view('curious-books.index');
+        $curious_books = $this->curious_book->where('user_id', Auth::user()->id)->get();
+        // foreach($curious_books as $book){
+        //     ddd($book->book->image);
+        // }
+        return view('curious-books.index', ['curious_books'=>$curious_books]);
     }
 
     // 読みたい本に追加
@@ -36,7 +40,6 @@ class CuriousBookController extends Controller
         $book_id = $curious_book_service->storeCuriousBook();
 
         $curious_book = CuriousBook::where('user_id', Auth::user()->id)->where('book_id', $book_id)->first();
-
         
         /*
         @ボタンを押した際の挙動        
