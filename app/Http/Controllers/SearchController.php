@@ -72,19 +72,14 @@ class SearchController extends Controller
             $book_ids[] = null;
         }
 
-        if($user_id){
+        // ログインユーザーのみが、読みたい本を登録できる
+        if ($user_id) {
             $curious_books = $this->curious_book->getCuriousBook();
-            if (count($curious_books) > 0) {
-                foreach ($curious_books as $book) {
-                    $curious_isbn[] = $book->book->book_id;
-                }
-            } else {
-                $curious_isbn[] = '';
-            }
-        }else {
-            $curious_isbn[]='';
+            $curious_isbn = $this->curious_book->countCheckCuriousBooks($curious_books);
+        } else {
+            $curious_isbn[] = '';
         }
-       
+
         // APIに書籍イメージが含まれていなかった場合に、別の画像を表示するためのパス
         $book_image_path = ImageProccesing::getBookImagePath();
 

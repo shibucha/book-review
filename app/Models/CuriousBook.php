@@ -47,13 +47,26 @@ class CuriousBook extends Model
     public function getCuriousBook()
     {
         if (Auth::user()) {
-           return $this->with(['user','book'])->where('user_id', Auth::user()->id)->get();           
+            return $this->with(['user', 'book'])->where('user_id', Auth::user()->id)->get();
         }
     }
 
-    public function existenceCheckOfCurious($book_id){
-        if(Auth::user()){
-            return $this->with(['user','book'])->where('user_id',Auth::user()->id)->where('book_id',$book_id)->first();
+    public function existenceCheckOfCurious($book_id)
+    {
+        if (Auth::user()) {
+            return $this->with(['user', 'book'])->where('user_id', Auth::user()->id)->where('book_id', $book_id)->first();
+        }
+    }
+
+    public function countCheckCuriousBooks($curious_books)
+    {
+        if (count($curious_books) > 0) {
+            foreach ($curious_books as $book) {
+                $curious_isbn[] = $book->book()->value('book_id');                
+            }
+            return $curious_isbn;
+        } else {
+            return $curious_isbn[] = '';
         }
     }
 
