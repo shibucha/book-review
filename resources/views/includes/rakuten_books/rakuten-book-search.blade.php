@@ -60,12 +60,12 @@
             </a>
             <div class="search__read">読了</div>
             @else
-            <form action="{{route('curious.update',['book_isbn'=>$item->Item->isbn])}}" method="post">
+            <form action="{{route('curious.update',['book_isbn'=>$item->Item->isbn])}}" method="post" class="search__curious-form">
                 @csrf
                 @if(isset($curious_isbn))
-                <button class="{{ in_array($item->Item->isbn,$curious_isbn) ? 'search__non-curious' : 'search__curious'}}"></button>
+                <button class="{{ in_array($item->Item->isbn,$curious_isbn) ? 'search__non-curious' : 'search__curious'}} btn letter-dark border-dark"></button>
                 @else
-                <button type="submit">読みたい</button>
+                <button class="btn letter-dark border-dark" type="submit">読みたい</button>
                 @endif
             </form>
             <button type="button" class="btn btn-dark letter-white register-btn" data-toggle="modal" data-target="#{{ 'a-'.$item->Item->isbn }}">

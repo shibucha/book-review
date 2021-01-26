@@ -73,6 +73,9 @@ Stylesheet: 検索結果の表示
             font-weight: bold;
         }
     }
+    &__curious-form {
+        display: flex;
+    }
     &__curious:before {
         content: '読みたい';
     }
