@@ -73,7 +73,8 @@ class SearchController extends Controller
         }
 
         $curious_books = $this->curious_book->getCuriousBook();
-        if(count($curious_books)>0){
+        // ddd($curious_books);
+        if(isset($curious_books)){
             foreach ($curious_books as $book) {
                 $curious_isbn[] = $book->book->book_id;
             }
@@ -116,6 +117,12 @@ class SearchController extends Controller
         $reading_record->fill($request->all());
         $reading_record->user_id = $request->user()->id;
         $reading_record->save();
+
+        // 読みたいリストに登録している場合はリストから外す
+        $isExistence = $this->curious_book->existenceCheckOfCurious($reading_record->book_id);
+        if(isset($isExistence)){
+            $isExistence->delete();
+        }
 
         return redirect()->route('books.index');
     }

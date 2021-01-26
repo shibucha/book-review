@@ -51,6 +51,12 @@ class CuriousBook extends Model
         }
     }
 
+    public function existenceCheckOfCurious($book_id){
+        if(Auth::user()){
+            return $this->with(['user','book'])->where('user_id',Auth::user()->id)->where('book_id',$book_id)->first();
+        }
+    }
+
     public function storeCuriousBook()
     {
         return $book_id = $this->bookStore($this->book_isbn);
