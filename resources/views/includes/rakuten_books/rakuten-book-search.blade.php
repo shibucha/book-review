@@ -62,7 +62,7 @@
             @else
             <form action="{{route('curious.update',['book_isbn'=>$item->Item->isbn])}}" method="post" class="search__curious-form">
                 @csrf
-                @if(!is_null($curious_isbn))
+                @if($curious_isbn)
                 <button class="{{ in_array($item->Item->isbn,$curious_isbn) ? 'search__non-curious' : 'search__curious'}} btn letter-dark border-dark"></button>
                 @else
                 <button class="btn letter-dark border-dark" type="submit">読みたい</button>

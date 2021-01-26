@@ -27,9 +27,6 @@ class CuriousBookController extends Controller
     public function index()
     {
         $curious_books = $this->curious_book->where('user_id', Auth::user()->id)->get();
-        // foreach($curious_books as $book){
-        //     ddd($book->book->image);
-        // }
         return view('curious-books.index', ['curious_books'=>$curious_books]);
     }
 

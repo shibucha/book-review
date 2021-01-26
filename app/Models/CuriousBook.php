@@ -62,10 +62,10 @@ class CuriousBook extends Model
     {
         if (count($curious_books) > 0) {
             foreach ($curious_books as $book) {
-                $curious_isbn[] = $book->book()->value('book_id');                
+                $curious_isbn[] = $book->book()->value('book_id');
             }
             return $curious_isbn;
-        } else {
+        } else {   
             return $curious_isbn[] = '';
         }
     }

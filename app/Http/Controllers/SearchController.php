@@ -82,7 +82,6 @@ class SearchController extends Controller
 
         // APIに書籍イメージが含まれていなかった場合に、別の画像を表示するためのパス
         $book_image_path = ImageProccesing::getBookImagePath();
-
         return view('books.search', [
             'items' => $items,
             'keyword' => $request->keyword,
