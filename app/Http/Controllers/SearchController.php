@@ -72,16 +72,19 @@ class SearchController extends Controller
             $book_ids[] = null;
         }
 
-        $curious_books = $this->curious_book->getCuriousBook();
-    
-        if(count($curious_books)>0){
-            foreach ($curious_books as $book) {
-                $curious_isbn[] = $book->book->book_id;
+        if($user_id){
+            $curious_books = $this->curious_book->getCuriousBook();
+            if (count($curious_books) > 0) {
+                foreach ($curious_books as $book) {
+                    $curious_isbn[] = $book->book->book_id;
+                }
+            } else {
+                $curious_isbn[] = '';
             }
-        }else{
-            $curious_isbn[] = '';
-        } 
-                
+        }else {
+            $curious_isbn[]='';
+        }
+       
         // APIに書籍イメージが含まれていなかった場合に、別の画像を表示するためのパス
         $book_image_path = ImageProccesing::getBookImagePath();
 
@@ -120,7 +123,7 @@ class SearchController extends Controller
 
         // 読みたいリストに登録している場合はリストから外す
         $isExistence = $this->curious_book->existenceCheckOfCurious($reading_record->book_id);
-        if(isset($isExistence)){
+        if (isset($isExistence)) {
             $isExistence->delete();
         }
 
