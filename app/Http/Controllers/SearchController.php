@@ -79,7 +79,7 @@ class SearchController extends Controller
                 $curious_isbn[] = $book->book->book_id;
             }
         }else{
-            $curious_isbn[] = null;
+            $curious_isbn = null;
         }        
 
         // APIに書籍イメージが含まれていなかった場合に、別の画像を表示するためのパス
