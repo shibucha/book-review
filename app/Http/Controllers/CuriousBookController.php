@@ -26,7 +26,8 @@ class CuriousBookController extends Controller
 
     public function index()
     {
-        $curious_books = $this->curious_book->where('user_id', Auth::user()->id)->get();
+        // $curious_books = $this->curious_book->where('user_id', Auth::user()->id)->get();
+        $curious_books = $this->curious_book->where('user_id', Auth::user()->id)->paginate(6);
         return view('curious-books.index', ['curious_books'=>$curious_books]);
     }
 

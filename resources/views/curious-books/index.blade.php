@@ -33,6 +33,10 @@
         @else
         <p>まだ登録はありません。</p>
         @endif
+
+        <div class="pagenate">
+            {{$curious_books->links()}}
+        </div>
     </div>
 
 </div>
