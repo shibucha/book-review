@@ -160,4 +160,11 @@ Stylesheet: 600px以上のタブレットやモニタで適用
     &__block {
         flex-basis: 65%;
     }
+    &__lists {
+        justify-content: unset;
+    }
+    &__item {
+        height: 350px;
+        flex-basis: 45%;
+    }
 }
