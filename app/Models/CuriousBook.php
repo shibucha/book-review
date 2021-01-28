@@ -65,11 +65,22 @@ class CuriousBook extends Model
                 $curious_isbn[] = $book->book()->value('book_id');
             }
             return $curious_isbn;
-        } else {   
+        } else {
             return $curious_isbn[] = '';
         }
     }
 
+    public function pushCuriousBtn($record, $book_id)
+    {
+        if (isset($record)) {
+            $record->delete();
+        } else {
+            $this->user_id = Auth::user()->id;
+            $this->book_id = $book_id;
+            $this->save();
+        }
+    }
+    
     public function storeCuriousBook()
     {
         return $book_id = $this->bookStore($this->book_isbn);
