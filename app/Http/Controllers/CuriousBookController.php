@@ -24,10 +24,12 @@ class CuriousBookController extends Controller
         $this->curious_book =  new CuriousBook();
     }
 
-    public function index()
+    public function index(int $user_id)
     {
-        // $this->curious_book->checkLoginUser($user_id);
-       
+        if($user_id !== Auth::id()){
+            return redirect()->route('curious.index',['user_id'=>Auth::id()]);
+        }
+
         $curious_books = $this->curious_book->with(['book'])->where('user_id', Auth::user()->id)->paginate(6);
         return view('curious-books.index', ['curious_books' => $curious_books]);
     }
@@ -44,9 +46,9 @@ class CuriousBookController extends Controller
         @ボタンを押した際の挙動        
         <読みたい本のリストから削除>既に登録済みのレコード削除
         <読みたい本のリストに追加>新規レコードの追加
-        */        
-        $this->curious_book->pushCuriousBtn($curious_book,$book_id);      
+        */
+        $this->curious_book->pushCuriousBtn($curious_book, $book_id);
 
-        return redirect()->route('curious.index');
+        return redirect()->route('curious.index',['user_id'=>Auth::id()]);
     }
 }

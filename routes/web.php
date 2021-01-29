@@ -48,7 +48,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::delete('/books/{reading_record_id}/delete', 'BookController@destroy')->name('books.delete');
 
     // *************読書履歴関連 **********//
-    Route::get('/curious-book/index', 'CuriousBookController@index')->name('curious.index');
+    Route::get('/curious-book/{user_id}/index', 'CuriousBookController@index')->name('curious.index');
     Route::post('/curious-book/{book_isbn}/update', 'CuriousBookController@update')->name('curious.update');    
 
     // **************設定関連************** //
