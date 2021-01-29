@@ -24,8 +24,10 @@ class CuriousBookController extends Controller
         $this->curious_book =  new CuriousBook();
     }
 
-    public function index()
+    public function index($user_id)
     {
+        // $this->curious_book->checkLoginUser($user_id);
+       
         $curious_books = $this->curious_book->with(['book'])->where('user_id', Auth::user()->id)->paginate(6);
         return view('curious-books.index', ['curious_books' => $curious_books]);
     }

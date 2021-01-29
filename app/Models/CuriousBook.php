@@ -81,6 +81,11 @@ class CuriousBook extends Model
         }
     }
     
+    public function checkLoginUser($user_id){
+        if(Auth::user()->id !== $user_id){
+            return redirect()->route('curious.index',['user_id'=>Auth::user()->id]);
+        }       
+    }
     public function storeCuriousBook()
     {
         return $book_id = $this->bookStore($this->book_isbn);
