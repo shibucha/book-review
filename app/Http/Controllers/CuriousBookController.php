@@ -24,7 +24,7 @@ class CuriousBookController extends Controller
         $this->curious_book =  new CuriousBook();
     }
 
-    public function index($user_id)
+    public function index()
     {
         // $this->curious_book->checkLoginUser($user_id);
        
