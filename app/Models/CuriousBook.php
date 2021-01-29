@@ -81,6 +81,16 @@ class CuriousBook extends Model
         }
     }
     
+    public function enableCuriousBtn($user_id){
+        if ($user_id) {
+            $curious_books = $this->getCuriousBook();
+            return $curious_isbn = $this->countCheckCuriousBooks($curious_books);
+        } else {
+            return $curious_isbn[] = '';
+        }
+    }
+
+
     public function checkLoginUser($user_id){
         if(Auth::user()->id !== $user_id){
             return redirect()->route('curious.index',['user_id'=>Auth::user()->id]);

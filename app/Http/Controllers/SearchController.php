@@ -73,12 +73,7 @@ class SearchController extends Controller
         }
 
         // ログインユーザーのみが、読みたい本を登録できる
-        if ($user_id) {
-            $curious_books = $this->curious_book->getCuriousBook();
-            $curious_isbn = $this->curious_book->countCheckCuriousBooks($curious_books);
-        } else {
-            $curious_isbn[] = '';
-        }
+        $curious_isbn = $this->curious_book->enableCuriousBtn($user_id);
 
         // APIに書籍イメージが含まれていなかった場合に、別の画像を表示するためのパス
         $book_image_path = ImageProccesing::getBookImagePath();
